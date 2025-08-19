@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Service Chatbot</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            margin-bottom: 30px;
+            border-radius: 5px;
+        }
+        .chat-container {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+            height: 400px;
+            overflow-y: auto;
+        }
+        .message {
+            margin-bottom: 15px;
+            padding: 10px 15px;
+            border-radius: 18px;
+            max-width: 70%;
+            word-wrap: break-word;
+        }
+        .user-message {
+            background-color: #e3f2fd;
+            margin-left: auto;
+            border-bottom-right-radius: 5px;
+        }
+        .bot-message {
+            background-color: #f1f1f1;
+            margin-right: auto;
+            border-bottom-left-radius: 5px;
+        }
+        .input-area {
+            display: flex;
+            gap: 10px;
+        }
+        #user-input {
+            flex-grow: 1;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            font-size: 16px;
+        }
+        button {
+            padding: 12px 20px;
+            background-color: #2c3e50;
+            color: white;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #1a252f;
+        }
+        .status {
+            text-align: center;
+            margin-top: 10px;
+            color: #666;
+            font-style: italic;
+        }
+        .mobile-input {
+            margin-bottom: 20px;
+            display: flex;
+            gap: 10px;
+        }
+        #mobile-number {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            flex-grow: 1;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Customer Service Chatbot</h1>
+        </header>
+        
+        <div id="mobile-section">
+            <div class="mobile-input">
+                <input type="text" id="mobile-number" placeholder="Enter your mobile number">
+                <button id="submit-mobile">Submit</button>
+            </div>
+        </div>
+        
+        <div id="chat-section" class="hidden">
+            <div class="chat-container" id="chat-box"></div>
+            <div class="input-area">
+                <input type="text" id="user-input" placeholder="Type your message here...">
+                <button id="send-button">Send</button>
+            </div>
+            <div class="status" id="status"></div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileInput = document.getElementById('mobile-number');
+            const submitMobileBtn = document.getElementById('submit-mobile');
+            const chatSection = document.getElementById('chat-section');
+            const mobileSection = document.getElementById('mobile-section');
+            const chatBox = document.getElementById('chat-box');
+            const userInput = document.getElementById('user-input');
+            const sendButton = document.getElementById('send-button');
+            const statusDiv = document.getElementById('status');
+            
+            let currentMobile = '';
+            
+            // Submit mobile number
+            submitMobileBtn.addEventListener('click', async function() {
+                const mobile = mobileInput.value.trim();
+                if (!mobile) {
+                    alert('Please enter a mobile number');
+                    return;
+                }
+                
+                statusDiv.textContent = 'Verifying mobile number...';
+                
+                try {
+                    const response = await fetch('/number', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({ mobile: mobile })
+                    });
+                    
+                    const data = await response.json();
+                    
+                    if (response.ok) {
+                        currentMobile = mobile;
+                        mobileSection.classList.add('hidden');
+                        chatSection.classList.remove('hidden');
+                        statusDiv.textContent = '';
+                        
+                        // Get user's name
+                        const nameResponse = await fetch('/names', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                            }
+                        });
+                        
+                        const nameData = await nameResponse.json();
+                        if (nameResponse.ok) {
+                            addMessage(`Welcome, ${nameData.name}! How can I assist you today?`, 'bot');
+                        } else {
+                            addMessage('Welcome! How can I assist you today?', 'bot');
+                        }
+                    } else {
+                        statusDiv.textContent = '';
+                        alert(data.error || 'Failed to verify mobile number');
+                    }
+                } catch (error) {
+                    statusDiv.textContent = '';
+                    alert('An error occurred. Please try again.');
+                    console.error('Error:', error);
+                }
+            });
+            
+            // Send message
+            sendButton.addEventListener('click', sendMessage);
+            userInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    sendMessage();
+                }
+            });
+            
+            async function sendMessage() {
+                const message = userInput.value.trim();
+                if (!message) return;
+                
+                addMessage(message, 'user');
+                userInput.value = '';
+                statusDiv.textContent = 'Bot is typing...';
+                
+                try {
+                    let response;
+                    if (message.toLowerCase().includes('end') || message.toLowerCase().includes('exit')) {
+                        response = await fetch('/end', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                            }
+                        });
+                        
+                        if (response.ok) {
+                            addMessage('Session ended. Refresh the page to start a new conversation.', 'bot');
+                            chatSection.classList.add('hidden');
+                            mobileSection.classList.remove('hidden');
+                            mobileInput.value = '';
+                            statusDiv.textContent = '';
+                            return;
+                        }
+                    } else {
+                        response = await fetch('/process-data', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                            },
+                            body: JSON.stringify({ message: message })
+                        });
+                    }
+                    
+                    const data = await response.json();
+                    statusDiv.textContent = '';
+                    
+                    if (response.ok) {
+                        addMessage(data.reply, 'bot');
+                    } else {
+                        addMessage('Sorry, I encountered an error processing your request.', 'bot');
+                        console.error('API Error:', data);
+                    }
+                } catch (error) {
+                    statusDiv.textContent = '';
+                    addMessage('Sorry, I encountered an error. Please try again.', 'bot');
+                    console.error('Error:', error);
+                }
+            }
+            
+            function addMessage(text, sender) {
+                const messageDiv = document.createElement('div');
+                messageDiv.classList.add('message');
+                messageDiv.classList.add(sender === 'user' ? 'user-message' : 'bot-message');
+                messageDiv.textContent = text;
+                chatBox.appendChild(messageDiv);
+                chatBox.scrollTop = chatBox.scrollHeight;
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+*
+
+!.gitignore
+!app.py
+!requirements.txt
+!run.py
+!test.py
+
+logs/*
+!logs/app.log
+
+data/*
+!data/site.db
+
+templates/*
+!templates/index2.html
