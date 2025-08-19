@@ -2354,3 +2354,206 @@ A detailed migration guide is available here: https://github.com/openai/openai-p
 2025-08-19 12:34:10 INFO:  * Restarting with watchdog (windowsapi)
 2025-08-19 12:34:16 WARNING:  * Debugger is active!
 2025-08-19 12:34:16 INFO:  * Debugger PIN: 364-415-116
+2025-08-19 15:14:40 INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-08-19 15:14:40 INFO: [33mPress CTRL+C to quit[0m
+2025-08-19 15:14:40 INFO:  * Restarting with watchdog (windowsapi)
+2025-08-19 15:14:50 WARNING:  * Debugger is active!
+2025-08-19 15:14:50 INFO:  * Debugger PIN: 364-415-116
+2025-08-19 15:14:50 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\scipy\\stats\\_discrete_distns.py', reloading
+2025-08-19 15:14:50 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\scipy\\stats\\_morestats.py', reloading
+2025-08-19 15:14:50 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\scipy\\stats\\_multicomp.py', reloading
+2025-08-19 15:14:50 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\scipy\\stats\\_binned_statistic.py', reloading
+2025-08-19 15:14:50 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\scipy\\stats\\_multivariate.py', reloading
+2025-08-19 15:14:50 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\scipy\\stats\\_entropy.py', reloading
+2025-08-19 15:14:50 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\scipy\\stats\\_hypotests.py', reloading
+2025-08-19 15:14:51 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\scipy\\stats\\_sensitivity_analysis.py', reloading
+2025-08-19 15:14:51 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\scipy\\stats\\_survival.py', reloading
+2025-08-19 15:14:51 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\scipy\\version.py', reloading
+2025-08-19 15:14:51 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\scipy\\__config__.py', reloading
+2025-08-19 15:14:51 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\scipy\\__init__.py', reloading
+2025-08-19 15:14:51 INFO:  * Restarting with watchdog (windowsapi)
+2025-08-19 15:15:16 INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5005
+2025-08-19 15:15:16 INFO: [33mPress CTRL+C to quit[0m
+2025-08-19 15:15:16 INFO:  * Restarting with watchdog (windowsapi)
+2025-08-19 15:15:26 WARNING:  * Debugger is active!
+2025-08-19 15:15:26 INFO:  * Debugger PIN: 364-415-116
+2025-08-19 15:15:26 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\transformers\\models\\ernie\\modeling_ernie.py', reloading
+2025-08-19 15:15:26 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\transformers\\models\\esm\\__init__.py', reloading
+2025-08-19 15:15:27 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\transformers\\models\\esm\\configuration_esm.py', reloading
+2025-08-19 15:15:27 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\transformers\\models\\esm\\modeling_esm.py', reloading
+2025-08-19 15:15:27 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\transformers\\models\\esm\\modeling_esmfold.py', reloading
+2025-08-19 15:15:27 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\transformers\\models\\esm\\modeling_tf_esm.py', reloading
+2025-08-19 15:15:27 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\transformers\\models\\esm\\tokenization_esm.py', reloading
+2025-08-19 15:15:27 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\transformers\\models\\evolla\\__init__.py', reloading
+2025-08-19 15:15:27 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\transformers\\models\\evolla\\configuration_evolla.py', reloading
+2025-08-19 15:15:27 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\transformers\\models\\evolla\\modeling_evolla.py', reloading
+2025-08-19 15:15:27 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\transformers\\models\\evolla\\processing_evolla.py', reloading
+2025-08-19 15:15:27 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\transformers\\models\\exaone4\\__init__.py', reloading
+2025-08-19 15:15:27 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\transformers\\models\\exaone4\\configuration_exaone4.py', reloading
+2025-08-19 15:15:27 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\transformers\\models\\exaone4\\modeling_exaone4.py', reloading
+2025-08-19 15:15:27 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\transformers\\models\\falcon\\__init__.py', reloading
+2025-08-19 15:15:27 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\transformers\\models\\falcon\\configuration_falcon.py', reloading
+2025-08-19 15:15:27 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\transformers\\models\\falcon\\modeling_falcon.py', reloading
+2025-08-19 15:15:27 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\transformers\\models\\falcon_h1\\__init__.py', reloading
+2025-08-19 15:15:27 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\transformers\\models\\falcon_h1\\configuration_falcon_h1.py', reloading
+2025-08-19 15:15:27 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\transformers\\models\\falcon_h1\\modeling_falcon_h1.py', reloading
+2025-08-19 15:15:27 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\transformers\\models\\falcon_mamba\\__init__.py', reloading
+2025-08-19 15:15:27 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\transformers\\models\\falcon_mamba\\configuration_falcon_mamba.py', reloading
+2025-08-19 15:15:27 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\transformers\\models\\falcon_mamba\\modeling_falcon_mamba.py', reloading
+2025-08-19 15:15:27 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\transformers\\models\\fastspeech2_conformer\\__init__.py', reloading
+2025-08-19 15:15:27 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\transformers\\models\\fastspeech2_conformer\\configuration_fastspeech2_conformer.py', reloading
+2025-08-19 15:15:27 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\transformers\\models\\fastspeech2_conformer\\modeling_fastspeech2_conformer.py', reloading
+2025-08-19 15:15:27 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\transformers\\models\\fastspeech2_conformer\\tokenization_fastspeech2_conformer.py', reloading
+2025-08-19 15:15:27 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\transformers\\models\\flaubert\\__init__.py', reloading
+2025-08-19 15:15:27 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\transformers\\models\\flaubert\\configuration_flaubert.py', reloading
+2025-08-19 15:15:27 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\transformers\\models\\flaubert\\modeling_flaubert.py', reloading
+2025-08-19 15:15:27 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\transformers\\models\\flaubert\\modeling_tf_flaubert.py', reloading
+2025-08-19 15:15:28 INFO:  * Restarting with watchdog (windowsapi)
+2025-08-19 15:15:50 WARNING:  * Debugger is active!
+2025-08-19 15:15:50 INFO:  * Debugger PIN: 364-415-116
+2025-08-19 15:15:50 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\transformers\\models\\kyutai_speech_to_text\\__init__.py', reloading
+2025-08-19 15:15:50 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\transformers\\models\\kyutai_speech_to_text\\configuration_kyutai_speech_to_text.py', reloading
+2025-08-19 15:15:50 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\transformers\\models\\kyutai_speech_to_text\\feature_extraction_kyutai_speech_to_text.py', reloading
+2025-08-19 15:15:50 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\transformers\\models\\kyutai_speech_to_text\\modeling_kyutai_speech_to_text.py', reloading
+2025-08-19 15:15:50 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\transformers\\models\\kyutai_speech_to_text\\processing_kyutai_speech_to_text.py', reloading
+2025-08-19 15:15:50 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\transformers\\models\\layoutlm\\__init__.py', reloading
+2025-08-19 15:15:50 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\transformers\\models\\layoutlm\\configuration_layoutlm.py', reloading
+2025-08-19 15:15:50 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\transformers\\models\\layoutlm\\modeling_layoutlm.py', reloading
+2025-08-19 15:15:55 INFO:  * Restarting with watchdog (windowsapi)
+2025-08-19 15:16:07 WARNING:  * Debugger is active!
+2025-08-19 15:16:07 INFO:  * Debugger PIN: 364-415-116
+2025-08-19 15:16:08 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\transformers\\models\\mlcd\\__init__.py', reloading
+2025-08-19 15:16:08 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\transformers\\models\\mlcd\\configuration_mlcd.py', reloading
+2025-08-19 15:16:08 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\transformers\\models\\mlcd\\modeling_mlcd.py', reloading
+2025-08-19 15:16:08 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\transformers\\models\\mllama\\__init__.py', reloading
+2025-08-19 15:16:08 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\transformers\\models\\mllama\\configuration_mllama.py', reloading
+2025-08-19 15:16:08 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\transformers\\models\\mllama\\image_processing_mllama.py', reloading
+2025-08-19 15:16:08 INFO: 127.0.0.1 - - [19/Aug/2025 15:16:08] "GET / HTTP/1.1" 200 -
+2025-08-19 15:16:08 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\transformers\\models\\mllama\\modeling_mllama.py', reloading
+2025-08-19 15:16:08 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\transformers\\models\\mllama\\processing_mllama.py', reloading
+2025-08-19 15:16:08 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\transformers\\models\\mluke\\__init__.py', reloading
+2025-08-19 15:16:08 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\transformers\\models\\mluke\\tokenization_mluke.py', reloading
+2025-08-19 15:16:08 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\transformers\\models\\mobilebert\\__init__.py', reloading
+2025-08-19 15:16:08 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\transformers\\models\\mobilebert\\configuration_mobilebert.py', reloading
+2025-08-19 15:16:08 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\transformers\\models\\mobilebert\\modeling_mobilebert.py', reloading
+2025-08-19 15:16:08 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\transformers\\models\\mobilebert\\modeling_tf_mobilebert.py', reloading
+2025-08-19 15:16:08 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\transformers\\models\\mobilebert\\tokenization_mobilebert.py', reloading
+2025-08-19 15:16:08 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\transformers\\models\\mobilebert\\tokenization_mobilebert_fast.py', reloading
+2025-08-19 15:16:08 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\transformers\\models\\mobilenet_v1\\__init__.py', reloading
+2025-08-19 15:16:08 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\transformers\\models\\mobilenet_v1\\configuration_mobilenet_v1.py', reloading
+2025-08-19 15:16:08 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\transformers\\models\\mobilenet_v1\\feature_extraction_mobilenet_v1.py', reloading
+2025-08-19 15:16:08 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\transformers\\models\\mobilenet_v1\\image_processing_mobilenet_v1.py', reloading
+2025-08-19 15:16:08 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\transformers\\models\\mobilenet_v1\\image_processing_mobilenet_v1_fast.py', reloading
+2025-08-19 15:16:09 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\transformers\\models\\mobilenet_v1\\modeling_mobilenet_v1.py', reloading
+2025-08-19 15:16:09 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\transformers\\models\\mobilenet_v2\\__init__.py', reloading
+2025-08-19 15:16:09 INFO:  * Restarting with watchdog (windowsapi)
+2025-08-19 15:16:18 WARNING:  * Debugger is active!
+2025-08-19 15:16:18 INFO:  * Debugger PIN: 364-415-116
+2025-08-19 15:16:18 INFO: 127.0.0.1 - - [19/Aug/2025 15:16:18] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-08-19 15:16:18 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\transformers\\models\\qwen2_vl\\image_processing_qwen2_vl_fast.py', reloading
+2025-08-19 15:16:19 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\transformers\\models\\qwen2_vl\\modeling_qwen2_vl.py', reloading
+2025-08-19 15:16:19 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\transformers\\models\\qwen2_vl\\processing_qwen2_vl.py', reloading
+2025-08-19 15:16:19 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\transformers\\models\\qwen3\\__init__.py', reloading
+2025-08-19 15:16:19 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\transformers\\models\\qwen3\\configuration_qwen3.py', reloading
+2025-08-19 15:16:19 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\transformers\\models\\qwen3\\modeling_qwen3.py', reloading
+2025-08-19 15:16:19 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\transformers\\models\\qwen3_moe\\__init__.py', reloading
+2025-08-19 15:16:19 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\transformers\\models\\qwen3_moe\\configuration_qwen3_moe.py', reloading
+2025-08-19 15:16:19 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\transformers\\models\\qwen3_moe\\modeling_qwen3_moe.py', reloading
+2025-08-19 15:16:19 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\transformers\\models\\rag\\__init__.py', reloading
+2025-08-19 15:16:19 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\transformers\\models\\rag\\configuration_rag.py', reloading
+2025-08-19 15:16:19 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\transformers\\models\\rag\\modeling_rag.py', reloading
+2025-08-19 15:16:19 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\transformers\\models\\rag\\modeling_tf_rag.py', reloading
+2025-08-19 15:16:19 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\transformers\\models\\rag\\retrieval_rag.py', reloading
+2025-08-19 15:16:19 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\transformers\\models\\rag\\tokenization_rag.py', reloading
+2025-08-19 15:16:21 INFO:  * Restarting with watchdog (windowsapi)
+2025-08-19 15:16:31 WARNING:  * Debugger is active!
+2025-08-19 15:16:31 INFO:  * Debugger PIN: 364-415-116
+2025-08-19 15:16:31 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\transformers\\models\\timm_backbone\\modeling_timm_backbone.py', reloading
+2025-08-19 15:16:31 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\transformers\\models\\timm_wrapper\\__init__.py', reloading
+2025-08-19 15:16:31 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\transformers\\models\\timm_wrapper\\configuration_timm_wrapper.py', reloading
+2025-08-19 15:16:31 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\transformers\\models\\timm_wrapper\\modeling_timm_wrapper.py', reloading
+2025-08-19 15:16:31 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\transformers\\models\\trocr\\__init__.py', reloading
+2025-08-19 15:16:31 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\transformers\\models\\trocr\\configuration_trocr.py', reloading
+2025-08-19 15:16:31 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\transformers\\models\\trocr\\modeling_trocr.py', reloading
+2025-08-19 15:16:31 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\transformers\\models\\trocr\\processing_trocr.py', reloading
+2025-08-19 15:16:31 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\transformers\\models\\tvp\\__init__.py', reloading
+2025-08-19 15:16:31 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\transformers\\models\\tvp\\configuration_tvp.py', reloading
+2025-08-19 15:16:31 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\transformers\\models\\tvp\\image_processing_tvp.py', reloading
+2025-08-19 15:16:31 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\transformers\\models\\tvp\\modeling_tvp.py', reloading
+2025-08-19 15:16:31 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\transformers\\models\\tvp\\processing_tvp.py', reloading
+2025-08-19 15:16:31 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\transformers\\models\\udop\\__init__.py', reloading
+2025-08-19 15:16:31 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\transformers\\models\\udop\\configuration_udop.py', reloading
+2025-08-19 15:16:32 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\transformers\\models\\udop\\modeling_udop.py', reloading
+2025-08-19 15:16:32 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\transformers\\models\\udop\\processing_udop.py', reloading
+2025-08-19 15:16:32 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\transformers\\models\\udop\\tokenization_udop.py', reloading
+2025-08-19 15:16:32 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\transformers\\models\\udop\\tokenization_udop_fast.py', reloading
+2025-08-19 15:16:32 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\transformers\\models\\umt5\\__init__.py', reloading
+2025-08-19 15:16:32 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\transformers\\models\\umt5\\configuration_umt5.py', reloading
+2025-08-19 15:16:32 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\transformers\\models\\umt5\\modeling_umt5.py', reloading
+2025-08-19 15:16:32 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\transformers\\models\\unispeech\\__init__.py', reloading
+2025-08-19 15:16:32 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\transformers\\models\\unispeech\\configuration_unispeech.py', reloading
+2025-08-19 15:16:32 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\transformers\\models\\unispeech\\modeling_unispeech.py', reloading
+2025-08-19 15:16:32 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\transformers\\models\\unispeech_sat\\__init__.py', reloading
+2025-08-19 15:16:32 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\transformers\\models\\unispeech_sat\\configuration_unispeech_sat.py', reloading
+2025-08-19 15:16:32 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\transformers\\models\\unispeech_sat\\modeling_unispeech_sat.py', reloading
+2025-08-19 15:16:33 INFO:  * Restarting with watchdog (windowsapi)
+2025-08-19 15:16:42 WARNING:  * Debugger is active!
+2025-08-19 15:16:42 INFO:  * Debugger PIN: 364-415-116
+2025-08-19 15:16:42 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\websocket\\_logging.py', reloading
+2025-08-19 15:16:43 INFO:  * Restarting with watchdog (windowsapi)
+2025-08-19 15:16:51 WARNING:  * Debugger is active!
+2025-08-19 15:16:51 INFO:  * Debugger PIN: 364-415-116
+2025-08-19 15:17:10 INFO:  * Detected change in 'C:\\Users\\USER\\Desktop\\wback\\beta_pull\\ai-assistant\\app.py', reloading
+2025-08-19 15:17:10 INFO:  * Detected change in 'C:\\Users\\USER\\Desktop\\wback\\beta_pull\\ai-assistant\\app.py', reloading
+2025-08-19 15:17:10 INFO:  * Detected change in 'C:\\Users\\USER\\Desktop\\wback\\beta_pull\\ai-assistant\\app.py', reloading
+2025-08-19 15:17:11 INFO:  * Restarting with watchdog (windowsapi)
+2025-08-19 15:17:16 WARNING:  * Debugger is active!
+2025-08-19 15:17:16 INFO:  * Debugger PIN: 364-415-116
+2025-08-19 15:17:54 INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5005
+2025-08-19 15:17:54 INFO: [33mPress CTRL+C to quit[0m
+2025-08-19 15:17:54 INFO:  * Restarting with watchdog (windowsapi)
+2025-08-19 15:18:00 WARNING:  * Debugger is active!
+2025-08-19 15:18:00 INFO:  * Debugger PIN: 364-415-116
+2025-08-19 15:18:02 INFO: Received request data: {'mobile': '919562301314'}
+2025-08-19 15:18:02 INFO: Updated mobile: 919562301314
+2025-08-19 15:18:03 WARNING: No user found for mobile: 919562301314
+2025-08-19 15:18:03 INFO: 127.0.0.1 - - [19/Aug/2025 15:18:03] "[33mPOST /number HTTP/1.1[0m" 404 -
+2025-08-19 15:18:09 INFO: Received request data: {'mobile': '919562301314'}
+2025-08-19 15:18:09 INFO: Updated mobile: 919562301314
+2025-08-19 15:18:09 WARNING: No user found for mobile: 919562301314
+2025-08-19 15:18:09 INFO: 127.0.0.1 - - [19/Aug/2025 15:18:09] "[33mPOST /number HTTP/1.1[0m" 404 -
+2025-08-19 15:20:17 INFO: 127.0.0.1 - - [19/Aug/2025 15:20:17] "GET / HTTP/1.1" 200 -
+2025-08-19 15:20:21 INFO: Received request data: {'mobile': '919562301314'}
+2025-08-19 15:20:21 INFO: Updated mobile: 919562301314
+2025-08-19 15:20:21 WARNING: No user found for mobile: 919562301314
+2025-08-19 15:20:21 INFO: 127.0.0.1 - - [19/Aug/2025 15:20:21] "[33mPOST /number HTTP/1.1[0m" 404 -
+2025-08-19 15:21:50 INFO: Received request data: {'mobile': '919562301314'}
+2025-08-19 15:21:50 INFO: Updated mobile: 919562301314
+2025-08-19 15:21:51 WARNING: No user found for mobile: 919562301314
+2025-08-19 15:21:51 INFO: 127.0.0.1 - - [19/Aug/2025 15:21:51] "[33mPOST /number HTTP/1.1[0m" 404 -
+2025-08-19 15:22:00 INFO: 127.0.0.1 - - [19/Aug/2025 15:22:00] "POST /end HTTP/1.1" 200 -
+2025-08-19 15:22:02 INFO: 127.0.0.1 - - [19/Aug/2025 15:22:02] "GET / HTTP/1.1" 200 -
+2025-08-19 15:22:05 INFO: Received request data: {'mobile': '918921729081'}
+2025-08-19 15:22:05 INFO: Updated mobile: 918921729081
+2025-08-19 15:22:05 WARNING: No user found for mobile: 918921729081
+2025-08-19 15:22:05 INFO: 127.0.0.1 - - [19/Aug/2025 15:22:05] "[33mPOST /number HTTP/1.1[0m" 404 -
+2025-08-19 15:24:20 INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5005
+2025-08-19 15:24:20 INFO: [33mPress CTRL+C to quit[0m
+2025-08-19 15:24:20 INFO:  * Restarting with watchdog (windowsapi)
+2025-08-19 15:24:26 WARNING:  * Debugger is active!
+2025-08-19 15:24:26 INFO:  * Debugger PIN: 364-415-116
+2025-08-19 15:24:27 INFO: 127.0.0.1 - - [19/Aug/2025 15:24:27] "GET / HTTP/1.1" 200 -
+2025-08-19 15:24:31 INFO: Received request data: {'mobile': '918921729081'}
+2025-08-19 15:24:31 INFO: Updated mobile: 918921729081
+2025-08-19 15:24:32 INFO: Updated name: Abi Maqlooba
+2025-08-19 15:24:32 INFO: 127.0.0.1 - - [19/Aug/2025 15:24:32] "POST /number HTTP/1.1" 200 -
+2025-08-19 15:24:32 INFO: 127.0.0.1 - - [19/Aug/2025 15:24:32] "POST /names HTTP/1.1" 200 -
+2025-08-19 15:24:35 INFO: Received user message: hello
+2025-08-19 15:24:37 INFO: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2025-08-19 15:24:37 INFO: generated sql query: SELECT * FROM orders_new WHERE "Client Name" = 'Abi Maqlooba' LIMIT 100;
+2025-08-19 15:24:41 INFO: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2025-08-19 15:24:41 INFO: 127.0.0.1 - - [19/Aug/2025 15:24:41] "POST /process-data HTTP/1.1" 200 -
