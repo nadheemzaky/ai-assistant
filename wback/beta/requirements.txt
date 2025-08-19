@@ -1,0 +1,8 @@
+flask
+psycopg2
+psycopg2-binary
+python-dotenv
+flask_sqlalchemy
+gunicorn==21.2.0
+requests
+#docker-compose up --build -d
