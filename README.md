@@ -69,7 +69,7 @@ ANTHROPIC_API_KEY2=your_second_key
 
 ### 1. Install dependencies
 
-pip install -r requirements.txt
+`pip install -r requirements.txt`
 
 
 Required packages:  
@@ -85,10 +85,11 @@ Auto-created by `db.create_all()` when you run the app first time.
 
 ### 3. Run the Flask app
 
-python app.py
+`python app.py`
 
 By default runs on:  
-http://127.0.0.1:5000
+
+`http://127.0.0.1:5000`
 
 
 ---
@@ -102,6 +103,7 @@ Register a mobile number and fetch associated user.
 
 ### `POST /names`
 Fetch the last stored user name.  
+
 ✅ Returns:  
 { "name": "John Doe" }
 
@@ -111,7 +113,6 @@ Fetch the last stored user name.
 ### `POST /process-data`
 Send customer queries → Generates SQL → Executes → Summarizes.  
 { "message": "Show me my cancelled orders last week" }
-
 
 ✅ Returns:  
 {
