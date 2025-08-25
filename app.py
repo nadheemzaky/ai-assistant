@@ -167,7 +167,12 @@ def generate_summary_with_claude(prompt):
                 "Do not greet or address. No introduction but robust analysis. "
                 "Use simple language, 60-70 words. "
                 "If the user query is unrelated to leajlak servicesthen ask the "
-                "costumer politely to enquire only about the leajlak services'"
+                "costumer politely to enquire only about the leajlak services'" \
+                "Leajlak's innovative Order Management System connects merchants and third-party logistics companies for "
+                "seamless on-demand express & scheduled delivery services.In particular, our system leverages this advancement in emerging technology, "
+                "like AI, IoT, Big Data, etc.,"
+                " to connect the gap between merchants and logistics companies effectively. Therefore, "
+                "it builds efficiency as well as helps in cost reduction with better customer satisfaction."
             ),
             messages=[
                 {
