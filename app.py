@@ -11,16 +11,19 @@ from psycopg2.extras import RealDictCursor
 import secrets
 from flask_sqlalchemy import SQLAlchemy
 import re
-import anthropic    
-#ngrok http --url=fast-doberman-rapidly.ngrok-free.app 5000 -temp link to server
+from openai import OpenAI
+'''
+ngrok http --url=fast-doberman-rapidly.ngrok-free.app 5000
+'''
 
 # do not touch this
 load_dotenv()
 app = Flask(__name__)
 app.secret_key = os.getenv('SECRET_KEY', secrets.token_hex(16))
 
-client = anthropic.Anthropic(api_key=os.getenv("ANTHROPIC_API_KEY"))
-client2 = anthropic.Anthropic(api_key=os.getenv("ANTHROPIC_API_KEY2"))
+#client = anthropic.Anthropic(api_key=os.getenv("ANTHROPIC_API_KEY"))
+#client2 = anthropic.Anthropic(api_key=os.getenv("ANTHROPIC_API_KEY2"))
+client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 
 DB_URL = os.getenv('DB_URL')
@@ -157,7 +160,7 @@ def validate_sql_query(sql_query: str) -> bool:
 
 
 
-def generate_summary_with_claude(prompt):
+'''def generate_summary_with_claude(prompt):
     try:
         response = client2.messages.create(
             model="claude-sonnet-4-20250514",  # update if needed for Claude Sonnet 3.7
@@ -205,9 +208,87 @@ def generate_sql_with_claude(prompt):
         return sql_query
     except Exception as e:
         logging.error(f"Anthropic API error: {str(e)}")
-        raise
+        raise'''
 
-# 918921729081
+def generate_sql_with_openai(prompt):
+    try:
+        response = client.responses.create(
+            model="gpt-5-mini-2025-08-07",
+            instructions=(
+                "You are an SQL query generator for PostgreSQL using table “orders_new”. "
+                "Columns: "
+                "“Order ID”, “Client Order ID”, “Order Type”, “Order Payment Type”, “COD Amount”, "
+                "“Client Name”, “Shop Name”, “Shop Zone”, “Shop Area”, “Shop Region”, “Captain”, "
+                "“Captain Assigned Rule”, “Captain Employment Type”, “Assigned By”, “Order Status”, "
+                "“Cancellation Reason”, “Cancelled By”, “Date”, “New Order (Created At)”, “Order Accepted”, "
+                "“Order Accepted Time”, “Start Ride”, “Start Ride Time”, “Reached Shop”, “Reached Shop Time”, "
+                "“Order Picked”, “Order Picked Time”, “Shipped”, “Shipped Time”, “Reached Destination”, "
+                "“Reached Destination Time”, “Business Day”, “Final Status”, “Final Status Time”, "
+                "“Acceptance Time”, “Arrival Time”, “Reached Time”, “Picked Time”, “Pickup to Delivery Time”, "
+                "“Process Time In Minutes”, “Distance B/W”, “Auto Assign Attempts”.  \n\n"
+                
+                "RULES (non-negotiable):  \n"
+                "1. Always output a single-line SELECT query.  \n"
+                "2. Use double quotes for exact-case column names.  \n"
+                "3. Always append WHERE “Client Name” = '{name}'.  \n"
+                "4. Always include LIMIT 30.  \n"
+                "5. Never return all data unfiltered.  \n\n"
+                
+                "FORBIDDEN OUTPUT:  \n"
+                "- No markdown, backticks, SQL tags, comments, greetings, headers, or explanations.  \n"
+                "- Anything other than the pure SQL query is a failure.  \n\n"
+                
+                "FINAL INSTRUCTION:  \n"
+                "Output ONLY the ready-to-run SQL query as plain text."
+            ),
+            input=prompt
+        )
+        
+        sql_query = response.output_text.strip()
+        logging.info(f"Generated SQL query: {sql_query}")
+        return sql_query
+        
+    except Exception as e:
+        logging.error(f"OpenAI API error: {str(e)}")
+        raise
+def generate_summary_with_openai(prompt):
+    try:
+        response = client.responses.create(
+            model="gpt-5-mini-2025-08-07",
+            instructions=(
+                "You are Leajlak's customer service assistant. "
+                "Provide a single-paragraph analysis (50-60 words) in simple, jargon-free language for non-experts. "
+                
+                "1. GREETING & SCOPE\n"
+                "- If the user only greets (e.g., “hi”, “hello”), reply with a brief greeting: “Hello! I'm your Leajlak assistant. How can I help?” and stop.  \n"
+                "- If the query is unrelated to Leajlak services, respond:  \n"
+                "  “I can only help with Leajlak-related questions. Please ask about our order management or logistics services.”  \n"
+                
+                "2. DATA ANALYSIS\n"
+                "- Analyze the user's question against the provided JSON data.  \n"
+                "- If `db_data_json` is empty or contains no relevant records, reply: “Data not available for this request.”  \n"
+                "- Otherwise, deliver a concise analysis based solely on that data—no extra suggestions or formatting.  \n"
+                
+                "3. CONTEXT HANDLING\n"
+                "- If the user references previous conversation, integrate `previous_summary` into your analysis.  \n"
+                
+                "4. TONE & FORMAT\n"
+                "- Do not include headings, bullet points, or lists—only a single paragraph.  \n"
+                "- Do not greet or address the user in analysis.  \n"
+                
+                "COMPANY CONTEXT\n"
+                "Leajlak's Order Management System connects merchants and third-party logistics companies for on-demand express and scheduled deliveries, leveraging AI, IoT, and Big Data to boost efficiency, cut costs, and improve customer satisfaction."
+            ),
+            input=prompt,
+        )
+
+        summary = response.output_text.strip()
+        logging.info(f"Generated summary: {summary}")
+        return summary
+
+    except Exception as e:
+        logging.error(f"OpenAI API error: {e}")
+        raise
 
 @app.route('/number', methods=['POST'])
 def number():
@@ -273,74 +354,14 @@ def process_data():
     
     #logging.info(f"Received user message: {user_message}")
     # 1. Generate SQL with Gemini
-    prompt_sql = f'''You are an assistant that translates user requests 
-        into safe, single-line SELECT SQL queries for PostgreSQL, using 
-        the table "orders_new" with the following columns: 
-            [
-    "Order ID",
-    "Client Order ID",
-    "Order Type",
-    "Order Payment Type",
-    "COD Amount",
-    "Client Name",
-    "Shop Name",
-    "Shop Zone",
-    "Shop Area",
-    "Shop Region",
-    "Captain",
-    "Captain Assigned Rule",
-    "Captain Employment Type",
-    "Assigned By",
-    "Order Status",
-    "Cancellation Reason",
-    "Cancelled By",
-    "Date",
-    "New Order (Created At)",
-    "Order Accepted",
-    "Order Accepted Time",
-    "Start Ride",
-    "Start Ride Time",
-    "Reached Shop",
-    "Reached Shop Time",
-    "Order Picked",
-    "Order Picked Time",
-    "Shipped",
-    "Shipped Time",
-    "Reached Destination",
-    "Reached Destination Time",
-    "Business Day",
-    "Final Status",
-    "Final Status Time",
-    "Acceptance Time",
-    "Arrival Time",
-    "Reached Time",
-    "Picked Time",
-    "Pickup to Delivery Time",
-    "Process Time In Minutes",
-    "Distance B/W",
-    "Auto Assign Attempts"].
-
-            Instructions:
-            - when generating queries always add - WHERE "Client Name" = '{name}'
-            - this is the most important(never make a mistake in this rule(never))==Only output the SQL query as plain text,
-              no markdown (no ``````sql and no comments).
-            - Do NOT output or reference any other text, headers, greetings, or explanations.
-            - Never return all data. If asked for entire data or without filtering, do not answer.
-            🚨 CRITICAL AND NON-NEGOTIABLE RULE 🚨
-            You MUST output **only** the fully valid, ready-to-run SQL query as plain text.
-            NO markdown formatting (no backticks, no sql tags, no highlighting).
-            NO comments, NO greetings, NO explanations.
-            Anything other than the pure SQL query = FAIL.
-            - Output only the ready-to-use SQL.
-            -use double quotes in column names for exact case nameing
-            -please "do not" use comminting like this- sql```sql_query```
-
-            User request: {user_message}
-            SQL:'''
+    prompt_sql = f'''
+    name = {name}
+    user message = {user_message}
+   '''
     
  #generate_sql_with_claude
     try:
-        sql_query = generate_sql_with_claude(prompt_sql)
+        sql_query = generate_sql_with_openai(prompt_sql)
     except Exception as e:
         return jsonify({"reply": "Failed to generate query", "name": name}), 500
 
@@ -381,31 +402,13 @@ def process_data():
             "reply": "The data is not avialable in the database"
         }), 404
 
-    # 3. Generate summary with Gemin
-    prompt_analysis = f'''You are a customer service chatbot. I will provide you a user query ({user_message}) and related data as JSON ({db_data_json}).
-            -if {user_message} conatins out of context then tell user to ask about leajlak services
-            or
-
-            Your task:
-            - analyse the user query and give them your analysis on the data provided
-            - do not use any formatting on the output
-            - write the summary as paragraph text
-            - make the reply short (50-60 words)
-            - check summary data for responses too
-            - do not great or address the user give the analysis straight to the user
-            -if the database returns empty then reply with data not available for the specific request
-
-
-            -User message: {user_message}- do not answer any thing other than this message
-            -in th user message if the user mentiones any thing about previous conversation then use the context below
-            -context:{get_value('summary')}
-            -Database info: {db_data_json}
-            '''
-    '''summary data = Response previously given to user: {summary_data}'''
-    # Replace the existing summary generation with OpenRouter API call
+    prompt_analysis = f'''
+        user message = {user_message}
+        database context = {db_data_json}
+        '''
 
     try:
-        summary = generate_summary_with_claude(prompt_analysis)
+        summary = generate_summary_with_openai(prompt_analysis)
         set_value('summary', summary)
     except Exception as e:
         logging.error(f"Failed to generate summary: {str(e)}")
