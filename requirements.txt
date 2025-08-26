@@ -5,4 +5,4 @@ python-dotenv
 flask_sqlalchemy
 gunicorn==21.2.0
 requests
-anthropic
+openai
