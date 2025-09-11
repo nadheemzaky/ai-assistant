@@ -2557,3 +2557,21 @@ A detailed migration guide is available here: https://github.com/openai/openai-p
 2025-08-19 15:24:37 INFO: generated sql query: SELECT * FROM orders_new WHERE "Client Name" = 'Abi Maqlooba' LIMIT 100;
 2025-08-19 15:24:41 INFO: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
 2025-08-19 15:24:41 INFO: 127.0.0.1 - - [19/Aug/2025 15:24:41] "POST /process-data HTTP/1.1" 200 -
+2025-09-11 14:54:33 INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-09-11 14:54:33 INFO: [33mPress CTRL+C to quit[0m
+2025-09-11 14:54:33 INFO:  * Restarting with watchdog (windowsapi)
+2025-09-11 14:54:39 WARNING:  * Debugger is active!
+2025-09-11 14:54:39 INFO:  * Debugger PIN: 115-265-433
+2025-09-11 14:54:40 INFO: 127.0.0.1 - - [11/Sep/2025 14:54:40] "GET / HTTP/1.1" 200 -
+2025-09-11 14:54:44 INFO: Received request data: {'mobile': '918921729081'}
+2025-09-11 14:54:44 INFO: Updated mobile: 918921729081
+2025-09-11 14:54:45 INFO: Updated name: MC DONALDS
+2025-09-11 14:54:45 INFO: 127.0.0.1 - - [11/Sep/2025 14:54:45] "POST /number HTTP/1.1" 200 -
+2025-09-11 14:54:45 INFO: 127.0.0.1 - - [11/Sep/2025 14:54:45] "POST /names HTTP/1.1" 200 -
+2025-09-11 14:55:02 INFO: OpenRouter response status: 429
+2025-09-11 14:55:02 INFO: {'error': {'message': 'Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requests per day', 'code': 429, 'metadata': {'headers': {'X-RateLimit-Limit': '50', 'X-RateLimit-Remaining': '0', 'X-RateLimit-Reset': '1757635200000'}, 'provider_name': None}}, 'user_id': 'user_328E92IL1eM2SViHm7kXqA7GDlx'}
+2025-09-11 14:55:02 INFO: general intent detected
+2025-09-11 14:55:08 INFO: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-11 14:55:08 INFO: 127.0.0.1 - - [11/Sep/2025 14:55:08] "POST /process-data HTTP/1.1" 200 -
+2025-09-11 14:56:38 INFO: 127.0.0.1 - - [11/Sep/2025 14:56:38] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -

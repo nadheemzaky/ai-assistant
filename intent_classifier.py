@@ -1,0 +1,79 @@
+import requests
+import logging
+import os
+from dotenv import load_dotenv
+from openai import OpenAI
+
+load_dotenv()
+OPENROUTER_API_URL = "https://openrouter.ai/api/v1/chat/completions"
+OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")
+client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+
+logging.basicConfig(
+    filename='logs/app.log',          # Log file path
+    level=logging.INFO,          # Log messages at INFO level and above
+    format='%(asctime)s %(levelname)s: %(message)s',  # Log message format including timestamp
+    datefmt='%Y-%m-%d %H:%M:%S'
+)
+
+def classify_intent(message):
+    system_prompt = (
+        "Classify the following user message into one of two categories: "
+        "'general' = for questions that includes greetings or enquiry about chatbot's service."
+        "'data_fetch'= for questions asking about anything else"
+        "Return only the category name."
+    )
+
+    payload = {
+        "model": "deepseek/deepseek-chat-v3.1:free",  # or preferred model supported by OpenRouter
+        "messages": [
+            {"role": "system", "content": system_prompt},
+            {"role": "user", "content": message}
+        ],
+        "max_tokens": 5,
+        "temperature": 0.0
+    }
+    headers = {
+        "Authorization": f"Bearer {OPENROUTER_API_KEY}",
+        "Content-Type": "application/json"
+    }
+    response = requests.post(OPENROUTER_API_URL, json=payload, headers=headers)
+    logging.info(f"OpenRouter response status: {response.status_code}")
+    response_json = response.json()
+    logging.info(f'{response_json}')
+    if "choices" in response_json and response_json["choices"]:
+        logging.info('intent classified')
+        intent = response_json["choices"][0]["message"]["content"].strip().lower()
+    else:
+        intent = "general"  # default fallback
+    # Defensive assignment:
+    if intent not in ("general", "data_fetch"):
+        logging.info(f"Unexpected intent '{intent}' classified. Defaulting to 'general'.")
+        intent = "general"
+    return intent
+
+
+def generate_openai_reply(prompt):
+    try:
+        response = client.chat.completions.create(
+            model="gpt-4",  # or your preferred model
+            messages=[
+                {
+                    "role": "system",
+                    "content": (
+                        "You are Leajlak's customer service assistant (Leajlak's Order Management System connects merchants "
+                        "and third-party logistics companies for on-demand express and scheduled deliveries, leveraging AI, IoT, "
+                        "and Big Data to boost efficiency, cut costs, and improve customer satisfaction). "
+                        "Check the user's message and send appropriate replies that are always inside the above context."
+                    ),
+                },
+                {"role": "user", "content": prompt},
+            ],
+            max_tokens=150,
+            temperature=0.7,
+        )
+        reply = response.choices[0].message.content.strip()
+        return (str(reply))
+    except Exception as e:
+        logging.error(f"OpenAI API error: {e}")
+        return "Sorry, something went wrong while generating the reply."
