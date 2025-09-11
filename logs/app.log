@@ -2575,3 +2575,103 @@ A detailed migration guide is available here: https://github.com/openai/openai-p
 2025-09-11 14:55:08 INFO: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
 2025-09-11 14:55:08 INFO: 127.0.0.1 - - [11/Sep/2025 14:55:08] "POST /process-data HTTP/1.1" 200 -
 2025-09-11 14:56:38 INFO: 127.0.0.1 - - [11/Sep/2025 14:56:38] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-09-11 15:21:36 INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-09-11 15:21:36 INFO: [33mPress CTRL+C to quit[0m
+2025-09-11 15:21:36 INFO:  * Restarting with watchdog (windowsapi)
+2025-09-11 15:21:43 WARNING:  * Debugger is active!
+2025-09-11 15:21:43 INFO:  * Debugger PIN: 115-265-433
+2025-09-11 15:21:43 INFO: 127.0.0.1 - - [11/Sep/2025 15:21:43] "GET / HTTP/1.1" 200 -
+2025-09-11 15:21:47 INFO: Received request data: {'mobile': '918921729081'}
+2025-09-11 15:21:47 INFO: Updated mobile: 918921729081
+2025-09-11 15:21:49 INFO: Updated name: MC DONALDS
+2025-09-11 15:21:49 INFO: 127.0.0.1 - - [11/Sep/2025 15:21:49] "POST /number HTTP/1.1" 200 -
+2025-09-11 15:21:49 INFO: 127.0.0.1 - - [11/Sep/2025 15:21:49] "POST /names HTTP/1.1" 200 -
+2025-09-11 15:21:55 INFO: 127.0.0.1 - - [11/Sep/2025 15:21:55] "[35m[1mPOST /deep-analysis HTTP/1.1[0m" 503 -
+2025-09-11 15:22:05 INFO: OpenRouter response status: 429
+2025-09-11 15:22:05 INFO: {'error': {'message': 'Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requests per day', 'code': 429, 'metadata': {'headers': {'X-RateLimit-Limit': '50', 'X-RateLimit-Remaining': '0', 'X-RateLimit-Reset': '1757635200000'}, 'provider_name': None}}, 'user_id': 'user_328E92IL1eM2SViHm7kXqA7GDlx'}
+2025-09-11 15:22:05 INFO: general intent detected
+2025-09-11 15:22:13 INFO: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-11 15:22:13 INFO: 127.0.0.1 - - [11/Sep/2025 15:22:13] "POST /process-data HTTP/1.1" 200 -
+2025-09-11 15:22:19 INFO: 127.0.0.1 - - [11/Sep/2025 15:22:19] "[35m[1mPOST /deep-analysis HTTP/1.1[0m" 503 -
+2025-09-11 15:22:54 INFO:  * Detected change in 'C:\\Users\\USER\\Desktop\\LEAJLAK\\beta\\patch3\\ai-assistant\\app.py', reloading
+2025-09-11 15:22:54 INFO:  * Detected change in 'C:\\Users\\USER\\Desktop\\LEAJLAK\\beta\\patch3\\ai-assistant\\app.py', reloading
+2025-09-11 15:22:54 INFO:  * Detected change in 'C:\\Users\\USER\\Desktop\\LEAJLAK\\beta\\patch3\\ai-assistant\\app.py', reloading
+2025-09-11 15:22:55 INFO:  * Restarting with watchdog (windowsapi)
+2025-09-11 15:23:04 WARNING:  * Debugger is active!
+2025-09-11 15:23:04 INFO:  * Debugger PIN: 115-265-433
+2025-09-11 15:23:04 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\flask\\json\\provider.py', reloading
+2025-09-11 15:23:04 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\json\\__init__.py', reloading
+2025-09-11 15:23:04 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\json\\encoder.py', reloading
+2025-09-11 15:23:04 INFO: 127.0.0.1 - - [11/Sep/2025 15:23:04] "[35m[1mPOST /deep-analysis HTTP/1.1[0m" 500 -
+2025-09-11 15:23:05 INFO:  * Restarting with watchdog (windowsapi)
+2025-09-11 15:23:11 WARNING:  * Debugger is active!
+2025-09-11 15:23:11 INFO:  * Debugger PIN: 115-265-433
+2025-09-11 15:23:54 INFO:  * Detected change in 'C:\\Users\\USER\\Desktop\\LEAJLAK\\beta\\patch3\\ai-assistant\\app.py', reloading
+2025-09-11 15:23:54 INFO:  * Detected change in 'C:\\Users\\USER\\Desktop\\LEAJLAK\\beta\\patch3\\ai-assistant\\app.py', reloading
+2025-09-11 15:23:54 INFO:  * Detected change in 'C:\\Users\\USER\\Desktop\\LEAJLAK\\beta\\patch3\\ai-assistant\\app.py', reloading
+2025-09-11 15:23:55 INFO:  * Restarting with watchdog (windowsapi)
+2025-09-11 15:24:01 WARNING:  * Debugger is active!
+2025-09-11 15:24:01 INFO:  * Debugger PIN: 115-265-433
+2025-09-11 15:24:01 INFO: 127.0.0.1 - - [11/Sep/2025 15:24:01] "[35m[1mPOST /deep-analysis HTTP/1.1[0m" 500 -
+2025-09-11 15:24:11 INFO:  * Detected change in 'C:\\Users\\USER\\Desktop\\LEAJLAK\\beta\\patch3\\ai-assistant\\app.py', reloading
+2025-09-11 15:24:11 INFO:  * Detected change in 'C:\\Users\\USER\\Desktop\\LEAJLAK\\beta\\patch3\\ai-assistant\\app.py', reloading
+2025-09-11 15:24:11 INFO:  * Detected change in 'C:\\Users\\USER\\Desktop\\LEAJLAK\\beta\\patch3\\ai-assistant\\app.py', reloading
+2025-09-11 15:24:12 INFO:  * Restarting with watchdog (windowsapi)
+2025-09-11 15:24:19 WARNING:  * Debugger is active!
+2025-09-11 15:24:19 INFO:  * Debugger PIN: 115-265-433
+2025-09-11 15:24:19 INFO: 127.0.0.1 - - [11/Sep/2025 15:24:19] "[35m[1mPOST /deep-analysis HTTP/1.1[0m" 503 -
+2025-09-11 15:25:35 INFO: OpenRouter response status: 429
+2025-09-11 15:25:35 INFO: {'error': {'message': 'Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requests per day', 'code': 429, 'metadata': {'headers': {'X-RateLimit-Limit': '50', 'X-RateLimit-Remaining': '0', 'X-RateLimit-Reset': '1757635200000'}, 'provider_name': None}}, 'user_id': 'user_328E92IL1eM2SViHm7kXqA7GDlx'}
+2025-09-11 15:25:35 INFO: general intent detected
+2025-09-11 15:25:39 INFO: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-11 15:25:39 INFO: 127.0.0.1 - - [11/Sep/2025 15:25:39] "POST /process-data HTTP/1.1" 200 -
+2025-09-11 15:27:05 INFO: 127.0.0.1 - - [11/Sep/2025 15:27:05] "GET / HTTP/1.1" 200 -
+2025-09-11 15:27:10 INFO: Received request data: {'mobile': '918921729081'}
+2025-09-11 15:27:10 INFO: Updated mobile: 918921729081
+2025-09-11 15:27:11 INFO: Updated name: MC DONALDS
+2025-09-11 15:27:11 INFO: 127.0.0.1 - - [11/Sep/2025 15:27:11] "POST /number HTTP/1.1" 200 -
+2025-09-11 15:27:11 INFO: 127.0.0.1 - - [11/Sep/2025 15:27:11] "POST /names HTTP/1.1" 200 -
+2025-09-11 15:32:54 INFO: 127.0.0.1 - - [11/Sep/2025 15:32:54] "GET / HTTP/1.1" 200 -
+2025-09-11 15:32:54 INFO: 127.0.0.1 - - [11/Sep/2025 15:32:54] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-09-11 15:32:57 INFO: Received request data: {'mobile': '918921729081'}
+2025-09-11 15:32:57 INFO: Updated mobile: 918921729081
+2025-09-11 15:32:57 INFO: Updated name: MC DONALDS
+2025-09-11 15:32:57 INFO: 127.0.0.1 - - [11/Sep/2025 15:32:57] "POST /number HTTP/1.1" 200 -
+2025-09-11 15:32:58 INFO: 127.0.0.1 - - [11/Sep/2025 15:32:58] "POST /names HTTP/1.1" 200 -
+2025-09-11 15:33:01 INFO: 127.0.0.1 - - [11/Sep/2025 15:33:01] "[35m[1mPOST /deep-analysis HTTP/1.1[0m" 503 -
+2025-09-11 15:33:05 INFO: OpenRouter response status: 429
+2025-09-11 15:33:05 INFO: {'error': {'message': 'Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requests per day', 'code': 429, 'metadata': {'headers': {'X-RateLimit-Limit': '50', 'X-RateLimit-Remaining': '0', 'X-RateLimit-Reset': '1757635200000'}, 'provider_name': None}}, 'user_id': 'user_328E92IL1eM2SViHm7kXqA7GDlx'}
+2025-09-11 15:33:05 INFO: general intent detected
+2025-09-11 15:33:11 INFO: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-11 15:33:11 INFO: 127.0.0.1 - - [11/Sep/2025 15:33:11] "POST /process-data HTTP/1.1" 200 -
+2025-09-11 15:33:26 INFO:  * Detected change in 'C:\\Users\\USER\\Desktop\\LEAJLAK\\beta\\patch3\\ai-assistant\\app.py', reloading
+2025-09-11 15:33:26 INFO:  * Detected change in 'C:\\Users\\USER\\Desktop\\LEAJLAK\\beta\\patch3\\ai-assistant\\app.py', reloading
+2025-09-11 15:33:27 INFO:  * Restarting with watchdog (windowsapi)
+2025-09-11 15:33:32 WARNING:  * Debugger is active!
+2025-09-11 15:33:32 INFO:  * Debugger PIN: 115-265-433
+2025-09-11 15:39:01 INFO:  * Detected change in 'C:\\Users\\USER\\Desktop\\LEAJLAK\\beta\\patch3\\ai-assistant\\app.py', reloading
+2025-09-11 15:39:01 INFO:  * Detected change in 'C:\\Users\\USER\\Desktop\\LEAJLAK\\beta\\patch3\\ai-assistant\\app.py', reloading
+2025-09-11 15:39:03 INFO:  * Restarting with watchdog (windowsapi)
+2025-09-11 15:39:10 WARNING:  * Debugger is active!
+2025-09-11 15:39:10 INFO:  * Debugger PIN: 115-265-433
+2025-09-11 15:39:12 INFO: OpenRouter response status: 429
+2025-09-11 15:39:12 INFO: {'error': {'message': 'Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requests per day', 'code': 429, 'metadata': {'headers': {'X-RateLimit-Limit': '50', 'X-RateLimit-Remaining': '0', 'X-RateLimit-Reset': '1757635200000'}, 'provider_name': None}}, 'user_id': 'user_328E92IL1eM2SViHm7kXqA7GDlx'}
+2025-09-11 15:39:12 INFO: general intent detected
+2025-09-11 15:39:17 INFO: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-11 15:39:17 INFO: 127.0.0.1 - - [11/Sep/2025 15:39:17] "POST /process-data HTTP/1.1" 200 -
+2025-09-11 15:55:47 INFO:  * Detected change in 'C:\\Users\\USER\\Desktop\\LEAJLAK\\beta\\patch3\\ai-assistant\\function.py', reloading
+2025-09-11 15:55:47 INFO:  * Detected change in 'C:\\Users\\USER\\Desktop\\LEAJLAK\\beta\\patch3\\ai-assistant\\function.py', reloading
+2025-09-11 15:55:49 INFO:  * Restarting with watchdog (windowsapi)
+2025-09-11 15:56:01 WARNING:  * Debugger is active!
+2025-09-11 15:56:01 INFO:  * Debugger PIN: 115-265-433
+2025-09-11 15:56:34 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\operator.py', reloading
+2025-09-11 15:56:35 INFO:  * Restarting with watchdog (windowsapi)
+2025-09-11 15:56:44 WARNING:  * Debugger is active!
+2025-09-11 15:56:44 INFO:  * Debugger PIN: 115-265-433
+2025-09-11 16:04:44 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\flask\\blueprints.py', reloading
+2025-09-11 16:04:45 INFO:  * Restarting with watchdog (windowsapi)
+2025-09-11 16:04:52 WARNING:  * Debugger is active!
+2025-09-11 16:04:52 INFO:  * Debugger PIN: 115-265-433
+2025-09-11 16:04:55 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Roaming\\Python\\Python313\\site-packages\\psycopg2\\__init__.py', reloading
+2025-09-11 16:04:56 INFO:  * Restarting with watchdog (windowsapi)

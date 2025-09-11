@@ -199,7 +199,7 @@ def process_data():
             logging.info('general intent detected')
             try:
                 reply = generate_openai_reply(user_messages)
-                return jsonify(reply)
+                return (str(reply))
             except Exception as e:
                 logging.error(f'{e}')
         else :
@@ -320,6 +320,16 @@ def process_data():
         return jsonify({"error": "Internal server error"}), 500
     
 
+@app.route('/deep-analysis',methods=['POST'])
+def deep_analysis():
+    data = request.json
+    user_messages = data['message']
+    
+    # Return maintenance message
+    return jsonify({
+        "status": "The deep analysis feature is currently under maintenance. Please try again later.",
+    }), 503
+
 @app.route('/end', methods=['POST'])
 def end():
     try:
@@ -340,8 +350,10 @@ def end():
 
 @app.route('/')
 def home():
-    return render_template('index3.html')
+    return render_template('index4.html')
 
 if __name__ == '__main__':
 
     app.run(port=5000, debug=True)
+
+#ngrok http --url=shari-manipular-nonorally.ngrok-free.app 5000
