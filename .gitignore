@@ -1,2 +1,4 @@
 .env
 clone/
+instance/
+logs/
