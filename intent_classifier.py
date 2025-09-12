@@ -7,7 +7,6 @@ from openai import OpenAI
 load_dotenv()
 OPENROUTER_API_URL = "https://openrouter.ai/api/v1/chat/completions"
 OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")
-client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 logging.basicConfig(
     filename='logs/app.log',          # Log file path
@@ -42,6 +41,7 @@ def classify_intent(message):
     if "choices" in response_json and response_json["choices"]:
         logging.info('intent classified')
         intent = response_json["choices"][0]["message"]["content"].strip().lower()
+        logging.info(f'{intent}')
     else:
         intent = "general"  # default fallback
     # Defensive assignment:
@@ -51,27 +51,3 @@ def classify_intent(message):
     return intent
 
 
-def generate_openai_reply(prompt):
-    try:
-        response = client.chat.completions.create(
-            model="gpt-4",  # or your preferred model
-            messages=[
-                {
-                    "role": "system",
-                    "content": (
-                        "You are Leajlak's customer service assistant (Leajlak's Order Management System connects merchants "
-                        "and third-party logistics companies for on-demand express and scheduled deliveries, leveraging AI, IoT, "
-                        "and Big Data to boost efficiency, cut costs, and improve customer satisfaction). "
-                        "Check the user's message and send appropriate replies that are always inside the above context."
-                    ),
-                },
-                {"role": "user", "content": prompt},
-            ],
-            max_tokens=150,
-            temperature=0.7,
-        )
-        reply = response.choices[0].message.content.strip()
-        return (str(reply))
-    except Exception as e:
-        logging.error(f"OpenAI API error: {e}")
-        return "Sorry, something went wrong while generating the reply."

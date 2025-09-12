@@ -2743,3 +2743,780 @@ A detailed migration guide is available here: https://github.com/openai/openai-p
 2025-09-11 18:30:42 INFO: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
 2025-09-11 18:30:42 INFO: 127.0.0.1 - - [11/Sep/2025 18:30:42] "POST /process-data HTTP/1.1" 200 -
 2025-09-11 18:30:57 INFO: 127.0.0.1 - - [11/Sep/2025 18:30:57] "[35m[1mPOST /deep-analysis HTTP/1.1[0m" 503 -
+2025-09-12 10:17:48 INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-09-12 10:17:48 INFO: [33mPress CTRL+C to quit[0m
+2025-09-12 10:17:48 INFO:  * Restarting with watchdog (windowsapi)
+2025-09-12 10:17:57 WARNING:  * Debugger is active!
+2025-09-12 10:17:57 INFO:  * Debugger PIN: 115-265-433
+2025-09-12 10:17:57 INFO: Received request data: {'mobile': '918921729081'}
+2025-09-12 10:17:57 INFO: Updated mobile: 918921729081
+2025-09-12 10:18:00 INFO: Updated name: MC DONALDS
+2025-09-12 10:18:00 INFO: 127.0.0.1 - - [12/Sep/2025 10:18:00] "POST /number HTTP/1.1" 200 -
+2025-09-12 10:18:01 INFO: 127.0.0.1 - - [12/Sep/2025 10:18:01] "POST /names HTTP/1.1" 200 -
+2025-09-12 10:18:06 INFO: 127.0.0.1 - - [12/Sep/2025 10:18:06] "[35m[1mPOST /process-data HTTP/1.1[0m" 500 -
+2025-09-12 10:18:24 INFO:  * Detected change in 'C:\\Users\\USER\\Desktop\\LEAJLAK\\beta\\patch3\\ai-assistant\\function.py', reloading
+2025-09-12 10:18:24 INFO:  * Detected change in 'C:\\Users\\USER\\Desktop\\LEAJLAK\\beta\\patch3\\ai-assistant\\function.py', reloading
+2025-09-12 10:18:24 INFO:  * Detected change in 'C:\\Users\\USER\\Desktop\\LEAJLAK\\beta\\patch3\\ai-assistant\\function.py', reloading
+2025-09-12 10:18:25 INFO:  * Restarting with watchdog (windowsapi)
+2025-09-12 10:18:39 WARNING:  * Debugger is active!
+2025-09-12 10:18:39 INFO:  * Debugger PIN: 115-265-433
+2025-09-12 10:18:44 INFO:  * Detected change in 'C:\\Users\\USER\\Desktop\\LEAJLAK\\beta\\patch3\\ai-assistant\\app.py', reloading
+2025-09-12 10:18:45 INFO:  * Restarting with watchdog (windowsapi)
+2025-09-12 10:18:54 WARNING:  * Debugger is active!
+2025-09-12 10:18:54 INFO:  * Debugger PIN: 115-265-433
+2025-09-12 10:18:54 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\pandas\\util\\_decorators.py', reloading
+2025-09-12 10:18:54 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\pandas\\core\\generic.py', reloading
+2025-09-12 10:18:54 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\pandas\\io\\formats\\excel.py', reloading
+2025-09-12 10:18:54 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\pandas\\io\\excel\\_openpyxl.py', reloading
+2025-09-12 10:18:54 INFO: 127.0.0.1 - - [12/Sep/2025 10:18:54] "[35m[1mPOST /process-data HTTP/1.1[0m" 500 -
+2025-09-12 10:18:55 INFO:  * Restarting with watchdog (windowsapi)
+2025-09-12 10:19:02 WARNING:  * Debugger is active!
+2025-09-12 10:19:02 INFO:  * Debugger PIN: 115-265-433
+2025-09-12 10:19:52 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\et_xmlfile\\incremental_tree.py', reloading
+2025-09-12 10:19:52 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\et_xmlfile\\__init__.py', reloading
+2025-09-12 10:19:52 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\et_xmlfile\\__init__.py', reloading
+2025-09-12 10:19:52 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\et_xmlfile\\__init__.py', reloading
+2025-09-12 10:19:52 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\et_xmlfile\\incremental_tree.py', reloading
+2025-09-12 10:19:52 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\et_xmlfile\\incremental_tree.py', reloading
+2025-09-12 10:19:52 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\et_xmlfile\\xmlfile.py', reloading
+2025-09-12 10:19:52 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\et_xmlfile\\xmlfile.py', reloading
+2025-09-12 10:19:53 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\openpyxl\\__init__.py', reloading
+2025-09-12 10:19:53 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\openpyxl\\__init__.py', reloading
+2025-09-12 10:19:53 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\openpyxl\\__init__.py', reloading
+2025-09-12 10:19:53 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\openpyxl\\_constants.py', reloading
+2025-09-12 10:19:53 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\openpyxl\\_constants.py', reloading
+2025-09-12 10:19:53 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\openpyxl\\cell\\_writer.py', reloading
+2025-09-12 10:19:53 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\openpyxl\\cell\\__init__.py', reloading
+2025-09-12 10:19:53 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\openpyxl\\cell\\__init__.py', reloading
+2025-09-12 10:19:53 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\openpyxl\\cell\\__init__.py', reloading
+2025-09-12 10:19:53 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\openpyxl\\cell\\_writer.py', reloading
+2025-09-12 10:19:53 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\openpyxl\\cell\\_writer.py', reloading
+2025-09-12 10:19:53 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\openpyxl\\cell\\cell.py', reloading
+2025-09-12 10:19:53 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\openpyxl\\cell\\cell.py', reloading
+2025-09-12 10:19:53 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\openpyxl\\cell\\read_only.py', reloading
+2025-09-12 10:19:53 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\openpyxl\\cell\\read_only.py', reloading
+2025-09-12 10:19:53 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\openpyxl\\cell\\rich_text.py', reloading
+2025-09-12 10:19:53 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\openpyxl\\cell\\rich_text.py', reloading
+2025-09-12 10:19:53 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\openpyxl\\cell\\text.py', reloading
+2025-09-12 10:19:53 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\openpyxl\\cell\\text.py', reloading
+2025-09-12 10:19:53 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\openpyxl\\chart\\_3d.py', reloading
+2025-09-12 10:19:53 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\openpyxl\\chart\\_3d.py', reloading
+2025-09-12 10:19:53 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\openpyxl\\chart\\__init__.py', reloading
+2025-09-12 10:19:53 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\openpyxl\\chart\\__init__.py', reloading
+2025-09-12 10:19:53 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\openpyxl\\chart\\_chart.py', reloading
+2025-09-12 10:19:53 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\openpyxl\\chart\\_chart.py', reloading
+2025-09-12 10:19:53 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\openpyxl\\chart\\area_chart.py', reloading
+2025-09-12 10:19:53 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\openpyxl\\chart\\area_chart.py', reloading
+2025-09-12 10:19:53 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\openpyxl\\chart\\axis.py', reloading
+2025-09-12 10:19:53 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\openpyxl\\chart\\axis.py', reloading
+2025-09-12 10:19:53 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\openpyxl\\chart\\bar_chart.py', reloading
+2025-09-12 10:19:53 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\openpyxl\\chart\\bar_chart.py', reloading
+2025-09-12 10:19:53 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\openpyxl\\chart\\bubble_chart.py', reloading
+2025-09-12 10:19:53 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\openpyxl\\chart\\bubble_chart.py', reloading
+2025-09-12 10:19:53 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\openpyxl\\chart\\chartspace.py', reloading
+2025-09-12 10:19:53 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\openpyxl\\chart\\chartspace.py', reloading
+2025-09-12 10:19:53 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\openpyxl\\chart\\data_source.py', reloading
+2025-09-12 10:19:53 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\openpyxl\\chart\\data_source.py', reloading
+2025-09-12 10:19:53 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\openpyxl\\chart\\descriptors.py', reloading
+2025-09-12 10:19:53 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\openpyxl\\chart\\descriptors.py', reloading
+2025-09-12 10:19:53 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\openpyxl\\chart\\error_bar.py', reloading
+2025-09-12 10:19:53 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\openpyxl\\chart\\error_bar.py', reloading
+2025-09-12 10:19:53 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\openpyxl\\chart\\label.py', reloading
+2025-09-12 10:19:53 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\openpyxl\\chart\\label.py', reloading
+2025-09-12 10:19:53 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\openpyxl\\chart\\layout.py', reloading
+2025-09-12 10:19:53 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\openpyxl\\chart\\layout.py', reloading
+2025-09-12 10:19:53 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\openpyxl\\chart\\legend.py', reloading
+2025-09-12 10:19:53 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\openpyxl\\chart\\legend.py', reloading
+2025-09-12 10:19:53 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\openpyxl\\chart\\line_chart.py', reloading
+2025-09-12 10:19:53 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\openpyxl\\chart\\line_chart.py', reloading
+2025-09-12 10:19:53 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\openpyxl\\chart\\marker.py', reloading
+2025-09-12 10:19:53 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\openpyxl\\chart\\marker.py', reloading
+2025-09-12 10:19:53 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\openpyxl\\chart\\picture.py', reloading
+2025-09-12 10:19:53 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\openpyxl\\chart\\picture.py', reloading
+2025-09-12 10:19:53 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\openpyxl\\chart\\pie_chart.py', reloading
+2025-09-12 10:19:53 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\openpyxl\\chart\\pie_chart.py', reloading
+2025-09-12 10:19:53 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\openpyxl\\chart\\pivot.py', reloading
+2025-09-12 10:19:53 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\openpyxl\\chart\\pivot.py', reloading
+2025-09-12 10:19:53 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\openpyxl\\chart\\plotarea.py', reloading
+2025-09-12 10:19:53 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\openpyxl\\chart\\plotarea.py', reloading
+2025-09-12 10:19:53 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\openpyxl\\chart\\print_settings.py', reloading
+2025-09-12 10:19:53 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\openpyxl\\chart\\print_settings.py', reloading
+2025-09-12 10:19:53 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\openpyxl\\chart\\radar_chart.py', reloading
+2025-09-12 10:19:53 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\openpyxl\\chart\\radar_chart.py', reloading
+2025-09-12 10:19:53 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\openpyxl\\chart\\reader.py', reloading
+2025-09-12 10:19:53 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\openpyxl\\chart\\reader.py', reloading
+2025-09-12 10:19:53 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\openpyxl\\chart\\reference.py', reloading
+2025-09-12 10:19:53 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\openpyxl\\chart\\reference.py', reloading
+2025-09-12 10:19:53 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\openpyxl\\chart\\scatter_chart.py', reloading
+2025-09-12 10:19:53 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\openpyxl\\chart\\scatter_chart.py', reloading
+2025-09-12 10:19:53 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\openpyxl\\chart\\series.py', reloading
+2025-09-12 10:19:53 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\openpyxl\\chart\\series.py', reloading
+2025-09-12 10:19:53 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\openpyxl\\chart\\series_factory.py', reloading
+2025-09-12 10:19:53 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\openpyxl\\chart\\series_factory.py', reloading
+2025-09-12 10:19:53 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\openpyxl\\chart\\shapes.py', reloading
+2025-09-12 10:19:53 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\openpyxl\\chart\\shapes.py', reloading
+2025-09-12 10:19:53 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\openpyxl\\chart\\stock_chart.py', reloading
+2025-09-12 10:19:53 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\openpyxl\\chart\\stock_chart.py', reloading
+2025-09-12 10:19:53 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\openpyxl\\chart\\surface_chart.py', reloading
+2025-09-12 10:19:53 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\openpyxl\\chart\\surface_chart.py', reloading
+2025-09-12 10:19:53 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\openpyxl\\chart\\text.py', reloading
+2025-09-12 10:19:53 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\openpyxl\\chart\\text.py', reloading
+2025-09-12 10:19:53 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\openpyxl\\chart\\title.py', reloading
+2025-09-12 10:19:53 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\openpyxl\\chart\\title.py', reloading
+2025-09-12 10:19:53 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\openpyxl\\chart\\trendline.py', reloading
+2025-09-12 10:19:53 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\openpyxl\\chart\\trendline.py', reloading
+2025-09-12 10:19:53 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\openpyxl\\chart\\updown_bars.py', reloading
+2025-09-12 10:19:53 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\openpyxl\\chart\\updown_bars.py', reloading
+2025-09-12 10:19:53 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\openpyxl\\chartsheet\\chartsheet.py', reloading
+2025-09-12 10:19:53 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\openpyxl\\chartsheet\\__init__.py', reloading
+2025-09-12 10:19:53 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\openpyxl\\chartsheet\\__init__.py', reloading
+2025-09-12 10:19:53 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\openpyxl\\chartsheet\\__init__.py', reloading
+2025-09-12 10:19:53 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\openpyxl\\chartsheet\\chartsheet.py', reloading
+2025-09-12 10:19:53 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\openpyxl\\chartsheet\\chartsheet.py', reloading
+2025-09-12 10:19:53 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\openpyxl\\chartsheet\\custom.py', reloading
+2025-09-12 10:19:53 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\openpyxl\\chartsheet\\custom.py', reloading
+2025-09-12 10:19:53 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\openpyxl\\chartsheet\\properties.py', reloading
+2025-09-12 10:19:53 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\openpyxl\\chartsheet\\properties.py', reloading
+2025-09-12 10:19:53 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\openpyxl\\chartsheet\\protection.py', reloading
+2025-09-12 10:19:53 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\openpyxl\\chartsheet\\protection.py', reloading
+2025-09-12 10:19:53 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\openpyxl\\chartsheet\\publish.py', reloading
+2025-09-12 10:19:53 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\openpyxl\\chartsheet\\publish.py', reloading
+2025-09-12 10:19:53 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\openpyxl\\chartsheet\\relation.py', reloading
+2025-09-12 10:19:53 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\openpyxl\\chartsheet\\relation.py', reloading
+2025-09-12 10:19:53 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\openpyxl\\chartsheet\\views.py', reloading
+2025-09-12 10:19:53 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\openpyxl\\chartsheet\\views.py', reloading
+2025-09-12 10:19:53 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\openpyxl\\comments\\author.py', reloading
+2025-09-12 10:19:53 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\openpyxl\\comments\\comments.py', reloading
+2025-09-12 10:19:53 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\openpyxl\\comments\\comment_sheet.py', reloading
+2025-09-12 10:19:53 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\openpyxl\\comments\\shape_writer.py', reloading
+2025-09-12 10:19:53 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\openpyxl\\comments\\__init__.py', reloading
+2025-09-12 10:19:53 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\openpyxl\\comments\\__init__.py', reloading
+2025-09-12 10:19:53 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\openpyxl\\comments\\__init__.py', reloading
+2025-09-12 10:19:53 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\openpyxl\\comments\\author.py', reloading
+2025-09-12 10:19:53 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\openpyxl\\comments\\author.py', reloading
+2025-09-12 10:19:53 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\openpyxl\\comments\\comment_sheet.py', reloading
+2025-09-12 10:19:53 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\openpyxl\\comments\\comment_sheet.py', reloading
+2025-09-12 10:19:53 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\openpyxl\\comments\\comments.py', reloading
+2025-09-12 10:19:53 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\openpyxl\\comments\\comments.py', reloading
+2025-09-12 10:19:53 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\openpyxl\\comments\\shape_writer.py', reloading
+2025-09-12 10:19:53 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\openpyxl\\comments\\shape_writer.py', reloading
+2025-09-12 10:19:53 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\openpyxl\\compat\\abc.py', reloading
+2025-09-12 10:19:53 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\openpyxl\\compat\\numbers.py', reloading
+2025-09-12 10:19:53 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\openpyxl\\compat\\product.py', reloading
+2025-09-12 10:19:53 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\openpyxl\\compat\\singleton.py', reloading
+2025-09-12 10:19:53 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\openpyxl\\compat\\strings.py', reloading
+2025-09-12 10:19:53 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\openpyxl\\compat\\__init__.py', reloading
+2025-09-12 10:19:53 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\openpyxl\\compat\\__init__.py', reloading
+2025-09-12 10:19:53 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\openpyxl\\compat\\__init__.py', reloading
+2025-09-12 10:19:53 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\openpyxl\\compat\\abc.py', reloading
+2025-09-12 10:19:53 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\openpyxl\\compat\\abc.py', reloading
+2025-09-12 10:19:53 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\openpyxl\\compat\\numbers.py', reloading
+2025-09-12 10:19:53 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\openpyxl\\compat\\numbers.py', reloading
+2025-09-12 10:19:53 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\openpyxl\\compat\\product.py', reloading
+2025-09-12 10:19:53 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\openpyxl\\compat\\product.py', reloading
+2025-09-12 10:19:53 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\openpyxl\\compat\\singleton.py', reloading
+2025-09-12 10:19:53 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\openpyxl\\compat\\singleton.py', reloading
+2025-09-12 10:19:53 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\openpyxl\\compat\\strings.py', reloading
+2025-09-12 10:19:53 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\openpyxl\\compat\\strings.py', reloading
+2025-09-12 10:19:53 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\openpyxl\\descriptors\\base.py', reloading
+2025-09-12 10:19:53 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\openpyxl\\descriptors\\container.py', reloading
+2025-09-12 10:19:53 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\openpyxl\\descriptors\\excel.py', reloading
+2025-09-12 10:19:53 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\openpyxl\\descriptors\\namespace.py', reloading
+2025-09-12 10:19:53 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\openpyxl\\descriptors\\nested.py', reloading
+2025-09-12 10:19:53 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\openpyxl\\descriptors\\sequence.py', reloading
+2025-09-12 10:19:53 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\openpyxl\\descriptors\\serialisable.py', reloading
+2025-09-12 10:19:53 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\openpyxl\\descriptors\\slots.py', reloading
+2025-09-12 10:19:55 INFO:  * Restarting with watchdog (windowsapi)
+2025-09-12 10:20:09 WARNING:  * Debugger is active!
+2025-09-12 10:20:09 INFO:  * Debugger PIN: 115-265-433
+2025-09-12 10:20:32 INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-09-12 10:20:32 INFO: [33mPress CTRL+C to quit[0m
+2025-09-12 10:20:32 INFO:  * Restarting with watchdog (windowsapi)
+2025-09-12 10:20:40 WARNING:  * Debugger is active!
+2025-09-12 10:20:40 INFO:  * Debugger PIN: 115-265-433
+2025-09-12 10:20:40 INFO: 127.0.0.1 - - [12/Sep/2025 10:20:40] "[35m[1mPOST /deep-analysis HTTP/1.1[0m" 503 -
+2025-09-12 10:20:44 INFO: 127.0.0.1 - - [12/Sep/2025 10:20:44] "[35m[1mPOST /deep-analysis HTTP/1.1[0m" 503 -
+2025-09-12 10:20:54 INFO: intent classified
+2025-09-12 10:20:54 INFO: Unexpected intent 'user message: "hello' classified. Defaulting to 'general'.
+2025-09-12 10:20:54 INFO: general intent detected
+2025-09-12 10:20:57 INFO: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2025-09-12 10:20:57 ERROR: OpenAI API error: Error code: 400 - {'error': {'message': "Invalid type for 'messages[1].content[0]': expected an object, but got a string instead.", 'type': 'invalid_request_error', 'param': 'messages[1].content[0]', 'code': 'invalid_type'}}
+2025-09-12 10:20:57 INFO: 127.0.0.1 - - [12/Sep/2025 10:20:57] "POST /process-data HTTP/1.1" 200 -
+2025-09-12 10:23:39 INFO:  * Detected change in 'C:\\Users\\USER\\Desktop\\LEAJLAK\\beta\\patch3\\ai-assistant\\app.py', reloading
+2025-09-12 10:23:39 INFO:  * Detected change in 'C:\\Users\\USER\\Desktop\\LEAJLAK\\beta\\patch3\\ai-assistant\\app.py', reloading
+2025-09-12 10:23:39 INFO:  * Detected change in 'C:\\Users\\USER\\Desktop\\LEAJLAK\\beta\\patch3\\ai-assistant\\app.py', reloading
+2025-09-12 10:23:40 INFO:  * Restarting with watchdog (windowsapi)
+2025-09-12 10:23:49 WARNING:  * Debugger is active!
+2025-09-12 10:23:49 INFO:  * Debugger PIN: 115-265-433
+2025-09-12 10:23:49 INFO: 127.0.0.1 - - [12/Sep/2025 10:23:49] "GET / HTTP/1.1" 200 -
+2025-09-12 10:24:05 INFO: 127.0.0.1 - - [12/Sep/2025 10:24:05] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-09-12 10:24:08 INFO: Received request data: {'mobile': '918921729081'}
+2025-09-12 10:24:08 INFO: Updated mobile: 918921729081
+2025-09-12 10:24:08 WARNING: No user found for mobile: 918921729081
+2025-09-12 10:24:08 INFO: 127.0.0.1 - - [12/Sep/2025 10:24:08] "[33mPOST /number HTTP/1.1[0m" 404 -
+2025-09-12 10:42:57 INFO: Received request data: {'mobile': '918921729081'}
+2025-09-12 10:42:57 INFO: Updated mobile: 918921729081
+2025-09-12 10:43:02 INFO: Updated name: MC DONALDS
+2025-09-12 10:43:02 INFO: 127.0.0.1 - - [12/Sep/2025 10:43:02] "POST /number HTTP/1.1" 200 -
+2025-09-12 10:43:02 INFO: 127.0.0.1 - - [12/Sep/2025 10:43:02] "POST /names HTTP/1.1" 200 -
+2025-09-12 10:43:50 INFO: intent classified
+2025-09-12 10:43:50 INFO: Unexpected intent 'user message: "hello' classified. Defaulting to 'general'.
+2025-09-12 10:43:50 INFO: general intent detected
+2025-09-12 10:43:53 INFO: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2025-09-12 10:43:53 ERROR: OpenAI API error: Error code: 400 - {'error': {'message': "Invalid type for 'messages[1].content[0]': expected an object, but got a string instead.", 'type': 'invalid_request_error', 'param': 'messages[1].content[0]', 'code': 'invalid_type'}}
+2025-09-12 10:43:53 INFO: 127.0.0.1 - - [12/Sep/2025 10:43:53] "POST /process-data HTTP/1.1" 200 -
+2025-09-12 10:44:12 INFO: intent classified
+2025-09-12 10:44:12 INFO: Unexpected intent 'do not return anything else' classified. Defaulting to 'general'.
+2025-09-12 10:44:12 INFO: general intent detected
+2025-09-12 10:44:15 INFO: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2025-09-12 10:44:15 ERROR: OpenAI API error: Error code: 400 - {'error': {'message': "Invalid type for 'messages[1].content[0]': expected an object, but got a string instead.", 'type': 'invalid_request_error', 'param': 'messages[1].content[0]', 'code': 'invalid_type'}}
+2025-09-12 10:44:15 INFO: 127.0.0.1 - - [12/Sep/2025 10:44:15] "POST /process-data HTTP/1.1" 200 -
+2025-09-12 10:45:46 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\logging\\__init__.py', reloading
+2025-09-12 10:45:48 INFO:  * Restarting with watchdog (windowsapi)
+2025-09-12 10:45:57 WARNING:  * Debugger is active!
+2025-09-12 10:45:57 INFO:  * Debugger PIN: 115-265-433
+2025-09-12 10:46:03 INFO:  * Detected change in 'C:\\Users\\USER\\Desktop\\LEAJLAK\\beta\\patch3\\ai-assistant\\intent_classifier.py', reloading
+2025-09-12 10:46:03 INFO:  * Detected change in 'C:\\Users\\USER\\Desktop\\LEAJLAK\\beta\\patch3\\ai-assistant\\intent_classifier.py', reloading
+2025-09-12 10:46:03 INFO:  * Detected change in 'C:\\Users\\USER\\Desktop\\LEAJLAK\\beta\\patch3\\ai-assistant\\intent_classifier.py', reloading
+2025-09-12 10:46:04 INFO:  * Restarting with watchdog (windowsapi)
+2025-09-12 10:46:13 WARNING:  * Debugger is active!
+2025-09-12 10:46:13 INFO:  * Debugger PIN: 115-265-433
+2025-09-12 10:46:17 INFO: intent classified
+2025-09-12 10:46:17 INFO: user message: "hello
+2025-09-12 10:46:17 INFO: Unexpected intent 'user message: "hello' classified. Defaulting to 'general'.
+2025-09-12 10:46:17 INFO: general intent detected
+2025-09-12 10:46:18 INFO: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2025-09-12 10:46:18 ERROR: OpenAI API error: Error code: 400 - {'error': {'message': "Invalid type for 'messages[1].content[0]': expected an object, but got a string instead.", 'type': 'invalid_request_error', 'param': 'messages[1].content[0]', 'code': 'invalid_type'}}
+2025-09-12 10:46:18 INFO: 127.0.0.1 - - [12/Sep/2025 10:46:18] "POST /process-data HTTP/1.1" 200 -
+2025-09-12 10:47:30 INFO:  * Detected change in 'C:\\Users\\USER\\Desktop\\LEAJLAK\\beta\\patch3\\ai-assistant\\intent_classifier.py', reloading
+2025-09-12 10:47:30 INFO:  * Detected change in 'C:\\Users\\USER\\Desktop\\LEAJLAK\\beta\\patch3\\ai-assistant\\intent_classifier.py', reloading
+2025-09-12 10:47:32 INFO:  * Restarting with watchdog (windowsapi)
+2025-09-12 10:47:41 WARNING:  * Debugger is active!
+2025-09-12 10:47:41 INFO:  * Debugger PIN: 115-265-433
+2025-09-12 10:47:45 INFO: responsejson:{'id': 'gen-1757654262-hP2sqdLirGKl8JdxAhOe', 'provider': 'DeepInfra', 'model': 'deepseek/deepseek-chat-v3.1:free', 'object': 'chat.completion', 'created': 1757654263, 'choices': [{'logprobs': None, 'finish_reason': 'length', 'native_finish_reason': 'length', 'index': 0, 'message': {'role': 'assistant', 'content': ' If you are unsure,', 'refusal': None, 'reasoning': None}}], 'usage': {'prompt_tokens': 46, 'completion_tokens': 5, 'total_tokens': 51, 'prompt_tokens_details': None}},response : <Response [200]>
+2025-09-12 10:47:45 INFO: intent classified
+2025-09-12 10:47:45 INFO: if you are unsure,
+2025-09-12 10:47:45 INFO: Unexpected intent 'if you are unsure,' classified. Defaulting to 'general'.
+2025-09-12 10:47:45 INFO: general intent detected
+2025-09-12 10:47:48 INFO: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2025-09-12 10:47:48 ERROR: OpenAI API error: Error code: 400 - {'error': {'message': "Invalid type for 'messages[1].content[0]': expected an object, but got a string instead.", 'type': 'invalid_request_error', 'param': 'messages[1].content[0]', 'code': 'invalid_type'}}
+2025-09-12 10:47:48 INFO: 127.0.0.1 - - [12/Sep/2025 10:47:48] "POST /process-data HTTP/1.1" 200 -
+2025-09-12 10:52:36 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\flask\\globals.py', reloading
+2025-09-12 10:52:36 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\flask\\wrappers.py', reloading
+2025-09-12 10:52:36 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\werkzeug\\wrappers\\__init__.py', reloading
+2025-09-12 10:52:36 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\werkzeug\\wrappers\\request.py', reloading
+2025-09-12 10:52:36 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\werkzeug\\sansio\\request.py', reloading
+2025-09-12 10:52:36 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\flask\\json\\__init__.py', reloading
+2025-09-12 10:52:36 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\werkzeug\\wrappers\\response.py', reloading
+2025-09-12 10:52:36 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\sqlalchemy\\orm\\scoping.py', reloading
+2025-09-12 10:52:36 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\sqlalchemy\\orm\\session.py', reloading
+2025-09-12 10:52:36 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\flask_sqlalchemy\\session.py', reloading
+2025-09-12 10:52:36 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\flask_sqlalchemy\\table.py', reloading
+2025-09-12 10:52:36 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\sqlalchemy\\sql\\elements.py', reloading
+2025-09-12 10:52:37 INFO:  * Restarting with watchdog (windowsapi)
+2025-09-12 10:52:47 WARNING:  * Debugger is active!
+2025-09-12 10:52:47 INFO:  * Debugger PIN: 115-265-433
+2025-09-12 10:52:56 INFO:  * Detected change in 'C:\\Users\\USER\\Desktop\\LEAJLAK\\beta\\patch3\\ai-assistant\\app.py', reloading
+2025-09-12 10:52:56 INFO:  * Detected change in 'C:\\Users\\USER\\Desktop\\LEAJLAK\\beta\\patch3\\ai-assistant\\app.py', reloading
+2025-09-12 10:52:56 INFO:  * Detected change in 'C:\\Users\\USER\\Desktop\\LEAJLAK\\beta\\patch3\\ai-assistant\\app.py', reloading
+2025-09-12 10:52:57 INFO:  * Restarting with watchdog (windowsapi)
+2025-09-12 10:53:04 WARNING:  * Debugger is active!
+2025-09-12 10:53:04 INFO:  * Debugger PIN: 115-265-433
+2025-09-12 10:53:20 INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-09-12 10:53:20 INFO: [33mPress CTRL+C to quit[0m
+2025-09-12 10:53:20 INFO:  * Restarting with watchdog (windowsapi)
+2025-09-12 10:53:26 WARNING:  * Debugger is active!
+2025-09-12 10:53:26 INFO:  * Debugger PIN: 115-265-433
+2025-09-12 10:53:43 INFO: responsejson:{'id': 'gen-1757654620-HETp9gOJP2WO8QGHnOrH', 'provider': 'DeepInfra', 'model': 'deepseek/deepseek-chat-v3.1:free', 'object': 'chat.completion', 'created': 1757654621, 'choices': [{'logprobs': None, 'finish_reason': 'stop', 'native_finish_reason': 'stop', 'index': 0, 'message': {'role': 'assistant', 'content': 'general', 'refusal': None, 'reasoning': None}}], 'usage': {'prompt_tokens': 50, 'completion_tokens': 2, 'total_tokens': 52, 'prompt_tokens_details': None}},response : <Response [200]>
+2025-09-12 10:53:43 INFO: intent classified
+2025-09-12 10:53:43 INFO: general
+2025-09-12 10:53:43 INFO: general intent detected
+2025-09-12 10:53:47 INFO: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-12 10:53:47 INFO: 127.0.0.1 - - [12/Sep/2025 10:53:47] "POST /process-data HTTP/1.1" 200 -
+2025-09-12 10:54:10 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\sqlalchemy\\sql\\traversals.py', reloading
+2025-09-12 10:54:10 INFO:  * Detected change in 'C:\\Users\\USER\\Desktop\\LEAJLAK\\beta\\patch3\\ai-assistant\\prompts.py', reloading
+2025-09-12 10:54:11 INFO:  * Restarting with watchdog (windowsapi)
+2025-09-12 10:54:19 WARNING:  * Debugger is active!
+2025-09-12 10:54:19 INFO:  * Debugger PIN: 115-265-433
+2025-09-12 10:57:47 INFO:  * Detected change in 'C:\\Users\\USER\\Desktop\\LEAJLAK\\beta\\patch3\\ai-assistant\\app.py', reloading
+2025-09-12 10:57:47 INFO:  * Detected change in 'C:\\Users\\USER\\Desktop\\LEAJLAK\\beta\\patch3\\ai-assistant\\app.py', reloading
+2025-09-12 10:57:47 INFO:  * Detected change in 'C:\\Users\\USER\\Desktop\\LEAJLAK\\beta\\patch3\\ai-assistant\\app.py', reloading
+2025-09-12 10:57:49 INFO:  * Restarting with watchdog (windowsapi)
+2025-09-12 10:57:57 WARNING:  * Debugger is active!
+2025-09-12 10:57:57 INFO:  * Debugger PIN: 115-265-433
+2025-09-12 10:58:01 INFO: responsejson:{'id': 'gen-1757654879-9eO37qx0TBGa7grQr5uN', 'provider': 'DeepInfra', 'model': 'deepseek/deepseek-chat-v3.1:free', 'object': 'chat.completion', 'created': 1757654879, 'choices': [{'logprobs': None, 'finish_reason': 'stop', 'native_finish_reason': 'stop', 'index': 0, 'message': {'role': 'assistant', 'content': 'general', 'refusal': None, 'reasoning': None}}], 'usage': {'prompt_tokens': 54, 'completion_tokens': 2, 'total_tokens': 56, 'prompt_tokens_details': None}},response : <Response [200]>
+2025-09-12 10:58:01 INFO: intent classified
+2025-09-12 10:58:01 INFO: general
+2025-09-12 10:58:01 INFO: general intent detected
+2025-09-12 10:58:06 INFO: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-12 10:58:06 INFO: 127.0.0.1 - - [12/Sep/2025 10:58:06] "POST /process-data HTTP/1.1" 200 -
+2025-09-12 10:58:56 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\pandas\\core\\frame.py', reloading
+2025-09-12 10:58:58 INFO:  * Restarting with watchdog (windowsapi)
+2025-09-12 10:59:07 WARNING:  * Debugger is active!
+2025-09-12 10:59:07 INFO:  * Debugger PIN: 115-265-433
+2025-09-12 11:01:10 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\numpy\\_typing\\_array_like.py', reloading
+2025-09-12 11:01:10 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\numpy\\_typing\\_nested_sequence.py', reloading
+2025-09-12 11:01:10 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\numpy\\_typing\\_dtype_like.py', reloading
+2025-09-12 11:01:10 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\numpy\\_typing\\_scalars.py', reloading
+2025-09-12 11:01:10 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\numpy\\_typing\\_nbit.py', reloading
+2025-09-12 11:01:11 INFO:  * Restarting with watchdog (windowsapi)
+2025-09-12 11:01:20 WARNING:  * Debugger is active!
+2025-09-12 11:01:20 INFO:  * Debugger PIN: 115-265-433
+2025-09-12 11:04:58 INFO:  * Detected change in 'C:\\Users\\USER\\Desktop\\LEAJLAK\\beta\\patch3\\ai-assistant\\function.py', reloading
+2025-09-12 11:04:58 INFO:  * Detected change in 'C:\\Users\\USER\\Desktop\\LEAJLAK\\beta\\patch3\\ai-assistant\\function.py', reloading
+2025-09-12 11:04:58 INFO:  * Detected change in 'C:\\Users\\USER\\Desktop\\LEAJLAK\\beta\\patch3\\ai-assistant\\function.py', reloading
+2025-09-12 11:04:59 INFO:  * Restarting with watchdog (windowsapi)
+2025-09-12 11:05:08 WARNING:  * Debugger is active!
+2025-09-12 11:05:08 INFO:  * Debugger PIN: 115-265-433
+2025-09-12 11:05:11 INFO: responsejson:{'id': 'gen-1757655309-a3JuScGTdS84dpfqcraC', 'provider': 'DeepInfra', 'model': 'deepseek/deepseek-chat-v3.1:free', 'object': 'chat.completion', 'created': 1757655309, 'choices': [{'logprobs': None, 'finish_reason': 'stop', 'native_finish_reason': 'stop', 'index': 0, 'message': {'role': 'assistant', 'content': 'general', 'refusal': None, 'reasoning': None}}], 'usage': {'prompt_tokens': 52, 'completion_tokens': 2, 'total_tokens': 54, 'prompt_tokens_details': None}},response : <Response [200]>
+2025-09-12 11:05:11 INFO: intent classified
+2025-09-12 11:05:11 INFO: general
+2025-09-12 11:05:11 INFO: general intent detected
+2025-09-12 11:05:17 INFO: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-12 11:05:17 INFO: 127.0.0.1 - - [12/Sep/2025 11:05:17] "POST /process-data HTTP/1.1" 200 -
+2025-09-12 11:15:43 INFO:  * Detected change in 'C:\\Users\\USER\\Desktop\\LEAJLAK\\beta\\patch3\\ai-assistant\\run.py', reloading
+2025-09-12 11:15:44 INFO:  * Restarting with watchdog (windowsapi)
+2025-09-12 11:15:53 WARNING:  * Debugger is active!
+2025-09-12 11:15:53 INFO:  * Debugger PIN: 115-265-433
+2025-09-12 11:17:55 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\sqlalchemy\\orm\\util.py', reloading
+2025-09-12 11:17:55 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\sqlalchemy\\sql\\operators.py', reloading
+2025-09-12 11:17:55 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\sqlalchemy\\sql\\_typing.py', reloading
+2025-09-12 11:17:55 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\sqlalchemy\\engine\\__init__.py', reloading
+2025-09-12 11:17:55 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\sqlalchemy\\engine\\row.py', reloading
+2025-09-12 11:17:55 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\sqlalchemy\\engine\\_py_row.py', reloading
+2025-09-12 11:17:56 INFO:  * Restarting with watchdog (windowsapi)
+2025-09-12 11:18:04 WARNING:  * Debugger is active!
+2025-09-12 11:18:04 INFO:  * Debugger PIN: 115-265-433
+2025-09-12 11:18:15 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\pandas\\core\\reshape\\concat.py', reloading
+2025-09-12 11:18:15 INFO:  * Restarting with watchdog (windowsapi)
+2025-09-12 11:18:27 WARNING:  * Debugger is active!
+2025-09-12 11:18:27 INFO:  * Debugger PIN: 115-265-433
+2025-09-12 11:19:45 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Roaming\\Python\\Python313\\site-packages\\psycopg2\\__init__.py', reloading
+2025-09-12 11:19:46 INFO:  * Restarting with watchdog (windowsapi)
+2025-09-12 11:19:59 WARNING:  * Debugger is active!
+2025-09-12 11:19:59 INFO:  * Debugger PIN: 115-265-433
+2025-09-12 11:28:11 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\datetime.py', reloading
+2025-09-12 11:28:11 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\_pydatetime.py', reloading
+2025-09-12 11:28:11 INFO:  * Restarting with watchdog (windowsapi)
+2025-09-12 11:28:22 WARNING:  * Debugger is active!
+2025-09-12 11:28:22 INFO:  * Debugger PIN: 115-265-433
+2025-09-12 11:28:37 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\decimal.py', reloading
+2025-09-12 11:28:38 INFO:  * Restarting with watchdog (windowsapi)
+2025-09-12 11:28:50 WARNING:  * Debugger is active!
+2025-09-12 11:28:50 INFO:  * Debugger PIN: 115-265-433
+2025-09-12 11:34:41 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Roaming\\Python\\Python313\\site-packages\\psycopg2\\extras.py', reloading
+2025-09-12 11:34:43 INFO:  * Restarting with watchdog (windowsapi)
+2025-09-12 11:34:53 WARNING:  * Debugger is active!
+2025-09-12 11:34:53 INFO:  * Debugger PIN: 115-265-433
+2025-09-12 11:38:04 INFO:  * Detected change in 'C:\\Users\\USER\\Desktop\\LEAJLAK\\beta\\patch3\\ai-assistant\\app.py', reloading
+2025-09-12 11:38:04 INFO:  * Detected change in 'C:\\Users\\USER\\Desktop\\LEAJLAK\\beta\\patch3\\ai-assistant\\app.py', reloading
+2025-09-12 11:38:04 INFO:  * Detected change in 'C:\\Users\\USER\\Desktop\\LEAJLAK\\beta\\patch3\\ai-assistant\\app.py', reloading
+2025-09-12 11:38:06 INFO:  * Restarting with watchdog (windowsapi)
+2025-09-12 11:38:16 WARNING:  * Debugger is active!
+2025-09-12 11:38:16 INFO:  * Debugger PIN: 115-265-433
+2025-09-12 11:38:26 INFO: responsejson:{'id': 'gen-1757657304-sAgrNa7Wj823nlZlwOdE', 'provider': 'DeepInfra', 'model': 'deepseek/deepseek-chat-v3.1:free', 'object': 'chat.completion', 'created': 1757657304, 'choices': [{'logprobs': None, 'finish_reason': 'stop', 'native_finish_reason': 'stop', 'index': 0, 'message': {'role': 'assistant', 'content': 'general', 'refusal': None, 'reasoning': None}}], 'usage': {'prompt_tokens': 50, 'completion_tokens': 2, 'total_tokens': 52, 'prompt_tokens_details': None}},response : <Response [200]>
+2025-09-12 11:38:26 INFO: intent classified
+2025-09-12 11:38:26 INFO: general
+2025-09-12 11:38:26 INFO: general intent detected
+2025-09-12 11:38:35 INFO: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-12 11:38:35 INFO: 127.0.0.1 - - [12/Sep/2025 11:38:35] "POST /process-data HTTP/1.1" 200 -
+2025-09-12 11:38:40 INFO: responsejson:{'id': 'gen-1757657318-7IjFGjhB7FwP6QLAsUZ3', 'provider': 'DeepInfra', 'model': 'deepseek/deepseek-chat-v3.1:free', 'object': 'chat.completion', 'created': 1757657318, 'choices': [{'logprobs': None, 'finish_reason': 'stop', 'native_finish_reason': 'stop', 'index': 0, 'message': {'role': 'assistant', 'content': 'data_fetch', 'refusal': None, 'reasoning': None}}], 'usage': {'prompt_tokens': 56, 'completion_tokens': 4, 'total_tokens': 60, 'prompt_tokens_details': None}},response : <Response [200]>
+2025-09-12 11:38:40 INFO: intent classified
+2025-09-12 11:38:40 INFO: data_fetch
+2025-09-12 11:38:40 INFO: data_fetch intent detected
+2025-09-12 11:38:40 INFO: Received user message: when was the last order i placed
+2025-09-12 11:38:40 INFO: started sql generation
+2025-09-12 11:38:44 INFO: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-12 11:38:44 INFO: Generated SQL query: SELECT "id", "customer_number", "customer_name", "client_id", "client_name", "captain_name", "delivery_date", "order_status", "shop_to_delivery_km", "order_created_at", "order_accepted_at", "start_ride_at", "reached_shop_at", "order_picked_at", "shipped_at", "reached_dest_at", "final_status_at", "cancellation_reason" FROM "updated_table" WHERE "client_name" = 'MC DONALDS' AND "delivery_date" <= '2025-09-12 11:38:37.296630' ORDER BY "delivery_date" DESC LIMIT 10;
+2025-09-12 11:38:44 INFO: sql generation success
+2025-09-12 11:38:50 INFO: Database fetching successful: [
+  {
+    "id": 1823361,
+    "customer_number": 8144065964,
+    "customer_name": "Customer_FSW",
+    "client_id": 3,
+    "client_name": "MC DONALDS",
+    "captain_name": "MOHAMMED HAMED -DMM - JOD10",
+    "delivery_date": "2025-07-21T19:42:19",
+    "order_status": "Delivered",
+    "shop_to_delivery_km": 3.821,
+    "order_created_at": "2025-07-21T19:12:34",
+    "order_accepted_at": "2025-07-21T19:12:50",
+    "start_ride_at": "2025-07-21T19:15:33",
+    "reached_shop_at": "2025-07-21T19:21:02",
+    "order_picked_at": "2025-07-21T19:25:41",
+    "shipped_at": "2025-07-21T19:26:51",
+    "reached_dest_at": "2025-07-21T19:39:50",
+    "final_status_at": "2025-07-21T19:42:19",
+    "cancellation_reason": "0"
+  },
+  {
+    "id": 1823152,
+    "customer_number": 9444361492,
+    "customer_name": "Customer_BMG",
+    "client_id": 3,
+    "client_name": "MC DONALDS",
+    "captain_name": "MD Asif -RUH - Private12",
+    "delivery_date": "2025-07-21T19:42:16",
+    "order_status": "Canceled",
+    "shop_to_delivery_km": 0.0,
+    "order_created_at": "2025-07-21T17:30:15",
+    "order_accepted_at": "2025-07-21T18:58:53",
+    "start_ride_at": "2025-07-21T19:05:37",
+    "reached_shop_at": "2025-07-21T19:05:40",
+    "order_picked_at": "2025-07-21T19:07:33",
+    "shipped_at": "2025-06-28T00:00:41",
+    "reached_dest_at": "2025-06-28T00:00:41",
+    "final_status_at": "2025-07-21T19:42:16",
+    "cancellation_reason": "CUSTOMER WANTS TO CHANGE PAYMENT METHOD"
+  },
+  {
+    "id": 1823334,
+    "customer_number": 5182530878,
+    "customer_name": "Customer_OLO",
+    "client_id": 3,
+    "client_name": "MC DONALDS",
+    "captain_name": "ALI QRANI -RUH - H10",
+    "delivery_date": "2025-07-21T19:40:32",
+    "order_status": "Delivered",
+    "shop_to_delivery_km": 2.795,
+    "order_created_at": "2025-07-21T18:58:45",
+    "order_accepted_at": "2025-07-21T18:59:11",
+    "start_ride_at": "2025-07-21T19:01:18",
+    "reached_shop_at": "2025-07-21T19:01:47",
+    "order_picked_at": "2025-07-21T19:16:50",
+    "shipped_at": "2025-07-21T19:40:14",
+    "reached_dest_at": "2025-07-21T19:40:27",
+    "final_status_at": "2025-07-21T19:40:32",
+    "cancellation_reason": "0"
+  },
+  {
+    "id": 1823379,
+    "customer_number": 2666746694,
+    "customer_name": "Customer_ZJX",
+    "client_id": 3,
+    "client_name": "MC DONALDS",
+    "captain_name": "ALAA HEFNY -HOF- JOD10",
+    "delivery_date": "2025-07-21T19:40:28",
+    "order_status": "Delivered",
+    "shop_to_delivery_km": 2.349,
+    "order_created_at": "2025-07-21T19:21:10",
+    "order_accepted_at": "2025-07-21T19:21:25",
+    "start_ride_at": "2025-07-21T19:21:31",
+    "reached_shop_at": "2025-07-21T19:21:33",
+    "order_picked_at": "2025-07-21T19:34:55",
+    "shipped_at": "2025-07-21T19:40:19",
+    "reached_dest_at": "2025-07-21T19:40:25",
+    "final_status_at": "2025-07-21T19:40:28",
+    "cancellation_reason": "0"
+  },
+  {
+    "id": 1823383,
+    "customer_number": 9061198814,
+    "customer_name": "Customer_PHR",
+    "client_id": 3,
+    "client_name": "MC DONALDS",
+    "captain_name": "SALEM AHMED -RUH - Private10",
+    "delivery_date": "2025-07-21T19:38:52",
+    "order_status": "Delivered",
+    "shop_to_delivery_km": 2.858,
+    "order_created_at": "2025-07-21T19:23:56",
+    "order_accepted_at": "2025-07-21T19:24:17",
+    "start_ride_at": "2025-07-21T19:24:19",
+    "reached_shop_at": "2025-07-21T19:24:21",
+    "order_picked_at": "2025-07-21T19:30:25",
+    "shipped_at": "2025-07-21T19:37:51",
+    "reached_dest_at": "2025-07-21T19:38:43",
+    "final_status_at": "2025-07-21T19:38:52",
+    "cancellation_reason": "0"
+  },
+  {
+    "id": 1823370,
+    "customer_number": 4966167537,
+    "customer_name": "Customer_DKQ",
+    "client_id": 3,
+    "client_name": "MC DONALDS",
+    "captain_name": "MONGED MOSTAFA -DMM - SAHHEL10",
+    "delivery_date": "2025-07-21T19:38:18",
+    "order_status": "Delivered",
+    "shop_to_delivery_km": 5.885,
+    "order_created_at": "2025-07-21T19:16:57",
+    "order_accepted_at": "2025-07-21T19:17:10",
+    "start_ride_at": "2025-07-21T19:17:15",
+    "reached_shop_at": "2025-07-21T19:17:19",
+    "order_picked_at": "2025-07-21T19:22:41",
+    "shipped_at": "2025-07-21T19:37:49",
+    "reached_dest_at": "2025-07-21T19:38:15",
+    "final_status_at": "2025-07-21T19:38:18",
+    "cancellation_reason": "0"
+  },
+  {
+    "id": 1823342,
+    "customer_number": 6841247441,
+    "customer_name": "Customer_OXV",
+    "client_id": 3,
+    "client_name": "MC DONALDS",
+    "captain_name": "MAMDOOH ALI -RUH - \u00e2\u20ac\u017dshaqra14",
+    "delivery_date": "2025-07-21T19:37:23",
+    "order_status": "Delivered",
+    "shop_to_delivery_km": 0.499,
+    "order_created_at": "2025-07-21T19:01:42",
+    "order_accepted_at": "2025-07-21T19:01:54",
+    "start_ride_at": "2025-07-21T19:02:00",
+    "reached_shop_at": "2025-07-21T19:03:11",
+    "order_picked_at": "2025-07-21T19:24:50",
+    "shipped_at": "2025-07-21T19:30:24",
+    "reached_dest_at": "2025-07-21T19:37:20",
+    "final_status_at": "2025-07-21T19:37:23",
+    "cancellation_reason": "0"
+  },
+  {
+    "id": 1823360,
+    "customer_number": 2114858619,
+    "customer_name": "Customer_DHZ",
+    "client_id": 3,
+    "client_name": "MC DONALDS",
+    "captain_name": "SALEH ESMAIL - RUH - shaqra14",
+    "delivery_date": "2025-07-21T19:32:53",
+    "order_status": "Delivered",
+    "shop_to_delivery_km": 1.839,
+    "order_created_at": "2025-07-21T19:11:57",
+    "order_accepted_at": "2025-07-21T19:12:17",
+    "start_ride_at": "2025-07-21T19:12:19",
+    "reached_shop_at": "2025-07-21T19:12:22",
+    "order_picked_at": "2025-07-21T19:17:55",
+    "shipped_at": "2025-07-21T19:32:13",
+    "reached_dest_at": "2025-07-21T19:32:33",
+    "final_status_at": "2025-07-21T19:32:53",
+    "cancellation_reason": "0"
+  },
+  {
+    "id": 1823336,
+    "customer_number": 7657856923,
+    "customer_name": "Customer_PVF",
+    "client_id": 3,
+    "client_name": "MC DONALDS",
+    "captain_name": "Mohamed Abdalla -RUH - H12",
+    "delivery_date": "2025-07-21T19:31:24",
+    "order_status": "Delivered",
+    "shop_to_delivery_km": 2.189,
+    "order_created_at": "2025-07-21T18:59:54",
+    "order_accepted_at": "2025-07-21T19:00:53",
+    "start_ride_at": "2025-07-21T19:02:07",
+    "reached_shop_at": "2025-07-21T19:06:35",
+    "order_picked_at": "2025-07-21T19:06:38",
+    "shipped_at": "2025-07-21T19:30:50",
+    "reached_dest_at": "2025-07-21T19:31:18",
+    "final_status_at": "2025-07-21T19:31:24",
+    "cancellation_reason": "0"
+  },
+  {
+    "id": 1823356,
+    "customer_number": 6907600656,
+    "customer_name": "Customer_OXU",
+    "client_id": 3,
+    "client_name": "MC DONALDS",
+    "captain_name": "Abdo Salem Ali - RUH - shaqra14",
+    "delivery_date": "2025-07-21T19:30:36",
+    "order_status": "Delivered",
+    "shop_to_delivery_km": 1.859,
+    "order_created_at": "2025-07-21T19:10:08",
+    "order_accepted_at": "2025-07-21T19:10:39",
+    "start_ride_at": "2025-07-21T19:10:46",
+    "reached_shop_at": "2025-07-21T19:10:49",
+    "order_picked_at": "2025-07-21T19:21:05",
+    "shipped_at": "2025-07-21T19:30:28",
+    "reached_dest_at": "2025-07-21T19:30:33",
+    "final_status_at": "2025-07-21T19:30:36",
+    "cancellation_reason": "0"
+  }
+]
+2025-09-12 11:38:50 INFO: database query executed succesfully
+2025-09-12 11:38:50 INFO: Started summary generation
+2025-09-12 11:38:53 INFO: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-12 11:38:53 INFO: delta: {'content': 'Your', 'function_call': None, 'refusal': None, 'role': 'assistant', 'tool_calls': None}
+2025-09-12 11:38:53 INFO: 127.0.0.1 - - [12/Sep/2025 11:38:53] "POST /process-data HTTP/1.1" 200 -
+2025-09-12 11:38:53 INFO: delta: {'content': ' most', 'function_call': None, 'refusal': None, 'role': 'assistant', 'tool_calls': None}
+2025-09-12 11:38:53 INFO: delta: {'content': ' recent order', 'function_call': None, 'refusal': None, 'role': 'assistant', 'tool_calls': None}
+2025-09-12 11:38:53 INFO: delta: {'content': ' was placed', 'function_call': None, 'refusal': None, 'role': 'assistant', 'tool_calls': None}
+2025-09-12 11:38:54 INFO: delta: {'content': ' on July', 'function_call': None, 'refusal': None, 'role': 'assistant', 'tool_calls': None}
+2025-09-12 11:38:54 INFO: delta: {'content': ' 21', 'function_call': None, 'refusal': None, 'role': 'assistant', 'tool_calls': None}
+2025-09-12 11:38:54 INFO: delta: {'content': ', ', 'function_call': None, 'refusal': None, 'role': 'assistant', 'tool_calls': None}
+2025-09-12 11:38:54 INFO: delta: {'content': '2025', 'function_call': None, 'refusal': None, 'role': 'assistant', 'tool_calls': None}
+2025-09-12 11:38:55 INFO: delta: {'content': ' at ', 'function_call': None, 'refusal': None, 'role': 'assistant', 'tool_calls': None}
+2025-09-12 11:38:55 INFO: delta: {'content': '7:', 'function_call': None, 'refusal': None, 'role': 'assistant', 'tool_calls': None}
+2025-09-12 11:38:55 INFO: delta: {'content': '23 PM', 'function_call': None, 'refusal': None, 'role': 'assistant', 'tool_calls': None}
+2025-09-12 11:38:56 INFO: delta: {'content': ', delivered', 'function_call': None, 'refusal': None, 'role': 'assistant', 'tool_calls': None}
+2025-09-12 11:38:56 INFO: delta: {'content': ' successfully from', 'function_call': None, 'refusal': None, 'role': 'assistant', 'tool_calls': None}
+2025-09-12 11:38:56 INFO: delta: {'content': " McDonald's", 'function_call': None, 'refusal': None, 'role': 'assistant', 'tool_calls': None}
+2025-09-12 11:38:56 INFO: delta: {'content': ' with a', 'function_call': None, 'refusal': None, 'role': 'assistant', 'tool_calls': None}
+2025-09-12 11:38:56 INFO: delta: {'content': ' distance', 'function_call': None, 'refusal': None, 'role': 'assistant', 'tool_calls': None}
+2025-09-12 11:38:56 INFO: delta: {'content': ' of ', 'function_call': None, 'refusal': None, 'role': 'assistant', 'tool_calls': None}
+2025-09-12 11:38:57 INFO: delta: {'content': '2.', 'function_call': None, 'refusal': None, 'role': 'assistant', 'tool_calls': None}
+2025-09-12 11:38:57 INFO: delta: {'content': '858', 'function_call': None, 'refusal': None, 'role': 'assistant', 'tool_calls': None}
+2025-09-12 11:38:57 INFO: delta: {'content': ' km', 'function_call': None, 'refusal': None, 'role': 'assistant', 'tool_calls': None}
+2025-09-12 11:38:57 INFO: delta: {'content': '.', 'function_call': None, 'refusal': None, 'role': 'assistant', 'tool_calls': None}
+2025-09-12 11:38:57 INFO: delta: {'content': '', 'function_call': None, 'refusal': None, 'role': 'assistant', 'tool_calls': None}
+2025-09-12 11:40:42 INFO:  * Detected change in 'C:\\Users\\USER\\Desktop\\LEAJLAK\\beta\\patch3\\ai-assistant\\intent_classifier.py', reloading
+2025-09-12 11:40:42 INFO:  * Detected change in 'C:\\Users\\USER\\Desktop\\LEAJLAK\\beta\\patch3\\ai-assistant\\intent_classifier.py', reloading
+2025-09-12 11:40:42 INFO:  * Detected change in 'C:\\Users\\USER\\Desktop\\LEAJLAK\\beta\\patch3\\ai-assistant\\intent_classifier.py', reloading
+2025-09-12 11:40:43 INFO:  * Restarting with watchdog (windowsapi)
+2025-09-12 11:40:51 WARNING:  * Debugger is active!
+2025-09-12 11:40:51 INFO:  * Debugger PIN: 115-265-433
+2025-09-12 11:42:20 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\os.py', reloading
+2025-09-12 11:42:21 INFO:  * Restarting with watchdog (windowsapi)
+2025-09-12 11:43:41 INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-09-12 11:43:41 INFO: [33mPress CTRL+C to quit[0m
+2025-09-12 11:43:41 INFO:  * Restarting with watchdog (windowsapi)
+2025-09-12 11:43:48 WARNING:  * Debugger is active!
+2025-09-12 11:43:48 INFO:  * Debugger PIN: 115-265-433
+2025-09-12 11:43:48 INFO: 127.0.0.1 - - [12/Sep/2025 11:43:48] "GET / HTTP/1.1" 200 -
+2025-09-12 11:43:51 INFO: Received request data: {'mobile': '918921729081'}
+2025-09-12 11:43:51 INFO: Updated mobile: 918921729081
+2025-09-12 11:43:52 INFO: Updated name: MC DONALDS
+2025-09-12 11:43:52 INFO: 127.0.0.1 - - [12/Sep/2025 11:43:52] "POST /number HTTP/1.1" 200 -
+2025-09-12 11:43:52 INFO: 127.0.0.1 - - [12/Sep/2025 11:43:52] "POST /names HTTP/1.1" 200 -
+2025-09-12 11:44:03 INFO: intent classified
+2025-09-12 11:44:03 INFO: general
+2025-09-12 11:44:03 INFO: general intent detected
+2025-09-12 11:44:03 ERROR: module 'function' has no attribute 'generate_openai_reply'
+2025-09-12 11:44:03 INFO: Received user message: hlo
+2025-09-12 11:44:03 INFO: started sql generation
+2025-09-12 11:44:05 INFO: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-12 11:44:05 INFO: Generated SQL query: select * from message_table;
+2025-09-12 11:44:05 INFO: sql generation success
+2025-09-12 11:44:07 INFO: Database fetching successful: [
+  {
+    "message": "greet_message"
+  }
+]
+2025-09-12 11:44:07 INFO: database query executed succesfully
+2025-09-12 11:44:07 INFO: Started summary generation
+2025-09-12 11:44:09 INFO: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-12 11:44:10 INFO: delta: {'content': 'No', 'function_call': None, 'refusal': None, 'role': 'assistant', 'tool_calls': None}
+2025-09-12 11:44:10 INFO: 127.0.0.1 - - [12/Sep/2025 11:44:10] "POST /process-data HTTP/1.1" 200 -
+2025-09-12 11:44:10 INFO: delta: {'content': ' data', 'function_call': None, 'refusal': None, 'role': 'assistant', 'tool_calls': None}
+2025-09-12 11:44:10 INFO: delta: {'content': ' available for', 'function_call': None, 'refusal': None, 'role': 'assistant', 'tool_calls': None}
+2025-09-12 11:44:11 INFO: delta: {'content': ' your', 'function_call': None, 'refusal': None, 'role': 'assistant', 'tool_calls': None}
+2025-09-12 11:44:11 INFO: delta: {'content': ' message.', 'function_call': None, 'refusal': None, 'role': 'assistant', 'tool_calls': None}
+2025-09-12 11:44:11 INFO: delta: {'content': '', 'function_call': None, 'refusal': None, 'role': 'assistant', 'tool_calls': None}
+2025-09-12 11:44:11 INFO: delta: {'content': '', 'function_call': None, 'refusal': None, 'role': 'assistant', 'tool_calls': None}
+2025-09-12 11:45:24 INFO: intent classified
+2025-09-12 11:45:24 INFO: general
+2025-09-12 11:45:24 INFO: general intent detected
+2025-09-12 11:45:24 ERROR: module 'function' has no attribute 'generate_openai_reply'
+2025-09-12 11:45:25 INFO: Received user message: ha
+2025-09-12 11:45:25 INFO: started sql generation
+2025-09-12 11:45:26 INFO: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-12 11:45:26 INFO: Generated SQL query: select * from message_table;
+2025-09-12 11:45:27 INFO: sql generation success
+2025-09-12 11:45:29 INFO: Database fetching successful: [
+  {
+    "message": "greet_message"
+  }
+]
+2025-09-12 11:45:29 INFO: database query executed succesfully
+2025-09-12 11:45:29 INFO: Started summary generation
+2025-09-12 11:45:30 INFO: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-12 11:45:33 INFO: delta: {'content': 'No', 'function_call': None, 'refusal': None, 'role': 'assistant', 'tool_calls': None}
+2025-09-12 11:45:33 INFO: 127.0.0.1 - - [12/Sep/2025 11:45:33] "POST /process-data HTTP/1.1" 200 -
+2025-09-12 11:45:33 INFO: delta: {'content': ' data available', 'function_call': None, 'refusal': None, 'role': 'assistant', 'tool_calls': None}
+2025-09-12 11:45:33 INFO: delta: {'content': ' for your', 'function_call': None, 'refusal': None, 'role': 'assistant', 'tool_calls': None}
+2025-09-12 11:45:33 INFO: delta: {'content': ' message.', 'function_call': None, 'refusal': None, 'role': 'assistant', 'tool_calls': None}
+2025-09-12 11:45:33 INFO: delta: {'content': '', 'function_call': None, 'refusal': None, 'role': 'assistant', 'tool_calls': None}
+2025-09-12 11:45:33 INFO: delta: {'content': '', 'function_call': None, 'refusal': None, 'role': 'assistant', 'tool_calls': None}
+2025-09-12 11:45:42 INFO: intent classified
+2025-09-12 11:45:42 INFO: general
+2025-09-12 11:45:42 INFO: general intent detected
+2025-09-12 11:45:42 ERROR: module 'function' has no attribute 'generate_openai_reply'
+2025-09-12 11:45:42 INFO: Received user message: hlo
+2025-09-12 11:45:42 INFO: started sql generation
+2025-09-12 11:45:48 INFO: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-12 11:45:48 INFO: Generated SQL query: select * from message_table;
+2025-09-12 11:45:48 INFO: sql generation success
+2025-09-12 11:45:53 INFO: Database fetching successful: [
+  {
+    "message": "greet_message"
+  }
+]
+2025-09-12 11:45:53 INFO: database query executed succesfully
+2025-09-12 11:45:53 INFO: Started summary generation
+2025-09-12 11:45:55 INFO: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-12 11:45:56 INFO: 127.0.0.1 - - [12/Sep/2025 11:45:56] "GET / HTTP/1.1" 200 -
+2025-09-12 11:45:56 INFO: delta: {'content': 'No', 'function_call': None, 'refusal': None, 'role': 'assistant', 'tool_calls': None}
+2025-09-12 11:45:56 INFO: 127.0.0.1 - - [12/Sep/2025 11:45:56] "POST /process-data HTTP/1.1" 200 -
+2025-09-12 11:45:58 INFO: Received request data: {'mobile': '918921729081'}
+2025-09-12 11:45:58 INFO: Updated mobile: 918921729081
+2025-09-12 11:46:02 INFO: Updated name: MC DONALDS
+2025-09-12 11:46:02 INFO: 127.0.0.1 - - [12/Sep/2025 11:46:02] "POST /number HTTP/1.1" 200 -
+2025-09-12 11:46:03 INFO: 127.0.0.1 - - [12/Sep/2025 11:46:03] "POST /names HTTP/1.1" 200 -
+2025-09-12 11:46:11 INFO: intent classified
+2025-09-12 11:46:11 INFO: general
+2025-09-12 11:46:11 INFO: general intent detected
+2025-09-12 11:46:11 ERROR: module 'function' has no attribute 'generate_openai_reply'
+2025-09-12 11:46:11 INFO: Received user message: hlo
+2025-09-12 11:46:11 INFO: started sql generation
+2025-09-12 11:46:13 INFO: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-12 11:46:13 INFO: Generated SQL query: select * from message_table;
+2025-09-12 11:46:13 INFO: sql generation success
+2025-09-12 11:46:17 INFO: Database fetching successful: [
+  {
+    "message": "greet_message"
+  }
+]
+2025-09-12 11:46:17 INFO: database query executed succesfully
+2025-09-12 11:46:17 INFO: Started summary generation
+2025-09-12 11:46:19 INFO: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-12 11:46:19 INFO: delta: {'content': 'No', 'function_call': None, 'refusal': None, 'role': 'assistant', 'tool_calls': None}
+2025-09-12 11:46:19 INFO: 127.0.0.1 - - [12/Sep/2025 11:46:19] "POST /process-data HTTP/1.1" 200 -
+2025-09-12 11:46:19 INFO: delta: {'content': ' data', 'function_call': None, 'refusal': None, 'role': 'assistant', 'tool_calls': None}
+2025-09-12 11:46:19 INFO: delta: {'content': ' available for', 'function_call': None, 'refusal': None, 'role': 'assistant', 'tool_calls': None}
+2025-09-12 11:46:20 INFO: delta: {'content': ' the message', 'function_call': None, 'refusal': None, 'role': 'assistant', 'tool_calls': None}
+2025-09-12 11:46:20 INFO: delta: {'content': ' user', 'function_call': None, 'refusal': None, 'role': 'assistant', 'tool_calls': None}
+2025-09-12 11:46:20 INFO: delta: {'content': ' sent.', 'function_call': None, 'refusal': None, 'role': 'assistant', 'tool_calls': None}
+2025-09-12 11:46:20 INFO: delta: {'content': '', 'function_call': None, 'refusal': None, 'role': 'assistant', 'tool_calls': None}
+2025-09-12 11:46:20 INFO: delta: {'content': '', 'function_call': None, 'refusal': None, 'role': 'assistant', 'tool_calls': None}
+2025-09-12 11:46:45 INFO:  * Detected change in 'C:\\Users\\USER\\Desktop\\LEAJLAK\\beta\\patch3\\ai-assistant\\function.py', reloading
+2025-09-12 11:46:45 INFO:  * Detected change in 'C:\\Users\\USER\\Desktop\\LEAJLAK\\beta\\patch3\\ai-assistant\\function.py', reloading
+2025-09-12 11:46:46 INFO:  * Restarting with watchdog (windowsapi)
+2025-09-12 11:46:53 WARNING:  * Debugger is active!
+2025-09-12 11:46:53 INFO:  * Debugger PIN: 115-265-433
+2025-09-12 11:47:14 INFO: intent classified
+2025-09-12 11:47:14 INFO: general
+2025-09-12 11:47:14 INFO: general intent detected
+2025-09-12 11:47:14 ERROR: generate_openai_reply() missing 1 required positional argument: 'client'
+2025-09-12 11:47:14 INFO: Received user message: hlo
+2025-09-12 11:47:14 INFO: started sql generation
+2025-09-12 11:47:19 INFO: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-12 11:47:19 INFO: Generated SQL query: select * from message_table;
+2025-09-12 11:47:19 INFO: sql generation success
+2025-09-12 11:47:22 INFO: Database fetching successful: [
+  {
+    "message": "greet_message"
+  }
+]
+2025-09-12 11:47:23 INFO: database query executed succesfully
+2025-09-12 11:47:23 INFO: Started summary generation
+2025-09-12 11:47:25 INFO: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-12 11:47:26 INFO: delta: {'content': 'No', 'function_call': None, 'refusal': None, 'role': 'assistant', 'tool_calls': None}
+2025-09-12 11:47:26 INFO: 127.0.0.1 - - [12/Sep/2025 11:47:26] "POST /process-data HTTP/1.1" 200 -
+2025-09-12 11:47:26 INFO: delta: {'content': ' data', 'function_call': None, 'refusal': None, 'role': 'assistant', 'tool_calls': None}
+2025-09-12 11:47:26 INFO: delta: {'content': ' available for', 'function_call': None, 'refusal': None, 'role': 'assistant', 'tool_calls': None}
+2025-09-12 11:47:26 INFO: delta: {'content': ' the message', 'function_call': None, 'refusal': None, 'role': 'assistant', 'tool_calls': None}
+2025-09-12 11:47:26 INFO: delta: {'content': ' you sent', 'function_call': None, 'refusal': None, 'role': 'assistant', 'tool_calls': None}
+2025-09-12 11:47:26 INFO: delta: {'content': '.', 'function_call': None, 'refusal': None, 'role': 'assistant', 'tool_calls': None}
+2025-09-12 11:47:26 INFO: delta: {'content': '', 'function_call': None, 'refusal': None, 'role': 'assistant', 'tool_calls': None}
+2025-09-12 11:47:44 INFO:  * Detected change in 'C:\\Users\\USER\\Desktop\\LEAJLAK\\beta\\patch3\\ai-assistant\\app.py', reloading
+2025-09-12 11:47:44 INFO:  * Detected change in 'C:\\Users\\USER\\Desktop\\LEAJLAK\\beta\\patch3\\ai-assistant\\app.py', reloading
+2025-09-12 11:47:46 INFO:  * Restarting with watchdog (windowsapi)
+2025-09-12 11:47:55 WARNING:  * Debugger is active!
+2025-09-12 11:47:55 INFO:  * Debugger PIN: 115-265-433
+2025-09-12 11:47:58 INFO: intent classified
+2025-09-12 11:47:58 INFO: general
+2025-09-12 11:47:58 INFO: general intent detected
+2025-09-12 11:48:01 INFO: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-12 11:48:01 INFO: 127.0.0.1 - - [12/Sep/2025 11:48:01] "POST /process-data HTTP/1.1" 200 -

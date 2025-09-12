@@ -13,7 +13,7 @@ import secrets
 from flask_sqlalchemy import SQLAlchemy
 import re
 from openai import OpenAI
-from intent_classifier import classify_intent,generate_openai_reply
+from intent_classifier import classify_intent
 import prompts
 import function
 
@@ -182,6 +182,17 @@ def process_data():
     
     name=get_value('name')
 
+
+    try:
+        if not isinstance(user_messages, list):
+            messages_to_save = [user_messages]
+        else:
+            messages_to_save = user_messages    
+        function.append_messages_to_excel(messages_to_save)
+    except Exception as e:
+        logging.info(f'error saving to excel:{e}')
+
+
 # datetime handling
     try:
         now = datetime.now()
@@ -199,7 +210,7 @@ def process_data():
         if intent == 'general':
             logging.info('general intent detected')
             try:
-                reply = generate_openai_reply(user_messages)
+                reply = function.generate_openai_reply(user_messages,client)
                 return (str(reply))
             except Exception as e:
                 logging.error(f'{e}')
@@ -228,12 +239,16 @@ def process_data():
     
     try:
         sql_query = function.generate_sql_with_openai(prompt_sql,client)
-        logging.info(f'sql generation success {prompt_sql}')
+        try:
+            function.append_sql_to_excel([sql_query])
+        except Exception as e:
+            logging.info(f'error ssaving sql to excel {e}')
+        logging.info(f'sql generation success')
 
     except Exception as e:
         return jsonify({"reply": "Failed to generate query", "name": name}), 500
 
-    try:
+    '''    try:
         #db_data_json,status_code=fetch_query_results_as_dict(DB_URL,sql_query)
         with psycopg2.connect(DB_URL) as conn:
             with conn.cursor() as cur:
@@ -260,20 +275,24 @@ def process_data():
                     logging.info(f'database fetching successfull{str(db_data_json)}')
                 except Exception as e:
                     logging.info(f'db return null: {str(e)}')
-
-                
     except psycopg2.Error as e:
         logging.info(f"Database error: {str(e)}")
         return jsonify({"reply": f"{sql_query} Data not avialable currently"}), 501
-
-    if not rows:
+    '''
+    '''if not rows:
         logging.info(f'the query returned null in database')
         return jsonify({
             "reply": "The data is not avialable in the database"
         }), 405
+    '''
+
+    db_data_json, success = function.execute_query_and_get_json(DB_URL, sql_query)
+    if success and db_data_json:
+        logging.info('database query executed succesfully')
+    else:
+        logging.error('database query execution failure')
 
 
-   
     try:
         prompt_analysis = f'''
             fetched data = {db_data_json}
@@ -283,42 +302,6 @@ def process_data():
             the sql query that is generated right now = {sql_query}
             '''
         
-        '''def generate_stream(prompt_analysis,wpm=350):
-            try:
-                summary_prompt=prompts.summary_prompt
-                logging.info('started summary generation')
-                response = client2.chat.completions.create(
-                    model="deepseek/deepseek-chat-v3.1:free",
-                    stream=True,
-                    messages=[
-                        {
-                            "role":"system",
-                            "content":summary_prompt
-                        },
-                        {
-                            "role":"user",
-                            "content":prompt_analysis
-                        },
-                    ]
-                ) 
-            except Exception as e:
-                logging.error(f'response creattion failed: {str(e)}')
-                return
-
-            for chunk in response:
-                delta = chunk.choices[0].delta  
-                logging.info(f'delta: {delta.__dict__}')  # Log all attributes in delta
-                if hasattr(delta, 'content') and delta.content:
-                    try:
-                        yield delta.content.encode('utf-8')
-                        char_count = len(delta.content)
-                        delay = (char_count * 30.0) / (wpm * 5)  # Assuming avg 5 chars per word
-                        time_module.sleep(delay)
-                    except Exception as e:
-                        logging.error(f'streaming error{str(e)}')
-
-        return Response(generate_stream(prompt_analysis),mimetype='text/plain')'''
-
 
         return Response(
             function.generate_streaming_response(prompt_analysis, client2, prompts),
