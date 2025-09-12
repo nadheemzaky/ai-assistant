@@ -15,6 +15,7 @@ import re
 from openai import OpenAI
 from intent_classifier import classify_intent,generate_openai_reply
 import prompts
+import function
 
 # do not touch this
 load_dotenv()
@@ -170,7 +171,7 @@ def names_route():
         logging.error(f'names endpoint error occured')
         return jsonify({"error": "No names available"}), 404
     
-    # Get the last name safely
+# Get the last name safely
     name = get_value('name')
     return jsonify({"name": name})
 
@@ -226,7 +227,7 @@ def process_data():
    '''
     
     try:
-        sql_query = generate_sql_with_openai(prompt_sql)
+        sql_query = function.generate_sql_with_openai(prompt_sql,client)
         logging.info(f'sql generation success {prompt_sql}')
 
     except Exception as e:
@@ -271,16 +272,18 @@ def process_data():
             "reply": "The data is not avialable in the database"
         }), 405
 
-    prompt_analysis = f'''
-        fetched data = {db_data_json}
-        user message = {user_messages} 
-        the previous response provided by llm = {get_value('summary')}
-        previous question asked by the user = {get_value('user_messages')}
-        the sql query that is generated right now = {sql_query}
-        '''
+
    
     try:
-        def generate_stream(prompt_analysis,wpm=350):
+        prompt_analysis = f'''
+            fetched data = {db_data_json}
+            user message = {user_messages} 
+            the previous response provided by llm = {get_value('summary')}
+            previous question asked by the user = {get_value('user_messages')}
+            the sql query that is generated right now = {sql_query}
+            '''
+        
+        '''def generate_stream(prompt_analysis,wpm=350):
             try:
                 summary_prompt=prompts.summary_prompt
                 logging.info('started summary generation')
@@ -314,7 +317,13 @@ def process_data():
                     except Exception as e:
                         logging.error(f'streaming error{str(e)}')
 
-        return Response(generate_stream(prompt_analysis),mimetype='text/plain')
+        return Response(generate_stream(prompt_analysis),mimetype='text/plain')'''
+
+
+        return Response(
+            function.generate_streaming_response(prompt_analysis, client2, prompts),
+            mimetype='text/plain'
+        )
     except Exception as e:
         logging.error(f'{str(e)}')
         return jsonify({"error": "Internal server error"}), 500
@@ -350,7 +359,7 @@ def end():
 
 @app.route('/')
 def home():
-    return render_template('index4.html')
+    return render_template('index5.html')
 
 if __name__ == '__main__':
 

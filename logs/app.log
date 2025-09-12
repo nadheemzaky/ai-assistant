@@ -2675,3 +2675,71 @@ A detailed migration guide is available here: https://github.com/openai/openai-p
 2025-09-11 16:04:52 INFO:  * Debugger PIN: 115-265-433
 2025-09-11 16:04:55 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Roaming\\Python\\Python313\\site-packages\\psycopg2\\__init__.py', reloading
 2025-09-11 16:04:56 INFO:  * Restarting with watchdog (windowsapi)
+2025-09-11 16:05:02 WARNING:  * Debugger is active!
+2025-09-11 16:05:02 INFO:  * Debugger PIN: 115-265-433
+2025-09-11 17:19:18 INFO: 127.0.0.1 - - [11/Sep/2025 17:19:18] "GET / HTTP/1.1" 200 -
+2025-09-11 17:19:19 INFO: 127.0.0.1 - - [11/Sep/2025 17:19:19] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-09-11 17:19:19 INFO: 127.0.0.1 - - [11/Sep/2025 17:19:19] "GET / HTTP/1.1" 200 -
+2025-09-11 17:19:54 INFO: 127.0.0.1 - - [11/Sep/2025 17:19:54] "GET / HTTP/1.1" 200 -
+2025-09-11 17:19:55 INFO: 127.0.0.1 - - [11/Sep/2025 17:19:55] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-09-11 18:19:26 INFO:  * Detected change in 'C:\\Users\\USER\\Desktop\\LEAJLAK\\beta\\patch3\\ai-assistant\\intent_classifier.py', reloading
+2025-09-11 18:19:26 INFO:  * Detected change in 'C:\\Users\\USER\\Desktop\\LEAJLAK\\beta\\patch3\\ai-assistant\\intent_classifier.py', reloading
+2025-09-11 18:19:26 INFO:  * Detected change in 'C:\\Users\\USER\\Desktop\\LEAJLAK\\beta\\patch3\\ai-assistant\\function.py', reloading
+2025-09-11 18:19:26 INFO:  * Detected change in 'C:\\Users\\USER\\Desktop\\LEAJLAK\\beta\\patch3\\ai-assistant\\app.py', reloading
+2025-09-11 18:19:26 INFO:  * Detected change in 'C:\\Users\\USER\\Desktop\\LEAJLAK\\beta\\patch3\\ai-assistant\\app.py', reloading
+2025-09-11 18:19:26 INFO:  * Detected change in 'C:\\Users\\USER\\Desktop\\LEAJLAK\\beta\\patch3\\ai-assistant\\app.py', reloading
+2025-09-11 18:21:12 INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-09-11 18:21:12 INFO: [33mPress CTRL+C to quit[0m
+2025-09-11 18:21:12 INFO:  * Restarting with watchdog (windowsapi)
+2025-09-11 18:21:20 WARNING:  * Debugger is active!
+2025-09-11 18:21:20 INFO:  * Debugger PIN: 115-265-433
+2025-09-11 18:21:20 INFO: 127.0.0.1 - - [11/Sep/2025 18:21:20] "GET / HTTP/1.1" 200 -
+2025-09-11 18:21:20 INFO: 127.0.0.1 - - [11/Sep/2025 18:21:20] "GET / HTTP/1.1" 200 -
+2025-09-11 18:21:25 INFO: Received request data: {'mobile': '918921729081'}
+2025-09-11 18:21:25 INFO: Updated mobile: 918921729081
+2025-09-11 18:21:29 INFO: Updated name: MC DONALDS
+2025-09-11 18:21:29 INFO: 127.0.0.1 - - [11/Sep/2025 18:21:29] "POST /number HTTP/1.1" 200 -
+2025-09-11 18:21:29 INFO: 127.0.0.1 - - [11/Sep/2025 18:21:29] "POST /names HTTP/1.1" 200 -
+2025-09-11 18:21:48 INFO: intent classified
+2025-09-11 18:21:48 INFO: general intent detected
+2025-09-11 18:21:55 INFO: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-11 18:21:55 INFO: 127.0.0.1 - - [11/Sep/2025 18:21:55] "POST /process-data HTTP/1.1" 200 -
+2025-09-11 18:22:06 INFO: intent classified
+2025-09-11 18:22:06 INFO: data_fetch intent detected
+2025-09-11 18:22:06 INFO: Received user message: i wold like to know when was the latest oreder placed
+2025-09-11 18:22:06 INFO: started sql generation
+2025-09-11 18:22:08 INFO: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-11 18:22:08 INFO: Generated SQL query: SELECT "id", "customer_number", "customer_name", "client_id", "client_name", "captain_name", "order_created_at" FROM "updated_table" WHERE "client_name" = 'MC DONALDS' AND "order_created_at" >= '2025-09-11 00:00:00' ORDER BY "order_created_at" DESC LIMIT 10;
+2025-09-11 18:22:08 INFO: sql generation success 
+    name = MC DONALDS
+    user message = i wold like to know when was the latest oreder placed
+    date and time now = 2025-09-11 18:21:56.803560
+   
+2025-09-11 18:22:13 INFO: database fetching successfull[]
+2025-09-11 18:22:14 INFO: the query returned null in database
+2025-09-11 18:22:14 INFO: 127.0.0.1 - - [11/Sep/2025 18:22:14] "[31m[1mPOST /process-data HTTP/1.1[0m" 405 -
+2025-09-11 18:22:53 INFO: intent classified
+2025-09-11 18:22:53 INFO: general intent detected
+2025-09-11 18:22:55 INFO: intent classified
+2025-09-11 18:22:55 INFO: general intent detected
+2025-09-11 18:22:56 INFO: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-11 18:22:56 INFO: 127.0.0.1 - - [11/Sep/2025 18:22:56] "POST /process-data HTTP/1.1" 200 -
+2025-09-11 18:22:59 INFO: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-11 18:22:59 INFO: 127.0.0.1 - - [11/Sep/2025 18:22:59] "POST /process-data HTTP/1.1" 200 -
+2025-09-11 18:30:02 INFO:  * Detected change in 'C:\\Users\\USER\\Desktop\\LEAJLAK\\beta\\patch3\\ai-assistant\\app.py', reloading
+2025-09-11 18:30:02 INFO:  * Detected change in 'C:\\Users\\USER\\Desktop\\LEAJLAK\\beta\\patch3\\ai-assistant\\app.py', reloading
+2025-09-11 18:30:03 INFO:  * Restarting with watchdog (windowsapi)
+2025-09-11 18:30:12 WARNING:  * Debugger is active!
+2025-09-11 18:30:12 INFO:  * Debugger PIN: 115-265-433
+2025-09-11 18:30:13 INFO: 127.0.0.1 - - [11/Sep/2025 18:30:13] "GET / HTTP/1.1" 200 -
+2025-09-11 18:30:17 INFO: Received request data: {'mobile': '918921729081'}
+2025-09-11 18:30:17 INFO: Updated mobile: 918921729081
+2025-09-11 18:30:21 INFO: Updated name: MC DONALDS
+2025-09-11 18:30:21 INFO: 127.0.0.1 - - [11/Sep/2025 18:30:21] "POST /number HTTP/1.1" 200 -
+2025-09-11 18:30:21 INFO: 127.0.0.1 - - [11/Sep/2025 18:30:21] "POST /names HTTP/1.1" 200 -
+2025-09-11 18:30:28 INFO: intent classified
+2025-09-11 18:30:28 INFO: general intent detected
+2025-09-11 18:30:42 INFO: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-11 18:30:42 INFO: 127.0.0.1 - - [11/Sep/2025 18:30:42] "POST /process-data HTTP/1.1" 200 -
+2025-09-11 18:30:57 INFO: 127.0.0.1 - - [11/Sep/2025 18:30:57] "[35m[1mPOST /deep-analysis HTTP/1.1[0m" 503 -

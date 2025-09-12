@@ -38,9 +38,7 @@ def classify_intent(message):
         "Content-Type": "application/json"
     }
     response = requests.post(OPENROUTER_API_URL, json=payload, headers=headers)
-    logging.info(f"OpenRouter response status: {response.status_code}")
     response_json = response.json()
-    logging.info(f'{response_json}')
     if "choices" in response_json and response_json["choices"]:
         logging.info('intent classified')
         intent = response_json["choices"][0]["message"]["content"].strip().lower()
