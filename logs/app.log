@@ -3520,3 +3520,869 @@ A detailed migration guide is available here: https://github.com/openai/openai-p
 2025-09-12 11:47:58 INFO: general intent detected
 2025-09-12 11:48:01 INFO: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
 2025-09-12 11:48:01 INFO: 127.0.0.1 - - [12/Sep/2025 11:48:01] "POST /process-data HTTP/1.1" 200 -
+2025-09-12 11:54:41 INFO:  * Detected change in 'C:\\Users\\USER\\Desktop\\LEAJLAK\\beta\\patch3\\ai-assistant\\wsgi.py', reloading
+2025-09-12 11:54:42 INFO:  * Restarting with watchdog (windowsapi)
+2025-09-12 11:54:50 WARNING:  * Debugger is active!
+2025-09-12 11:54:50 INFO:  * Debugger PIN: 115-265-433
+2025-09-12 12:18:05 INFO: 127.0.0.1 - - [12/Sep/2025 12:18:05] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-09-12 12:18:14 INFO: 127.0.0.1 - - [12/Sep/2025 12:18:14] "[35m[1mPOST /deep-analysis HTTP/1.1[0m" 503 -
+2025-09-12 12:22:21 INFO:  * Detected change in 'C:\\Users\\USER\\Desktop\\LEAJLAK\\beta\\patch3\\ai-assistant\\prompts.py', reloading
+2025-09-12 12:22:21 INFO:  * Detected change in 'C:\\Users\\USER\\Desktop\\LEAJLAK\\beta\\patch3\\ai-assistant\\prompts.py', reloading
+2025-09-12 12:22:21 INFO:  * Detected change in 'C:\\Users\\USER\\Desktop\\LEAJLAK\\beta\\patch3\\ai-assistant\\prompts.py', reloading
+2025-09-12 12:22:22 INFO:  * Restarting with watchdog (windowsapi)
+2025-09-12 12:22:29 WARNING:  * Debugger is active!
+2025-09-12 12:22:29 INFO:  * Debugger PIN: 115-265-433
+2025-09-12 12:22:35 INFO:  * Detected change in 'C:\\Users\\USER\\Desktop\\LEAJLAK\\beta\\patch3\\ai-assistant\\prompts.py', reloading
+2025-09-12 12:22:35 INFO:  * Detected change in 'C:\\Users\\USER\\Desktop\\LEAJLAK\\beta\\patch3\\ai-assistant\\prompts.py', reloading
+2025-09-12 12:22:36 INFO:  * Restarting with watchdog (windowsapi)
+2025-09-12 12:22:42 WARNING:  * Debugger is active!
+2025-09-12 12:22:42 INFO:  * Debugger PIN: 115-265-433
+2025-09-12 12:28:43 INFO:  * Detected change in 'C:\\Users\\USER\\Desktop\\LEAJLAK\\beta\\patch3\\ai-assistant\\app.py', reloading
+2025-09-12 12:28:43 INFO:  * Detected change in 'C:\\Users\\USER\\Desktop\\LEAJLAK\\beta\\patch3\\ai-assistant\\app.py', reloading
+2025-09-12 12:28:43 INFO:  * Detected change in 'C:\\Users\\USER\\Desktop\\LEAJLAK\\beta\\patch3\\ai-assistant\\app.py', reloading
+2025-09-12 12:28:43 INFO:  * Restarting with watchdog (windowsapi)
+2025-09-12 12:28:49 WARNING:  * Debugger is active!
+2025-09-12 12:28:49 INFO:  * Debugger PIN: 115-265-433
+2025-09-12 12:29:11 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\logging\\__init__.py', reloading
+2025-09-12 12:29:12 INFO:  * Restarting with watchdog (windowsapi)
+2025-09-12 12:29:19 WARNING:  * Debugger is active!
+2025-09-12 12:29:19 INFO:  * Debugger PIN: 115-265-433
+2025-09-12 12:29:24 INFO:  * Detected change in 'C:\\Users\\USER\\Desktop\\LEAJLAK\\beta\\patch3\\ai-assistant\\app.py', reloading
+2025-09-12 12:29:24 INFO:  * Detected change in 'C:\\Users\\USER\\Desktop\\LEAJLAK\\beta\\patch3\\ai-assistant\\app.py', reloading
+2025-09-12 12:29:24 INFO:  * Detected change in 'C:\\Users\\USER\\Desktop\\LEAJLAK\\beta\\patch3\\ai-assistant\\app.py', reloading
+2025-09-12 12:29:25 INFO:  * Restarting with watchdog (windowsapi)
+2025-09-12 12:29:31 WARNING:  * Debugger is active!
+2025-09-12 12:29:31 INFO:  * Debugger PIN: 115-265-433
+2025-09-12 12:29:42 INFO: 127.0.0.1 - - [12/Sep/2025 12:29:42] "[35m[1mPOST /deep-analysis HTTP/1.1[0m" 500 -
+2025-09-12 12:29:45 INFO:  * Detected change in 'C:\\Users\\USER\\Desktop\\LEAJLAK\\beta\\patch3\\ai-assistant\\app.py', reloading
+2025-09-12 12:29:46 INFO:  * Restarting with watchdog (windowsapi)
+2025-09-12 12:29:54 WARNING:  * Debugger is active!
+2025-09-12 12:29:54 INFO:  * Debugger PIN: 115-265-433
+2025-09-12 12:29:54 INFO: 127.0.0.1 - - [12/Sep/2025 12:29:54] "GET / HTTP/1.1" 200 -
+2025-09-12 12:29:54 INFO: 127.0.0.1 - - [12/Sep/2025 12:29:54] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-09-12 12:29:56 INFO: Received request data: {'mobile': '918921729081'}
+2025-09-12 12:29:56 INFO: Updated mobile: 918921729081
+2025-09-12 12:29:57 INFO: Updated name: MC DONALDS
+2025-09-12 12:29:57 INFO: 127.0.0.1 - - [12/Sep/2025 12:29:57] "POST /number HTTP/1.1" 200 -
+2025-09-12 12:29:57 INFO: 127.0.0.1 - - [12/Sep/2025 12:29:57] "POST /names HTTP/1.1" 200 -
+2025-09-12 12:30:13 INFO: intent classified
+2025-09-12 12:30:13 INFO: data_fetch
+2025-09-12 12:30:13 INFO: data_fetch intent detected
+2025-09-12 12:30:13 INFO: Received user message: when was the last order i placed
+2025-09-12 12:30:13 INFO: started sql generation
+2025-09-12 12:30:19 INFO: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-12 12:30:19 INFO: Generated SQL query: SELECT "id", "customer_number", "customer_name", "client_id", "client_name", "captain_name", "delivery_date", "order_status", "shop_to_delivery_km", "order_created_at", "order_accepted_at", "start_ride_at", "reached_shop_at", "order_picked_at", "shipped_at", "reached_dest_at", "final_status_at", "cancellation_reason" FROM "updated_table" WHERE "client_name" = 'MC DONALDS' AND "order_created_at" >= (CURRENT_TIMESTAMP - INTERVAL '1 year') ORDER BY "order_created_at" DESC LIMIT 10;
+2025-09-12 12:30:19 INFO: sql generation success
+2025-09-12 12:30:23 INFO: Database fetching successful: [
+  {
+    "id": 1823383,
+    "customer_number": 9061198814,
+    "customer_name": "Customer_PHR",
+    "client_id": 3,
+    "client_name": "MC DONALDS",
+    "captain_name": "SALEM AHMED -RUH - Private10",
+    "delivery_date": "2025-07-21T19:38:52",
+    "order_status": "Delivered",
+    "shop_to_delivery_km": 2.858,
+    "order_created_at": "2025-07-21T19:23:56",
+    "order_accepted_at": "2025-07-21T19:24:17",
+    "start_ride_at": "2025-07-21T19:24:19",
+    "reached_shop_at": "2025-07-21T19:24:21",
+    "order_picked_at": "2025-07-21T19:30:25",
+    "shipped_at": "2025-07-21T19:37:51",
+    "reached_dest_at": "2025-07-21T19:38:43",
+    "final_status_at": "2025-07-21T19:38:52",
+    "cancellation_reason": "0"
+  },
+  {
+    "id": 1823379,
+    "customer_number": 2666746694,
+    "customer_name": "Customer_ZJX",
+    "client_id": 3,
+    "client_name": "MC DONALDS",
+    "captain_name": "ALAA HEFNY -HOF- JOD10",
+    "delivery_date": "2025-07-21T19:40:28",
+    "order_status": "Delivered",
+    "shop_to_delivery_km": 2.349,
+    "order_created_at": "2025-07-21T19:21:10",
+    "order_accepted_at": "2025-07-21T19:21:25",
+    "start_ride_at": "2025-07-21T19:21:31",
+    "reached_shop_at": "2025-07-21T19:21:33",
+    "order_picked_at": "2025-07-21T19:34:55",
+    "shipped_at": "2025-07-21T19:40:19",
+    "reached_dest_at": "2025-07-21T19:40:25",
+    "final_status_at": "2025-07-21T19:40:28",
+    "cancellation_reason": "0"
+  },
+  {
+    "id": 1823370,
+    "customer_number": 4966167537,
+    "customer_name": "Customer_DKQ",
+    "client_id": 3,
+    "client_name": "MC DONALDS",
+    "captain_name": "MONGED MOSTAFA -DMM - SAHHEL10",
+    "delivery_date": "2025-07-21T19:38:18",
+    "order_status": "Delivered",
+    "shop_to_delivery_km": 5.885,
+    "order_created_at": "2025-07-21T19:16:57",
+    "order_accepted_at": "2025-07-21T19:17:10",
+    "start_ride_at": "2025-07-21T19:17:15",
+    "reached_shop_at": "2025-07-21T19:17:19",
+    "order_picked_at": "2025-07-21T19:22:41",
+    "shipped_at": "2025-07-21T19:37:49",
+    "reached_dest_at": "2025-07-21T19:38:15",
+    "final_status_at": "2025-07-21T19:38:18",
+    "cancellation_reason": "0"
+  },
+  {
+    "id": 1823361,
+    "customer_number": 8144065964,
+    "customer_name": "Customer_FSW",
+    "client_id": 3,
+    "client_name": "MC DONALDS",
+    "captain_name": "MOHAMMED HAMED -DMM - JOD10",
+    "delivery_date": "2025-07-21T19:42:19",
+    "order_status": "Delivered",
+    "shop_to_delivery_km": 3.821,
+    "order_created_at": "2025-07-21T19:12:34",
+    "order_accepted_at": "2025-07-21T19:12:50",
+    "start_ride_at": "2025-07-21T19:15:33",
+    "reached_shop_at": "2025-07-21T19:21:02",
+    "order_picked_at": "2025-07-21T19:25:41",
+    "shipped_at": "2025-07-21T19:26:51",
+    "reached_dest_at": "2025-07-21T19:39:50",
+    "final_status_at": "2025-07-21T19:42:19",
+    "cancellation_reason": "0"
+  },
+  {
+    "id": 1823360,
+    "customer_number": 2114858619,
+    "customer_name": "Customer_DHZ",
+    "client_id": 3,
+    "client_name": "MC DONALDS",
+    "captain_name": "SALEH ESMAIL - RUH - shaqra14",
+    "delivery_date": "2025-07-21T19:32:53",
+    "order_status": "Delivered",
+    "shop_to_delivery_km": 1.839,
+    "order_created_at": "2025-07-21T19:11:57",
+    "order_accepted_at": "2025-07-21T19:12:17",
+    "start_ride_at": "2025-07-21T19:12:19",
+    "reached_shop_at": "2025-07-21T19:12:22",
+    "order_picked_at": "2025-07-21T19:17:55",
+    "shipped_at": "2025-07-21T19:32:13",
+    "reached_dest_at": "2025-07-21T19:32:33",
+    "final_status_at": "2025-07-21T19:32:53",
+    "cancellation_reason": "0"
+  },
+  {
+    "id": 1823356,
+    "customer_number": 6907600656,
+    "customer_name": "Customer_OXU",
+    "client_id": 3,
+    "client_name": "MC DONALDS",
+    "captain_name": "Abdo Salem Ali - RUH - shaqra14",
+    "delivery_date": "2025-07-21T19:30:36",
+    "order_status": "Delivered",
+    "shop_to_delivery_km": 1.859,
+    "order_created_at": "2025-07-21T19:10:08",
+    "order_accepted_at": "2025-07-21T19:10:39",
+    "start_ride_at": "2025-07-21T19:10:46",
+    "reached_shop_at": "2025-07-21T19:10:49",
+    "order_picked_at": "2025-07-21T19:21:05",
+    "shipped_at": "2025-07-21T19:30:28",
+    "reached_dest_at": "2025-07-21T19:30:33",
+    "final_status_at": "2025-07-21T19:30:36",
+    "cancellation_reason": "0"
+  },
+  {
+    "id": 1823342,
+    "customer_number": 6841247441,
+    "customer_name": "Customer_OXV",
+    "client_id": 3,
+    "client_name": "MC DONALDS",
+    "captain_name": "MAMDOOH ALI -RUH - \u00e2\u20ac\u017dshaqra14",
+    "delivery_date": "2025-07-21T19:37:23",
+    "order_status": "Delivered",
+    "shop_to_delivery_km": 0.499,
+    "order_created_at": "2025-07-21T19:01:42",
+    "order_accepted_at": "2025-07-21T19:01:54",
+    "start_ride_at": "2025-07-21T19:02:00",
+    "reached_shop_at": "2025-07-21T19:03:11",
+    "order_picked_at": "2025-07-21T19:24:50",
+    "shipped_at": "2025-07-21T19:30:24",
+    "reached_dest_at": "2025-07-21T19:37:20",
+    "final_status_at": "2025-07-21T19:37:23",
+    "cancellation_reason": "0"
+  },
+  {
+    "id": 1823336,
+    "customer_number": 7657856923,
+    "customer_name": "Customer_PVF",
+    "client_id": 3,
+    "client_name": "MC DONALDS",
+    "captain_name": "Mohamed Abdalla -RUH - H12",
+    "delivery_date": "2025-07-21T19:31:24",
+    "order_status": "Delivered",
+    "shop_to_delivery_km": 2.189,
+    "order_created_at": "2025-07-21T18:59:54",
+    "order_accepted_at": "2025-07-21T19:00:53",
+    "start_ride_at": "2025-07-21T19:02:07",
+    "reached_shop_at": "2025-07-21T19:06:35",
+    "order_picked_at": "2025-07-21T19:06:38",
+    "shipped_at": "2025-07-21T19:30:50",
+    "reached_dest_at": "2025-07-21T19:31:18",
+    "final_status_at": "2025-07-21T19:31:24",
+    "cancellation_reason": "0"
+  },
+  {
+    "id": 1823334,
+    "customer_number": 5182530878,
+    "customer_name": "Customer_OLO",
+    "client_id": 3,
+    "client_name": "MC DONALDS",
+    "captain_name": "ALI QRANI -RUH - H10",
+    "delivery_date": "2025-07-21T19:40:32",
+    "order_status": "Delivered",
+    "shop_to_delivery_km": 2.795,
+    "order_created_at": "2025-07-21T18:58:45",
+    "order_accepted_at": "2025-07-21T18:59:11",
+    "start_ride_at": "2025-07-21T19:01:18",
+    "reached_shop_at": "2025-07-21T19:01:47",
+    "order_picked_at": "2025-07-21T19:16:50",
+    "shipped_at": "2025-07-21T19:40:14",
+    "reached_dest_at": "2025-07-21T19:40:27",
+    "final_status_at": "2025-07-21T19:40:32",
+    "cancellation_reason": "0"
+  },
+  {
+    "id": 1823333,
+    "customer_number": 3480314023,
+    "customer_name": "Customer_ECW",
+    "client_id": 3,
+    "client_name": "MC DONALDS",
+    "captain_name": "NADER FUAD -DMM - JOD10",
+    "delivery_date": "2025-07-21T19:17:40",
+    "order_status": "Delivered",
+    "shop_to_delivery_km": 1.382,
+    "order_created_at": "2025-07-21T18:58:10",
+    "order_accepted_at": "2025-07-21T19:04:57",
+    "start_ride_at": "2025-07-21T19:05:06",
+    "reached_shop_at": "2025-07-21T19:05:09",
+    "order_picked_at": "2025-07-21T19:12:41",
+    "shipped_at": "2025-07-21T19:12:44",
+    "reached_dest_at": "2025-07-21T19:17:38",
+    "final_status_at": "2025-07-21T19:17:40",
+    "cancellation_reason": "0"
+  }
+]
+2025-09-12 12:30:23 INFO: database query executed succesfully
+2025-09-12 12:30:23 INFO: Started summary generation
+2025-09-12 12:30:25 INFO: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-12 12:30:25 INFO: delta: {'content': 'Your', 'function_call': None, 'refusal': None, 'role': 'assistant', 'tool_calls': None}
+2025-09-12 12:30:25 INFO: 127.0.0.1 - - [12/Sep/2025 12:30:25] "POST /process-data HTTP/1.1" 200 -
+2025-09-12 12:30:25 INFO: delta: {'content': ' last order', 'function_call': None, 'refusal': None, 'role': 'assistant', 'tool_calls': None}
+2025-09-12 12:30:26 INFO: delta: {'content': ' was placed', 'function_call': None, 'refusal': None, 'role': 'assistant', 'tool_calls': None}
+2025-09-12 12:30:26 INFO: delta: {'content': ' on July', 'function_call': None, 'refusal': None, 'role': 'assistant', 'tool_calls': None}
+2025-09-12 12:30:26 INFO: delta: {'content': ' 21', 'function_call': None, 'refusal': None, 'role': 'assistant', 'tool_calls': None}
+2025-09-12 12:30:26 INFO: delta: {'content': ', ', 'function_call': None, 'refusal': None, 'role': 'assistant', 'tool_calls': None}
+2025-09-12 12:30:26 INFO: delta: {'content': '2025', 'function_call': None, 'refusal': None, 'role': 'assistant', 'tool_calls': None}
+2025-09-12 12:30:26 INFO: delta: {'content': ' at ', 'function_call': None, 'refusal': None, 'role': 'assistant', 'tool_calls': None}
+2025-09-12 12:30:26 INFO: delta: {'content': '7:', 'function_call': None, 'refusal': None, 'role': 'assistant', 'tool_calls': None}
+2025-09-12 12:30:26 INFO: delta: {'content': '23 PM', 'function_call': None, 'refusal': None, 'role': 'assistant', 'tool_calls': None}
+2025-09-12 12:30:26 INFO: delta: {'content': ', delivered', 'function_call': None, 'refusal': None, 'role': 'assistant', 'tool_calls': None}
+2025-09-12 12:30:27 INFO: delta: {'content': ' successfully', 'function_call': None, 'refusal': None, 'role': 'assistant', 'tool_calls': None}
+2025-09-12 12:30:27 INFO: delta: {'content': ' with a', 'function_call': None, 'refusal': None, 'role': 'assistant', 'tool_calls': None}
+2025-09-12 12:30:27 INFO: delta: {'content': ' distance', 'function_call': None, 'refusal': None, 'role': 'assistant', 'tool_calls': None}
+2025-09-12 12:30:27 INFO: delta: {'content': ' of ', 'function_call': None, 'refusal': None, 'role': 'assistant', 'tool_calls': None}
+2025-09-12 12:30:27 INFO: delta: {'content': '2.', 'function_call': None, 'refusal': None, 'role': 'assistant', 'tool_calls': None}
+2025-09-12 12:30:27 INFO: delta: {'content': '858', 'function_call': None, 'refusal': None, 'role': 'assistant', 'tool_calls': None}
+2025-09-12 12:30:27 INFO: delta: {'content': ' km', 'function_call': None, 'refusal': None, 'role': 'assistant', 'tool_calls': None}
+2025-09-12 12:30:27 INFO: delta: {'content': ' from the', 'function_call': None, 'refusal': None, 'role': 'assistant', 'tool_calls': None}
+2025-09-12 12:30:28 INFO: delta: {'content': ' shop.', 'function_call': None, 'refusal': None, 'role': 'assistant', 'tool_calls': None}
+2025-09-12 12:30:28 INFO: delta: {'content': '', 'function_call': None, 'refusal': None, 'role': 'assistant', 'tool_calls': None}
+2025-09-12 12:30:28 INFO: delta: {'content': '', 'function_call': None, 'refusal': None, 'role': 'assistant', 'tool_calls': None}
+2025-09-12 12:30:54 INFO:  * Detected change in 'C:\\Users\\USER\\Desktop\\LEAJLAK\\beta\\patch3\\ai-assistant\\app.py', reloading
+2025-09-12 12:30:54 INFO:  * Detected change in 'C:\\Users\\USER\\Desktop\\LEAJLAK\\beta\\patch3\\ai-assistant\\app.py', reloading
+2025-09-12 12:30:54 INFO:  * Detected change in 'C:\\Users\\USER\\Desktop\\LEAJLAK\\beta\\patch3\\ai-assistant\\app.py', reloading
+2025-09-12 12:30:55 INFO:  * Restarting with watchdog (windowsapi)
+2025-09-12 12:31:03 WARNING:  * Debugger is active!
+2025-09-12 12:31:03 INFO:  * Debugger PIN: 115-265-433
+2025-09-12 12:31:03 INFO: research mode activated
+2025-09-12 12:31:03 INFO: started sql generation
+2025-09-12 12:31:05 INFO: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-12 12:31:05 INFO: Generated SQL query: SELECT MAX("order_created_at") AS "Last_Order_Time" FROM "updated_table" WHERE "client_name" = 'MC DONALDS';
+2025-09-12 12:31:05 INFO: sql generation success
+2025-09-12 12:31:06 INFO: Database fetching successful: [
+  {
+    "Last_Order_Time": "2025-07-21T19:23:56"
+  }
+]
+2025-09-12 12:31:06 INFO: database query executed succesfully
+2025-09-12 12:31:06 INFO: Started summary generation
+2025-09-12 12:31:08 INFO: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-12 12:31:08 INFO: delta: {'content': 'Your', 'function_call': None, 'refusal': None, 'role': 'assistant', 'tool_calls': None}
+2025-09-12 12:31:08 INFO: 127.0.0.1 - - [12/Sep/2025 12:31:08] "POST /deep-analysis HTTP/1.1" 200 -
+2025-09-12 12:31:08 INFO: delta: {'content': ' last order', 'function_call': None, 'refusal': None, 'role': 'assistant', 'tool_calls': None}
+2025-09-12 12:31:08 INFO: delta: {'content': ' was placed', 'function_call': None, 'refusal': None, 'role': 'assistant', 'tool_calls': None}
+2025-09-12 12:31:09 INFO: delta: {'content': ' on July', 'function_call': None, 'refusal': None, 'role': 'assistant', 'tool_calls': None}
+2025-09-12 12:31:09 INFO: delta: {'content': ' 21', 'function_call': None, 'refusal': None, 'role': 'assistant', 'tool_calls': None}
+2025-09-12 12:31:09 INFO: delta: {'content': ', ', 'function_call': None, 'refusal': None, 'role': 'assistant', 'tool_calls': None}
+2025-09-12 12:31:09 INFO: delta: {'content': '2025', 'function_call': None, 'refusal': None, 'role': 'assistant', 'tool_calls': None}
+2025-09-12 12:31:09 INFO: delta: {'content': ' at ', 'function_call': None, 'refusal': None, 'role': 'assistant', 'tool_calls': None}
+2025-09-12 12:31:09 INFO: delta: {'content': '7:', 'function_call': None, 'refusal': None, 'role': 'assistant', 'tool_calls': None}
+2025-09-12 12:31:09 INFO: delta: {'content': '23 PM', 'function_call': None, 'refusal': None, 'role': 'assistant', 'tool_calls': None}
+2025-09-12 12:31:09 INFO: delta: {'content': '.', 'function_call': None, 'refusal': None, 'role': 'assistant', 'tool_calls': None}
+2025-09-12 12:31:09 INFO: delta: {'content': '', 'function_call': None, 'refusal': None, 'role': 'assistant', 'tool_calls': None}
+2025-09-12 12:32:45 INFO:  * Detected change in 'C:\\Users\\USER\\Desktop\\LEAJLAK\\beta\\patch3\\ai-assistant\\app.py', reloading
+2025-09-12 12:32:45 INFO:  * Restarting with watchdog (windowsapi)
+2025-09-12 12:32:54 WARNING:  * Debugger is active!
+2025-09-12 12:32:54 INFO:  * Debugger PIN: 115-265-433
+2025-09-12 12:32:54 INFO: research mode activated
+2025-09-12 12:32:54 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\flask\\app.py', reloading
+2025-09-12 12:32:54 INFO: 127.0.0.1 - - [12/Sep/2025 12:32:54] "[35m[1mPOST /deep-analysis HTTP/1.1[0m" 500 -
+2025-09-12 12:32:56 INFO:  * Restarting with watchdog (windowsapi)
+2025-09-12 12:33:04 WARNING:  * Debugger is active!
+2025-09-12 12:33:04 INFO:  * Debugger PIN: 115-265-433
+2025-09-12 12:33:38 INFO:  * Detected change in 'C:\\Users\\USER\\Desktop\\LEAJLAK\\beta\\patch3\\ai-assistant\\app.py', reloading
+2025-09-12 12:33:38 INFO:  * Detected change in 'C:\\Users\\USER\\Desktop\\LEAJLAK\\beta\\patch3\\ai-assistant\\app.py', reloading
+2025-09-12 12:33:38 INFO:  * Detected change in 'C:\\Users\\USER\\Desktop\\LEAJLAK\\beta\\patch3\\ai-assistant\\app.py', reloading
+2025-09-12 12:33:40 INFO:  * Restarting with watchdog (windowsapi)
+2025-09-12 12:33:48 WARNING:  * Debugger is active!
+2025-09-12 12:33:48 INFO:  * Debugger PIN: 115-265-433
+2025-09-12 12:33:48 INFO: research mode activated
+2025-09-12 12:33:58 INFO: started sql generation
+2025-09-12 12:34:03 INFO: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-12 12:34:03 INFO: Generated SQL query: SELECT "delivery_date" FROM "updated_table" WHERE "client_name" = 'MC DONALDS' AND "delivery_date" = (SELECT MAX("delivery_date") FROM "updated_table" WHERE "client_name" = 'MC DONALDS');
+2025-09-12 12:34:04 INFO: sql generation success
+2025-09-12 12:34:07 INFO: Database fetching successful: [
+  {
+    "delivery_date": "2025-07-21T19:42:19"
+  }
+]
+2025-09-12 12:34:08 INFO: database query executed succesfully
+2025-09-12 12:34:08 INFO: Started summary generation
+2025-09-12 12:34:11 INFO: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-12 12:34:11 INFO: delta: {'content': 'Your', 'function_call': None, 'refusal': None, 'role': 'assistant', 'tool_calls': None}
+2025-09-12 12:34:11 INFO: 127.0.0.1 - - [12/Sep/2025 12:34:11] "POST /deep-analysis HTTP/1.1" 200 -
+2025-09-12 12:34:11 INFO: delta: {'content': ' last order', 'function_call': None, 'refusal': None, 'role': 'assistant', 'tool_calls': None}
+2025-09-12 12:34:12 INFO: delta: {'content': ' was placed', 'function_call': None, 'refusal': None, 'role': 'assistant', 'tool_calls': None}
+2025-09-12 12:34:12 INFO: delta: {'content': ' on July', 'function_call': None, 'refusal': None, 'role': 'assistant', 'tool_calls': None}
+2025-09-12 12:34:12 INFO: delta: {'content': ' 21', 'function_call': None, 'refusal': None, 'role': 'assistant', 'tool_calls': None}
+2025-09-12 12:34:12 INFO: delta: {'content': ', ', 'function_call': None, 'refusal': None, 'role': 'assistant', 'tool_calls': None}
+2025-09-12 12:34:13 INFO: delta: {'content': '2025', 'function_call': None, 'refusal': None, 'role': 'assistant', 'tool_calls': None}
+2025-09-12 12:34:13 INFO: delta: {'content': '.', 'function_call': None, 'refusal': None, 'role': 'assistant', 'tool_calls': None}
+2025-09-12 12:34:13 INFO: delta: {'content': '', 'function_call': None, 'refusal': None, 'role': 'assistant', 'tool_calls': None}
+2025-09-12 12:34:13 INFO: delta: {'content': '', 'function_call': None, 'refusal': None, 'role': 'assistant', 'tool_calls': None}
+2025-09-12 12:34:38 INFO:  * Detected change in 'C:\\Users\\USER\\Desktop\\LEAJLAK\\beta\\patch3\\ai-assistant\\prompts.py', reloading
+2025-09-12 12:34:38 INFO:  * Detected change in 'C:\\Users\\USER\\Desktop\\LEAJLAK\\beta\\patch3\\ai-assistant\\prompts.py', reloading
+2025-09-12 12:34:38 INFO:  * Detected change in 'C:\\Users\\USER\\Desktop\\LEAJLAK\\beta\\patch3\\ai-assistant\\prompts.py', reloading
+2025-09-12 12:34:39 INFO:  * Restarting with watchdog (windowsapi)
+2025-09-12 12:34:48 WARNING:  * Debugger is active!
+2025-09-12 12:34:48 INFO:  * Debugger PIN: 115-265-433
+2025-09-12 12:36:53 INFO:  * Detected change in 'C:\\Users\\USER\\Desktop\\LEAJLAK\\beta\\patch3\\ai-assistant\\app.py', reloading
+2025-09-12 12:36:53 INFO:  * Detected change in 'C:\\Users\\USER\\Desktop\\LEAJLAK\\beta\\patch3\\ai-assistant\\app.py', reloading
+2025-09-12 12:36:56 INFO:  * Restarting with watchdog (windowsapi)
+2025-09-12 12:37:07 WARNING:  * Debugger is active!
+2025-09-12 12:37:07 INFO:  * Debugger PIN: 115-265-433
+2025-09-12 12:37:12 INFO: intent classified
+2025-09-12 12:37:12 INFO: general
+2025-09-12 12:37:12 INFO: general intent detected
+2025-09-12 12:37:21 INFO: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-12 12:37:21 INFO: 127.0.0.1 - - [12/Sep/2025 12:37:21] "POST /process-data HTTP/1.1" 200 -
+2025-09-12 12:37:43 INFO: intent classified
+2025-09-12 12:37:43 INFO: data_fetch
+2025-09-12 12:37:43 INFO: data_fetch intent detected
+2025-09-12 12:37:43 INFO: Received user message: when was the last order i placed
+2025-09-12 12:37:43 INFO: started sql generation
+2025-09-12 12:37:49 INFO: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-12 12:37:49 INFO: Generated SQL query: SELECT "id", "customer_number", "customer_name", "client_id", "client_name", "captain_name", "delivery_date", "order_status", "shop_to_delivery_km", "order_created_at", "order_accepted_at", "start_ride_at", "reached_shop_at", "order_picked_at", "shipped_at", "reached_dest_at", "final_status_at", "cancellation_reason" FROM "updated_table" WHERE "client_name" = 'MC DONALDS' AND "order_created_at" <= '2025-09-12 12:37:40.233648' ORDER BY "order_created_at" DESC LIMIT 10;
+2025-09-12 12:37:49 INFO: sql generation success
+2025-09-12 12:37:54 INFO: Database fetching successful: [
+  {
+    "id": 1823383,
+    "customer_number": 9061198814,
+    "customer_name": "Customer_PHR",
+    "client_id": 3,
+    "client_name": "MC DONALDS",
+    "captain_name": "SALEM AHMED -RUH - Private10",
+    "delivery_date": "2025-07-21T19:38:52",
+    "order_status": "Delivered",
+    "shop_to_delivery_km": 2.858,
+    "order_created_at": "2025-07-21T19:23:56",
+    "order_accepted_at": "2025-07-21T19:24:17",
+    "start_ride_at": "2025-07-21T19:24:19",
+    "reached_shop_at": "2025-07-21T19:24:21",
+    "order_picked_at": "2025-07-21T19:30:25",
+    "shipped_at": "2025-07-21T19:37:51",
+    "reached_dest_at": "2025-07-21T19:38:43",
+    "final_status_at": "2025-07-21T19:38:52",
+    "cancellation_reason": "0"
+  },
+  {
+    "id": 1823379,
+    "customer_number": 2666746694,
+    "customer_name": "Customer_ZJX",
+    "client_id": 3,
+    "client_name": "MC DONALDS",
+    "captain_name": "ALAA HEFNY -HOF- JOD10",
+    "delivery_date": "2025-07-21T19:40:28",
+    "order_status": "Delivered",
+    "shop_to_delivery_km": 2.349,
+    "order_created_at": "2025-07-21T19:21:10",
+    "order_accepted_at": "2025-07-21T19:21:25",
+    "start_ride_at": "2025-07-21T19:21:31",
+    "reached_shop_at": "2025-07-21T19:21:33",
+    "order_picked_at": "2025-07-21T19:34:55",
+    "shipped_at": "2025-07-21T19:40:19",
+    "reached_dest_at": "2025-07-21T19:40:25",
+    "final_status_at": "2025-07-21T19:40:28",
+    "cancellation_reason": "0"
+  },
+  {
+    "id": 1823370,
+    "customer_number": 4966167537,
+    "customer_name": "Customer_DKQ",
+    "client_id": 3,
+    "client_name": "MC DONALDS",
+    "captain_name": "MONGED MOSTAFA -DMM - SAHHEL10",
+    "delivery_date": "2025-07-21T19:38:18",
+    "order_status": "Delivered",
+    "shop_to_delivery_km": 5.885,
+    "order_created_at": "2025-07-21T19:16:57",
+    "order_accepted_at": "2025-07-21T19:17:10",
+    "start_ride_at": "2025-07-21T19:17:15",
+    "reached_shop_at": "2025-07-21T19:17:19",
+    "order_picked_at": "2025-07-21T19:22:41",
+    "shipped_at": "2025-07-21T19:37:49",
+    "reached_dest_at": "2025-07-21T19:38:15",
+    "final_status_at": "2025-07-21T19:38:18",
+    "cancellation_reason": "0"
+  },
+  {
+    "id": 1823361,
+    "customer_number": 8144065964,
+    "customer_name": "Customer_FSW",
+    "client_id": 3,
+    "client_name": "MC DONALDS",
+    "captain_name": "MOHAMMED HAMED -DMM - JOD10",
+    "delivery_date": "2025-07-21T19:42:19",
+    "order_status": "Delivered",
+    "shop_to_delivery_km": 3.821,
+    "order_created_at": "2025-07-21T19:12:34",
+    "order_accepted_at": "2025-07-21T19:12:50",
+    "start_ride_at": "2025-07-21T19:15:33",
+    "reached_shop_at": "2025-07-21T19:21:02",
+    "order_picked_at": "2025-07-21T19:25:41",
+    "shipped_at": "2025-07-21T19:26:51",
+    "reached_dest_at": "2025-07-21T19:39:50",
+    "final_status_at": "2025-07-21T19:42:19",
+    "cancellation_reason": "0"
+  },
+  {
+    "id": 1823360,
+    "customer_number": 2114858619,
+    "customer_name": "Customer_DHZ",
+    "client_id": 3,
+    "client_name": "MC DONALDS",
+    "captain_name": "SALEH ESMAIL - RUH - shaqra14",
+    "delivery_date": "2025-07-21T19:32:53",
+    "order_status": "Delivered",
+    "shop_to_delivery_km": 1.839,
+    "order_created_at": "2025-07-21T19:11:57",
+    "order_accepted_at": "2025-07-21T19:12:17",
+    "start_ride_at": "2025-07-21T19:12:19",
+    "reached_shop_at": "2025-07-21T19:12:22",
+    "order_picked_at": "2025-07-21T19:17:55",
+    "shipped_at": "2025-07-21T19:32:13",
+    "reached_dest_at": "2025-07-21T19:32:33",
+    "final_status_at": "2025-07-21T19:32:53",
+    "cancellation_reason": "0"
+  },
+  {
+    "id": 1823356,
+    "customer_number": 6907600656,
+    "customer_name": "Customer_OXU",
+    "client_id": 3,
+    "client_name": "MC DONALDS",
+    "captain_name": "Abdo Salem Ali - RUH - shaqra14",
+    "delivery_date": "2025-07-21T19:30:36",
+    "order_status": "Delivered",
+    "shop_to_delivery_km": 1.859,
+    "order_created_at": "2025-07-21T19:10:08",
+    "order_accepted_at": "2025-07-21T19:10:39",
+    "start_ride_at": "2025-07-21T19:10:46",
+    "reached_shop_at": "2025-07-21T19:10:49",
+    "order_picked_at": "2025-07-21T19:21:05",
+    "shipped_at": "2025-07-21T19:30:28",
+    "reached_dest_at": "2025-07-21T19:30:33",
+    "final_status_at": "2025-07-21T19:30:36",
+    "cancellation_reason": "0"
+  },
+  {
+    "id": 1823342,
+    "customer_number": 6841247441,
+    "customer_name": "Customer_OXV",
+    "client_id": 3,
+    "client_name": "MC DONALDS",
+    "captain_name": "MAMDOOH ALI -RUH - \u00e2\u20ac\u017dshaqra14",
+    "delivery_date": "2025-07-21T19:37:23",
+    "order_status": "Delivered",
+    "shop_to_delivery_km": 0.499,
+    "order_created_at": "2025-07-21T19:01:42",
+    "order_accepted_at": "2025-07-21T19:01:54",
+    "start_ride_at": "2025-07-21T19:02:00",
+    "reached_shop_at": "2025-07-21T19:03:11",
+    "order_picked_at": "2025-07-21T19:24:50",
+    "shipped_at": "2025-07-21T19:30:24",
+    "reached_dest_at": "2025-07-21T19:37:20",
+    "final_status_at": "2025-07-21T19:37:23",
+    "cancellation_reason": "0"
+  },
+  {
+    "id": 1823336,
+    "customer_number": 7657856923,
+    "customer_name": "Customer_PVF",
+    "client_id": 3,
+    "client_name": "MC DONALDS",
+    "captain_name": "Mohamed Abdalla -RUH - H12",
+    "delivery_date": "2025-07-21T19:31:24",
+    "order_status": "Delivered",
+    "shop_to_delivery_km": 2.189,
+    "order_created_at": "2025-07-21T18:59:54",
+    "order_accepted_at": "2025-07-21T19:00:53",
+    "start_ride_at": "2025-07-21T19:02:07",
+    "reached_shop_at": "2025-07-21T19:06:35",
+    "order_picked_at": "2025-07-21T19:06:38",
+    "shipped_at": "2025-07-21T19:30:50",
+    "reached_dest_at": "2025-07-21T19:31:18",
+    "final_status_at": "2025-07-21T19:31:24",
+    "cancellation_reason": "0"
+  },
+  {
+    "id": 1823334,
+    "customer_number": 5182530878,
+    "customer_name": "Customer_OLO",
+    "client_id": 3,
+    "client_name": "MC DONALDS",
+    "captain_name": "ALI QRANI -RUH - H10",
+    "delivery_date": "2025-07-21T19:40:32",
+    "order_status": "Delivered",
+    "shop_to_delivery_km": 2.795,
+    "order_created_at": "2025-07-21T18:58:45",
+    "order_accepted_at": "2025-07-21T18:59:11",
+    "start_ride_at": "2025-07-21T19:01:18",
+    "reached_shop_at": "2025-07-21T19:01:47",
+    "order_picked_at": "2025-07-21T19:16:50",
+    "shipped_at": "2025-07-21T19:40:14",
+    "reached_dest_at": "2025-07-21T19:40:27",
+    "final_status_at": "2025-07-21T19:40:32",
+    "cancellation_reason": "0"
+  },
+  {
+    "id": 1823333,
+    "customer_number": 3480314023,
+    "customer_name": "Customer_ECW",
+    "client_id": 3,
+    "client_name": "MC DONALDS",
+    "captain_name": "NADER FUAD -DMM - JOD10",
+    "delivery_date": "2025-07-21T19:17:40",
+    "order_status": "Delivered",
+    "shop_to_delivery_km": 1.382,
+    "order_created_at": "2025-07-21T18:58:10",
+    "order_accepted_at": "2025-07-21T19:04:57",
+    "start_ride_at": "2025-07-21T19:05:06",
+    "reached_shop_at": "2025-07-21T19:05:09",
+    "order_picked_at": "2025-07-21T19:12:41",
+    "shipped_at": "2025-07-21T19:12:44",
+    "reached_dest_at": "2025-07-21T19:17:38",
+    "final_status_at": "2025-07-21T19:17:40",
+    "cancellation_reason": "0"
+  }
+]
+2025-09-12 12:37:54 INFO: database query executed succesfully
+2025-09-12 12:37:54 ERROR: generate_streaming_response() got an unexpected keyword argument 'system'
+2025-09-12 12:37:54 INFO: 127.0.0.1 - - [12/Sep/2025 12:37:54] "[35m[1mPOST /process-data HTTP/1.1[0m" 500 -
+2025-09-12 12:38:27 INFO:  * Detected change in 'C:\\Users\\USER\\Desktop\\LEAJLAK\\beta\\patch3\\ai-assistant\\app.py', reloading
+2025-09-12 12:38:27 INFO:  * Detected change in 'C:\\Users\\USER\\Desktop\\LEAJLAK\\beta\\patch3\\ai-assistant\\app.py', reloading
+2025-09-12 12:38:27 INFO:  * Detected change in 'C:\\Users\\USER\\Desktop\\LEAJLAK\\beta\\patch3\\ai-assistant\\app.py', reloading
+2025-09-12 12:38:28 INFO:  * Restarting with watchdog (windowsapi)
+2025-09-12 12:38:37 WARNING:  * Debugger is active!
+2025-09-12 12:38:37 INFO:  * Debugger PIN: 115-265-433
+2025-09-12 12:38:57 INFO:  * Detected change in 'C:\\Users\\USER\\Desktop\\LEAJLAK\\beta\\patch3\\ai-assistant\\function.py', reloading
+2025-09-12 12:38:57 INFO:  * Detected change in 'C:\\Users\\USER\\Desktop\\LEAJLAK\\beta\\patch3\\ai-assistant\\function.py', reloading
+2025-09-12 12:38:57 INFO:  * Detected change in 'C:\\Users\\USER\\Desktop\\LEAJLAK\\beta\\patch3\\ai-assistant\\function.py', reloading
+2025-09-12 12:38:58 INFO:  * Restarting with watchdog (windowsapi)
+2025-09-12 12:39:10 WARNING:  * Debugger is active!
+2025-09-12 12:39:10 INFO:  * Debugger PIN: 115-265-433
+2025-09-12 12:39:14 INFO: intent classified
+2025-09-12 12:39:14 INFO: data_fetch
+2025-09-12 12:39:14 INFO: data_fetch intent detected
+2025-09-12 12:39:14 INFO: Received user message: when was the last order i placed
+2025-09-12 12:39:14 INFO: started sql generation
+2025-09-12 12:39:21 INFO: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-12 12:39:21 INFO: Generated SQL query: SELECT "id", "customer_number", "customer_name", "client_id", "client_name", "captain_name", "delivery_date", "order_status", "shop_to_delivery_km", "order_created_at", "order_accepted_at", "start_ride_at", "reached_shop_at", "order_picked_at", "shipped_at", "reached_dest_at", "final_status_at", "cancellation_reason" FROM "updated_table" WHERE "client_name" = 'MC DONALDS' AND "order_created_at" <= '2025-09-12 12:39:10.848770' ORDER BY "order_created_at" DESC LIMIT 10;
+2025-09-12 12:39:21 INFO: sql generation success
+2025-09-12 12:39:29 INFO: Database fetching successful: [
+  {
+    "id": 1823383,
+    "customer_number": 9061198814,
+    "customer_name": "Customer_PHR",
+    "client_id": 3,
+    "client_name": "MC DONALDS",
+    "captain_name": "SALEM AHMED -RUH - Private10",
+    "delivery_date": "2025-07-21T19:38:52",
+    "order_status": "Delivered",
+    "shop_to_delivery_km": 2.858,
+    "order_created_at": "2025-07-21T19:23:56",
+    "order_accepted_at": "2025-07-21T19:24:17",
+    "start_ride_at": "2025-07-21T19:24:19",
+    "reached_shop_at": "2025-07-21T19:24:21",
+    "order_picked_at": "2025-07-21T19:30:25",
+    "shipped_at": "2025-07-21T19:37:51",
+    "reached_dest_at": "2025-07-21T19:38:43",
+    "final_status_at": "2025-07-21T19:38:52",
+    "cancellation_reason": "0"
+  },
+  {
+    "id": 1823379,
+    "customer_number": 2666746694,
+    "customer_name": "Customer_ZJX",
+    "client_id": 3,
+    "client_name": "MC DONALDS",
+    "captain_name": "ALAA HEFNY -HOF- JOD10",
+    "delivery_date": "2025-07-21T19:40:28",
+    "order_status": "Delivered",
+    "shop_to_delivery_km": 2.349,
+    "order_created_at": "2025-07-21T19:21:10",
+    "order_accepted_at": "2025-07-21T19:21:25",
+    "start_ride_at": "2025-07-21T19:21:31",
+    "reached_shop_at": "2025-07-21T19:21:33",
+    "order_picked_at": "2025-07-21T19:34:55",
+    "shipped_at": "2025-07-21T19:40:19",
+    "reached_dest_at": "2025-07-21T19:40:25",
+    "final_status_at": "2025-07-21T19:40:28",
+    "cancellation_reason": "0"
+  },
+  {
+    "id": 1823370,
+    "customer_number": 4966167537,
+    "customer_name": "Customer_DKQ",
+    "client_id": 3,
+    "client_name": "MC DONALDS",
+    "captain_name": "MONGED MOSTAFA -DMM - SAHHEL10",
+    "delivery_date": "2025-07-21T19:38:18",
+    "order_status": "Delivered",
+    "shop_to_delivery_km": 5.885,
+    "order_created_at": "2025-07-21T19:16:57",
+    "order_accepted_at": "2025-07-21T19:17:10",
+    "start_ride_at": "2025-07-21T19:17:15",
+    "reached_shop_at": "2025-07-21T19:17:19",
+    "order_picked_at": "2025-07-21T19:22:41",
+    "shipped_at": "2025-07-21T19:37:49",
+    "reached_dest_at": "2025-07-21T19:38:15",
+    "final_status_at": "2025-07-21T19:38:18",
+    "cancellation_reason": "0"
+  },
+  {
+    "id": 1823361,
+    "customer_number": 8144065964,
+    "customer_name": "Customer_FSW",
+    "client_id": 3,
+    "client_name": "MC DONALDS",
+    "captain_name": "MOHAMMED HAMED -DMM - JOD10",
+    "delivery_date": "2025-07-21T19:42:19",
+    "order_status": "Delivered",
+    "shop_to_delivery_km": 3.821,
+    "order_created_at": "2025-07-21T19:12:34",
+    "order_accepted_at": "2025-07-21T19:12:50",
+    "start_ride_at": "2025-07-21T19:15:33",
+    "reached_shop_at": "2025-07-21T19:21:02",
+    "order_picked_at": "2025-07-21T19:25:41",
+    "shipped_at": "2025-07-21T19:26:51",
+    "reached_dest_at": "2025-07-21T19:39:50",
+    "final_status_at": "2025-07-21T19:42:19",
+    "cancellation_reason": "0"
+  },
+  {
+    "id": 1823360,
+    "customer_number": 2114858619,
+    "customer_name": "Customer_DHZ",
+    "client_id": 3,
+    "client_name": "MC DONALDS",
+    "captain_name": "SALEH ESMAIL - RUH - shaqra14",
+    "delivery_date": "2025-07-21T19:32:53",
+    "order_status": "Delivered",
+    "shop_to_delivery_km": 1.839,
+    "order_created_at": "2025-07-21T19:11:57",
+    "order_accepted_at": "2025-07-21T19:12:17",
+    "start_ride_at": "2025-07-21T19:12:19",
+    "reached_shop_at": "2025-07-21T19:12:22",
+    "order_picked_at": "2025-07-21T19:17:55",
+    "shipped_at": "2025-07-21T19:32:13",
+    "reached_dest_at": "2025-07-21T19:32:33",
+    "final_status_at": "2025-07-21T19:32:53",
+    "cancellation_reason": "0"
+  },
+  {
+    "id": 1823356,
+    "customer_number": 6907600656,
+    "customer_name": "Customer_OXU",
+    "client_id": 3,
+    "client_name": "MC DONALDS",
+    "captain_name": "Abdo Salem Ali - RUH - shaqra14",
+    "delivery_date": "2025-07-21T19:30:36",
+    "order_status": "Delivered",
+    "shop_to_delivery_km": 1.859,
+    "order_created_at": "2025-07-21T19:10:08",
+    "order_accepted_at": "2025-07-21T19:10:39",
+    "start_ride_at": "2025-07-21T19:10:46",
+    "reached_shop_at": "2025-07-21T19:10:49",
+    "order_picked_at": "2025-07-21T19:21:05",
+    "shipped_at": "2025-07-21T19:30:28",
+    "reached_dest_at": "2025-07-21T19:30:33",
+    "final_status_at": "2025-07-21T19:30:36",
+    "cancellation_reason": "0"
+  },
+  {
+    "id": 1823342,
+    "customer_number": 6841247441,
+    "customer_name": "Customer_OXV",
+    "client_id": 3,
+    "client_name": "MC DONALDS",
+    "captain_name": "MAMDOOH ALI -RUH - \u00e2\u20ac\u017dshaqra14",
+    "delivery_date": "2025-07-21T19:37:23",
+    "order_status": "Delivered",
+    "shop_to_delivery_km": 0.499,
+    "order_created_at": "2025-07-21T19:01:42",
+    "order_accepted_at": "2025-07-21T19:01:54",
+    "start_ride_at": "2025-07-21T19:02:00",
+    "reached_shop_at": "2025-07-21T19:03:11",
+    "order_picked_at": "2025-07-21T19:24:50",
+    "shipped_at": "2025-07-21T19:30:24",
+    "reached_dest_at": "2025-07-21T19:37:20",
+    "final_status_at": "2025-07-21T19:37:23",
+    "cancellation_reason": "0"
+  },
+  {
+    "id": 1823336,
+    "customer_number": 7657856923,
+    "customer_name": "Customer_PVF",
+    "client_id": 3,
+    "client_name": "MC DONALDS",
+    "captain_name": "Mohamed Abdalla -RUH - H12",
+    "delivery_date": "2025-07-21T19:31:24",
+    "order_status": "Delivered",
+    "shop_to_delivery_km": 2.189,
+    "order_created_at": "2025-07-21T18:59:54",
+    "order_accepted_at": "2025-07-21T19:00:53",
+    "start_ride_at": "2025-07-21T19:02:07",
+    "reached_shop_at": "2025-07-21T19:06:35",
+    "order_picked_at": "2025-07-21T19:06:38",
+    "shipped_at": "2025-07-21T19:30:50",
+    "reached_dest_at": "2025-07-21T19:31:18",
+    "final_status_at": "2025-07-21T19:31:24",
+    "cancellation_reason": "0"
+  },
+  {
+    "id": 1823334,
+    "customer_number": 5182530878,
+    "customer_name": "Customer_OLO",
+    "client_id": 3,
+    "client_name": "MC DONALDS",
+    "captain_name": "ALI QRANI -RUH - H10",
+    "delivery_date": "2025-07-21T19:40:32",
+    "order_status": "Delivered",
+    "shop_to_delivery_km": 2.795,
+    "order_created_at": "2025-07-21T18:58:45",
+    "order_accepted_at": "2025-07-21T18:59:11",
+    "start_ride_at": "2025-07-21T19:01:18",
+    "reached_shop_at": "2025-07-21T19:01:47",
+    "order_picked_at": "2025-07-21T19:16:50",
+    "shipped_at": "2025-07-21T19:40:14",
+    "reached_dest_at": "2025-07-21T19:40:27",
+    "final_status_at": "2025-07-21T19:40:32",
+    "cancellation_reason": "0"
+  },
+  {
+    "id": 1823333,
+    "customer_number": 3480314023,
+    "customer_name": "Customer_ECW",
+    "client_id": 3,
+    "client_name": "MC DONALDS",
+    "captain_name": "NADER FUAD -DMM - JOD10",
+    "delivery_date": "2025-07-21T19:17:40",
+    "order_status": "Delivered",
+    "shop_to_delivery_km": 1.382,
+    "order_created_at": "2025-07-21T18:58:10",
+    "order_accepted_at": "2025-07-21T19:04:57",
+    "start_ride_at": "2025-07-21T19:05:06",
+    "reached_shop_at": "2025-07-21T19:05:09",
+    "order_picked_at": "2025-07-21T19:12:41",
+    "shipped_at": "2025-07-21T19:12:44",
+    "reached_dest_at": "2025-07-21T19:17:38",
+    "final_status_at": "2025-07-21T19:17:40",
+    "cancellation_reason": "0"
+  }
+]
+2025-09-12 12:39:29 INFO: database query executed succesfully
+2025-09-12 12:39:29 INFO: Started summary generation
+2025-09-12 12:39:31 INFO: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-12 12:39:32 INFO: delta: {'content': 'Your', 'function_call': None, 'refusal': None, 'role': 'assistant', 'tool_calls': None}
+2025-09-12 12:39:32 INFO: 127.0.0.1 - - [12/Sep/2025 12:39:32] "POST /process-data HTTP/1.1" 200 -
+2025-09-12 12:39:32 INFO: delta: {'content': ' last order', 'function_call': None, 'refusal': None, 'role': 'assistant', 'tool_calls': None}
+2025-09-12 12:39:33 INFO: delta: {'content': ' was placed', 'function_call': None, 'refusal': None, 'role': 'assistant', 'tool_calls': None}
+2025-09-12 12:39:33 INFO: delta: {'content': ' on July', 'function_call': None, 'refusal': None, 'role': 'assistant', 'tool_calls': None}
+2025-09-12 12:39:33 INFO: delta: {'content': ' 21', 'function_call': None, 'refusal': None, 'role': 'assistant', 'tool_calls': None}
+2025-09-12 12:39:33 INFO: delta: {'content': ', ', 'function_call': None, 'refusal': None, 'role': 'assistant', 'tool_calls': None}
+2025-09-12 12:39:33 INFO: delta: {'content': '2025', 'function_call': None, 'refusal': None, 'role': 'assistant', 'tool_calls': None}
+2025-09-12 12:39:33 INFO: delta: {'content': ' at ', 'function_call': None, 'refusal': None, 'role': 'assistant', 'tool_calls': None}
+2025-09-12 12:39:33 INFO: delta: {'content': '19', 'function_call': None, 'refusal': None, 'role': 'assistant', 'tool_calls': None}
+2025-09-12 12:39:33 INFO: delta: {'content': ':38', 'function_call': None, 'refusal': None, 'role': 'assistant', 'tool_calls': None}
+2025-09-12 12:39:33 INFO: delta: {'content': ' PM', 'function_call': None, 'refusal': None, 'role': 'assistant', 'tool_calls': None}
+2025-09-12 12:39:34 INFO: delta: {'content': ', delivered', 'function_call': None, 'refusal': None, 'role': 'assistant', 'tool_calls': None}
+2025-09-12 12:39:34 INFO: delta: {'content': ' successfully from', 'function_call': None, 'refusal': None, 'role': 'assistant', 'tool_calls': None}
+2025-09-12 12:39:34 INFO: delta: {'content': " McDonald's", 'function_call': None, 'refusal': None, 'role': 'assistant', 'tool_calls': None}
+2025-09-12 12:39:34 INFO: delta: {'content': ' with a', 'function_call': None, 'refusal': None, 'role': 'assistant', 'tool_calls': None}
+2025-09-12 12:39:34 INFO: delta: {'content': ' distance of', 'function_call': None, 'refusal': None, 'role': 'assistant', 'tool_calls': None}
+2025-09-12 12:39:35 INFO: delta: {'content': ' 2', 'function_call': None, 'refusal': None, 'role': 'assistant', 'tool_calls': None}
+2025-09-12 12:39:35 INFO: delta: {'content': '.858', 'function_call': None, 'refusal': None, 'role': 'assistant', 'tool_calls': None}
+2025-09-12 12:39:35 INFO: delta: {'content': ' km', 'function_call': None, 'refusal': None, 'role': 'assistant', 'tool_calls': None}
+2025-09-12 12:39:35 INFO: delta: {'content': '.', 'function_call': None, 'refusal': None, 'role': 'assistant', 'tool_calls': None}
+2025-09-12 12:39:35 INFO: delta: {'content': '', 'function_call': None, 'refusal': None, 'role': 'assistant', 'tool_calls': None}
+2025-09-12 12:39:40 INFO: research mode activated
+2025-09-12 12:39:50 INFO: started sql generation
+2025-09-12 12:39:53 INFO: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-12 12:39:53 INFO: Generated SQL query: SELECT "order_created_at" FROM "updated_table" WHERE "client_name" = 'MC DONALDS' AND "order_created_at" = (SELECT MAX("order_created_at") FROM "updated_table" WHERE "client_name" = 'MC DONALDS');
+2025-09-12 12:39:53 INFO: sql generation success
+2025-09-12 12:39:59 INFO: Database fetching successful: [
+  {
+    "order_created_at": "2025-07-21T19:23:56"
+  }
+]
+2025-09-12 12:39:59 INFO: database query executed succesfully
+2025-09-12 12:39:59 INFO: Started summary generation
+2025-09-12 12:40:02 INFO: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-12 12:40:02 INFO: delta: {'content': 'The', 'function_call': None, 'refusal': None, 'role': 'assistant', 'tool_calls': None}
+2025-09-12 12:40:02 INFO: 127.0.0.1 - - [12/Sep/2025 12:40:02] "POST /deep-analysis HTTP/1.1" 200 -
+2025-09-12 12:40:02 INFO: delta: {'content': ' last order', 'function_call': None, 'refusal': None, 'role': 'assistant', 'tool_calls': None}
+2025-09-12 12:40:02 INFO: delta: {'content': ' was placed', 'function_call': None, 'refusal': None, 'role': 'assistant', 'tool_calls': None}
+2025-09-12 12:40:02 INFO: delta: {'content': ' on July', 'function_call': None, 'refusal': None, 'role': 'assistant', 'tool_calls': None}
+2025-09-12 12:40:02 INFO: delta: {'content': ' 21', 'function_call': None, 'refusal': None, 'role': 'assistant', 'tool_calls': None}
+2025-09-12 12:40:02 INFO: delta: {'content': ', ', 'function_call': None, 'refusal': None, 'role': 'assistant', 'tool_calls': None}
+2025-09-12 12:40:02 INFO: delta: {'content': '2025', 'function_call': None, 'refusal': None, 'role': 'assistant', 'tool_calls': None}
+2025-09-12 12:40:02 INFO: delta: {'content': ' at ', 'function_call': None, 'refusal': None, 'role': 'assistant', 'tool_calls': None}
+2025-09-12 12:40:03 INFO: delta: {'content': '7:', 'function_call': None, 'refusal': None, 'role': 'assistant', 'tool_calls': None}
+2025-09-12 12:40:03 INFO: delta: {'content': '23 PM', 'function_call': None, 'refusal': None, 'role': 'assistant', 'tool_calls': None}
+2025-09-12 12:40:03 INFO: delta: {'content': '. This', 'function_call': None, 'refusal': None, 'role': 'assistant', 'tool_calls': None}
+2025-09-12 12:40:03 INFO: delta: {'content': ' appears to', 'function_call': None, 'refusal': None, 'role': 'assistant', 'tool_calls': None}
+2025-09-12 12:40:04 INFO: delta: {'content': ' be inconsistent', 'function_call': None, 'refusal': None, 'role': 'assistant', 'tool_calls': None}
+2025-09-12 12:40:04 INFO: delta: {'content': ' with the', 'function_call': None, 'refusal': None, 'role': 'assistant', 'tool_calls': None}
+2025-09-12 12:40:04 INFO: delta: {'content': ' current date', 'function_call': None, 'refusal': None, 'role': 'assistant', 'tool_calls': None}
+2025-09-12 12:40:04 INFO: delta: {'content': ', suggesting', 'function_call': None, 'refusal': None, 'role': 'assistant', 'tool_calls': None}
+2025-09-12 12:40:04 INFO: delta: {'content': ' possible', 'function_call': None, 'refusal': None, 'role': 'assistant', 'tool_calls': None}
+2025-09-12 12:40:05 INFO: delta: {'content': ' data entry', 'function_call': None, 'refusal': None, 'role': 'assistant', 'tool_calls': None}
+2025-09-12 12:40:05 INFO: delta: {'content': ' errors', 'function_call': None, 'refusal': None, 'role': 'assistant', 'tool_calls': None}
+2025-09-12 12:40:05 INFO: delta: {'content': ' or system', 'function_call': None, 'refusal': None, 'role': 'assistant', 'tool_calls': None}
+2025-09-12 12:40:05 INFO: delta: {'content': ' issues', 'function_call': None, 'refusal': None, 'role': 'assistant', 'tool_calls': None}
+2025-09-12 12:40:05 INFO: delta: {'content': '.', 'function_call': None, 'refusal': None, 'role': 'assistant', 'tool_calls': None}
+2025-09-12 12:40:05 INFO: delta: {'content': '', 'function_call': None, 'refusal': None, 'role': 'assistant', 'tool_calls': None}

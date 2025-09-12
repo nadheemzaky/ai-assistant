@@ -102,32 +102,6 @@ with app.app_context():
 
 
 
-def generate_sql_with_openai(prompt):
-    try:
-        sql_prompt=prompts.sql_prompt
-        logging.info('started sql generation')
-        response = client.chat.completions.create(
-            model="gpt-4o-mini-2024-07-18",
-            messages=[
-                {
-                    "role":"system",
-                    "content":sql_prompt
-                },
-                {
-                "role":"user",
-                "content":prompt
-                }
-            ]
-        )
-        sql_query = response.choices[0].message.content
-        logging.info(f"Generated SQL query: {sql_query}")
-        return sql_query
-        
-    except Exception as e:
-        logging.info(f"OpenAI API error: {str(e)}")
-        raise
-
-
 
 @app.route('/number', methods=['POST'])
 def number():
@@ -179,7 +153,6 @@ def names_route():
 def process_data():
     data = request.json
     user_messages = data['message']
-    
     name=get_value('name')
 
 
@@ -231,14 +204,14 @@ def process_data():
         logging.info(f"Received user message: {user_messages}")
     
 
-    prompt_sql = f'''
+    variable_sql = f'''
     name = {name}
     user message = {user_messages}
     date and time now = {now}
    '''
     
     try:
-        sql_query = function.generate_sql_with_openai(prompt_sql,client)
+        sql_query = function.generate_sql_with_openai(variable_sql,client,prompts.sql_prompt)
         try:
             function.append_sql_to_excel([sql_query])
         except Exception as e:
@@ -248,43 +221,6 @@ def process_data():
     except Exception as e:
         return jsonify({"reply": "Failed to generate query", "name": name}), 500
 
-    '''    try:
-        #db_data_json,status_code=fetch_query_results_as_dict(DB_URL,sql_query)
-        with psycopg2.connect(DB_URL) as conn:
-            with conn.cursor() as cur:
-                cur.execute(sql_query)
-                rows = cur.fetchall()
-                colnames = [desc[0] for desc in cur.description]
-                
-                # Convert rows to serializable format
-                list_of_dicts = []
-                for row in rows:
-                    row_dict = {}
-                    for col, val in zip(colnames, row):
-                        if isinstance(val, (datetime, date)):
-                            row_dict[col] = val.isoformat()
-                        elif isinstance(val, timedelta):
-                            row_dict[col] = val.total_seconds()
-                        elif isinstance(val, Decimal):
-                            row_dict[col] = float(val)
-                        else:
-                            row_dict[col] = val
-                    list_of_dicts.append(row_dict)
-                try:
-                    db_data_json = json.dumps(list_of_dicts, indent=2, cls=SafeJSONEncoder)
-                    logging.info(f'database fetching successfull{str(db_data_json)}')
-                except Exception as e:
-                    logging.info(f'db return null: {str(e)}')
-    except psycopg2.Error as e:
-        logging.info(f"Database error: {str(e)}")
-        return jsonify({"reply": f"{sql_query} Data not avialable currently"}), 501
-    '''
-    '''if not rows:
-        logging.info(f'the query returned null in database')
-        return jsonify({
-            "reply": "The data is not avialable in the database"
-        }), 405
-    '''
 
     db_data_json, success = function.execute_query_and_get_json(DB_URL, sql_query)
     if success and db_data_json:
@@ -304,7 +240,7 @@ def process_data():
         
 
         return Response(
-            function.generate_streaming_response(prompt_analysis, client2, prompts),
+            function.generate_streaming_response(prompt_analysis, client2,prompts.summary_prompt),
             mimetype='text/plain'
         )
     except Exception as e:
@@ -316,11 +252,64 @@ def process_data():
 def deep_analysis():
     data = request.json
     user_messages = data['message']
-    
-    # Return maintenance message
+    name=get_value('name')
+    logging.info('research mode activated')
+    time_module.sleep(10)
+    try:
+        now = datetime.now()
+    except Exception as e:
+        logging.error(f"Failed to get current datetime: {e}")
+        now = None
+
+
+    variable_sql_research = f'''
+    name = {name}
+    user message = {user_messages}
+    date and time now = {now}
+    '''
+    try:
+        sql_query = function.generate_sql_with_openai(variable_sql_research,client,prompts.sql_prompt_research)
+        try:
+            function.append_sql_to_excel([sql_query])
+        except Exception as e:
+            logging.info(f'error ssaving sql to excel {e}')
+        logging.info(f'sql generation success')
+
+    except Exception as e:
+        return jsonify({"reply": "Failed to generate query", "name": name}), 500
+
+    db_data_json, success = function.execute_query_and_get_json(DB_URL, sql_query)
+    if success and db_data_json:
+        logging.info('database query executed succesfully')
+    else:
+        logging.error('database query execution failure')
+
+    try:
+        prompt_analysis = f'''
+            fetched data = {db_data_json}
+            user message = {user_messages} 
+            the previous response provided by llm = {get_value('summary')}
+            previous question asked by the user = {get_value('user_messages')}
+            the sql query that is generated right now = {sql_query}
+            '''
+        
+
+        return Response(
+            function.generate_streaming_response(prompt_analysis, client2,prompts.summary_prompt_research),
+            mimetype='text/plain'
+        )
+    except Exception as e:
+        logging.error(f'{str(e)}')
+        return jsonify({"error": "Internal server error"}), 500
+
+
+    '''# Return maintenance message
     return jsonify({
         "status": "The deep analysis feature is currently under maintenance. Please try again later.",
-    }), 503
+    }), 503'''
+
+
+
 
 @app.route('/end', methods=['POST'])
 def end():
