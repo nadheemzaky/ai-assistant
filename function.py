@@ -73,7 +73,7 @@ def generate_streaming_response(prompt_analysis, client2,system, wpm=350):
         logging.info('Started summary generation')
         
         response = client2.chat.completions.create(
-            model="deepseek/deepseek-chat-v3.1:free",
+            model="openai/gpt-oss-120b",
             stream=True,
             messages=[
                 {
