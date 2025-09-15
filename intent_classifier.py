@@ -19,12 +19,12 @@ def classify_intent(message):
     system_prompt = (
         "Classify the following user message into one of two categories: "
         "'general' = for questions that includes greetings or enquiry about chatbot's service."
-        "'data_fetch'= for questions asking about anything else"
+        "'data_fetch'= for questions asking about anything else."
         "Return only the category name."
     )
 
     payload = {
-        "model": "deepseek/deepseek-chat-v3.1:free",  # or preferred model supported by OpenRouter
+        "model": "meta-llama/llama-4-maverick",  # or preferred model supported by OpenRouter
         "messages": [
             {"role": "system", "content": system_prompt},
             {"role": "user", "content": message}
@@ -38,6 +38,7 @@ def classify_intent(message):
     }
     response = requests.post(OPENROUTER_API_URL, json=payload, headers=headers)
     response_json = response.json()
+    logging.info(f"Intent classification response: {response_json}")
     if "choices" in response_json and response_json["choices"]:
         logging.info('intent classified')
         intent = response_json["choices"][0]["message"]["content"].strip().lower()
