@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify, render_template,Response
+from flask import Flask, request, jsonify, render_template,Response,session
 import psycopg2
 import requests
 import json
@@ -16,9 +16,11 @@ from openai import OpenAI
 from intent_classifier import classify_intent
 import prompts
 import function
+import uuid
 
 # do not touch this
 load_dotenv()
+function.init_db()
 app = Flask(__name__)
 app.secret_key = os.getenv('SECRET_KEY', secrets.token_hex(16))
 
@@ -27,6 +29,8 @@ client2 = OpenAI(
     base_url="https://openrouter.ai/api/v1",
     api_key=os.getenv("OPENROUTER_API_KEY")
 )
+
+
 
 DB_URL = os.getenv('DB_URL')
 
@@ -95,7 +99,7 @@ def get_value(key):
     return entry.value if entry else None
 
 with app.app_context():
-    for key in ['mobile', 'name', 'summary','user_messages','now']:
+    for key in ['mobile', 'name', 'summary','user_messages','now','session_id']:
         if not CurrentValue.query.filter_by(key=key).first():
             set_value(key, '')
 
@@ -105,6 +109,12 @@ with app.app_context():
 
 @app.route('/number', methods=['POST'])
 def number():
+    try:
+        SESSION_ID = str(uuid.uuid4())
+        set_value('session_id', SESSION_ID)
+        logging.info(f"New session started: {SESSION_ID}")
+    except Exception as e:
+        logging.error(f'session initialization error: {str(e)}')
     data = request.json
     logging.info(f"Received request data: {data}")
 
@@ -149,13 +159,32 @@ def names_route():
     name = get_value('name')
     return jsonify({"name": name})
 
+
 @app.route('/process-data', methods=['POST'])
 def process_data():
+    
     data = request.json
     user_messages = data['message']
+    set_value('user_message', user_messages)
     name=get_value('name')
+    if not data or 'message' not in data:
+        return jsonify({"reply": "Missing 'message' in request body"}), 401
+    else:
+        logging.info(f"Received user message: {user_messages}")
+    if not name:
+        logging.error(f'names list empty')  # Check if names list is empty
+        return jsonify({"reply": "No users registered yet"}), 400
+    
+    logging.info(f'###################{get_value("session_id")}##############################')
+    
+    '''try:
+        function.store_message(get_value('session_id'),user_messages,'user')
+
+    except Exception as e:
+        logging.info('no context)'''
 
 
+    #appending messages to excel sheet
     try:
         if not isinstance(user_messages, list):
             messages_to_save = [user_messages]
@@ -164,54 +193,57 @@ def process_data():
         function.append_messages_to_excel(messages_to_save)
     except Exception as e:
         logging.info(f'error saving to excel:{e}')
-
-
-# datetime handling
+    # datetime handling
     try:
         now = datetime.now()
     except Exception as e:
         logging.error(f"Failed to get current datetime: {e}")
         now = None
-
     try:
         set_value('now', str(now))
     except Exception as e:
         logging.error(f"Failed to set or log now: {e}")
+
+
+
+
 # intent classification
     try :
         intent = classify_intent(user_messages)
         if intent == 'general':
-            logging.info('general intent detected')
+            logging.info('intent = general')
             try:
                 reply = function.generate_openai_reply(user_messages,client)
                 return (str(reply))
             except Exception as e:
                 logging.error(f'{e}')
         else :
-            logging.info('data_fetch intent detected')
+            logging.info('intent = query')
     except Exception as e:
         logging.error(f'{e}')
 
-    if not name:
-        logging.error(f'names list empty')  # Check if names list is empty
-        return jsonify({"reply": "No users registered yet"}), 400
-   
-    set_value('user_message', user_messages)
 
-    if not data or 'message' not in data:
-        return jsonify({"reply": "Missing 'message' in request body"}), 401
-    else:
-        logging.info(f"Received user message: {user_messages}")
-    
+
+    context_for_sql = ""
+    try:
+        session_id=get_value('session_id')
+        context_for_sql=function.get_context_messages(session_id)
+        logging.info(f'----------------------{context_for_sql}----------------------')
+    except Exception as e:
+        logging.error(f'sql context error{e}')
 
     variable_sql = f'''
     name = {name}
     user message = {user_messages}
     date and time now = {now}
-   '''
+    Context to consider while generating sql:-
+        previous qustions from user : {context_for_sql}
+        previous summary provided by llm : {get_value('summary')}
+    '''
     
     try:
-        sql_query = function.generate_sql_with_openai(variable_sql,client,prompts.sql_prompt)
+        sql_query = function.generate_sql_with_openrouter(variable_sql,client2,prompts.sql_prompt)
+        logging.info(f'generated sql = {sql_query}')
         try:
             function.append_sql_to_excel([sql_query])
         except Exception as e:
@@ -230,21 +262,25 @@ def process_data():
 
 
     try:
+        context=function.get_context_messages(get_value('session_id'))
         prompt_analysis = f'''
-            fetched data = {db_data_json}
-            user message = {user_messages} 
-            the previous response provided by llm = {get_value('summary')}
-            previous question asked by the user = {get_value('user_messages')}
-            the sql query that is generated right now = {sql_query}
+            this is what user asked : {user_messages}.
+            this is the previous exchanges between user and model = {context} .
+            the data that is related to the question of user= {db_data_json}.
+            the sql query that is generated right now to fetch data from database = {sql_query}.
             '''
-        
-
-        return Response(
-            function.generate_streaming_response(prompt_analysis, client2,prompts.summary_prompt),
-            mimetype='text/plain'
+        response_generator = function.generate_streaming_response(
+        context, prompt_analysis, client2, prompts.summary_prompt_research
         )
+        wrapped_gen = function.store_and_stream(response_generator, get_value('session_id'), user_messages)
+        logging.info(f'wrapped gen = {wrapped_gen}')
+
+
+        return Response(wrapped_gen, mimetype='text/plain')
+
+
     except Exception as e:
-        logging.error(f'{str(e)}')
+        logging.error(f'error in streaming gen response: {str(e)}')
         return jsonify({"error": "Internal server error"}), 500
     
 
@@ -252,6 +288,12 @@ def process_data():
 def deep_analysis():
     data = request.json
     user_messages = data['message']
+
+    '''try:
+        function.store_message(get_value('session_id'),user_messages,'user',response)
+    except Exception as e:
+        logging.info('no context')'''
+
     name=get_value('name')
     logging.info('research mode activated')
     time_module.sleep(10)
@@ -261,14 +303,25 @@ def deep_analysis():
         logging.error(f"Failed to get current datetime: {e}")
         now = None
 
+    context_for_sql_research_mode = ""
+    try:
+        session_id=get_value('session_id')
+        context_for_sql_research_mode=function.get_context_messages(session_id)
+        logging.info(f'----------------------{context_for_sql_research_mode}----------------------')
+    except Exception as e:
+        logging.error(f'sql context error{e}')
 
     variable_sql_research = f'''
     name = {name}
     user message = {user_messages}
     date and time now = {now}
+    Context to consider while generating sql:-
+        previous qustions from user : {context_for_sql_research_mode}
+        previous summary provided by llm : {get_value('summary')}
     '''
+    
     try:
-        sql_query = function.generate_sql_with_openai(variable_sql_research,client,prompts.sql_prompt_research)
+        sql_query = function.generate_sql_with_openrouter(variable_sql_research,client2,prompts.sql_prompt_research)
         try:
             function.append_sql_to_excel([sql_query])
         except Exception as e:
@@ -285,29 +338,25 @@ def deep_analysis():
         logging.error('database query execution failure')
 
     try:
+        context=function.get_context_messages(get_value('session_id'))
+        logging.info(f'{context}')
         prompt_analysis = f'''
+            this is the previous exchange made between user and model = {context}
             fetched data = {db_data_json}
             user message = {user_messages} 
-            the previous response provided by llm = {get_value('summary')}
-            previous question asked by the user = {get_value('user_messages')}
             the sql query that is generated right now = {sql_query}
             '''
+        response_generator = function.generate_streaming_response(
+        context, prompt_analysis, client2, prompts.summary_prompt_research
+        )
+        wrapped_gen = function.store_and_stream(response_generator, get_value('session_id'), user_messages)
         
 
-        return Response(
-            function.generate_streaming_response(prompt_analysis, client2,prompts.summary_prompt_research),
-            mimetype='text/plain'
-        )
+        return Response(wrapped_gen, mimetype='text/plain')
+       
     except Exception as e:
         logging.error(f'{str(e)}')
         return jsonify({"error": "Internal server error"}), 500
-
-
-    '''# Return maintenance message
-    return jsonify({
-        "status": "The deep analysis feature is currently under maintenance. Please try again later.",
-    }), 503'''
-
 
 
 

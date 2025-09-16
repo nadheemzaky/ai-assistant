@@ -7,6 +7,7 @@ import psycopg2
 from datetime import datetime, timedelta, date,time
 from decimal import Decimal
 import json
+import sqlite3
 
 
 
@@ -62,9 +63,39 @@ def generate_sql_with_openai(prompt,client,system):
         logging.info(f"OpenAI API error: {str(e)}")
         raise
 
+def generate_sql_with_openrouter(prompt, client, system):
+    try:
+        sql_prompt = system
+        logging.info('Started SQL generation')
+
+        response = client.chat.completions.create(
+            model="anthropic/claude-3-haiku",
+            messages=[
+                {
+                    "role": "system",
+                    "content": sql_prompt
+                },
+                {
+                    "role": "user",
+                    "content": prompt
+                }
+            ]
+        )
+
+        # Access response correctly
+        sql_query = response.choices[0].message.content
+
+        logging.info(f"Generated SQL query: {sql_query}")
+        return sql_query
+
+    except Exception as e:
+        logging.error(f"OpenRouter API error: {str(e)}")
+        raise
 
 
-def generate_streaming_response(prompt_analysis, client2,system, wpm=350):
+
+def generate_streaming_response(context,prompt_analysis, client2,system, wpm=350):
+    full_response = ""
     """
     Generate streaming response for analysis
     """
@@ -73,7 +104,7 @@ def generate_streaming_response(prompt_analysis, client2,system, wpm=350):
         logging.info('Started summary generation')
         
         response = client2.chat.completions.create(
-            model="openai/gpt-oss-120b",
+            model="deepseek/deepseek-chat-v3-0324",
             stream=True,
             messages=[
                 {
@@ -84,16 +115,22 @@ def generate_streaming_response(prompt_analysis, client2,system, wpm=350):
                     "role": "user",
                     "content": prompt_analysis
                 },
+                {
+                    "role": "user",
+                    "content": context      
+                }
             ]
         ) 
         
         for chunk in response:
+            
             delta = chunk.choices[0].delta  
-            logging.info(f'delta: {delta.__dict__}')
+            #logging.info(f'delta: {len(delta.__dict__)}')
             
             if hasattr(delta, 'content') and delta.content:
                 try:
                     yield delta.content.encode('utf-8')
+                    #full_response += delta.content.encode('utf-8')
                     char_count = len(delta.content)
                     delay = (char_count * 30.0) / (wpm * 5)
                     time_module.sleep(delay)
@@ -179,7 +216,7 @@ def execute_query_and_get_json(db_url, sql_query):
                 
                 try:
                     db_data_json = json.dumps(list_of_dicts, indent=2, cls=SafeJSONEncoder)
-                    logging.info(f'Database fetching successful: {str(db_data_json)}')
+                    logging.info(f'Database fetching successful: {len(str(db_data_json))}')
                     return db_data_json, True
                 except Exception as json_error:
                     logging.error(f'JSON serialization error: {str(json_error)}')
@@ -193,3 +230,85 @@ def execute_query_and_get_json(db_url, sql_query):
         return None, False
     
 
+## storing the user context
+
+def init_db():
+    conn = sqlite3.connect('instance/chat_context.db')
+    cursor = conn.cursor()
+    cursor.execute('''
+        CREATE TABLE IF NOT EXISTS user_context (
+            session_id TEXT,
+            message_id INTEGER PRIMARY KEY AUTOINCREMENT,
+            message_role TEXT NOT NULL,
+            message_text TEXT NOT NULL,
+            response TEXT NOT NULL,
+            timestamp DATETIME DEFAULT CURRENT_TIMESTAMP
+        )
+    ''')
+    conn.commit()
+    conn.close()
+
+init_db()
+
+
+def store_message(session_id, message_text, message_role,response):
+    conn = sqlite3.connect('instance/chat_context.db')
+    cursor = conn.cursor()
+    try:
+        cursor.execute("""
+            INSERT INTO user_context (session_id, message_text, message_role,response)
+            VALUES (?, ?, ?,?)
+        """, (session_id, message_text, message_role,response))
+        logging.info('context stored successfully')
+    except Exception as e:
+        logging.error(f'error storing info: {str(e)}')
+
+    cursor.execute("""
+        DELETE FROM user_context
+        WHERE session_id = ?
+        AND message_id NOT IN (
+            SELECT message_id
+            FROM user_context
+            WHERE session_id = ?
+            ORDER BY timestamp DESC
+            LIMIT ?
+        )
+    """, (session_id, session_id, 5))
+
+    conn.commit()
+    conn.close()
+
+def get_context_messages(session_id):
+    conn = sqlite3.connect('instance/chat_context.db')
+    cursor = conn.cursor()
+    try:
+        cursor.execute("""
+            SELECT message_role, message_text, response FROM user_context
+            WHERE session_id = ?
+            ORDER BY timestamp ASC
+        """, (session_id,))
+        logging.info('context fetched succcessfully')
+    except Exception as e :
+        logging.error(f'error getting context:{str(e)}')
+        return[]    
+    
+    messages = cursor.fetchall()
+    conn.close()
+
+    return [
+        {"role": role, "content": f"user message :{text}, model response : {str(response)}".strip()}
+        for role, text, response in messages
+    ]
+
+def store_and_stream(original_generator, session_id, user_message):
+    collected_chunks = []
+    try:
+        for chunk in original_generator:
+            collected_chunks.append(chunk)  # Collect for storage
+            yield chunk  # Stream to client
+    finally:
+        full_message = b''.join(collected_chunks).decode('utf-8')
+        try:
+            store_message(session_id, user_message, 'user', full_message)
+        except Exception as e:
+            logging.error(f'Failed to store message context={e}')
