@@ -8,6 +8,8 @@ from datetime import datetime, timedelta, date,time
 from decimal import Decimal
 import json
 import sqlite3
+import re
+from flask import Response, redirect
 
 
 
@@ -95,7 +97,7 @@ def generate_sql_with_openrouter(prompt, client, system):
 
 
 def generate_streaming_response(context,prompt_analysis, client2,system, wpm=350):
-    full_response = ""
+   
     """
     Generate streaming response for analysis
     """
@@ -130,7 +132,6 @@ def generate_streaming_response(context,prompt_analysis, client2,system, wpm=350
             if hasattr(delta, 'content') and delta.content:
                 try:
                     yield delta.content.encode('utf-8')
-                    #full_response += delta.content.encode('utf-8')
                     char_count = len(delta.content)
                     delay = (char_count * 30.0) / (wpm * 5)
                     time_module.sleep(delay)
@@ -245,6 +246,14 @@ def init_db():
             timestamp DATETIME DEFAULT CURRENT_TIMESTAMP
         )
     ''')
+    cursor.execute('''
+        CREATE TABLE IF NOT EXISTS data_context (
+            session_id TEXT,
+            data_id INTEGER PRIMARY KEY AUTOINCREMENT,
+            data TEXT NOT NULL,
+            timestamp DATETIME DEFAULT CURRENT_TIMESTAMP
+        )
+    ''')
     conn.commit()
     conn.close()
 
@@ -262,13 +271,42 @@ def store_message(session_id, message_text, message_role,response):
         logging.info('context stored successfully')
     except Exception as e:
         logging.error(f'error storing info: {str(e)}')
+    try:
+        cursor.execute("""
+            DELETE FROM user_context
+            WHERE session_id = ?
+            AND message_id NOT IN (
+                SELECT message_id
+                FROM user_context
+                WHERE session_id = ?
+                ORDER BY timestamp DESC
+                LIMIT ?
+            )
+        """, (session_id, session_id, 5))
+    except Exception as e:
+        logging.error(f'error deleting old context:{str(e)}')
+
+    conn.commit()
+    conn.close()
+
+def store_data(session_id,data):
+    conn = sqlite3.connect('instance/chat_context.db')
+    cursor = conn.cursor()
+    try:
+        cursor.execute("""
+            INSERT INTO data_context (session_id, data)
+            VALUES (?, ?)
+        """, (session_id, data))
+        logging.info('data from database stored successfully')
+    except Exception as e:
+        logging.error(f'error storing info: {str(e)}')
 
     cursor.execute("""
-        DELETE FROM user_context
+        DELETE FROM data_context
         WHERE session_id = ?
-        AND message_id NOT IN (
-            SELECT message_id
-            FROM user_context
+        AND data_id NOT IN (
+            SELECT data_id
+            FROM data_context
             WHERE session_id = ?
             ORDER BY timestamp DESC
             LIMIT ?
@@ -300,6 +338,28 @@ def get_context_messages(session_id):
         for role, text, response in messages
     ]
 
+def get_db_data(session_id):
+    conn = sqlite3.connect('instance/chat_context.db')
+    cursor = conn.cursor()
+    try:
+        cursor.execute("""
+            SELECT data FROM data_context
+            WHERE session_id = ?
+            ORDER BY timestamp DESC
+        """,(session_id,))
+        result =cursor.fetchone()
+        if result:
+            logging.info('db_data fetched for followup')
+            return result[0]
+        else:
+            return None
+    except Exception as e:
+        logging.error(f'(db_get_data)errorr getting db data for followup {str(e)}')
+    finally :
+        conn.close()
+
+
+
 def store_and_stream(original_generator, session_id, user_message):
     collected_chunks = []
     try:
@@ -312,3 +372,38 @@ def store_and_stream(original_generator, session_id, user_message):
             store_message(session_id, user_message, 'user', full_message)
         except Exception as e:
             logging.error(f'Failed to store message context={e}')
+
+
+
+
+
+def classify_followup(user_message, context, db_data_json, client):
+    try:
+        classification_prompt = f"""
+        This is the current user question: "{user_message}"
+        Previous chat context: "{context}"
+        Data fetched from the database for the previous question: "{db_data_json}"
+
+        If the user message relates to the previous context and database data (i.e., it's a follow-up question), return exactly 'followup'.
+        Otherwise, return exactly 'new_question'."""
+        
+        response = client.chat.completions.create(
+            model="anthropic/claude-3-haiku",
+            messages=[
+                {
+                    "role": "system",
+                    "content": "you are a classifier who only returns 'followup' or 'new_question'"
+                },
+                {
+                    "role": "user",
+                    "content": classification_prompt
+                }
+            ]
+        )
+        reply = response.choices[0].message.content
+
+        logging.info(f"Generated SQL query: {reply}")
+        return reply
+    except Exception as e:
+        logging.error(f"OpenRouter API error: {str(e)}")
+    

@@ -210,6 +210,7 @@ def process_data():
 # intent classification
     try :
         intent = classify_intent(user_messages)
+        logging.info(f'|||||||||||||    {intent}    |||||||||||||||||||')
         if intent == 'general':
             logging.info('intent = general')
             try:
@@ -218,7 +219,34 @@ def process_data():
             except Exception as e:
                 logging.error(f'{e}')
         else :
-            logging.info('intent = query')
+            try:
+                context=function.get_context_messages(get_value('session_id'))
+                db_data=function.get_db_data(get_value('session_id'))
+                reply=function.classify_followup(user_messages,context,db_data,client2)
+                logging.info(f'||||||||||||    {reply}       ||||||||||||')
+                if reply == 'followup':
+                    logging.info('followup detect')
+                    try:
+                        context=function.get_context_messages(get_value('session_id'))
+                        prompt_analysis = f'''
+                            this is what user asked : {user_messages}.
+                            this is the previous exchanges between user and model = {context} .
+                            the data that is related to the question of user= {db_data}.
+                            user has asked a followup question so answer that question based on previous exchanges
+                            '''
+                        response_generator = function.generate_streaming_response(
+                        context, prompt_analysis, client2, prompts.summary_prompt
+                        )
+                        wrapped_gen = function.store_and_stream(response_generator, get_value('session_id'), user_messages)
+                        logging.info(f'wrapped gen = {wrapped_gen}')
+                        return Response(wrapped_gen, mimetype='text/plain')
+                    except Exception as e:
+                        logging.error(f'error in streaming gen response: {str(e)}')
+                        return jsonify({"error": "Internal server error"}), 500
+                else:
+                    logging.info('intent = data_fetch')
+            except Exception as e:
+                logging.error(f'{e}')
     except Exception as e:
         logging.error(f'{e}')
 
@@ -256,6 +284,10 @@ def process_data():
 
     db_data_json, success = function.execute_query_and_get_json(DB_URL, sql_query)
     if success and db_data_json:
+        try:
+            function.store_data(get_value('session_id'),db_data_json)
+        except Exception as e:
+            logging.error(f'no data available from database for followup storing {str(e)}')
         logging.info('database query executed succesfully')
     else:
         logging.error('database query execution failure')
@@ -333,6 +365,10 @@ def deep_analysis():
 
     db_data_json, success = function.execute_query_and_get_json(DB_URL, sql_query)
     if success and db_data_json:
+        try:
+            function.store_data(get_value('session_id'),db_data_json)
+        except Exception as e:
+            logging.error(f'no data available from database for followup storing {str(e)}')
         logging.info('database query executed succesfully')
     else:
         logging.error('database query execution failure')
