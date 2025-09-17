@@ -156,3 +156,40 @@ Renders the test frontend (`index2.html`).
 ## 👨‍💻 Author
 Developed for **Leajlak Services** conversational AI chatbot system.  
 
+import os
+import pandas as pd
+from dotenv import load_dotenv
+from langchain_community.vectorstores import FAISS
+from langchain_openai import OpenAIEmbeddings, ChatOpenAI
+from langchain.prompts import PromptTemplate
+from langchain_core.output_parsers import StrOutputParser
+from langchain_core.runnables import RunnablePassthrough
+from langchain.docstore.document import Document
+
+OPENAI_API_KEY = ("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")
+
+def create_document_from_csv_row(row):
+    """Converts a single CSV row into a natural language Document object."""
+    description_parts = []
+    for column_name, value in row.items():
+        if pd.notna(value):
+            description_parts.append(f"{column_name}: {value}")
+    content = ". ".join(description_parts) + "."
+    return Document(page_content=content, metadata=row.to_dict())
+
+# Load your CSV file
+file_path = 'covert.csv'
+df = pd.read_csv(file_path)
+
+# Create Document objects from the DataFrame
+documents = [create_document_from_csv_row(row) for index, row in df.iterrows()]
+OPENAI_API_KEY = ("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")
+
+# Create the embedding model
+embeddings = OpenAIEmbeddings(api_key=OPENAI_API_KEY)
+
+# Create the vector store from the documents and embeddings
+vector_store = FAISS.from_documents(documents, embeddings)
+
+# Create a retriever for your RAG chain
+retriever = vector_store.as_retriever()
