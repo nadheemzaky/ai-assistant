@@ -183,7 +183,6 @@ df = pd.read_csv(file_path)
 
 # Create Document objects from the DataFrame
 documents = [create_document_from_csv_row(row) for index, row in df.iterrows()]
-OPENAI_API_KEY = 
 
 # Create the embedding model
 embeddings = OpenAIEmbeddings(api_key=OPENAI_API_KEY)
