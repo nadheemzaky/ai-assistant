@@ -166,7 +166,7 @@ from langchain_core.output_parsers import StrOutputParser
 from langchain_core.runnables import RunnablePassthrough
 from langchain.docstore.document import Document
 
-OPENAI_API_KEY = ("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")
+
 
 def create_document_from_csv_row(row):
     """Converts a single CSV row into a natural language Document object."""
@@ -183,7 +183,7 @@ df = pd.read_csv(file_path)
 
 # Create Document objects from the DataFrame
 documents = [create_document_from_csv_row(row) for index, row in df.iterrows()]
-OPENAI_API_KEY = ("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")
+OPENAI_API_KEY = 
 
 # Create the embedding model
 embeddings = OpenAIEmbeddings(api_key=OPENAI_API_KEY)
