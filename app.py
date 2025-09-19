@@ -76,6 +76,7 @@ def get_username_by_user_id(mobile):
             conn.close()
 
 
+
 class CurrentValue(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     key = db.Column(db.String(20), unique=True)  # 'mobile', 'name', 'summary'
@@ -159,6 +160,15 @@ def names_route():
     name = get_value('name')
     return jsonify({"name": name})
 
+
+
+##########################################################
+#   ___ ___  ___   ___ ___ ___ ___   ___   _ _____ _     #
+#  | _ \ _ \/ _ \ / __| __/ __/ __| |   \ /_\_   _/_\    #
+#  |  _/   / (_) | (__| _|\__ \__ \ | |) / _ \| |/ _ \   #
+#  |_| |_|_\\___/ \___|___|___/___/ |___/_/ \_\_/_/ \_\  #
+#                                                        #
+##########################################################
 
 @app.route('/process-data', methods=['POST'])
 def process_data():
@@ -315,6 +325,15 @@ def process_data():
         logging.error(f'error in streaming gen response: {str(e)}')
         return jsonify({"error": "Internal server error"}), 500
     
+
+
+################################################################
+#   ___  ___ ___ ___     _   _  _   _   _ __   _____ ___ ___   #
+#  |   \| __| __| _ \   /_\ | \| | /_\ | |\ \ / / __|_ _/ __|  #
+#  | |) | _|| _||  _/  / _ \| .` |/ _ \| |_\ V /\__ \| |\__ \  #
+#  |___/|___|___|_|   /_/ \_\_|\_/_/ \_\____|_| |___/___|___/  #
+#                                                              #
+################################################################
 
 @app.route('/deep-analysis',methods=['POST'])
 def deep_analysis():
