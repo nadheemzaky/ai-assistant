@@ -15,7 +15,7 @@ logging.basicConfig(
     datefmt='%Y-%m-%d %H:%M:%S'
 )
 
-def classify_intent(message):
+def classify_intent(message,context):
     system_prompt = (
         "Classify the following user message into one of two categories: "
         "'general' = for questions that includes greetings or enquiry about chatbot's service."
@@ -24,10 +24,11 @@ def classify_intent(message):
     )
 
     payload = {
-        "model": "meta-llama/llama-4-maverick",  # or preferred model supported by OpenRouter
+        "model": "qwen/qwen3-next-80b-a3b-instruct",  # or preferred model supported by OpenRouter
         "messages": [
             {"role": "system", "content": system_prompt},
-            {"role": "user", "content": message}
+            {"role": "user", "content": message},
+            {"role":"user" , "content" : context}
         ],
         "max_tokens": 5,
         "temperature": 0.0
@@ -38,7 +39,6 @@ def classify_intent(message):
     }
     response = requests.post(OPENROUTER_API_URL, json=payload, headers=headers)
     response_json = response.json()
-    logging.info(f"Intent classification response: {response_json}")
     if "choices" in response_json and response_json["choices"]:
         logging.info('intent classified')
         intent = response_json["choices"][0]["message"]["content"].strip().lower()

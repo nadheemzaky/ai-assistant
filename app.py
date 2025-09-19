@@ -76,7 +76,6 @@ def get_username_by_user_id(mobile):
             conn.close()
 
 
-
 class CurrentValue(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     key = db.Column(db.String(20), unique=True)  # 'mobile', 'name', 'summary'
@@ -93,7 +92,7 @@ def set_value(key, value):
         entry = CurrentValue(key=key, value=value)
         db.session.add(entry)
     db.session.commit()
-
+                            
 def get_value(key):
     """Retrieve current value"""
     entry = CurrentValue.query.filter_by(key=key).first()
@@ -219,7 +218,9 @@ def process_data():
 
 # intent classification
     try :
-        intent = classify_intent(user_messages)
+        context=function.get_context_messages(get_value('session_id'))
+        logging.info(f'{str(context)}')
+        intent = classify_intent(user_messages,context)
         logging.info(f'|||||||||||||    {intent}    |||||||||||||||||||')
         if intent == 'general':
             logging.info('intent = general')
@@ -232,10 +233,10 @@ def process_data():
             try:
                 context=function.get_context_messages(get_value('session_id'))
                 db_data=function.get_db_data(get_value('session_id'))
-                reply=function.classify_followup(user_messages,context,db_data,client2)
-                logging.info(f'||||||||||||    {reply}       ||||||||||||')
-                if reply == 'followup':
-                    logging.info('followup detect')
+                isfollow=function.classify_followup(user_messages,context,db_data,client2)
+                logging.info(f'||||||||||||       {isfollow}          ||||||||||||')
+                if isfollow == 'followup':
+
                     try:
                         context=function.get_context_messages(get_value('session_id'))
                         prompt_analysis = f'''
@@ -276,7 +277,6 @@ def process_data():
     date and time now = {now}
     Context to consider while generating sql:-
         previous qustions from user : {context_for_sql}
-        previous summary provided by llm : {get_value('summary')}
     '''
     
     try:
@@ -368,7 +368,6 @@ def deep_analysis():
     date and time now = {now}
     Context to consider while generating sql:-
         previous qustions from user : {context_for_sql_research_mode}
-        previous summary provided by llm : {get_value('summary')}
     '''
     
     try:

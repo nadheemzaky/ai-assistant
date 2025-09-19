@@ -69,7 +69,7 @@ def generate_sql_with_openrouter(prompt, client, system):
         logging.info('Started SQL generation')
 
         response = client.chat.completions.create(
-            model="anthropic/claude-3-haiku",
+            model="qwen/qwen3-coder",
             messages=[
                 {
                     "role": "system",
@@ -382,8 +382,9 @@ def classify_followup(user_message, context, db_data_json, client):
         Previous chat context: "{context}"
         Data fetched from the database for the previous question: "{db_data_json}"
 
-        If the user message relates to the previous context and database data (i.e., it's a follow-up question), return exactly 'followup'.
-        Otherwise, return exactly 'new_question'."""
+        If the user message is a followup to the previous context and database data (i.e., it's a follow-up question), return exactly 'followup'.
+        Otherwise, return exactly 'new_question'.
+        if the previous reply is no data available for the query then return 'new_question' """
         
         response = client.chat.completions.create(
             model="anthropic/claude-3-haiku",
@@ -399,7 +400,6 @@ def classify_followup(user_message, context, db_data_json, client):
             ]
         )
         reply = response.choices[0].message.content
-
         logging.info(f"Generated SQL query: {reply}")
         return reply
     except Exception as e:
