@@ -23,6 +23,7 @@
 
         .container {
             background: rgba(30, 30, 46, 0.95);
+            -webkit-backdrop-filter: blur(10px); 
             backdrop-filter: blur(20px);
             border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 20px;
@@ -151,8 +152,23 @@
             padding: 20px;
             overflow-y: auto;
             background: rgba(15, 15, 35, 0.5);
-            scrollbar-width: thin;
-            scrollbar-color: #4a5568 transparent;
+
+
+            /* For Chrome, Safari, and Edge */
+            &::-webkit-scrollbar {
+                width: 8px; /* Set the width */
+            }
+
+            /* Style the thumb */
+            &::-webkit-scrollbar-thumb {
+                background-color: #4a5568;
+                border-radius: 4px; /* Optional: adds rounded corners */
+            }
+
+            /* Style the track */
+            &::-webkit-scrollbar-track {
+                background: transparent; /* Makes the track invisible */
+            }
         }
 
         .chat-container::-webkit-scrollbar {

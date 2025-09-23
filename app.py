@@ -236,14 +236,14 @@ def process_data():
                 isfollow=function.classify_followup(user_messages,context,db_data,client2)
                 logging.info(f'||||||||||||       {isfollow}          ||||||||||||')
                 if isfollow == 'followup':
-
                     try:
                         context=function.get_context_messages(get_value('session_id'))
                         prompt_analysis = f'''
-                            this is what user asked : {user_messages}.
+                            this is what user asked : {user_messages}. only answer this question without any other details !!!
                             this is the previous exchanges between user and model = {context} .
                             the data that is related to the question of user= {db_data}.
                             user has asked a followup question so answer that question based on previous exchanges
+
                             '''
                         response_generator = function.generate_streaming_response(
                         context, prompt_analysis, client2, prompts.summary_prompt
@@ -281,12 +281,15 @@ def process_data():
     
     try:
         sql_query = function.generate_sql_with_openrouter(variable_sql,client2,prompts.sql_prompt)
-        logging.info(f'generated sql = {sql_query}')
-        try:
-            function.append_sql_to_excel([sql_query])
-        except Exception as e:
-            logging.info(f'error ssaving sql to excel {e}')
-        logging.info(f'sql generation success')
+        if sql_query:
+            logging.info(f'generated sql = {sql_query}')
+            try:
+                function.append_sql_to_excel([sql_query])
+            except Exception as e:
+                logging.info(f'error ssaving sql to excel {e}')
+            logging.info(f'sql generation success')
+        else:
+            logging.error('no sql query made')
 
     except Exception as e:
         return jsonify({"reply": "Failed to generate query", "name": name}), 500
@@ -434,7 +437,7 @@ def end():
 
 @app.route('/')
 def home():
-    return render_template('index5.html')
+    return render_template('index6.html')
 
 if __name__ == '__main__':
 

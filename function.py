@@ -215,7 +215,7 @@ def execute_query_and_get_json(db_url, sql_query):
                 
                 try:
                     db_data_json = json.dumps(list_of_dicts, indent=2, cls=SafeJSONEncoder)
-                    logging.info(f'Database fetching successful: {len(str(db_data_json))}')
+                    logging.info(f'Database fetching successful: {str(db_data_json)}')
                     return db_data_json, True
                 except Exception as json_error:
                     logging.error(f'JSON serialization error: {str(json_error)}')
@@ -382,12 +382,10 @@ def classify_followup(user_message, context, db_data_json, client):
         Previous chat context: "{context}"
         Data fetched from the database for the previous question: "{db_data_json}"
 
-        If the user message is a followup to the previous context and database data (i.e., it's a follow-up question), return exactly 'followup'.
-        Otherwise, return exactly 'new_question'.
-        if the previous reply is no data available for the query then return 'new_question' """
+       whatever happens return 'new_question'   only the word 'new_question'  """
         
         response = client.chat.completions.create(
-            model="anthropic/claude-3-haiku",
+            model="openai/gpt-4.1-mini",
             messages=[
                 {
                     "role": "system",
