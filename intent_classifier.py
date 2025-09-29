@@ -19,7 +19,7 @@ def classify_intent(message,context):
     system_prompt = (
         "Classify the following user message into one of two categories: "
         "'general' = for questions that includes greetings or enquiry about Leajlak's service.If the users question is about leajlak, its general intent"
-        "'data_fetch'= for questions asking about anything else."
+        "'data_fetch'= for questions asking about anything else.if the question contains numbers like '1823361' ie 7 digit number then reply 'data_fetch'   "
         "Return only the category name."
     )
 
