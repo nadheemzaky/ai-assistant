@@ -331,7 +331,8 @@
             display: flex;
             align-items: center;
             gap: 8px;
-            padding-bottom: 4px;
+    
+        
         }
 
         .add-btn {
@@ -492,6 +493,7 @@
             color: #9aa0a6;
             position: relative;
             padding-left: 40px;
+    
         }
 
         .typing-indicator::before {
@@ -502,7 +504,8 @@
             border-radius: 4px;
             position: absolute;
             left: 8px;
-            top: 2px;
+            top: 50%;
+            transform: translateY(-50%); /* vertically center */
         }
 
         .typing-dots {
@@ -593,11 +596,13 @@
                 left: 8px;
                 width: 16px;
                 height: 16px;
+
             }
 
             .bot-message,
             .typing-indicator {
                 padding-left: 36px;
+
             }
 
             #deep-analysis-btn span:last-child {
@@ -615,16 +620,11 @@
                     <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
                 </svg>
                 <div class="header-title">
-                    <div class="gemini-icon">◆</div>
+                    <div class="gemini-icon"></div>
                     <span class="title-text">Leajlak</span>
                 </div>
             </div>
-            <div class="header-actions">
-                <button class="upgrade-btn">
-                    <div class="upgrade-icon"></div>
-                    Upgrade
-                </button>
-            </div>
+  
         </header>
         
         <div id="mobile-section">
@@ -661,13 +661,7 @@
                         </div>
                         <textarea id="user-input" placeholder="Ask Leajlak" rows="1"></textarea>
                         <div class="send-controls">
-                            <button class="mic-btn" title="Use microphone">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M12 14a3 3 0 0 0 3-3V5a3 3 0 0 0-6 0v6a3 3 0 0 0 3 3z"/>
-                                    <path d="M17 11a5 5 0 0 1-10 0H5a7 7 0 0 0 14 0z"/>
-                                    <path d="M12 18v4m-2 0h4"/>
-                                </svg>
-                            </button>
+
                             <button id="send-button" title="Send message">
                                 <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
                                     <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
