@@ -69,7 +69,7 @@ def generate_sql_with_openrouter(prompt, client, system):
         logging.info('Started SQL generation')
 
         response = client.chat.completions.create(
-            model="qwen/qwen3-coder",
+            model="google/gemini-2.0-flash-001",
             messages=[
                 {
                     "role": "system",
@@ -367,6 +367,7 @@ def store_and_stream(original_generator, session_id, user_message):
             yield chunk  # Stream to client
     finally:
         full_message = b''.join(collected_chunks).decode('utf-8')
+        logging.info(f'{full_message}')
         try:
             store_message(session_id, user_message, 'user', full_message)
         except Exception as e:

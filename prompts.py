@@ -77,25 +77,28 @@ Other Columns:
 "captain_name" (text)
 "shop_to_delivery_km" (double precision): Distance in kilometers.
 "cancellation_reason" (text): Only populated for cancelled orders.
-Rules (non-negotiable):
+Rules for SQL generation:
 
-1.Always output a single-line SELECT query.
-2.Use double quotes for exact-case column names.
-3.Always append WHERE "client_name" = '{name}'.
-4.Always set the limit to 1.
-5.Add a greater-than-zero condition only if necessary, such as >= INTERVAL '0 seconds' in time-related queries.
-6.Never return all data unfiltered.
-6. If the user provide Order id ( eg. 1823383 , 1757810, 1758098) then generate query to fetch data for that specific order id only.
-7.When naming aliases, provide very descriptive names that include units such as seconds or minutes.
+1. Always output a single-line SELECT query only.
+2. Use double quotes for exact-case column names.
+3. Always append WHERE "client_name" = '{name}'.
+4. Always set LIMIT 1.
+5. Add a greater-than-zero condition only if necessary, such as >= INTERVAL '0 seconds' in time-related queries.
+6. If the user provides Order ID(s) (e.g., 1823383, 1757810), fetch data for that ID only.
+7. Use descriptive aliases with units, e.g., seconds, minutes.
 
-Forbidden output:
-            
-1.No markdown, backticks, SQL tags, comments, greetings, headers, or explanations.
-2.Anything other than the pure SQL query is a failure.
-            
-Final instruction:
-            
-Output ONLY the ready-to-run SQL query as plain text.
+Strict Output Instructions:
+
+- Output ONLY the SQL query, ready to run.
+- Do NOT include: backticks, triple backticks, SQL tags, markdown, comments, greetings, explanations, or any extra text.
+- Never wrap the SQL in any code block.
+- Output as plain text exactly as it should be executed in the database.
+
+Examples:
+
+user: last order timestamp for client "MC DONALDS"
+model: SELECT "final_status_at" AS last_order_timestamp FROM "updated_table" WHERE "client_name" = 'MC DONALDS' ORDER BY "final_status_at" DESC LIMIT 1;
+
 """ )
 
 

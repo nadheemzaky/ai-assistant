@@ -29,7 +29,7 @@
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
             width: 100%;
             max-width: 800px;
-            max-height: 90vh;
+            height: 90vh;
             overflow: hidden;
             display: flex;
             flex-direction: column;
@@ -43,6 +43,7 @@
             align-items: center;
             justify-content: space-between;
             min-height: 60px;
+            flex-shrink: 0;
         }
 
         .header-left {
@@ -142,6 +143,7 @@
             align-items: center;
             padding: 60px 40px;
             background: #131314;
+            overflow-y: auto;
         }
 
         .mobile-welcome {
@@ -222,21 +224,24 @@
             display: flex;
             flex-direction: column;
             background: #131314;
+            overflow: hidden;
         }
 
         .chat-container {
             flex: 1;
             overflow-y: auto;
+            overflow-x: hidden;
             padding: 20px 24px;
-
+            scroll-behavior: smooth;
         }
 
         .chat-container::-webkit-scrollbar {
-            width: 6px;
+            width: 8px;
         }
 
         .chat-container::-webkit-scrollbar-track {
-            background: transparent;
+            background: #1f1f1f;
+            border-radius: 10px;
         }
 
         .chat-container::-webkit-scrollbar-thumb {
@@ -244,10 +249,16 @@
             border-radius: 10px;
         }
 
+        .chat-container::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+
         .message {
             margin: 24px 0;
             max-width: 80%;
             animation: fadeIn 0.3s ease;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
         }
 
         @keyframes fadeIn {
@@ -270,6 +281,8 @@
             color: #e8eaed;
             line-height: 1.6;
             position: relative;
+            padding-left: 40px;
+            white-space: pre-wrap;
         }
 
         .bot-message::before {
@@ -279,7 +292,7 @@
             background: linear-gradient(45deg, #4285f4, #34a853, #fbbc04, #ea4335);
             border-radius: 4px;
             position: absolute;
-            left: -32px;
+            left: 8px;
             top: 2px;
             display: flex;
             align-items: center;
@@ -290,6 +303,7 @@
             padding: 20px 24px 24px;
             border-top: 1px solid #333;
             background: #1f1f1f;
+            flex-shrink: 0;
         }
 
         .input-container {
@@ -317,6 +331,7 @@
             display: flex;
             align-items: center;
             gap: 8px;
+            padding-bottom: 4px;
         }
 
         .add-btn {
@@ -354,9 +369,14 @@
             white-space: nowrap;
         }
 
-        #deep-analysis-btn:hover {
+        #deep-analysis-btn:hover:not(:disabled) {
             background: #444;
             color: #e8eaed;
+        }
+
+        #deep-analysis-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
         }
 
         #deep-analysis-btn.active {
@@ -394,24 +414,20 @@
             min-height: 24px;
             max-height: 200px;
             line-height: 1.5;
-            box-sizing: border-box;
-
-            /* Fix alignment */
-            padding: 6px 8px; 
+            padding: 4px 0;
+            overflow-y: auto;
         }
 
         #user-input::placeholder {
             color: #9aa0a6;
-            line-height: inherit;
-            text-align: left;
-            /* remove transform */
+            line-height: 1.5;
         }
-
 
         .send-controls {
             display: flex;
             align-items: center;
             gap: 8px;
+            padding-bottom: 4px;
         }
 
         .mic-btn {
@@ -475,6 +491,7 @@
             max-width: 80%;
             color: #9aa0a6;
             position: relative;
+            padding-left: 40px;
         }
 
         .typing-indicator::before {
@@ -484,7 +501,7 @@
             background: linear-gradient(45deg, #4285f4, #34a853, #fbbc04, #ea4335);
             border-radius: 4px;
             position: absolute;
-            left: -32px;
+            left: 8px;
             top: 2px;
         }
 
@@ -522,6 +539,7 @@
             font-size: 11px;
             color: #9aa0a6;
             border-top: 1px solid #333;
+            flex-shrink: 0;
         }
 
         .hidden {
@@ -529,9 +547,13 @@
         }
 
         @media (max-width: 768px) {
+            body {
+                padding: 0;
+            }
+
             .container {
                 max-width: 100%;
-                max-height: 100vh;
+                height: 100vh;
                 border-radius: 0;
                 border: none;
             }
@@ -566,16 +588,16 @@
                 padding: 16px;
             }
 
-            .bot-message::before {
-                left: -28px;
+            .bot-message::before,
+            .typing-indicator::before {
+                left: 8px;
                 width: 16px;
                 height: 16px;
             }
 
-            .typing-indicator::before {
-                left: -28px;
-                width: 16px;
-                height: 16px;
+            .bot-message,
+            .typing-indicator {
+                padding-left: 36px;
             }
 
             #deep-analysis-btn span:last-child {
@@ -602,7 +624,6 @@
                     <div class="upgrade-icon"></div>
                     Upgrade
                 </button>
-
             </div>
         </header>
         
@@ -640,7 +661,13 @@
                         </div>
                         <textarea id="user-input" placeholder="Ask Leajlak" rows="1"></textarea>
                         <div class="send-controls">
-                            <button class="mic-btn" title="Use microphone"></button>
+                            <button class="mic-btn" title="Use microphone">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 14a3 3 0 0 0 3-3V5a3 3 0 0 0-6 0v6a3 3 0 0 0 3 3z"/>
+                                    <path d="M17 11a5 5 0 0 1-10 0H5a7 7 0 0 0 14 0z"/>
+                                    <path d="M12 18v4m-2 0h4"/>
+                                </svg>
+                            </button>
                             <button id="send-button" title="Send message">
                                 <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
                                     <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
@@ -669,7 +696,7 @@
             
             let currentMobile = '';
             let isDeepAnalysisMode = false;
-            let isProcessing = false; // Track if a message is being processed
+            let isProcessing = false;
             
             // Auto-resize textarea
             userInput.addEventListener('input', function() {
@@ -686,7 +713,7 @@
             
             // Toggle deep analysis mode
             deepAnalysisBtn.addEventListener('click', function() {
-                if (isProcessing) return; // Don't allow toggling while processing
+                if (isProcessing) return;
                 
                 isDeepAnalysisMode = !isDeepAnalysisMode;
                 deepAnalysisBtn.classList.toggle('active', isDeepAnalysisMode);
@@ -747,7 +774,7 @@
             });
             
             async function sendMessage() {
-                if (isProcessing) return; // Prevent sending if already processing
+                if (isProcessing) return;
                 
                 const message = userInput.value.trim();
                 if (!message) return;
@@ -776,12 +803,13 @@
                         body: JSON.stringify({ message: message })
                     });
                     
+                    // Remove typing indicator
+                    hideTypingIndicator();
+                    
                     // Create message container for streaming
                     const messageDiv = document.createElement('div');
                     messageDiv.classList.add('message', 'bot-message');
                     chatBox.appendChild(messageDiv);
-                    
-                    hideTypingIndicator();
                     
                     // Handle streaming response
                     const reader = response.body.getReader();
@@ -798,10 +826,11 @@
                         
                         // Update the message div with accumulated text
                         messageDiv.textContent = fullMessage;
-                        chatBox.scrollTop = chatBox.scrollHeight;
+                        scrollToBottom();
                     }
                 } catch (error) {
                     console.error('Error sending message:', error);
+                    hideTypingIndicator();
                     addMessage('Sorry, there was an error processing your request.', 'bot');
                 } finally {
                     // Re-enable input and button after processing
@@ -819,6 +848,7 @@
                     userInput.placeholder = "Let me think...";
                 } else {
                     userInput.placeholder = "Ask Leajlak";
+                    userInput.focus();
                 }
             }
             
@@ -828,7 +858,7 @@
                 messageDiv.classList.add(sender === 'user' ? 'user-message' : 'bot-message');
                 messageDiv.textContent = text;
                 chatBox.appendChild(messageDiv);
-                chatBox.scrollTop = chatBox.scrollHeight;
+                scrollToBottom();
             }
             
             function showTypingIndicator() {
@@ -843,7 +873,7 @@
                     </div>
                 `;
                 chatBox.appendChild(typingDiv);
-                chatBox.scrollTop = chatBox.scrollHeight;
+                scrollToBottom();
             }
 
             function hideTypingIndicator() {
@@ -852,6 +882,21 @@
                     typingIndicator.remove();
                 }
             }
+            
+            function scrollToBottom() {
+                // Use requestAnimationFrame for smoother scrolling
+                requestAnimationFrame(() => {
+                    chatBox.scrollTop = chatBox.scrollHeight;
+                });
+            }
+            
+            // Handle Enter key for mobile input
+            mobileInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    submitMobileBtn.click();
+                }
+            });
         });
     </script>
 </body>
