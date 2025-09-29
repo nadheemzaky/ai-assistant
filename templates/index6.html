@@ -226,27 +226,9 @@
 
         .chat-container {
             flex: 1;
-            padding: 20px;
             overflow-y: auto;
-            background: rgba(15, 15, 35, 0.5);
+            padding: 20px 24px;
 
-
-
-            /* For Chrome, Safari, and Edge */
-            &::-webkit-scrollbar {
-                width: 8px; /* Set the width */
-            }
-
-            /* Style the thumb */
-            &::-webkit-scrollbar-thumb {
-                background-color: #4a5568;
-                border-radius: 4px; /* Optional: adds rounded corners */
-            }
-
-            /* Style the track */
-            &::-webkit-scrollbar-track {
-                background: transparent; /* Makes the track invisible */
-            }
         }
 
         .chat-container::-webkit-scrollbar {
@@ -412,22 +394,24 @@
             min-height: 24px;
             max-height: 200px;
             line-height: 1.5;
-            padding:4px 12px;
             box-sizing: border-box;
+
+            /* Fix alignment */
+            padding: 6px 8px; 
         }
 
         #user-input::placeholder {
             color: #9aa0a6;
             line-height: inherit;
             text-align: left;
-            transform: translateY(0);
+            /* remove transform */
         }
+
 
         .send-controls {
             display: flex;
-            align-items: flex-end;
+            align-items: center;
             gap: 8px;
-            flex-shrink: 0;
         }
 
         .mic-btn {
@@ -465,7 +449,6 @@
             transition: all 0.2s;
             opacity: 0;
             transform: scale(0.8);
-            flex-shrink: 0;
         }
 
         #send-button.show {
@@ -598,13 +581,6 @@
             #deep-analysis-btn span:last-child {
                 display: none;
             }
-            .user-input-field {
-
-            margin-top: 0px;
-            margin-right: 10px;
-            margin-bottom: 10px;
-            margin-left: 10px;
-            }
         }
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
@@ -620,9 +596,12 @@
                     <div class="gemini-icon">◆</div>
                     <span class="title-text">Leajlak</span>
                 </div>
-
             </div>
             <div class="header-actions">
+                <button class="upgrade-btn">
+                    <div class="upgrade-icon"></div>
+                    Upgrade
+                </button>
 
             </div>
         </header>
@@ -659,7 +638,8 @@
                                 <span class="tools-indicator">Research</span>
                             </button>
                         </div>
-                            <textarea id="user-input" class="user-input-field" placeholder="Ask Leajlak" rows="1"></textarea>                        <div class="send-controls">
+                        <textarea id="user-input" placeholder="Ask Leajlak" rows="1"></textarea>
+                        <div class="send-controls">
                             <button class="mic-btn" title="Use microphone"></button>
                             <button id="send-button" title="Send message">
                                 <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">

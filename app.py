@@ -307,15 +307,17 @@ def process_data():
 
 
     try:
+        time = get_value('now')
         context=function.get_context_messages(get_value('session_id'))
         prompt_analysis = f'''
             this is what user asked : {user_messages}.
             this is the previous exchanges between user and model = {context} .
             the data that is related to the question of user= {db_data_json}.
             the sql query that is generated right now to fetch data from database = {sql_query}.
+            current time = {time}
             '''
         response_generator = function.generate_streaming_response(
-        context, prompt_analysis, client2, prompts.summary_prompt_research
+        context, prompt_analysis, client2, prompts.summary_prompt
         )
         wrapped_gen = function.store_and_stream(response_generator, get_value('session_id'), user_messages)
         logging.info(f'wrapped gen = {wrapped_gen}')

@@ -104,7 +104,7 @@ def generate_streaming_response(context,prompt_analysis, client2,system, wpm=350
         logging.info('Started summary generation')
         
         response = client2.chat.completions.create(
-            model="deepseek/deepseek-chat-v3-0324",
+            model="mistralai/mistral-7b-instruct",
             stream=True,
             messages=[
                 {
@@ -119,7 +119,8 @@ def generate_streaming_response(context,prompt_analysis, client2,system, wpm=350
                     "role": "user",
                     "content": context      
                 }
-            ]
+            ],
+            max_tokens=50
         ) 
         
         for chunk in response:
