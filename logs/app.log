@@ -379,3 +379,12 @@ LINE 1: ```sql
 2025-10-06 10:38:10 INFO:  * Restarting with watchdog (windowsapi)
 2025-10-06 10:38:19 WARNING:  * Debugger is active!
 2025-10-06 10:38:19 INFO:  * Debugger PIN: 115-265-433
+2025-10-06 10:44:53 INFO:  * Detected change in 'C:\\Users\\USER\\Desktop\\LEAJLAK\\beta\\patch3\\ai-assistant\\app.py', reloading
+2025-10-06 10:44:53 INFO:  * Detected change in 'C:\\Users\\USER\\Desktop\\LEAJLAK\\beta\\patch3\\ai-assistant\\app.py', reloading
+2025-10-06 10:44:53 INFO:  * Detected change in 'C:\\Users\\USER\\Desktop\\LEAJLAK\\beta\\patch3\\ai-assistant\\app.py', reloading
+2025-10-06 10:44:53 INFO:  * Detected change in 'C:\\Users\\USER\\Desktop\\LEAJLAK\\beta\\patch3\\ai-assistant\\function.py', reloading
+2025-10-06 10:44:53 INFO:  * Detected change in 'C:\\Users\\USER\\Desktop\\LEAJLAK\\beta\\patch3\\ai-assistant\\function.py', reloading
+2025-10-06 10:44:53 INFO:  * Detected change in 'C:\\Users\\USER\\Desktop\\LEAJLAK\\beta\\patch3\\ai-assistant\\function.py', reloading
+2025-10-06 10:44:56 INFO:  * Restarting with watchdog (windowsapi)
+2025-10-06 10:45:05 WARNING:  * Debugger is active!
+2025-10-06 10:45:05 INFO:  * Debugger PIN: 115-265-433
