@@ -36,32 +36,31 @@ def generate_openai_reply(prompt,client):
         logging.error(f"OpenAI API error: {e}")
         return "Sorry, something went wrong while generating the reply."
     
-
-
-def generate_sql_with_openai(prompt,client,system):
+def generate_openrouter_reply(prompt, client):
     try:
-        sql_prompt=system
-        logging.info('started sql generation')
         response = client.chat.completions.create(
-            model="gpt-4o-mini-2024-07-18",
+            model="deepseek/deepseek-v3.2-exp", 
             messages=[
                 {
-                    "role":"system",
-                    "content":sql_prompt
+                    "role": "system",
+                    "content": (
+                        "You are Leajlak's customer service assistant (Leajlak's Order Management System connects merchants "
+                        "and third-party logistics companies for on-demand express and scheduled deliveries, leveraging AI, IoT, "
+                        "and Big Data to boost efficiency, cut costs, and improve customer satisfaction). "
+                        "Check the user's message and send appropriate replies that are always inside the above context.limit the reply within 50 words"
+                    ),
                 },
-                {
-                "role":"user",
-                "content":prompt
-                }
-            ]
+                {"role": "user", "content": prompt},
+            ],
+            max_tokens=150,
+            temperature=0.7,
         )
-        sql_query = response.choices[0].message.content
-        logging.info(f"Generated SQL query: {sql_query}")
-        return sql_query
-        
+        reply = response.choices[0].message.content.strip()
+        return str(reply)
     except Exception as e:
-        logging.info(f"OpenAI API error: {str(e)}")
-        raise
+        logging.error(f"OpenRouter API error: {e}")
+        return "Sorry, something went wrong while generating the reply."
+
 
 def generate_sql_with_openrouter(prompt, client, system):
     try:
@@ -69,7 +68,7 @@ def generate_sql_with_openrouter(prompt, client, system):
         logging.info('Started SQL generation')
 
         response = client.chat.completions.create(
-            model="google/gemini-2.0-flash-001",
+            model="deepseek/deepseek-v3.2-exp",
             messages=[
                 {
                     "role": "system",

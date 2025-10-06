@@ -4,3 +4,378 @@
 2025-09-29 17:12:01 INFO:  * Restarting with watchdog (windowsapi)
 2025-09-29 17:12:07 WARNING:  * Debugger is active!
 2025-09-29 17:12:07 INFO:  * Debugger PIN: 143-190-272
+2025-09-30 10:01:51 INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-09-30 10:01:51 INFO: [33mPress CTRL+C to quit[0m
+2025-09-30 10:01:51 INFO:  * Restarting with watchdog (windowsapi)
+2025-09-30 10:02:01 WARNING:  * Debugger is active!
+2025-09-30 10:02:01 INFO:  * Debugger PIN: 143-190-272
+2025-09-30 10:03:27 INFO: 127.0.0.1 - - [30/Sep/2025 10:03:27] "GET / HTTP/1.1" 200 -
+2025-09-30 10:03:28 INFO: 127.0.0.1 - - [30/Sep/2025 10:03:28] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-09-30 10:14:01 INFO:  * Detected change in 'C:\\Users\\USER\\Desktop\\LEAJLAK\\beta\\patch3\\ai-assistant\\function.py', reloading
+2025-09-30 10:14:05 INFO:  * Restarting with watchdog (windowsapi)
+2025-09-30 10:14:40 WARNING:  * Debugger is active!
+2025-09-30 10:14:40 INFO:  * Debugger PIN: 143-190-272
+2025-09-30 10:14:53 INFO: 127.0.0.1 - - [30/Sep/2025 10:14:53] "GET / HTTP/1.1" 200 -
+2025-09-30 10:14:53 INFO: 127.0.0.1 - - [30/Sep/2025 10:14:53] "[33mGET /image.png HTTP/1.1[0m" 404 -
+2025-09-30 10:15:00 INFO: New session started: cc4bc5f4-3bc2-4a14-bde3-cff72fea70dd
+2025-09-30 10:15:00 INFO: Received request data: {'mobile': '918921729081'}
+2025-09-30 10:15:00 INFO: Updated mobile: 918921729081
+2025-09-30 10:15:02 INFO: Updated name: MC DONALDS
+2025-09-30 10:15:02 INFO: 127.0.0.1 - - [30/Sep/2025 10:15:02] "POST /number HTTP/1.1" 200 -
+2025-09-30 10:15:02 INFO: 127.0.0.1 - - [30/Sep/2025 10:15:02] "POST /names HTTP/1.1" 200 -
+2025-09-30 10:15:28 INFO: 127.0.0.1 - - [30/Sep/2025 10:15:28] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-09-30 10:18:55 INFO:  * Detected change in 'C:\\Users\\USER\\Desktop\\LEAJLAK\\beta\\patch3\\ai-assistant\\app.py', reloading
+2025-09-30 10:18:55 INFO:  * Detected change in 'C:\\Users\\USER\\Desktop\\LEAJLAK\\beta\\patch3\\ai-assistant\\app.py', reloading
+2025-09-30 10:18:55 INFO:  * Detected change in 'C:\\Users\\USER\\Desktop\\LEAJLAK\\beta\\patch3\\ai-assistant\\app.py', reloading
+2025-09-30 10:18:55 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\openai\\_base_client.py', reloading
+2025-09-30 10:18:57 INFO:  * Restarting with watchdog (windowsapi)
+2025-09-30 10:19:06 WARNING:  * Debugger is active!
+2025-09-30 10:19:06 INFO:  * Debugger PIN: 143-190-272
+2025-09-30 10:19:06 INFO: 127.0.0.1 - - [30/Sep/2025 10:19:06] "GET / HTTP/1.1" 200 -
+2025-09-30 10:19:06 INFO: 127.0.0.1 - - [30/Sep/2025 10:19:06] "[33mGET /image.png HTTP/1.1[0m" 404 -
+2025-09-30 10:19:06 INFO: 127.0.0.1 - - [30/Sep/2025 10:19:06] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-09-30 10:19:13 INFO: New session started: c0fa4719-cc91-4223-bd88-95f63c9665c4
+2025-09-30 10:19:13 INFO: Received request data: {'mobile': '918921729081'}
+2025-09-30 10:19:13 INFO: Updated mobile: 918921729081
+2025-09-30 10:19:16 INFO: Updated name: MC DONALDS
+2025-09-30 10:19:16 INFO: 127.0.0.1 - - [30/Sep/2025 10:19:16] "POST /number HTTP/1.1" 200 -
+2025-09-30 10:19:16 INFO: 127.0.0.1 - - [30/Sep/2025 10:19:16] "POST /names HTTP/1.1" 200 -
+2025-09-30 10:19:35 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\pydantic\\fields.py', reloading
+2025-09-30 10:19:36 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\pydantic_core\\__init__.py', reloading
+2025-09-30 10:19:37 INFO:  * Restarting with watchdog (windowsapi)
+2025-09-30 10:19:45 WARNING:  * Debugger is active!
+2025-09-30 10:19:45 INFO:  * Debugger PIN: 143-190-272
+2025-09-30 10:22:06 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\openai\\_types.py', reloading
+2025-09-30 10:22:08 INFO:  * Restarting with watchdog (windowsapi)
+2025-09-30 10:22:20 WARNING:  * Debugger is active!
+2025-09-30 10:22:20 INFO:  * Debugger PIN: 143-190-272
+2025-09-30 10:23:21 INFO:  * Detected change in 'C:\\Users\\USER\\Desktop\\LEAJLAK\\beta\\patch3\\ai-assistant\\function.py', reloading
+2025-09-30 10:23:21 INFO:  * Detected change in 'C:\\Users\\USER\\Desktop\\LEAJLAK\\beta\\patch3\\ai-assistant\\function.py', reloading
+2025-09-30 10:23:22 INFO:  * Restarting with watchdog (windowsapi)
+2025-09-30 10:23:31 WARNING:  * Debugger is active!
+2025-09-30 10:23:31 INFO:  * Debugger PIN: 143-190-272
+2025-09-30 10:24:26 INFO:  * Detected change in 'C:\\Users\\USER\\Desktop\\LEAJLAK\\beta\\patch3\\ai-assistant\\app.py', reloading
+2025-09-30 10:24:26 INFO:  * Detected change in 'C:\\Users\\USER\\Desktop\\LEAJLAK\\beta\\patch3\\ai-assistant\\app.py', reloading
+2025-09-30 10:24:27 INFO:  * Restarting with watchdog (windowsapi)
+2025-09-30 10:24:35 WARNING:  * Debugger is active!
+2025-09-30 10:24:35 INFO:  * Debugger PIN: 143-190-272
+2025-09-30 10:24:36 INFO: 127.0.0.1 - - [30/Sep/2025 10:24:36] "GET / HTTP/1.1" 200 -
+2025-09-30 10:24:36 INFO: 127.0.0.1 - - [30/Sep/2025 10:24:36] "[33mGET /image.png HTTP/1.1[0m" 404 -
+2025-09-30 10:24:36 INFO: 127.0.0.1 - - [30/Sep/2025 10:24:36] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-09-30 10:24:40 INFO: New session started: aa58f7c3-bdfc-4cf6-8d58-88bfe4c0f2c1
+2025-09-30 10:24:40 INFO: Received request data: {'mobile': '918921729081'}
+2025-09-30 10:24:40 INFO: Updated mobile: 918921729081
+2025-09-30 10:24:42 INFO: Updated name: MC DONALDS
+2025-09-30 10:24:42 INFO: 127.0.0.1 - - [30/Sep/2025 10:24:42] "POST /number HTTP/1.1" 200 -
+2025-09-30 10:24:43 INFO: 127.0.0.1 - - [30/Sep/2025 10:24:43] "POST /names HTTP/1.1" 200 -
+2025-09-30 10:24:46 INFO: Received user message: hello
+2025-09-30 10:24:46 INFO: ###################aa58f7c3-bdfc-4cf6-8d58-88bfe4c0f2c1##############################
+2025-09-30 10:24:48 INFO: context fetched succcessfully
+2025-09-30 10:24:48 INFO: []
+2025-09-30 10:24:50 INFO: intent classified
+2025-09-30 10:24:50 INFO: general
+2025-09-30 10:24:50 INFO: |||||||||||||    general    |||||||||||||||||||
+2025-09-30 10:24:50 INFO: intent = general
+2025-09-30 10:24:53 INFO: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-30 10:24:58 INFO: 127.0.0.1 - - [30/Sep/2025 10:24:58] "POST /process-data HTTP/1.1" 200 -
+2025-09-30 10:26:11 INFO: 127.0.0.1 - - [30/Sep/2025 10:26:11] "GET / HTTP/1.1" 200 -
+2025-09-30 10:26:11 INFO: 127.0.0.1 - - [30/Sep/2025 10:26:11] "[33mGET /images/image.png HTTP/1.1[0m" 404 -
+2025-09-30 10:26:12 INFO: 127.0.0.1 - - [30/Sep/2025 10:26:12] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-09-30 10:26:18 INFO:  * Detected change in 'C:\\Users\\USER\\Desktop\\LEAJLAK\\beta\\patch3\\ai-assistant\\app.py', reloading
+2025-09-30 10:26:18 INFO:  * Detected change in 'C:\\Users\\USER\\Desktop\\LEAJLAK\\beta\\patch3\\ai-assistant\\app.py', reloading
+2025-09-30 10:26:19 INFO:  * Restarting with watchdog (windowsapi)
+2025-09-30 10:26:27 WARNING:  * Debugger is active!
+2025-09-30 10:26:27 INFO:  * Debugger PIN: 143-190-272
+2025-09-30 10:26:27 INFO: 127.0.0.1 - - [30/Sep/2025 10:26:27] "GET / HTTP/1.1" 200 -
+2025-09-30 10:26:28 INFO: 127.0.0.1 - - [30/Sep/2025 10:26:28] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-09-30 10:26:28 INFO: 127.0.0.1 - - [30/Sep/2025 10:26:28] "[33mGET /images/image.png HTTP/1.1[0m" 404 -
+2025-09-30 10:26:45 INFO: New session started: 58b16945-f0d9-4d13-a8c7-392e1f81e9b7
+2025-09-30 10:26:45 INFO: Received request data: {'mobile': '918921729081'}
+2025-09-30 10:26:45 INFO: Updated mobile: 918921729081
+2025-09-30 10:26:47 INFO: Updated name: MC DONALDS
+2025-09-30 10:26:47 INFO: 127.0.0.1 - - [30/Sep/2025 10:26:47] "POST /number HTTP/1.1" 200 -
+2025-09-30 10:26:47 INFO: 127.0.0.1 - - [30/Sep/2025 10:26:47] "POST /names HTTP/1.1" 200 -
+2025-09-30 14:12:29 INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-09-30 14:12:29 INFO: [33mPress CTRL+C to quit[0m
+2025-09-30 14:12:29 INFO:  * Restarting with watchdog (windowsapi)
+2025-09-30 14:12:36 WARNING:  * Debugger is active!
+2025-09-30 14:12:36 INFO:  * Debugger PIN: 143-190-272
+2025-09-30 14:12:36 INFO: 127.0.0.1 - - [30/Sep/2025 14:12:36] "GET / HTTP/1.1" 200 -
+2025-09-30 14:12:36 INFO: 127.0.0.1 - - [30/Sep/2025 14:12:36] "[33mGET /images/image.png HTTP/1.1[0m" 404 -
+2025-10-06 10:21:16 INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-10-06 10:21:16 INFO: [33mPress CTRL+C to quit[0m
+2025-10-06 10:21:16 INFO:  * Restarting with watchdog (windowsapi)
+2025-10-06 10:21:50 WARNING:  * Debugger is active!
+2025-10-06 10:21:50 INFO:  * Debugger PIN: 115-265-433
+2025-10-06 10:21:51 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\httpx\\_types.py', reloading
+2025-10-06 10:21:51 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\httpx\\_urls.py', reloading
+2025-10-06 10:21:51 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\openai\\_streaming.py', reloading
+2025-10-06 10:21:53 INFO:  * Restarting with watchdog (windowsapi)
+2025-10-06 10:22:45 WARNING:  * Debugger is active!
+2025-10-06 10:22:45 INFO:  * Debugger PIN: 115-265-433
+2025-10-06 10:22:46 INFO: 127.0.0.1 - - [06/Oct/2025 10:22:46] "GET / HTTP/1.1" 200 -
+2025-10-06 10:22:46 INFO: 127.0.0.1 - - [06/Oct/2025 10:22:46] "GET / HTTP/1.1" 200 -
+2025-10-06 10:22:49 INFO: 127.0.0.1 - - [06/Oct/2025 10:22:49] "[33mGET /images/image.png HTTP/1.1[0m" 404 -
+2025-10-06 10:22:51 INFO: 127.0.0.1 - - [06/Oct/2025 10:22:51] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-10-06 10:24:39 INFO: New session started: aab35b51-3dea-450c-97a4-0ad2e3881cc5
+2025-10-06 10:24:39 INFO: Received request data: {'mobile': '918921729081'}
+2025-10-06 10:24:39 INFO: Updated mobile: 918921729081
+2025-10-06 10:24:40 INFO: Updated name: MC DONALDS
+2025-10-06 10:24:40 INFO: 127.0.0.1 - - [06/Oct/2025 10:24:40] "POST /number HTTP/1.1" 200 -
+2025-10-06 10:24:40 INFO: 127.0.0.1 - - [06/Oct/2025 10:24:40] "POST /names HTTP/1.1" 200 -
+2025-10-06 10:24:48 INFO: Received user message: what is the order status
+2025-10-06 10:24:48 INFO: ###################aab35b51-3dea-450c-97a4-0ad2e3881cc5##############################
+2025-10-06 10:24:51 INFO: context fetched succcessfully
+2025-10-06 10:24:51 INFO: []
+2025-10-06 10:24:54 INFO: intent classified
+2025-10-06 10:24:54 INFO: general
+2025-10-06 10:24:54 INFO: |||||||||||||    general    |||||||||||||||||||
+2025-10-06 10:24:54 INFO: intent = general
+2025-10-06 10:24:58 INFO: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 404 Not Found"
+2025-10-06 10:24:58 ERROR: OpenRouter API error: Error code: 404 - {'error': {'message': 'No endpoints found for x-ai/grok-4-fast:free.', 'code': 404}, 'user_id': 'user_32XnM3UiGpUnpInAt6SOPlWP0HW'}
+2025-10-06 10:24:58 INFO: 127.0.0.1 - - [06/Oct/2025 10:24:58] "POST /process-data HTTP/1.1" 200 -
+2025-10-06 10:26:32 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\logging\\__init__.py', reloading
+2025-10-06 10:26:35 INFO:  * Restarting with watchdog (windowsapi)
+2025-10-06 10:26:55 WARNING:  * Debugger is active!
+2025-10-06 10:26:55 INFO:  * Debugger PIN: 115-265-433
+2025-10-06 10:27:01 INFO: 127.0.0.1 - - [06/Oct/2025 10:27:01] "GET / HTTP/1.1" 200 -
+2025-10-06 10:27:01 INFO: 127.0.0.1 - - [06/Oct/2025 10:27:01] "[33mGET /images/image.png HTTP/1.1[0m" 404 -
+2025-10-06 10:27:04 INFO: New session started: b44012b5-a001-4189-b1aa-5381c179c422
+2025-10-06 10:27:04 INFO: Received request data: {'mobile': '918921729081'}
+2025-10-06 10:27:04 INFO: Updated mobile: 918921729081
+2025-10-06 10:27:07 INFO: Updated name: MC DONALDS
+2025-10-06 10:27:07 INFO: 127.0.0.1 - - [06/Oct/2025 10:27:07] "POST /number HTTP/1.1" 200 -
+2025-10-06 10:27:07 INFO: New session started: 313e1ca6-5973-473c-b108-96e859b1529e
+2025-10-06 10:27:07 INFO: Received request data: {'mobile': '918921729081'}
+2025-10-06 10:27:07 INFO: Updated mobile: 918921729081
+2025-10-06 10:27:08 INFO: 127.0.0.1 - - [06/Oct/2025 10:27:08] "POST /names HTTP/1.1" 200 -
+2025-10-06 10:27:08 INFO: Updated name: MC DONALDS
+2025-10-06 10:27:08 INFO: 127.0.0.1 - - [06/Oct/2025 10:27:08] "POST /number HTTP/1.1" 200 -
+2025-10-06 10:27:08 INFO: 127.0.0.1 - - [06/Oct/2025 10:27:08] "POST /names HTTP/1.1" 200 -
+2025-10-06 10:27:15 INFO: Received user message: what is the roode rstatsus
+2025-10-06 10:27:15 INFO: ###################313e1ca6-5973-473c-b108-96e859b1529e##############################
+2025-10-06 10:27:16 INFO: context fetched succcessfully
+2025-10-06 10:27:16 INFO: []
+2025-10-06 10:27:17 INFO: intent classified
+2025-10-06 10:27:17 INFO: general
+2025-10-06 10:27:17 INFO: |||||||||||||    general    |||||||||||||||||||
+2025-10-06 10:27:17 INFO: intent = general
+2025-10-06 10:27:21 INFO: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-06 10:27:46 INFO: 127.0.0.1 - - [06/Oct/2025 10:27:46] "POST /process-data HTTP/1.1" 200 -
+2025-10-06 10:29:09 INFO:  * Detected change in 'C:\\Users\\USER\\Desktop\\LEAJLAK\\beta\\patch3\\ai-assistant\\function.py', reloading
+2025-10-06 10:29:09 INFO:  * Detected change in 'C:\\Users\\USER\\Desktop\\LEAJLAK\\beta\\patch3\\ai-assistant\\function.py', reloading
+2025-10-06 10:29:09 INFO:  * Detected change in 'C:\\Users\\USER\\Desktop\\LEAJLAK\\beta\\patch3\\ai-assistant\\function.py', reloading
+2025-10-06 10:29:11 INFO:  * Restarting with watchdog (windowsapi)
+2025-10-06 10:29:20 WARNING:  * Debugger is active!
+2025-10-06 10:29:20 INFO:  * Debugger PIN: 115-265-433
+2025-10-06 10:29:22 INFO: Received user message: what is order status in july
+2025-10-06 10:29:22 INFO: ###################313e1ca6-5973-473c-b108-96e859b1529e##############################
+2025-10-06 10:29:23 INFO: context fetched succcessfully
+2025-10-06 10:29:23 INFO: []
+2025-10-06 10:29:25 INFO: intent classified
+2025-10-06 10:29:25 INFO: data_fetch
+2025-10-06 10:29:25 INFO: |||||||||||||    data_fetch    |||||||||||||||||||
+2025-10-06 10:29:25 INFO: context fetched succcessfully
+2025-10-06 10:29:27 INFO: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-06 10:29:27 INFO: Generated SQL query: new_question
+2025-10-06 10:29:27 INFO: ||||||||||||       new_question          ||||||||||||
+2025-10-06 10:29:27 INFO: intent = data_fetch
+2025-10-06 10:29:27 INFO: context fetched succcessfully
+2025-10-06 10:29:27 INFO: ----------------------[]----------------------
+2025-10-06 10:29:27 INFO: Started SQL generation
+2025-10-06 10:29:30 INFO: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-06 10:29:30 INFO: Generated SQL query: ```sql
+SELECT "order_status" FROM "updated_table" WHERE "client_name" = 'MC DONALDS' AND "order_created_at" >= '2025-07-01' AND "order_created_at" < '2025-08-01' LIMIT 1;
+```
+2025-10-06 10:29:30 INFO: generated sql = ```sql
+SELECT "order_status" FROM "updated_table" WHERE "client_name" = 'MC DONALDS' AND "order_created_at" >= '2025-07-01' AND "order_created_at" < '2025-08-01' LIMIT 1;
+```
+2025-10-06 10:29:30 INFO: sql generation success
+2025-10-06 10:29:31 ERROR: Database error: syntax error at or near "```"
+LINE 1: ```sql
+        ^
+
+2025-10-06 10:29:31 ERROR: database query execution failure
+2025-10-06 10:29:31 INFO: context fetched succcessfully
+2025-10-06 10:29:31 INFO: wrapped gen = <generator object store_and_stream at 0x000001FC2D853E20>
+2025-10-06 10:29:31 INFO: Started summary generation
+2025-10-06 10:29:31 INFO: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-06 10:29:32 INFO: 127.0.0.1 - - [06/Oct/2025 10:29:32] "POST /process-data HTTP/1.1" 200 -
+2025-10-06 10:29:34 INFO:  Sorry, we couldn't find the data you are looking for.
+2025-10-06 10:29:34 INFO: context stored successfully
+2025-10-06 10:30:14 INFO:  * Detected change in 'C:\\Users\\USER\\Desktop\\LEAJLAK\\beta\\patch3\\ai-assistant\\function.py', reloading
+2025-10-06 10:30:14 INFO:  * Detected change in 'C:\\Users\\USER\\Desktop\\LEAJLAK\\beta\\patch3\\ai-assistant\\function.py', reloading
+2025-10-06 10:30:14 INFO:  * Detected change in 'C:\\Users\\USER\\Desktop\\LEAJLAK\\beta\\patch3\\ai-assistant\\function.py', reloading
+2025-10-06 10:30:15 INFO:  * Restarting with watchdog (windowsapi)
+2025-10-06 10:30:23 WARNING:  * Debugger is active!
+2025-10-06 10:30:23 INFO:  * Debugger PIN: 115-265-433
+2025-10-06 10:30:24 INFO: Received user message: what is order status in july
+2025-10-06 10:30:24 INFO: ###################313e1ca6-5973-473c-b108-96e859b1529e##############################
+2025-10-06 10:30:24 INFO: context fetched succcessfully
+2025-10-06 10:30:24 INFO: [{'role': 'user', 'content': "user message :what is order status in july, model response :  Sorry, we couldn't find the data you are looking for."}]
+2025-10-06 10:30:27 INFO: intent classified
+2025-10-06 10:30:27 INFO: data_fetch
+2025-10-06 10:30:27 INFO: |||||||||||||    data_fetch    |||||||||||||||||||
+2025-10-06 10:30:27 INFO: context fetched succcessfully
+2025-10-06 10:30:29 INFO: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-06 10:30:29 INFO: Generated SQL query: new_question
+2025-10-06 10:30:29 INFO: ||||||||||||       new_question          ||||||||||||
+2025-10-06 10:30:29 INFO: intent = data_fetch
+2025-10-06 10:30:29 INFO: context fetched succcessfully
+2025-10-06 10:30:29 INFO: ----------------------[{'role': 'user', 'content': "user message :what is order status in july, model response :  Sorry, we couldn't find the data you are looking for."}]----------------------
+2025-10-06 10:30:29 INFO: Started SQL generation
+2025-10-06 10:30:30 INFO: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-06 10:30:38 INFO: Generated SQL query: SELECT "order_status" FROM "updated_table" WHERE "client_name" = 'MC DONALDS' AND "final_status_at" >= '2025-07-01 00:00:00' AND "final_status_at" < '2025-08-01 00:00:00' ORDER BY "final_status_at" DESC LIMIT 1;
+2025-10-06 10:30:38 INFO: generated sql = SELECT "order_status" FROM "updated_table" WHERE "client_name" = 'MC DONALDS' AND "final_status_at" >= '2025-07-01 00:00:00' AND "final_status_at" < '2025-08-01 00:00:00' ORDER BY "final_status_at" DESC LIMIT 1;
+2025-10-06 10:30:38 INFO: sql generation success
+2025-10-06 10:30:39 INFO: Database fetching successful: [
+  {
+    "order_status": "Delivered"
+  }
+]
+2025-10-06 10:30:39 INFO: data from database stored successfully
+2025-10-06 10:30:39 INFO: database query executed succesfully
+2025-10-06 10:30:39 INFO: context fetched succcessfully
+2025-10-06 10:30:39 INFO: wrapped gen = <generator object store_and_stream at 0x000002CA013D3BE0>
+2025-10-06 10:30:39 INFO: Started summary generation
+2025-10-06 10:30:40 INFO: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-06 10:30:40 INFO: 127.0.0.1 - - [06/Oct/2025 10:30:40] "POST /process-data HTTP/1.1" 200 -
+2025-10-06 10:30:41 INFO:  The order status in July is Delivered.
+2025-10-06 10:30:41 INFO: context stored successfully
+2025-10-06 10:31:03 INFO: Received user message: what is order number of the latest order i plaved in july
+2025-10-06 10:31:03 INFO: ###################313e1ca6-5973-473c-b108-96e859b1529e##############################
+2025-10-06 10:31:03 INFO: context fetched succcessfully
+2025-10-06 10:31:03 INFO: [{'role': 'user', 'content': "user message :what is order status in july, model response :  Sorry, we couldn't find the data you are looking for."}, {'role': 'user', 'content': 'user message :what is order status in july, model response :  The order status in July is Delivered.'}]
+2025-10-06 10:31:05 INFO: intent classified
+2025-10-06 10:31:05 INFO: data_fetch
+2025-10-06 10:31:05 INFO: |||||||||||||    data_fetch    |||||||||||||||||||
+2025-10-06 10:31:05 INFO: context fetched succcessfully
+2025-10-06 10:31:05 INFO: db_data fetched for followup
+2025-10-06 10:31:06 INFO: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-06 10:31:06 INFO: Generated SQL query: new_question
+2025-10-06 10:31:06 INFO: ||||||||||||       new_question          ||||||||||||
+2025-10-06 10:31:06 INFO: intent = data_fetch
+2025-10-06 10:31:06 INFO: context fetched succcessfully
+2025-10-06 10:31:06 INFO: ----------------------[{'role': 'user', 'content': "user message :what is order status in july, model response :  Sorry, we couldn't find the data you are looking for."}, {'role': 'user', 'content': 'user message :what is order status in july, model response :  The order status in July is Delivered.'}]----------------------
+2025-10-06 10:31:06 INFO: Started SQL generation
+2025-10-06 10:31:07 INFO: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-06 10:31:11 INFO: Generated SQL query: SELECT "id" AS order_number FROM "updated_table" WHERE "client_name" = 'MC DONALDS' AND EXTRACT(MONTH FROM "order_created_at") = 7 ORDER BY "order_created_at" DESC LIMIT 1;
+2025-10-06 10:31:11 INFO: generated sql = SELECT "id" AS order_number FROM "updated_table" WHERE "client_name" = 'MC DONALDS' AND EXTRACT(MONTH FROM "order_created_at") = 7 ORDER BY "order_created_at" DESC LIMIT 1;
+2025-10-06 10:31:11 INFO: sql generation success
+2025-10-06 10:31:12 INFO: Database fetching successful: [
+  {
+    "order_number": 1823383
+  }
+]
+2025-10-06 10:31:12 INFO: data from database stored successfully
+2025-10-06 10:31:12 INFO: database query executed succesfully
+2025-10-06 10:31:12 INFO: context fetched succcessfully
+2025-10-06 10:31:12 INFO: wrapped gen = <generator object store_and_stream at 0x000002CA01A739A0>
+2025-10-06 10:31:12 INFO: Started summary generation
+2025-10-06 10:31:13 INFO: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-06 10:31:13 INFO: 127.0.0.1 - - [06/Oct/2025 10:31:13] "POST /process-data HTTP/1.1" 200 -
+2025-10-06 10:31:14 INFO:  The latest order placed in July is 1823383.
+2025-10-06 10:31:14 INFO: context stored successfully
+2025-10-06 10:33:33 INFO: Received user message: wht is its status
+2025-10-06 10:33:33 INFO: ###################313e1ca6-5973-473c-b108-96e859b1529e##############################
+2025-10-06 10:33:34 INFO: context fetched succcessfully
+2025-10-06 10:33:34 INFO: [{'role': 'user', 'content': "user message :what is order status in july, model response :  Sorry, we couldn't find the data you are looking for."}, {'role': 'user', 'content': 'user message :what is order status in july, model response :  The order status in July is Delivered.'}, {'role': 'user', 'content': 'user message :what is order number of the latest order i plaved in july, model response :  The latest order placed in July is 1823383.'}]
+2025-10-06 10:33:35 INFO: intent classified
+2025-10-06 10:33:35 INFO: general
+2025-10-06 10:33:35 INFO: |||||||||||||    general    |||||||||||||||||||
+2025-10-06 10:33:35 INFO: intent = general
+2025-10-06 10:33:36 INFO: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-06 10:33:37 INFO: 127.0.0.1 - - [06/Oct/2025 10:33:37] "POST /process-data HTTP/1.1" 200 -
+2025-10-06 10:33:56 INFO: Received user message: what is the status of  1823383.
+2025-10-06 10:33:56 INFO: ###################313e1ca6-5973-473c-b108-96e859b1529e##############################
+2025-10-06 10:33:56 INFO: context fetched succcessfully
+2025-10-06 10:33:56 INFO: [{'role': 'user', 'content': "user message :what is order status in july, model response :  Sorry, we couldn't find the data you are looking for."}, {'role': 'user', 'content': 'user message :what is order status in july, model response :  The order status in July is Delivered.'}, {'role': 'user', 'content': 'user message :what is order number of the latest order i plaved in july, model response :  The latest order placed in July is 1823383.'}]
+2025-10-06 10:33:57 INFO: intent classified
+2025-10-06 10:33:57 INFO: data_fetch
+2025-10-06 10:33:57 INFO: |||||||||||||    data_fetch    |||||||||||||||||||
+2025-10-06 10:33:57 INFO: context fetched succcessfully
+2025-10-06 10:33:57 INFO: db_data fetched for followup
+2025-10-06 10:33:58 INFO: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-06 10:33:58 INFO: Generated SQL query: new_question
+2025-10-06 10:33:58 INFO: ||||||||||||       new_question          ||||||||||||
+2025-10-06 10:33:58 INFO: intent = data_fetch
+2025-10-06 10:33:58 INFO: context fetched succcessfully
+2025-10-06 10:33:58 INFO: ----------------------[{'role': 'user', 'content': "user message :what is order status in july, model response :  Sorry, we couldn't find the data you are looking for."}, {'role': 'user', 'content': 'user message :what is order status in july, model response :  The order status in July is Delivered.'}, {'role': 'user', 'content': 'user message :what is order number of the latest order i plaved in july, model response :  The latest order placed in July is 1823383.'}]----------------------
+2025-10-06 10:33:58 INFO: Started SQL generation
+2025-10-06 10:33:59 INFO: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-06 10:34:00 INFO: Generated SQL query: SELECT "order_status" FROM "updated_table" WHERE "client_name" = 'MC DONALDS' AND "id" = 1823383 LIMIT 1;
+2025-10-06 10:34:00 INFO: generated sql = SELECT "order_status" FROM "updated_table" WHERE "client_name" = 'MC DONALDS' AND "id" = 1823383 LIMIT 1;
+2025-10-06 10:34:00 INFO: sql generation success
+2025-10-06 10:34:01 INFO: Database fetching successful: [
+  {
+    "order_status": "Delivered"
+  }
+]
+2025-10-06 10:34:01 INFO: data from database stored successfully
+2025-10-06 10:34:01 INFO: database query executed succesfully
+2025-10-06 10:34:01 INFO: context fetched succcessfully
+2025-10-06 10:34:01 INFO: wrapped gen = <generator object store_and_stream at 0x000002CA01A72F80>
+2025-10-06 10:34:01 INFO: Started summary generation
+2025-10-06 10:34:02 INFO: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-06 10:34:02 INFO: 127.0.0.1 - - [06/Oct/2025 10:34:02] "POST /process-data HTTP/1.1" 200 -
+2025-10-06 10:34:03 INFO:  The status of order 1823383 is Delivered.
+2025-10-06 10:34:03 INFO: context stored successfully
+2025-10-06 10:34:20 INFO: Received user message: list all the orders i placed in july
+2025-10-06 10:34:20 INFO: ###################313e1ca6-5973-473c-b108-96e859b1529e##############################
+2025-10-06 10:34:20 INFO: context fetched succcessfully
+2025-10-06 10:34:20 INFO: [{'role': 'user', 'content': "user message :what is order status in july, model response :  Sorry, we couldn't find the data you are looking for."}, {'role': 'user', 'content': 'user message :what is order status in july, model response :  The order status in July is Delivered.'}, {'role': 'user', 'content': 'user message :what is order number of the latest order i plaved in july, model response :  The latest order placed in July is 1823383.'}, {'role': 'user', 'content': 'user message :what is the status of  1823383., model response :  The status of order 1823383 is Delivered.'}]
+2025-10-06 10:34:22 INFO: intent classified
+2025-10-06 10:34:22 INFO: data_fetch
+2025-10-06 10:34:22 INFO: |||||||||||||    data_fetch    |||||||||||||||||||
+2025-10-06 10:34:22 INFO: context fetched succcessfully
+2025-10-06 10:34:22 INFO: db_data fetched for followup
+2025-10-06 10:34:23 INFO: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-06 10:34:23 INFO: Generated SQL query: new_question
+2025-10-06 10:34:23 INFO: ||||||||||||       new_question          ||||||||||||
+2025-10-06 10:34:23 INFO: intent = data_fetch
+2025-10-06 10:34:23 INFO: context fetched succcessfully
+2025-10-06 10:34:23 INFO: ----------------------[{'role': 'user', 'content': "user message :what is order status in july, model response :  Sorry, we couldn't find the data you are looking for."}, {'role': 'user', 'content': 'user message :what is order status in july, model response :  The order status in July is Delivered.'}, {'role': 'user', 'content': 'user message :what is order number of the latest order i plaved in july, model response :  The latest order placed in July is 1823383.'}, {'role': 'user', 'content': 'user message :what is the status of  1823383., model response :  The status of order 1823383 is Delivered.'}]----------------------
+2025-10-06 10:34:23 INFO: Started SQL generation
+2025-10-06 10:34:27 INFO: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-06 10:35:19 INFO: Generated SQL query: SELECT "id", "order_status", "delivery_date", "order_created_at", "order_accepted_at", "start_ride_at", "reached_shop_at", "order_picked_at", "shipped_at", "reached_dest_at", "final_status_at", "customer_number", "customer_name", "client_id", "captain_name", "shop_to_delivery_km", "cancellation_reason" FROM "updated_table" WHERE "client_name" = 'MC DONALDS' AND "order_created_at" >= '2025-07-01' AND "order_created_at" < '2025-08-01' LIMIT 1;
+2025-10-06 10:35:19 INFO: generated sql = SELECT "id", "order_status", "delivery_date", "order_created_at", "order_accepted_at", "start_ride_at", "reached_shop_at", "order_picked_at", "shipped_at", "reached_dest_at", "final_status_at", "customer_number", "customer_name", "client_id", "captain_name", "shop_to_delivery_km", "cancellation_reason" FROM "updated_table" WHERE "client_name" = 'MC DONALDS' AND "order_created_at" >= '2025-07-01' AND "order_created_at" < '2025-08-01' LIMIT 1;
+2025-10-06 10:35:19 INFO: sql generation success
+2025-10-06 10:35:20 INFO: Database fetching successful: [
+  {
+    "id": 1766780,
+    "order_status": "Delivered",
+    "delivery_date": "2025-07-01T00:21:37",
+    "order_created_at": "2025-07-01T00:08:12",
+    "order_accepted_at": "2025-07-01T00:09:41",
+    "start_ride_at": "2025-07-01T00:10:55",
+    "reached_shop_at": "2025-07-01T00:10:57",
+    "order_picked_at": "2025-07-01T00:16:54",
+    "shipped_at": "2025-07-01T00:16:56",
+    "reached_dest_at": "2025-07-01T00:21:35",
+    "final_status_at": "2025-07-01T00:21:37",
+    "customer_number": 2461883215,
+    "customer_name": "Customer_FNB",
+    "client_id": 3,
+    "captain_name": "NADER FUAD -DMM - JOD10",
+    "shop_to_delivery_km": 1.612,
+    "cancellation_reason": "0"
+  }
+]
+2025-10-06 10:35:20 INFO: data from database stored successfully
+2025-10-06 10:35:20 INFO: database query executed succesfully
+2025-10-06 10:35:20 INFO: context fetched succcessfully
+2025-10-06 10:35:20 INFO: wrapped gen = <generator object store_and_stream at 0x000002CA01B4EB00>
+2025-10-06 10:35:20 INFO: Started summary generation
+2025-10-06 10:35:21 INFO: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-06 10:35:23 INFO: 127.0.0.1 - - [06/Oct/2025 10:35:23] "POST /process-data HTTP/1.1" 200 -
+2025-10-06 10:35:23 INFO:  
+2025-10-06 10:35:23 INFO: context stored successfully
+2025-10-06 10:38:09 INFO:  * Detected change in 'C:\\Users\\USER\\Desktop\\LEAJLAK\\beta\\patch3\\ai-assistant\\app.py', reloading
+2025-10-06 10:38:09 INFO:  * Detected change in 'C:\\Users\\USER\\Desktop\\LEAJLAK\\beta\\patch3\\ai-assistant\\app.py', reloading
+2025-10-06 10:38:09 INFO:  * Detected change in 'C:\\Users\\USER\\Desktop\\LEAJLAK\\beta\\patch3\\ai-assistant\\app.py', reloading
+2025-10-06 10:38:10 INFO:  * Restarting with watchdog (windowsapi)
+2025-10-06 10:38:19 WARNING:  * Debugger is active!
+2025-10-06 10:38:19 INFO:  * Debugger PIN: 115-265-433

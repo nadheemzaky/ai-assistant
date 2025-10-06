@@ -1,6 +1,5 @@
 from flask import Flask, request, jsonify, render_template,Response,session
 import psycopg2
-import requests
 import json
 import time as time_module
 from datetime import datetime, timedelta, date,time
@@ -11,7 +10,6 @@ from dotenv import load_dotenv
 from psycopg2.extras import RealDictCursor
 import secrets
 from flask_sqlalchemy import SQLAlchemy
-import re
 from openai import OpenAI
 from intent_classifier import classify_intent
 import prompts
@@ -225,7 +223,7 @@ def process_data():
         if intent == 'general':
             logging.info('intent = general')
             try:
-                reply = function.generate_openai_reply(user_messages,client)
+                reply = function.generate_openrouter_reply(user_messages,client2)
                 return (str(reply))
             except Exception as e:
                 logging.error(f'{e}')
@@ -282,7 +280,6 @@ def process_data():
     try:
         sql_query = function.generate_sql_with_openrouter(variable_sql,client2,prompts.sql_prompt)
         if sql_query:
-            logging.info(f'generated sql = {sql_query}')
             try:
                 function.append_sql_to_excel([sql_query])
             except Exception as e:
