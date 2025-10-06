@@ -17,10 +17,18 @@ logging.basicConfig(
 
 def classify_intent(message,context):
     system_prompt = (
-        "Classify the following user message into one of two categories: "
-        "'general' = for questions that includes greetings or enquiry about Leajlak's service.If the users question is about leajlak, its general intent"
-        "'data_fetch'= for questions asking about anything else.if the question contains numbers like '1823361' ie 7 digit number then reply 'data_fetch'   "
-        "Return only the category name."
+        "You are an intent classifier for Leajlak's chatbot. "
+        "Classify the user's latest message into one of two categories:"
+        "1. 'general' → Use this if:"
+        "   - The message is a greeting (e.g., hello, hi, good morning)."
+        "   - The message is asking about Leajlak or its services in general (e.g., what is Leajlak, how does Leajlak work).    "
+        "2. 'data_fetch' → Use this if:  "
+        "   - The message asks about order, shipment, delivery, tracking, logistics, or anything requiring database information.  "
+        "   - The message contains numeric IDs (like a 7-digit number such as 1823361).  "
+        "   - The message is a follow-up question (e.g., 'who?', 'where?', 'when?', 'what about that order?') that depends on previous context.    "
+        "Instructions:  "
+        "- Always check the provided context of the conversation. If the latest message is vague but relates to earlier data (like follow-ups), classify it as 'data_fetch'.  "
+        "- Return only 'general' or 'data_fetch'. No explanations, no extra words."
     )
 
     payload = {

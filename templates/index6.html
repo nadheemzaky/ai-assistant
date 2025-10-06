@@ -787,7 +787,7 @@
                 const endpoint = isDeepAnalysisMode ? '/deep-analysis' : '/process-data';
                 
                 try {
-                    // Handle streaming response
+                    // Handle JSON response (non-streaming)
                     const response = await fetch(endpoint, {
                         method: 'POST',
                         headers: {
@@ -799,28 +799,13 @@
                     // Remove typing indicator
                     hideTypingIndicator();
                     
-                    // Create message container for streaming
-                    const messageDiv = document.createElement('div');
-                    messageDiv.classList.add('message', 'bot-message');
-                    chatBox.appendChild(messageDiv);
+                    // Parse JSON response
+                    const data = await response.json();
                     
-                    // Handle streaming response
-                    const reader = response.body.getReader();
-                    const decoder = new TextDecoder();
-                    let fullMessage = '';
+                    // Extract the reply text and display it
+                    const replyText = data.reply || 'No response received.';
+                    addMessage(replyText, 'bot');
                     
-                    while (true) {
-                        const { done, value } = await reader.read();
-                        
-                        if (done) break;
-                        
-                        const chunk = decoder.decode(value, { stream: true });
-                        fullMessage += chunk;
-                        
-                        // Update the message div with accumulated text
-                        messageDiv.textContent = fullMessage;
-                        scrollToBottom();
-                    }
                 } catch (error) {
                     console.error('Error sending message:', error);
                     hideTypingIndicator();

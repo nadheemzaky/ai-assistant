@@ -101,7 +101,9 @@ Rules for SQL generation:
 2. Use double quotes for exact-case column names.
 3. Always append WHERE "client_name" = '{name}'.
 4. Always set LIMIT 1.
-5. Add a greater-than-zero condition only if necessary, such as >= INTERVAL '0 seconds' in time-related queries.
+5. Add a greater-than-zero condition only if necessary, such as >= NOW() - INTERVAL '0 seconds' for timestamp columns,
+             or >= TIME '00:00:00' if comparing only the time portion. Always ensure the
+             comparison is between compatible types (timestamp vs timestamp, time vs time).
 6. If the user provides Order ID(s) (e.g., 1823383, 1757810), fetch data for that ID only.
 7. Use descriptive aliases with units, e.g., seconds, minutes.
 

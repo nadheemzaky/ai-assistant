@@ -173,161 +173,145 @@ def names_route():
 def process_data():
     
     data = request.json
+    if not data or 'message' not in data:
+        return jsonify({"reply": "Missing 'message' in request body"}), 400
+    
     user_messages = data['message']
     set_value('user_message', user_messages)
-    name=get_value('name')
-    if not data or 'message' not in data:
-        return jsonify({"reply": "Missing 'message' in request body"}), 401
-    else:
-        logging.info(f"Received user message: {user_messages}")
+    logging.info(f"--------------------------------------------------------------------------Received user message: {user_messages}--------------------------------------------------------------------------")
+
+    name = get_value('name')
     if not name:
-        logging.error(f'names list empty')  # Check if names list is empty
+        logging.error('Names list empty - no users registered')
         return jsonify({"reply": "No users registered yet"}), 400
     
-    logging.info(f'###################{get_value("session_id")}##############################')
     
-    '''try:
-        function.store_message(get_value('session_id'),user_messages,'user')
-
-    except Exception as e:
-        logging.info('no context)'''
-
+    session_id = get_value('session_id')
+    logging.info(f'Session ID: {session_id}')
 
     #appending messages to excel sheet
     try:
-        if not isinstance(user_messages, list):
-            messages_to_save = [user_messages]
-        else:
-            messages_to_save = user_messages    
+        messages_to_save = [user_messages] if not isinstance(user_messages, list) else user_messages
         function.append_messages_to_excel(messages_to_save)
     except Exception as e:
-        logging.info(f'error saving to excel:{e}')
+        logging.error(f'Error saving to Excel: {e}')
+
     # datetime handling
     try:
         now = datetime.now()
-    except Exception as e:
-        logging.error(f"Failed to get current datetime: {e}")
-        now = None
-    try:
         set_value('now', str(now))
     except Exception as e:
-        logging.error(f"Failed to set or log now: {e}")
-
-
+        logging.error(f"Failed to handle datetime: {e}")
+        return jsonify({"error": "Internal server error"}), 500
 
 
 # intent classification
-    try :
-        context=function.get_context_messages(get_value('session_id'))
-        logging.info(f'{str(context)}')
-        intent = classify_intent(user_messages,context)
-        logging.info(f'|||||||||||||    {intent}    |||||||||||||||||||')
-        if intent == 'general':
-            logging.info('intent = general')
-            try:
-                reply = function.generate_openai_reply(user_messages,client)
-                return (str(reply))
-            except Exception as e:
-                logging.error(f'{e}')
-        else :
-            try:
-                context=function.get_context_messages(get_value('session_id'))
-                db_data=function.get_db_data(get_value('session_id'))
-                isfollow=function.classify_followup(user_messages,context,db_data,client2)
-                logging.info(f'||||||||||||       {isfollow}          ||||||||||||')
-                if isfollow == 'followup':
-                    try:
-                        context=function.get_context_messages(get_value('session_id'))
-                        prompt_analysis = f'''
-                            this is what user asked : {user_messages}. only answer this question without any other details !!!
-                            this is the previous exchanges between user and model = {context} .
-                            the data that is related to the question of user= {db_data}.
-                            user has asked a followup question so answer that question based on previous exchanges
-
-                            '''
-                        response_generator = function.generate_streaming_response(
-                        context, prompt_analysis, client2, prompts.summary_prompt
-                        )
-                        wrapped_gen = function.store_and_stream(response_generator, get_value('session_id'), user_messages)
-                        logging.info(f'wrapped gen = {wrapped_gen}')
-                        return Response(wrapped_gen, mimetype='text/plain')
-                    except Exception as e:
-                        logging.error(f'error in streaming gen response: {str(e)}')
-                        return jsonify({"error": "Internal server error"}), 500
-                else:
-                    logging.info('intent = data_fetch')
-            except Exception as e:
-                logging.error(f'{e}')
-    except Exception as e:
-        logging.error(f'{e}')
-
-
-
-    context_for_sql = ""
     try:
-        session_id=get_value('session_id')
-        context_for_sql=function.get_context_messages(session_id)
-        logging.info(f'----------------------{context_for_sql}----------------------')
+        context = function.get_context_messages(session_id)
+        logging.info(f'Context retrieved: {str(context)}')
+        
+        intent = classify_intent(user_messages, context)
+        logging.info(f'Classified intent: {intent}')
+        
+        # Handle general conversation intent
+        if intent == 'general':
+            logging.info('Processing general intent')
+            try:
+                reply = function.generate_openrouter_reply(user_messages, client2)
+                return jsonify({"reply": str(reply)})
+            except Exception as e:
+                logging.error(f'Error generating general reply: {e}')
+                return jsonify({"error": "Failed to generate response"}), 500
+        
+        # Handle data fetch intent - check if followup question
+        '''
+            try:
+            db_data = function.get_db_data(session_id)
+            is_followup = function.classify_followup(user_messages, context, db_data, client2)
+            logging.info(f'Is followup question: {is_followup}')
+            
+            if is_followup == 'followup':
+                return function.followup_response(user_messages, context, db_data, client2,session_id)
+            logging.info('Processing data fetch intent')
+            
+        except Exception as e:
+            logging.error(f'Error in followup classification: {e}')
+            '''
+    
     except Exception as e:
-        logging.error(f'sql context error{e}')
+        logging.error(f'Error in intent classification: {e}')
+        return jsonify({"error": "Failed to classify intent"}), 500
 
-    variable_sql = f'''
+
+    now = datetime.now()
+    sql_context = f'''
     name = {name}
     user message = {user_messages}
     date and time now = {now}
-    Context to consider while generating sql:-
-        previous qustions from user : {context_for_sql}
+    context: {context}
     '''
-    
+    # generate sql query
     try:
-        sql_query = function.generate_sql_with_openrouter(variable_sql,client2,prompts.sql_prompt)
-        if sql_query:
-            logging.info(f'generated sql = {sql_query}')
-            try:
-                function.append_sql_to_excel([sql_query])
-            except Exception as e:
-                logging.info(f'error ssaving sql to excel {e}')
-            logging.info(f'sql generation success')
-        else:
-            logging.error('no sql query made')
-
+        sql_query = function.generate_sql_with_openrouter(sql_context, client2, prompts.sql_prompt)
+        if not sql_query:
+            logging.error('No SQL query generated')
+            return jsonify({"reply": "Failed to generate query", "name": name}), 500
+        
+        logging.info(f'SQL generation success: {sql_query}')
+        
+        # Save SQL to Excel
+        try:
+            function.append_sql_to_excel([sql_query])
+        except Exception as e:
+            logging.error(f'Error saving SQL to Excel: {e}')
+    
     except Exception as e:
+        logging.error(f'Error generating SQL: {e}')
         return jsonify({"reply": "Failed to generate query", "name": name}), 500
 
-
+# Execute database query
     db_data_json, success = function.execute_query_and_get_json(DB_URL, sql_query)
+    
     if success and db_data_json:
         try:
-            function.store_data(get_value('session_id'),db_data_json)
+            function.store_data(session_id, db_data_json)
+            logging.info('Database query executed successfully')
         except Exception as e:
-            logging.error(f'no data available from database for followup storing {str(e)}')
-        logging.info('database query executed succesfully')
+            logging.error(f'Error storing data for followup: {str(e)}')
     else:
-        logging.error('database query execution failure')
+        logging.error('Database query execution failure')
+        db_data_json = None  # Ensure it's None for response generation
+    
 
 
     try:
         time = get_value('now')
-        context=function.get_context_messages(get_value('session_id'))
         prompt_analysis = f'''
             this is what user asked : {user_messages}.
-            this is the previous exchanges between user and model = {context} .
+            this is the previous exchanges between user and model = {context}.
             the data that is related to the question of user= {db_data_json}.
             the sql query that is generated right now to fetch data from database = {sql_query}.
             current time = {time}
             '''
-        response_generator = function.generate_streaming_response(
-        context, prompt_analysis, client2, prompts.summary_prompt
+        
+        # Generate complete response (no streaming)
+        response = function.generate_response(
+            context, prompt_analysis, client2, prompts.summary_prompt
         )
-        wrapped_gen = function.store_and_stream(response_generator, get_value('session_id'), user_messages)
-        logging.info(f'wrapped gen = {wrapped_gen}')
-
-
-        return Response(wrapped_gen, mimetype='text/plain')
-
-
+        logging.info(f'{response}')
+        # Store conversation context
+        try:
+            function.store_message(session_id, user_messages, 'user')
+            function.store_message(session_id, response, 'assistant')
+            logging.info(f'Context stored for session {session_id}')
+        except Exception as e:
+            logging.error(f'Failed to store context: {e}')
+        
+        #return response, 200, {'Content-Type': 'text/plain'}
+        return jsonify({"reply": response}), 200
+    
     except Exception as e:
-        logging.error(f'error in streaming gen response: {str(e)}')
+        logging.error(f'Error generating response: {str(e)}')
         return jsonify({"error": "Internal server error"}), 500
     
 

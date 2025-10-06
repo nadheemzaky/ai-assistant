@@ -8,7 +8,7 @@ from datetime import datetime, timedelta, date,time
 from decimal import Decimal
 import json
 import sqlite3
-
+from flask import jsonify
 
 
 def generate_openai_reply(prompt,client):
@@ -36,6 +36,30 @@ def generate_openai_reply(prompt,client):
         logging.error(f"OpenAI API error: {e}")
         return "Sorry, something went wrong while generating the reply."
     
+def generate_openrouter_reply(prompt, client):
+    try:
+        response = client.chat.completions.create(
+            model="openai/gpt-4.1-mini",  # pick model via OpenRouter
+            messages=[
+                {
+                    "role": "system",
+                    "content": (
+                        "You are Leajlak's customer service assistant (Leajlak's Order Management System connects merchants "
+                        "and third-party logistics companies for on-demand express and scheduled deliveries, leveraging AI, IoT, "
+                        "and Big Data to boost efficiency, cut costs, and improve customer satisfaction). "
+                        "Check the user's message and send appropriate replies that are always inside the above context."
+                    ),
+                },
+                {"role": "user", "content": prompt},
+            ],
+            max_tokens=150,
+            temperature=0.7,
+        )
+        reply = response.choices[0].message.content.strip()
+        return reply
+    except Exception as e:
+        logging.error(f"OpenRouter API error: {e}")
+        return "Sorry, something went wrong while generating the reply."
 
 
 def generate_sql_with_openai(prompt,client,system):
@@ -69,7 +93,7 @@ def generate_sql_with_openrouter(prompt, client, system):
         logging.info('Started SQL generation')
 
         response = client.chat.completions.create(
-            model="google/gemini-2.0-flash-001",
+            model="anthropic/claude-3.5-sonnet",
             messages=[
                 {
                     "role": "system",
@@ -95,10 +119,6 @@ def generate_sql_with_openrouter(prompt, client, system):
 
 
 def generate_streaming_response(context,prompt_analysis, client2,system, wpm=350):
-   
-    """
-    Generate streaming response for analysis
-    """
     try:
         summary_prompt = system
         logging.info('Started summary generation')
@@ -259,14 +279,14 @@ def init_db():
 init_db()
 
 
-def store_message(session_id, message_text, message_role,response):
+def store_message(session_id, message_text, message_role):
     conn = sqlite3.connect('instance/chat_context.db')
     cursor = conn.cursor()
     try:
         cursor.execute("""
-            INSERT INTO user_context (session_id, message_text, message_role,response)
-            VALUES (?, ?, ?,?)
-        """, (session_id, message_text, message_role,response))
+            INSERT INTO user_context (session_id, message_text, message_role)
+            VALUES (?, ?, ?)
+        """, (session_id, message_text, message_role))
         logging.info('context stored successfully')
     except Exception as e:
         logging.error(f'error storing info: {str(e)}')
@@ -320,21 +340,21 @@ def get_context_messages(session_id):
     cursor = conn.cursor()
     try:
         cursor.execute("""
-            SELECT message_role, message_text, response FROM user_context
+            SELECT message_role, message_text FROM user_context
             WHERE session_id = ?
             ORDER BY timestamp ASC
         """, (session_id,))
-        logging.info('context fetched succcessfully')
-    except Exception as e :
+        logging.info('context fetched successfully')
+    except Exception as e:
         logging.error(f'error getting context:{str(e)}')
-        return[]    
+        return []
     
     messages = cursor.fetchall()
     conn.close()
 
     return [
-        {"role": role, "content": f"user message :{text}, model response : {str(response)}".strip()}
-        for role, text, response in messages
+        {"role": role, "content": text}
+        for role, text in messages
     ]
 
 def get_db_data(session_id):
@@ -379,29 +399,134 @@ def store_and_stream(original_generator, session_id, user_message):
 
 def classify_followup(user_message, context, db_data_json, client):
     try:
-        classification_prompt = f"""
-        This is the current user question: "{user_message}"
-        Previous chat context: "{context}"
-        Data fetched from the database for the previous question: "{db_data_json}"
+        system_prompt = (
+            "You are a strict binary classifier for a chatbot. "
+            "You must return only one word: 'followup' or 'new_question'. "
+            "Definitions:"
+            "- 'followup' → if the user's latest message depends on or refers to previous context or database results. "
+            "Examples: vague pronouns ('it', 'that order'), short interrogatives ('who', 'when', 'where', 'status?'), "
+            "or mentions of IDs/tracking numbers seen earlier."
+            "- 'new_question' → if the message is independent, general, or about Leajlak services in a new context, "
+            "not tied to prior conversation or DB data."
+            "Always decide strictly and output only 'followup' or 'new_question'. No punctuation, no explanation."
+        )
 
-       whatever happens return 'new_question'   only the word 'new_question'  """
-        
+        classification_prompt = f"""
+        Current user question: "{user_message}"
+        Previous chat context: "{context}"
+        Database results: "{db_data_json}"
+        """
+
         response = client.chat.completions.create(
             model="openai/gpt-4.1-mini",
             messages=[
-                {
-                    "role": "system",
-                    "content": "you are a classifier who only returns 'followup' or 'new_question'"
-                },
-                {
-                    "role": "user",
-                    "content": classification_prompt
-                }
-            ]
+                {"role": "system", "content": system_prompt},
+                {"role": "user", "content": classification_prompt}
+            ],
+            max_tokens=16,
+            temperature=0.0,
         )
-        reply = response.choices[0].message.content
-        logging.info(f"Generated SQL query: {reply}")
+        reply = response.choices[0].message.content.strip().lower()
+
+        # Safety check
+        if reply not in ["followup", "new_question"]:
+            logging.warning(f"Unexpected classifier output: {reply}")
+            return "new_question"  # fallback safe default
+
+        logging.info(f"Follow-up classification: {reply}")
         return reply
+
     except Exception as e:
-        logging.error(f"OpenRouter API error: {str(e)}")
+        logging.error(f"Follow-up classifier error: {str(e)}", exc_info=True)
+        return "new_question"  # safe fallback
+
+def followup_response(user_message, context, db_data, client,session_id):
+    """
+    Generate response for followup questions using previous context and data.
     
+    Args:
+        user_message: Current user question
+        context: Previous conversation history
+        db_data: Data from previous database query
+        client: OpenAI/OpenRouter client
+        
+    Returns:
+        tuple: (response_dict, status_code) for Flask jsonify
+    """
+    try:
+        # Format context for prompt
+        context_str = ""
+        if context:
+            if isinstance(context, list):
+                context_str = "\n".join([
+                    f"{msg.get('role', 'user')}: {msg.get('content', '')}" 
+                    for msg in context[-5:]  # Last 5 messages for relevance
+                ])
+            else:
+                context_str = str(context)
+        
+        # Format database data
+        db_data_str = ""
+        if db_data:
+            if isinstance(db_data, list):
+                db_data_str = "\n".join([str(item) for item in db_data])
+            else:
+                db_data_str = str(db_data)
+        
+        # Create prompt for followup question
+        system_prompt = """You are a helpful assistant for Leajlak logistics. 
+        Answer the user's followup question based on the previous conversation and data provided.
+        Be concise and directly answer what they're asking about.
+        If the answer isn't in the provided data, politely say so."""
+        
+        user_prompt = f"""
+        User's current question: {user_message}
+        Previous conversation:
+        {context_str}
+        Relevant data from previous query:
+        {db_data_str}
+        Please answer the user's question based on the above context and data."""
+
+        # Generate response
+        response = client.chat.completions.create(
+            model="qwen/qwen3-next-80b-a3b-instruct",  # Use your preferred model
+            messages=[
+                {"role": "system", "content": system_prompt},
+                {"role": "user", "content": user_prompt}
+            ],
+            temperature=0.3,
+            max_tokens=500,
+            timeout=30
+        )
+        
+        assistant_response = response.choices[0].message.content.strip()
+        logging.info(f'Followup response generated: {assistant_response[:100]}...')
+        
+        # Store conversation context
+        try:
+            store_message(session_id, user_message, 'user')
+            store_message(session_id, assistant_response, 'assistant')
+            logging.info(f'Followup context stored for session {session_id}')
+        except Exception as e:
+            logging.error(f'Failed to store followup context: {e}')
+        
+        return assistant_response, 200, {'Content-Type': 'text/plain'}
+        
+    except Exception as e:
+        logging.error(f'Error generating followup response: {str(e)}')
+        return jsonify({"error": "Failed to generate followup response"}), 500
+    
+def generate_response(context, prompt_analysis, client, system_prompt):
+    """Generate complete response without streaming."""
+    messages = [
+        {"role": "system", "content": system_prompt},
+        {"role": "user", "content": prompt_analysis}
+    ]
+    
+    response = client.chat.completions.create(
+        model="deepseek/deepseek-chat",
+        messages=messages,
+        stream=False  # No streaming
+    )
+    
+    return response.choices[0].message.content
