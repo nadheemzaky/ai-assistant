@@ -10,6 +10,10 @@ import json
 import sqlite3
 from flask import jsonify
 
+from datetime import datetime
+
+    
+
 
 def generate_openai_reply(prompt,client):
     try:
@@ -530,3 +534,43 @@ def generate_response(context, prompt_analysis, client, system_prompt):
     )
     
     return response.choices[0].message.content
+
+
+
+def append_conversation_to_excel(user_message, bot_response,session_id, excel_file='data/conversations.xlsx'):
+    """
+    Append user message and bot response to Excel file.
+    
+    Args:
+        user_message: User's message
+        bot_response: Bot's response
+        excel_file: Path to Excel file
+    """
+
+    # Prepare data
+    data = {
+        'Timestamp': [datetime.now().strftime('%Y-%m-%d %H:%M:%S')],
+        'User Message': [user_message],
+        'Bot Response': [bot_response],
+        'Session ID': [session_id]
+    }
+    
+    df_new = pd.DataFrame(data)
+    
+    try:
+        # Check if file exists
+        if os.path.exists(excel_file):
+            # Read existing data
+            df_existing = pd.read_excel(excel_file)
+            # Append new data
+            df_combined = pd.concat([df_existing, df_new], ignore_index=True)
+        else:
+            df_combined = df_new
+        
+        # Save to Excel
+        df_combined.to_excel(excel_file, index=False)
+        logging.info(f'Conversation appended to {excel_file}')
+        
+    except Exception as e:
+        logging.error(f'Error appending to Excel: {e}')
+        raise

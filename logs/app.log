@@ -1937,3 +1937,218 @@ in july-------------------------------------------------------------------------
 2025-10-06 15:01:39 INFO: context stored successfully
 2025-10-06 15:01:39 INFO: Context stored for session 6ac65785-d9d0-4f75-a8e5-815625c0b1f4
 2025-10-06 15:01:39 INFO: 127.0.0.1 - - [06/Oct/2025 15:01:39] "POST /process-data HTTP/1.1" 200 -
+2025-10-06 17:42:37 INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-10-06 17:42:37 INFO: [33mPress CTRL+C to quit[0m
+2025-10-06 17:42:37 INFO:  * Restarting with watchdog (windowsapi)
+2025-10-06 17:42:52 WARNING:  * Debugger is active!
+2025-10-06 17:42:52 INFO:  * Debugger PIN: 115-265-433
+2025-10-06 17:42:53 INFO: 127.0.0.1 - - [06/Oct/2025 17:42:53] "GET / HTTP/1.1" 200 -
+2025-10-06 17:42:53 INFO: 127.0.0.1 - - [06/Oct/2025 17:42:53] "[33mGET /images/image.png HTTP/1.1[0m" 404 -
+2025-10-06 17:42:56 INFO: New session started: 3e0b3db3-9613-43ba-98b1-bb4a75ec018c
+2025-10-06 17:42:56 INFO: Received request data: {'mobile': '919562301314'}
+2025-10-06 17:42:56 INFO: Updated mobile: 919562301314
+2025-10-06 17:42:57 INFO: Updated name: Dominos Pizza
+2025-10-06 17:42:57 INFO: 127.0.0.1 - - [06/Oct/2025 17:42:57] "POST /number HTTP/1.1" 200 -
+2025-10-06 17:42:58 INFO: 127.0.0.1 - - [06/Oct/2025 17:42:58] "POST /names HTTP/1.1" 200 -
+2025-10-06 17:43:03 INFO: --------------------------------------------------------------------------Received user message: Show me the orders that started their ride after 7 PM--------------------------------------------------------------------------
+2025-10-06 17:43:03 INFO: Session ID: 3e0b3db3-9613-43ba-98b1-bb4a75ec018c
+2025-10-06 17:43:04 INFO: context fetched successfully
+2025-10-06 17:43:04 INFO: Context retrieved: []
+2025-10-06 17:43:05 INFO: intent classified
+2025-10-06 17:43:05 INFO: data_fetch
+2025-10-06 17:43:05 INFO: Classified intent: data_fetch
+2025-10-06 17:43:05 INFO: Started SQL generation
+2025-10-06 17:43:10 INFO: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-06 17:43:12 INFO: Generated SQL query: SELECT * FROM "updated_table" WHERE "client_name" = 'Dominos Pizza' AND EXTRACT(HOUR FROM "start_ride_at"::time) >= 19 AND "start_ride_at" >= NOW() - INTERVAL '0 seconds' ORDER BY "start_ride_at" DESC LIMIT 1;
+2025-10-06 17:43:12 INFO: SQL generation success: SELECT * FROM "updated_table" WHERE "client_name" = 'Dominos Pizza' AND EXTRACT(HOUR FROM "start_ride_at"::time) >= 19 AND "start_ride_at" >= NOW() - INTERVAL '0 seconds' ORDER BY "start_ride_at" DESC LIMIT 1;
+2025-10-06 17:43:12 INFO: Database fetching successful: []
+2025-10-06 17:43:12 INFO: data from database stored successfully
+2025-10-06 17:43:12 INFO: Database query executed successfully
+2025-10-06 17:43:14 INFO: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-06 17:43:14 INFO: Sorry, we couldn't find the data you are looking for.
+2025-10-06 17:43:14 INFO: context stored successfully
+2025-10-06 17:43:14 INFO: context stored successfully
+2025-10-06 17:43:14 INFO: Context stored for session 3e0b3db3-9613-43ba-98b1-bb4a75ec018c
+2025-10-06 17:43:14 INFO: 127.0.0.1 - - [06/Oct/2025 17:43:14] "POST /process-data HTTP/1.1" 200 -
+2025-10-06 17:43:53 INFO:  * Detected change in 'C:\\Users\\USER\\Desktop\\LEAJLAK\\beta\\patch3\\ai-assistant\\app.py', reloading
+2025-10-06 17:43:53 INFO:  * Detected change in 'C:\\Users\\USER\\Desktop\\LEAJLAK\\beta\\patch3\\ai-assistant\\app.py', reloading
+2025-10-06 17:43:53 INFO:  * Restarting with watchdog (windowsapi)
+2025-10-06 17:44:02 WARNING:  * Debugger is active!
+2025-10-06 17:44:02 INFO:  * Debugger PIN: 115-265-433
+2025-10-06 17:44:03 INFO: --------------------------------------------------------------------------Received user message: Show me the orders that started their ride after 7 PM--------------------------------------------------------------------------
+2025-10-06 17:44:03 INFO: Session ID: 3e0b3db3-9613-43ba-98b1-bb4a75ec018c
+2025-10-06 17:44:04 INFO: context fetched successfully
+2025-10-06 17:44:04 INFO: Context retrieved: [{'role': 'user', 'content': 'Show me the orders that started their ride after 7 PM'}, {'role': 'assistant', 'content': "Sorry, we couldn't find the data you are looking for."}]
+2025-10-06 17:44:06 INFO: intent classified
+2025-10-06 17:44:06 INFO: data_fetch
+2025-10-06 17:44:06 INFO: Classified intent: data_fetch
+2025-10-06 17:44:06 INFO: Started SQL generation
+2025-10-06 17:44:11 INFO: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-06 17:44:12 INFO: Generated SQL query: SELECT * FROM "updated_table" WHERE "client_name" = 'Dominos Pizza' AND EXTRACT(HOUR FROM "start_ride_at"::time) >= 19 AND "start_ride_at" >= NOW() - INTERVAL '0 seconds' ORDER BY "start_ride_at" DESC LIMIT 1;
+2025-10-06 17:44:12 INFO: SQL generation success: SELECT * FROM "updated_table" WHERE "client_name" = 'Dominos Pizza' AND EXTRACT(HOUR FROM "start_ride_at"::time) >= 19 AND "start_ride_at" >= NOW() - INTERVAL '0 seconds' ORDER BY "start_ride_at" DESC LIMIT 1;
+2025-10-06 17:44:13 INFO: Database fetching successful: []
+2025-10-06 17:44:13 INFO: data from database stored successfully
+2025-10-06 17:44:13 INFO: Database query executed successfully
+2025-10-06 17:44:14 INFO: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-06 17:44:14 INFO: Sorry, we couldn't find the data you are looking for.
+2025-10-06 17:44:14 INFO: context stored successfully
+2025-10-06 17:44:14 INFO: context stored successfully
+2025-10-06 17:44:14 INFO: Context stored for session 3e0b3db3-9613-43ba-98b1-bb4a75ec018c
+2025-10-06 17:44:14 INFO: 127.0.0.1 - - [06/Oct/2025 17:44:14] "POST /process-data HTTP/1.1" 200 -
+2025-10-06 17:45:02 INFO:  * Detected change in 'C:\\Users\\USER\\Desktop\\LEAJLAK\\beta\\patch3\\ai-assistant\\app.py', reloading
+2025-10-06 17:45:02 INFO:  * Detected change in 'C:\\Users\\USER\\Desktop\\LEAJLAK\\beta\\patch3\\ai-assistant\\app.py', reloading
+2025-10-06 17:45:02 INFO:  * Detected change in 'C:\\Users\\USER\\Desktop\\LEAJLAK\\beta\\patch3\\ai-assistant\\app.py', reloading
+2025-10-06 17:45:03 INFO:  * Restarting with watchdog (windowsapi)
+2025-10-06 17:45:10 WARNING:  * Debugger is active!
+2025-10-06 17:45:10 INFO:  * Debugger PIN: 115-265-433
+2025-10-06 17:45:17 INFO: --------------------------------------------------------------------------Received user message: Show me the orders that started their ride after 7 PM--------------------------------------------------------------------------
+2025-10-06 17:45:17 INFO: Session ID: 3e0b3db3-9613-43ba-98b1-bb4a75ec018c
+2025-10-06 17:45:18 INFO: context fetched successfully
+2025-10-06 17:45:18 INFO: Context retrieved: [{'role': 'user', 'content': 'Show me the orders that started their ride after 7 PM'}, {'role': 'assistant', 'content': "Sorry, we couldn't find the data you are looking for."}, {'role': 'user', 'content': 'Show me the orders that started their ride after 7 PM'}, {'role': 'assistant', 'content': "Sorry, we couldn't find the data you are looking for."}]
+2025-10-06 17:45:19 INFO: intent classified
+2025-10-06 17:45:19 INFO: data_fetch
+2025-10-06 17:45:19 INFO: Classified intent: data_fetch
+2025-10-06 17:45:19 INFO: Started SQL generation
+2025-10-06 17:45:21 INFO: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-06 17:45:22 INFO: Generated SQL query: SELECT * FROM "updated_table" WHERE "client_name" = 'Dominos Pizza' AND EXTRACT(HOUR FROM "start_ride_at") >= 19 AND "start_ride_at" >= NOW() - INTERVAL '0 seconds' ORDER BY "start_ride_at" DESC LIMIT 1;
+2025-10-06 17:45:22 INFO: SQL generation success: SELECT * FROM "updated_table" WHERE "client_name" = 'Dominos Pizza' AND EXTRACT(HOUR FROM "start_ride_at") >= 19 AND "start_ride_at" >= NOW() - INTERVAL '0 seconds' ORDER BY "start_ride_at" DESC LIMIT 1;
+2025-10-06 17:45:23 INFO: Database fetching successful: []
+2025-10-06 17:45:23 INFO: data from database stored successfully
+2025-10-06 17:45:23 INFO: Database query executed successfully
+2025-10-06 17:45:25 INFO: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-06 17:45:25 INFO: Sorry, we couldn't find the data you are looking for.
+2025-10-06 17:45:25 INFO: 127.0.0.1 - - [06/Oct/2025 17:45:25] "POST /process-data HTTP/1.1" 200 -
+2025-10-06 18:00:30 INFO:  * Detected change in 'C:\\Users\\USER\\Desktop\\LEAJLAK\\beta\\patch3\\ai-assistant\\function.py', reloading
+2025-10-06 18:00:30 INFO:  * Detected change in 'C:\\Users\\USER\\Desktop\\LEAJLAK\\beta\\patch3\\ai-assistant\\function.py', reloading
+2025-10-06 18:00:37 INFO:  * Restarting with watchdog (windowsapi)
+2025-10-06 18:00:57 WARNING:  * Debugger is active!
+2025-10-06 18:00:57 INFO:  * Debugger PIN: 115-265-433
+2025-10-06 18:03:37 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\numpy\\_typing\\__init__.py', reloading
+2025-10-06 18:03:37 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\numpy\\_typing\\_nbit_base.py', reloading
+2025-10-06 18:03:39 INFO:  * Restarting with watchdog (windowsapi)
+2025-10-06 18:03:49 WARNING:  * Debugger is active!
+2025-10-06 18:03:49 INFO:  * Debugger PIN: 115-265-433
+2025-10-06 18:03:53 INFO:  * Detected change in 'C:\\Users\\USER\\Desktop\\LEAJLAK\\beta\\patch3\\ai-assistant\\function.py', reloading
+2025-10-06 18:03:53 INFO:  * Detected change in 'C:\\Users\\USER\\Desktop\\LEAJLAK\\beta\\patch3\\ai-assistant\\function.py', reloading
+2025-10-06 18:03:55 INFO:  * Restarting with watchdog (windowsapi)
+2025-10-06 18:04:05 WARNING:  * Debugger is active!
+2025-10-06 18:04:05 INFO:  * Debugger PIN: 115-265-433
+2025-10-06 18:04:19 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\numpy\\_typing\\_shape.py', reloading
+2025-10-06 18:04:19 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\numpy\\_utils\\__init__.py', reloading
+2025-10-06 18:04:21 INFO:  * Restarting with watchdog (windowsapi)
+2025-10-06 18:04:31 WARNING:  * Debugger is active!
+2025-10-06 18:04:31 INFO:  * Debugger PIN: 115-265-433
+2025-10-06 18:04:37 INFO: --------------------------------------------------------------------------Received user message: Show me the orders that started their ride after 7 PM--------------------------------------------------------------------------
+2025-10-06 18:04:37 INFO: Session ID: 3e0b3db3-9613-43ba-98b1-bb4a75ec018c
+2025-10-06 18:04:39 INFO: context fetched successfully
+2025-10-06 18:04:39 INFO: Context retrieved: [{'role': 'user', 'content': 'Show me the orders that started their ride after 7 PM'}, {'role': 'assistant', 'content': "Sorry, we couldn't find the data you are looking for."}, {'role': 'user', 'content': 'Show me the orders that started their ride after 7 PM'}, {'role': 'assistant', 'content': "Sorry, we couldn't find the data you are looking for."}]
+2025-10-06 18:04:41 INFO: intent classified
+2025-10-06 18:04:41 INFO: data_fetch
+2025-10-06 18:04:41 INFO: Classified intent: data_fetch
+2025-10-06 18:04:41 INFO: Started SQL generation
+2025-10-06 18:04:49 INFO: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-06 18:04:50 INFO: Generated SQL query: SELECT * FROM "updated_table" WHERE "client_name" = 'Dominos Pizza' AND EXTRACT(HOUR FROM "start_ride_at") >= 19 LIMIT 1;
+2025-10-06 18:04:50 INFO: SQL generation success: SELECT * FROM "updated_table" WHERE "client_name" = 'Dominos Pizza' AND EXTRACT(HOUR FROM "start_ride_at") >= 19 LIMIT 1;
+2025-10-06 18:04:53 INFO: Database fetching successful: [
+  {
+    "id": 1757797,
+    "customer_number": 2382551192,
+    "customer_name": "Customer_IEY",
+    "client_id": 265,
+    "client_name": "Dominos Pizza",
+    "captain_name": "Md Jabed hossen -RUH - ASFOUR12",
+    "delivery_date": "2025-06-28T00:00:12",
+    "order_status": "Delivered",
+    "shop_to_delivery_km": 1.073,
+    "order_created_at": "2025-06-27T23:27:40",
+    "order_accepted_at": "2025-06-27T23:36:22",
+    "start_ride_at": "2025-06-27T23:36:37",
+    "reached_shop_at": "2025-06-27T23:48:36",
+    "order_picked_at": "2025-06-27T23:51:00",
+    "shipped_at": "2025-06-27T23:51:03",
+    "reached_dest_at": "2025-06-28T00:00:10",
+    "final_status_at": "2025-06-28T00:00:12",
+    "cancellation_reason": "0"
+  }
+]
+2025-10-06 18:04:53 INFO: data from database stored successfully
+2025-10-06 18:04:53 INFO: Database query executed successfully
+2025-10-06 18:04:54 INFO: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-06 18:04:55 INFO: Sorry, we couldn't find the data you are looking for.
+2025-10-06 18:04:55 INFO: 127.0.0.1 - - [06/Oct/2025 18:04:55] "POST /process-data HTTP/1.1" 200 -
+2025-10-06 18:05:12 INFO:  * Detected change in 'C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\logging\\__init__.py', reloading
+2025-10-06 18:05:14 INFO:  * Restarting with watchdog (windowsapi)
+2025-10-06 18:05:23 WARNING:  * Debugger is active!
+2025-10-06 18:05:23 INFO:  * Debugger PIN: 115-265-433
+2025-10-06 18:05:24 INFO: --------------------------------------------------------------------------Received user message: Show me the orders that started their ride after 7 PM--------------------------------------------------------------------------
+2025-10-06 18:05:24 INFO: Session ID: 3e0b3db3-9613-43ba-98b1-bb4a75ec018c
+2025-10-06 18:05:25 INFO: context fetched successfully
+2025-10-06 18:05:25 INFO: Context retrieved: [{'role': 'user', 'content': 'Show me the orders that started their ride after 7 PM'}, {'role': 'assistant', 'content': "Sorry, we couldn't find the data you are looking for."}, {'role': 'user', 'content': 'Show me the orders that started their ride after 7 PM'}, {'role': 'assistant', 'content': "Sorry, we couldn't find the data you are looking for."}]
+2025-10-06 18:05:26 INFO: intent classified
+2025-10-06 18:05:26 INFO: data_fetch
+2025-10-06 18:05:26 INFO: Classified intent: data_fetch
+2025-10-06 18:05:26 INFO: Started SQL generation
+2025-10-06 18:05:28 INFO: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-06 18:05:29 INFO: Generated SQL query: SELECT * FROM "updated_table" WHERE "client_name" = 'Dominos Pizza' AND EXTRACT(HOUR FROM "start_ride_at"::time) >= 19 AND "start_ride_at" >= NOW() - INTERVAL '0 seconds' ORDER BY "start_ride_at" DESC LIMIT 1;
+2025-10-06 18:05:29 INFO: SQL generation success: SELECT * FROM "updated_table" WHERE "client_name" = 'Dominos Pizza' AND EXTRACT(HOUR FROM "start_ride_at"::time) >= 19 AND "start_ride_at" >= NOW() - INTERVAL '0 seconds' ORDER BY "start_ride_at" DESC LIMIT 1;
+2025-10-06 18:05:30 INFO: Database fetching successful: []
+2025-10-06 18:05:31 INFO: data from database stored successfully
+2025-10-06 18:05:31 INFO: Database query executed successfully
+2025-10-06 18:05:32 INFO: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-06 18:05:32 INFO: Sorry, we couldn't find the data you are looking for.
+2025-10-06 18:05:32 INFO: 127.0.0.1 - - [06/Oct/2025 18:05:32] "POST /process-data HTTP/1.1" 200 -
+2025-10-06 18:07:21 INFO:  * Detected change in 'C:\\Users\\USER\\Desktop\\LEAJLAK\\beta\\patch3\\ai-assistant\\app.py', reloading
+2025-10-06 18:07:21 INFO:  * Detected change in 'C:\\Users\\USER\\Desktop\\LEAJLAK\\beta\\patch3\\ai-assistant\\app.py', reloading
+2025-10-06 18:07:21 INFO:  * Detected change in 'C:\\Users\\USER\\Desktop\\LEAJLAK\\beta\\patch3\\ai-assistant\\app.py', reloading
+2025-10-06 18:07:23 INFO:  * Restarting with watchdog (windowsapi)
+2025-10-06 18:07:32 WARNING:  * Debugger is active!
+2025-10-06 18:07:32 INFO:  * Debugger PIN: 115-265-433
+2025-10-06 18:07:32 INFO: --------------------------------------------------------------------------Received user message: Show me the orders that started their ride after 7 PM--------------------------------------------------------------------------
+2025-10-06 18:07:32 INFO: Session ID: 3e0b3db3-9613-43ba-98b1-bb4a75ec018c
+2025-10-06 18:07:34 INFO: context fetched successfully
+2025-10-06 18:07:34 INFO: Context retrieved: [{'role': 'user', 'content': 'Show me the orders that started their ride after 7 PM'}, {'role': 'assistant', 'content': "Sorry, we couldn't find the data you are looking for."}, {'role': 'user', 'content': 'Show me the orders that started their ride after 7 PM'}, {'role': 'assistant', 'content': "Sorry, we couldn't find the data you are looking for."}]
+2025-10-06 18:07:36 INFO: intent classified
+2025-10-06 18:07:36 INFO: data_fetch
+2025-10-06 18:07:36 INFO: Classified intent: data_fetch
+2025-10-06 18:07:36 INFO: Started SQL generation
+2025-10-06 18:07:41 INFO: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-06 18:07:42 INFO: Generated SQL query: SELECT "id", "start_ride_at" FROM "updated_table" WHERE "client_name" = 'Dominos Pizza' AND EXTRACT(HOUR FROM "start_ride_at"::time) >= 19 AND "start_ride_at" >= NOW() - INTERVAL '0 seconds' LIMIT 1;
+2025-10-06 18:07:42 INFO: SQL generation success: SELECT "id", "start_ride_at" FROM "updated_table" WHERE "client_name" = 'Dominos Pizza' AND EXTRACT(HOUR FROM "start_ride_at"::time) >= 19 AND "start_ride_at" >= NOW() - INTERVAL '0 seconds' LIMIT 1;
+2025-10-06 18:07:43 INFO: Database fetching successful: []
+2025-10-06 18:07:43 INFO: data from database stored successfully
+2025-10-06 18:07:43 INFO: Database query executed successfully
+2025-10-06 18:07:44 INFO: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-06 18:07:44 INFO: Sorry, we couldn't find the data you are looking for.
+2025-10-06 18:07:44 INFO: Conversation appended to data/conversations.xlsx
+2025-10-06 18:07:44 INFO: 127.0.0.1 - - [06/Oct/2025 18:07:44] "POST /process-data HTTP/1.1" 200 -
+2025-10-06 18:08:01 INFO: --------------------------------------------------------------------------Received user message: Show me the orders that started their ride after 7 PM--------------------------------------------------------------------------
+2025-10-06 18:08:01 INFO: Session ID: 3e0b3db3-9613-43ba-98b1-bb4a75ec018c
+2025-10-06 18:08:02 INFO: context fetched successfully
+2025-10-06 18:08:02 INFO: Context retrieved: [{'role': 'user', 'content': 'Show me the orders that started their ride after 7 PM'}, {'role': 'assistant', 'content': "Sorry, we couldn't find the data you are looking for."}, {'role': 'user', 'content': 'Show me the orders that started their ride after 7 PM'}, {'role': 'assistant', 'content': "Sorry, we couldn't find the data you are looking for."}]
+2025-10-06 18:08:04 INFO: intent classified
+2025-10-06 18:08:04 INFO: data_fetch
+2025-10-06 18:08:04 INFO: Classified intent: data_fetch
+2025-10-06 18:08:04 INFO: Started SQL generation
+2025-10-06 18:08:06 INFO: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-06 18:08:07 INFO: Generated SQL query: SELECT "id", "start_ride_at", "order_status", EXTRACT(HOUR FROM "start_ride_at"::time) AS hour FROM "updated_table" WHERE "client_name" = 'Dominos Pizza' AND EXTRACT(HOUR FROM "start_ride_at"::time) >= 19 AND "start_ride_at" <= NOW() LIMIT 1;
+2025-10-06 18:08:07 INFO: SQL generation success: SELECT "id", "start_ride_at", "order_status", EXTRACT(HOUR FROM "start_ride_at"::time) AS hour FROM "updated_table" WHERE "client_name" = 'Dominos Pizza' AND EXTRACT(HOUR FROM "start_ride_at"::time) >= 19 AND "start_ride_at" <= NOW() LIMIT 1;
+2025-10-06 18:08:11 INFO: Database fetching successful: [
+  {
+    "id": 1757797,
+    "start_ride_at": "2025-06-27T23:36:37",
+    "order_status": "Delivered",
+    "hour": 23.0
+  }
+]
+2025-10-06 18:08:11 INFO: data from database stored successfully
+2025-10-06 18:08:11 INFO: Database query executed successfully
+2025-10-06 18:08:13 INFO: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-06 18:08:15 INFO:     "id": 1757797,
+    "start_ride_at": "2025-06-27T23:36:37",
+    "order_status": "Delivered"
+2025-10-06 18:08:15 INFO: Conversation appended to data/conversations.xlsx
+2025-10-06 18:08:15 INFO: context stored successfully
+2025-10-06 18:08:15 INFO: context stored successfully
+2025-10-06 18:08:15 INFO: Context stored for session 3e0b3db3-9613-43ba-98b1-bb4a75ec018c
+2025-10-06 18:08:15 INFO: 127.0.0.1 - - [06/Oct/2025 18:08:15] "POST /process-data HTTP/1.1" 200 -

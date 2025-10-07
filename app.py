@@ -299,13 +299,19 @@ def process_data():
             context, prompt_analysis, client2, prompts.summary_prompt
         )
         logging.info(f'{response}')
-        # Store conversation context
         try:
-            function.store_message(session_id, user_messages, 'user')
-            function.store_message(session_id, response, 'assistant')
-            logging.info(f'Context stored for session {session_id}')
+            function.append_conversation_to_excel(user_messages, response,session_id)
         except Exception as e:
-            logging.error(f'Failed to store context: {e}')
+            logging.error(f'{e}')
+        # Store conversation context
+        if "sorry" not in response.lower():
+            try:
+                function.store_message(session_id, user_messages, 'user')
+                function.store_message(session_id, response, 'assistant')
+                
+                logging.info(f'Context stored for session {session_id}')
+            except Exception as e:
+                logging.error(f'Failed to store context: {e}')
         
         #return response, 200, {'Content-Type': 'text/plain'}
         return jsonify({"reply": response}), 200
