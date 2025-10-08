@@ -218,6 +218,15 @@ def process_data():
             logging.info('Processing general intent')
             try:
                 reply = function.generate_openrouter_reply(user_messages, client2)
+                try:
+                    function.store_message(session_id, user_messages, 'user')
+                    function.store_message(session_id, reply, 'assistant')
+                    
+                    logging.info(f'Context stored for session {session_id}')
+                except Exception as e:
+                    logging.error(f'Failed to store context: {e}')
+
+                logging.info(f'{str(reply)}')
                 return jsonify({"reply": str(reply)})
             except Exception as e:
                 logging.error(f'Error generating general reply: {e}')
@@ -330,7 +339,7 @@ def process_data():
 #                                                              #
 ################################################################
 
-@app.route('/deep-analysis',methods=['POST'])
+#@app.route('/deep-analysis',methods=['POST'])
 def deep_analysis():
     data = request.json
     user_messages = data['message']

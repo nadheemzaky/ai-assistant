@@ -2152,3 +2152,201 @@ in july-------------------------------------------------------------------------
 2025-10-06 18:08:15 INFO: context stored successfully
 2025-10-06 18:08:15 INFO: Context stored for session 3e0b3db3-9613-43ba-98b1-bb4a75ec018c
 2025-10-06 18:08:15 INFO: 127.0.0.1 - - [06/Oct/2025 18:08:15] "POST /process-data HTTP/1.1" 200 -
+2025-10-07 11:46:56 INFO: New session started: fbce914f-8fc5-49db-882b-e9f99dfc46fd
+2025-10-07 11:46:56 INFO: Received request data: {'mobile': '918921729081'}
+2025-10-07 11:46:56 INFO: Updated mobile: 918921729081
+2025-10-07 11:46:57 INFO: Updated name: MC DONALDS
+2025-10-07 18:22:15 INFO: New session started: 06fc6f1c-b0d6-41e6-99cb-2b8d15cd6517
+2025-10-07 18:22:15 INFO: Received request data: {'mobile': '919562301314'}
+2025-10-07 18:22:15 INFO: Updated mobile: 919562301314
+2025-10-07 18:22:16 INFO: Updated name: Dominos Pizza
+2025-10-07 18:22:20 INFO: --------------------------------------------------------------------------Received user message: hello--------------------------------------------------------------------------
+2025-10-07 18:22:20 INFO: Session ID: 06fc6f1c-b0d6-41e6-99cb-2b8d15cd6517
+2025-10-07 18:22:21 INFO: context fetched successfully
+2025-10-07 18:22:21 INFO: Context retrieved: []
+2025-10-07 18:22:21 INFO: intent classified
+2025-10-07 18:22:21 INFO: general
+2025-10-07 18:22:21 INFO: Classified intent: general
+2025-10-07 18:22:21 INFO: Processing general intent
+2025-10-07 18:22:22 INFO: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-07 18:22:34 INFO: --------------------------------------------------------------------------Received user message: how are you--------------------------------------------------------------------------
+2025-10-07 18:22:34 INFO: Session ID: 06fc6f1c-b0d6-41e6-99cb-2b8d15cd6517
+2025-10-07 18:22:34 INFO: context fetched successfully
+2025-10-07 18:22:34 INFO: Context retrieved: []
+2025-10-07 18:22:35 INFO: intent classified
+2025-10-07 18:22:35 INFO: general
+2025-10-07 18:22:35 INFO: Classified intent: general
+2025-10-07 18:22:35 INFO: Processing general intent
+2025-10-07 18:22:36 INFO: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-07 18:22:55 INFO: --------------------------------------------------------------------------Received user message: what is the latest order status--------------------------------------------------------------------------
+2025-10-07 18:22:55 INFO: Session ID: 06fc6f1c-b0d6-41e6-99cb-2b8d15cd6517
+2025-10-07 18:22:55 INFO: context fetched successfully
+2025-10-07 18:22:55 INFO: Context retrieved: []
+2025-10-07 18:22:57 INFO: intent classified
+2025-10-07 18:22:57 INFO: data_fetch
+2025-10-07 18:22:57 INFO: Classified intent: data_fetch
+2025-10-07 18:22:57 INFO: Started SQL generation
+2025-10-07 18:22:59 INFO: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-07 18:23:00 INFO: Generated SQL query: SELECT "order_status" FROM "updated_table" WHERE "client_name" = 'Dominos Pizza' AND "final_status_at" >= NOW() - INTERVAL '1000000 seconds' ORDER BY "final_status_at" DESC LIMIT 1;
+2025-10-07 18:23:00 INFO: SQL generation success: SELECT "order_status" FROM "updated_table" WHERE "client_name" = 'Dominos Pizza' AND "final_status_at" >= NOW() - INTERVAL '1000000 seconds' ORDER BY "final_status_at" DESC LIMIT 1;
+2025-10-07 18:23:01 INFO: Database fetching successful: []
+2025-10-07 18:23:02 INFO: data from database stored successfully
+2025-10-07 18:23:02 INFO: Database query executed successfully
+2025-10-07 18:23:02 INFO: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-07 18:23:03 INFO: Sorry, we couldn't find the data you are looking for.
+2025-10-07 18:23:03 INFO: Conversation appended to data/conversations.xlsx
+2025-10-08 04:05:59 INFO: New session started: 05b33037-9bf4-43a3-92e4-abe06b5888ca
+2025-10-08 04:05:59 INFO: Received request data: {'mobile': '918921729081'}
+2025-10-08 04:05:59 INFO: Updated mobile: 918921729081
+2025-10-08 04:06:00 INFO: Updated name: MC DONALDS
+2025-10-08 04:06:53 INFO: --------------------------------------------------------------------------Received user message: hi--------------------------------------------------------------------------
+2025-10-08 04:06:53 INFO: Session ID: 05b33037-9bf4-43a3-92e4-abe06b5888ca
+2025-10-08 04:06:53 INFO: context fetched successfully
+2025-10-08 04:06:53 INFO: Context retrieved: []
+2025-10-08 04:06:55 INFO: intent classified
+2025-10-08 04:06:55 INFO: general
+2025-10-08 04:06:55 INFO: Classified intent: general
+2025-10-08 04:06:55 INFO: Processing general intent
+2025-10-08 04:06:55 INFO: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-08 04:52:40 INFO: --------------------------------------------------------------------------Received user message: 50505050 what is the status of this order?--------------------------------------------------------------------------
+2025-10-08 04:52:40 INFO: Session ID: 05b33037-9bf4-43a3-92e4-abe06b5888ca
+2025-10-08 04:52:40 INFO: context fetched successfully
+2025-10-08 04:52:40 INFO: Context retrieved: []
+2025-10-08 04:52:41 INFO: intent classified
+2025-10-08 04:52:41 INFO: data_fetch
+2025-10-08 04:52:41 INFO: Classified intent: data_fetch
+2025-10-08 04:52:41 INFO: Started SQL generation
+2025-10-08 04:52:43 INFO: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-08 04:52:43 INFO: Generated SQL query: SELECT "order_status" FROM "updated_table" WHERE "client_name" = 'MC DONALDS' AND "id" = 50505050 LIMIT 1;
+2025-10-08 04:52:43 INFO: SQL generation success: SELECT "order_status" FROM "updated_table" WHERE "client_name" = 'MC DONALDS' AND "id" = 50505050 LIMIT 1;
+2025-10-08 04:52:45 INFO: Database fetching successful: []
+2025-10-08 04:52:45 INFO: data from database stored successfully
+2025-10-08 04:52:45 INFO: Database query executed successfully
+2025-10-08 04:52:46 INFO: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-08 04:52:47 INFO: Sorry, we couldn't find the data you are looking for.
+2025-10-08 04:52:47 INFO: Conversation appended to data/conversations.xlsx
+2025-10-08 04:54:05 INFO: --------------------------------------------------------------------------Received user message: what is leajlak--------------------------------------------------------------------------
+2025-10-08 04:54:05 INFO: Session ID: 05b33037-9bf4-43a3-92e4-abe06b5888ca
+2025-10-08 04:54:05 INFO: context fetched successfully
+2025-10-08 04:54:05 INFO: Context retrieved: []
+2025-10-08 04:54:06 INFO: intent classified
+2025-10-08 04:54:06 INFO: general
+2025-10-08 04:54:06 INFO: Classified intent: general
+2025-10-08 04:54:06 INFO: Processing general intent
+2025-10-08 04:54:06 INFO: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-08 04:54:24 INFO: --------------------------------------------------------------------------Received user message: do they have mobile app--------------------------------------------------------------------------
+2025-10-08 04:54:24 INFO: Session ID: 05b33037-9bf4-43a3-92e4-abe06b5888ca
+2025-10-08 04:54:24 INFO: context fetched successfully
+2025-10-08 04:54:24 INFO: Context retrieved: []
+2025-10-08 04:54:25 INFO: intent classified
+2025-10-08 04:54:25 INFO: general
+2025-10-08 04:54:25 INFO: Classified intent: general
+2025-10-08 04:54:25 INFO: Processing general intent
+2025-10-08 04:54:26 INFO: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-08 04:54:43 INFO: --------------------------------------------------------------------------Received user message: who is the app end user--------------------------------------------------------------------------
+2025-10-08 04:54:43 INFO: Session ID: 05b33037-9bf4-43a3-92e4-abe06b5888ca
+2025-10-08 04:54:43 INFO: context fetched successfully
+2025-10-08 04:54:43 INFO: Context retrieved: []
+2025-10-08 04:54:44 INFO: intent classified
+2025-10-08 04:54:44 INFO: general
+2025-10-08 04:54:44 INFO: Classified intent: general
+2025-10-08 04:54:44 INFO: Processing general intent
+2025-10-08 04:54:44 INFO: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-08 04:55:17 INFO: --------------------------------------------------------------------------Received user message: who are the founders of leajlak--------------------------------------------------------------------------
+2025-10-08 04:55:17 INFO: Session ID: 05b33037-9bf4-43a3-92e4-abe06b5888ca
+2025-10-08 04:55:17 INFO: context fetched successfully
+2025-10-08 04:55:17 INFO: Context retrieved: []
+2025-10-08 04:55:18 INFO: intent classified
+2025-10-08 04:55:18 INFO: general
+2025-10-08 04:55:18 INFO: Classified intent: general
+2025-10-08 04:55:18 INFO: Processing general intent
+2025-10-08 04:55:19 INFO: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-08 04:55:30 INFO: --------------------------------------------------------------------------Received user message: yes--------------------------------------------------------------------------
+2025-10-08 04:55:30 INFO: Session ID: 05b33037-9bf4-43a3-92e4-abe06b5888ca
+2025-10-08 04:55:30 INFO: context fetched successfully
+2025-10-08 04:55:30 INFO: Context retrieved: []
+2025-10-08 04:55:31 INFO: intent classified
+2025-10-08 04:55:31 INFO: general
+2025-10-08 04:55:31 INFO: Classified intent: general
+2025-10-08 04:55:31 INFO: Processing general intent
+2025-10-08 04:55:31 INFO: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-08 05:00:43 INFO: New session started: 476673f7-a8f3-4702-87e8-274746541b1d
+2025-10-08 05:00:43 INFO: Received request data: {'mobile': '918921729081'}
+2025-10-08 05:00:43 INFO: Updated mobile: 918921729081
+2025-10-08 05:00:45 INFO: Updated name: MC DONALDS
+2025-10-08 05:43:36 INFO: --------------------------------------------------------------------------Received user message: hello--------------------------------------------------------------------------
+2025-10-08 05:43:36 INFO: Session ID: 476673f7-a8f3-4702-87e8-274746541b1d
+2025-10-08 05:43:36 INFO: context fetched successfully
+2025-10-08 05:43:36 INFO: Context retrieved: []
+2025-10-08 05:43:37 INFO: intent classified
+2025-10-08 05:43:37 INFO: general
+2025-10-08 05:43:37 INFO: Classified intent: general
+2025-10-08 05:43:37 INFO: Processing general intent
+2025-10-08 05:43:38 INFO: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-08 05:43:38 INFO: context stored successfully
+2025-10-08 05:43:38 INFO: context stored successfully
+2025-10-08 05:43:38 INFO: Context stored for session 476673f7-a8f3-4702-87e8-274746541b1d
+2025-10-08 05:43:38 INFO: Hello! Welcome to Leajlak customer service. How can I assist you with your order or delivery today?
+2025-10-08 05:43:49 INFO: --------------------------------------------------------------------------Received user message: who  is the founder of leajlak--------------------------------------------------------------------------
+2025-10-08 05:43:49 INFO: Session ID: 476673f7-a8f3-4702-87e8-274746541b1d
+2025-10-08 05:43:50 INFO: context fetched successfully
+2025-10-08 05:43:50 INFO: Context retrieved: [{'role': 'user', 'content': 'hello'}, {'role': 'assistant', 'content': 'Hello! Welcome to Leajlak customer service. How can I assist you with your order or delivery today?'}]
+2025-10-08 05:43:51 INFO: intent classified
+2025-10-08 05:43:51 INFO: general
+2025-10-08 05:43:51 INFO: Classified intent: general
+2025-10-08 05:43:51 INFO: Processing general intent
+2025-10-08 05:43:52 INFO: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-08 05:43:53 INFO: context stored successfully
+2025-10-08 05:43:53 INFO: context stored successfully
+2025-10-08 05:43:53 INFO: Context stored for session 476673f7-a8f3-4702-87e8-274746541b1d
+2025-10-08 05:43:53 INFO: Leajlak was founded by a team of entrepreneurs with expertise in logistics, AI, IoT, and Big Data, aiming to revolutionize on-demand express and scheduled deliveries. If you need more specific details about the founders, I can help you find that information!
+2025-10-08 05:44:11 INFO: --------------------------------------------------------------------------Received user message: i need info on that info--------------------------------------------------------------------------
+2025-10-08 05:44:11 INFO: Session ID: 476673f7-a8f3-4702-87e8-274746541b1d
+2025-10-08 05:44:11 INFO: context fetched successfully
+2025-10-08 05:44:11 INFO: Context retrieved: [{'role': 'user', 'content': 'hello'}, {'role': 'assistant', 'content': 'Hello! Welcome to Leajlak customer service. How can I assist you with your order or delivery today?'}, {'role': 'user', 'content': 'who  is the founder of leajlak'}, {'role': 'assistant', 'content': 'Leajlak was founded by a team of entrepreneurs with expertise in logistics, AI, IoT, and Big Data, aiming to revolutionize on-demand express and scheduled deliveries. If you need more specific details about the founders, I can help you find that information!'}]
+2025-10-08 05:44:13 INFO: intent classified
+2025-10-08 05:44:13 INFO: general
+2025-10-08 05:44:13 INFO: Classified intent: general
+2025-10-08 05:44:13 INFO: Processing general intent
+2025-10-08 05:44:14 INFO: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-08 05:44:14 INFO: context stored successfully
+2025-10-08 05:44:14 INFO: context stored successfully
+2025-10-08 05:44:14 INFO: Context stored for session 476673f7-a8f3-4702-87e8-274746541b1d
+2025-10-08 05:44:14 INFO: Could you please clarify which specific information you need regarding Leajlak's order management system or our delivery services? This will help me provide the most accurate details for you.
+2025-10-08 05:47:01 INFO: --------------------------------------------------------------------------Received user message: who is the founder of leajlak--------------------------------------------------------------------------
+2025-10-08 05:47:01 INFO: Session ID: 476673f7-a8f3-4702-87e8-274746541b1d
+2025-10-08 05:47:01 INFO: context fetched successfully
+2025-10-08 05:47:01 INFO: Context retrieved: [{'role': 'user', 'content': 'hello'}, {'role': 'user', 'content': 'who  is the founder of leajlak'}, {'role': 'assistant', 'content': 'Leajlak was founded by a team of entrepreneurs with expertise in logistics, AI, IoT, and Big Data, aiming to revolutionize on-demand express and scheduled deliveries. If you need more specific details about the founders, I can help you find that information!'}, {'role': 'user', 'content': 'i need info on that info'}, {'role': 'assistant', 'content': "Could you please clarify which specific information you need regarding Leajlak's order management system or our delivery services? This will help me provide the most accurate details for you."}]
+2025-10-08 05:47:02 INFO: intent classified
+2025-10-08 05:47:02 INFO: general
+2025-10-08 05:47:02 INFO: Classified intent: general
+2025-10-08 05:47:02 INFO: Processing general intent
+2025-10-08 05:47:02 INFO: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-08 05:47:03 INFO: context stored successfully
+2025-10-08 05:47:03 INFO: context stored successfully
+2025-10-08 05:47:03 INFO: Context stored for session 476673f7-a8f3-4702-87e8-274746541b1d
+2025-10-08 05:47:03 INFO: Leajlak was founded by Dr. Abdulaziz Alhamdan. If you need more information about the company or its services, feel free to ask!
+2025-10-08 05:48:45 INFO: --------------------------------------------------------------------------Received user message: when--------------------------------------------------------------------------
+2025-10-08 05:48:45 INFO: Session ID: 476673f7-a8f3-4702-87e8-274746541b1d
+2025-10-08 05:48:45 INFO: context fetched successfully
+2025-10-08 05:48:45 INFO: Context retrieved: [{'role': 'user', 'content': 'who  is the founder of leajlak'}, {'role': 'user', 'content': 'i need info on that info'}, {'role': 'assistant', 'content': "Could you please clarify which specific information you need regarding Leajlak's order management system or our delivery services? This will help me provide the most accurate details for you."}, {'role': 'user', 'content': 'who is the founder of leajlak'}, {'role': 'assistant', 'content': 'Leajlak was founded by Dr. Abdulaziz Alhamdan. If you need more information about the company or its services, feel free to ask!'}]
+2025-10-08 05:48:46 INFO: intent classified
+2025-10-08 05:48:46 INFO: data_fetch
+2025-10-08 05:48:46 INFO: Classified intent: data_fetch
+2025-10-08 05:48:46 INFO: Started SQL generation
+2025-10-08 05:48:47 INFO: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-08 05:48:48 INFO: Generated SQL query: SELECT "final_status_at" AS last_order_timestamp FROM "updated_table" WHERE "client_name" = 'MC DONALDS' AND "final_status_at" <= '2025-10-08 05:48:46.466224' ORDER BY "final_status_at" DESC LIMIT 1;
+2025-10-08 05:48:48 INFO: SQL generation success: SELECT "final_status_at" AS last_order_timestamp FROM "updated_table" WHERE "client_name" = 'MC DONALDS' AND "final_status_at" <= '2025-10-08 05:48:46.466224' ORDER BY "final_status_at" DESC LIMIT 1;
+2025-10-08 05:48:49 INFO: Database fetching successful: [
+  {
+    "last_order_timestamp": "2025-07-21T19:42:19"
+  }
+]
+2025-10-08 05:48:50 INFO: data from database stored successfully
+2025-10-08 05:48:50 INFO: Database query executed successfully
+2025-10-08 05:48:50 INFO: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-08 05:48:51 INFO: The last order was placed on July 21, 2025, at 7:42 PM.
+2025-10-08 05:48:51 INFO: Conversation appended to data/conversations.xlsx
+2025-10-08 05:48:51 INFO: context stored successfully
+2025-10-08 05:48:51 INFO: context stored successfully
+2025-10-08 05:48:51 INFO: Context stored for session 476673f7-a8f3-4702-87e8-274746541b1d
