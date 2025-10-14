@@ -3,3 +3,5 @@ clone/
 instance/
 logs/
 venv/
+README.md
+test.ipynb

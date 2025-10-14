@@ -15,12 +15,15 @@ import re
 from openai import OpenAI
 from intent_classifier import classify_intent
 import prompts
-import function
+import audit
 import uuid
+import models
+import context_handler
+import database
 
 # do not touch this
 load_dotenv()
-function.init_db()
+context_handler.init_db()
 app = Flask(__name__)
 app.secret_key = os.getenv('SECRET_KEY', secrets.token_hex(16))
 
@@ -171,7 +174,14 @@ def names_route():
 
 @app.route('/process-data', methods=['POST'])
 def process_data():
+    """
+    Main endpoint for processing user messages.
+    Handles intent classification, SQL generation, database queries, and response generation.
+    """
     
+    # ========================================================================
+    # 1. REQUEST VALIDATION
+    # ========================================================================
     data = request.json
     if not data or 'message' not in data:
         return jsonify({"reply": "Missing 'message' in request body"}), 400
@@ -180,23 +190,21 @@ def process_data():
     set_value('user_message', user_messages)
     logging.info(f"--------------------------------------------------------------------------Received user message: {user_messages}--------------------------------------------------------------------------")
 
+    # ========================================================================
+    # 2. USER VALIDATION
+    # ========================================================================
     name = get_value('name')
     if not name:
         logging.error('Names list empty - no users registered')
         return jsonify({"reply": "No users registered yet"}), 400
     
-    
     session_id = get_value('session_id')
     logging.info(f'Session ID: {session_id}')
 
-    #appending messages to excel sheet
-    try:
-        messages_to_save = [user_messages] if not isinstance(user_messages, list) else user_messages
-        function.append_messages_to_excel(messages_to_save)
-    except Exception as e:
-        logging.error(f'Error saving to Excel: {e}')
 
-    # datetime handling
+    # ========================================================================
+    # 3. DATETIME HANDLING
+    # ========================================================================
     try:
         now = datetime.now()
         set_value('now', str(now))
@@ -204,10 +212,11 @@ def process_data():
         logging.error(f"Failed to handle datetime: {e}")
         return jsonify({"error": "Internal server error"}), 500
 
-
-# intent classification
+    # ========================================================================
+    # 4. INTENT CLASSIFICATION
+    # ========================================================================
     try:
-        context = function.get_context_messages(session_id)
+        context = context_handler.get_context_messages(session_id)
         logging.info(f'Context retrieved: {str(context)}')
         
         intent = classify_intent(user_messages, context)
@@ -217,11 +226,12 @@ def process_data():
         if intent == 'general':
             logging.info('Processing general intent')
             try:
-                reply = function.generate_openrouter_reply(user_messages, client2)
+                reply = models.generate_openrouter_reply(user_messages, client2)
+                
+                # Store conversation context
                 try:
-                    function.store_message(session_id, user_messages, 'user')
-                    function.store_message(session_id, reply, 'assistant')
-                    
+                    context_handler.store_message(session_id, user_messages, 'user')
+                    context_handler.store_message(session_id, reply, 'assistant')
                     logging.info(f'Context stored for session {session_id}')
                 except Exception as e:
                     logging.error(f'Failed to store context: {e}')
@@ -231,27 +241,14 @@ def process_data():
             except Exception as e:
                 logging.error(f'Error generating general reply: {e}')
                 return jsonify({"error": "Failed to generate response"}), 500
-        
-        # Handle data fetch intent - check if followup question
-        '''
-            try:
-            db_data = function.get_db_data(session_id)
-            is_followup = function.classify_followup(user_messages, context, db_data, client2)
-            logging.info(f'Is followup question: {is_followup}')
-            
-            if is_followup == 'followup':
-                return function.followup_response(user_messages, context, db_data, client2,session_id)
-            logging.info('Processing data fetch intent')
-            
-        except Exception as e:
-            logging.error(f'Error in followup classification: {e}')
-            '''
     
     except Exception as e:
         logging.error(f'Error in intent classification: {e}')
         return jsonify({"error": "Failed to classify intent"}), 500
 
-
+    # ========================================================================
+    # 5. SQL QUERY GENERATION
+    # ========================================================================
     now = datetime.now()
     sql_context = f'''
     name = {name}
@@ -259,9 +256,9 @@ def process_data():
     date and time now = {now}
     context: {context}
     '''
-    # generate sql query
+    
     try:
-        sql_query = function.generate_sql_with_openrouter(sql_context, client2, prompts.sql_prompt)
+        sql_query = models.generate_sql_with_openrouter(sql_context, client2, prompts.sql_prompt)
         if not sql_query:
             logging.error('No SQL query generated')
             return jsonify({"reply": "Failed to generate query", "name": name}), 500
@@ -270,7 +267,7 @@ def process_data():
         
         # Save SQL to Excel
         try:
-            function.append_sql_to_excel([sql_query])
+            audit.append_sql_to_excel([sql_query])
         except Exception as e:
             logging.error(f'Error saving SQL to Excel: {e}')
     
@@ -278,21 +275,24 @@ def process_data():
         logging.error(f'Error generating SQL: {e}')
         return jsonify({"reply": "Failed to generate query", "name": name}), 500
 
-# Execute database query
-    db_data_json, success = function.execute_query_and_get_json(DB_URL, sql_query)
+    # ========================================================================
+    # 6. DATABASE QUERY EXECUTION
+    # ========================================================================
+    db_data_json, success = database.execute_query_and_get_json(DB_URL, sql_query)
     
     if success and db_data_json:
         try:
-            function.store_data(session_id, db_data_json)
+            context_handler.store_data(session_id, db_data_json)
             logging.info('Database query executed successfully')
         except Exception as e:
             logging.error(f'Error storing data for followup: {str(e)}')
     else:
         logging.error('Database query execution failure')
         db_data_json = None  # Ensure it's None for response generation
-    
 
-
+    # ========================================================================
+    # 7. RESPONSE GENERATION
+    # ========================================================================
     try:
         time = get_value('now')
         prompt_analysis = f'''
@@ -304,25 +304,26 @@ def process_data():
             '''
         
         # Generate complete response (no streaming)
-        response = function.generate_response(
+        response = models.generate_response(
             context, prompt_analysis, client2, prompts.summary_prompt
         )
         logging.info(f'{response}')
+        
+        # Save conversation to Excel
         try:
-            function.append_conversation_to_excel(user_messages, response,session_id)
+            audit.append_conversation_to_excel(user_messages, response, session_id)
         except Exception as e:
             logging.error(f'{e}')
-        # Store conversation context
+        
+        # Store conversation context (only if response is valid)
         if "sorry" not in response.lower():
             try:
-                function.store_message(session_id, user_messages, 'user')
-                function.store_message(session_id, response, 'assistant')
-                
+                context_handler.store_message(session_id, user_messages, 'user')
+                context_handler.store_message(session_id, response, 'assistant')
                 logging.info(f'Context stored for session {session_id}')
             except Exception as e:
                 logging.error(f'Failed to store context: {e}')
         
-        #return response, 200, {'Content-Type': 'text/plain'}
         return jsonify({"reply": response}), 200
     
     except Exception as e:
@@ -338,102 +339,6 @@ def process_data():
 #  |___/|___|___|_|   /_/ \_\_|\_/_/ \_\____|_| |___/___|___/  #
 #                                                              #
 ################################################################
-
-#@app.route('/deep-analysis',methods=['POST'])
-def deep_analysis():
-    data = request.json
-    user_messages = data['message']
-
-    '''try:
-        function.store_message(get_value('session_id'),user_messages,'user',response)
-    except Exception as e:
-        logging.info('no context')'''
-
-    name=get_value('name')
-    logging.info('research mode activated')
-    time_module.sleep(10)
-    try:
-        now = datetime.now()
-    except Exception as e:
-        logging.error(f"Failed to get current datetime: {e}")
-        now = None
-
-    context_for_sql_research_mode = ""
-    try:
-        session_id=get_value('session_id')
-        context_for_sql_research_mode=function.get_context_messages(session_id)
-        logging.info(f'----------------------{context_for_sql_research_mode}----------------------')
-    except Exception as e:
-        logging.error(f'sql context error{e}')
-
-    variable_sql_research = f'''
-    name = {name}
-    user message = {user_messages}
-    date and time now = {now}
-    Context to consider while generating sql:-
-        previous qustions from user : {context_for_sql_research_mode}
-    '''
-    
-    try:
-        sql_query = function.generate_sql_with_openrouter(variable_sql_research,client2,prompts.sql_prompt_research)
-        try:
-            function.append_sql_to_excel([sql_query])
-        except Exception as e:
-            logging.info(f'error ssaving sql to excel {e}')
-        logging.info(f'sql generation success')
-
-    except Exception as e:
-        return jsonify({"reply": "Failed to generate query", "name": name}), 500
-
-    db_data_json, success = function.execute_query_and_get_json(DB_URL, sql_query)
-    if success and db_data_json:
-        try:
-            function.store_data(get_value('session_id'),db_data_json)
-        except Exception as e:
-            logging.error(f'no data available from database for followup storing {str(e)}')
-        logging.info('database query executed succesfully')
-    else:
-        logging.error('database query execution failure')
-
-    try:
-        context=function.get_context_messages(get_value('session_id'))
-        logging.info(f'{context}')
-        prompt_analysis = f'''
-            this is the previous exchange made between user and model = {context}
-            fetched data = {db_data_json}
-            user message = {user_messages} 
-            the sql query that is generated right now = {sql_query}
-            '''
-        response_generator = function.generate_streaming_response(
-        context, prompt_analysis, client2, prompts.summary_prompt_research
-        )
-        wrapped_gen = function.store_and_stream(response_generator, get_value('session_id'), user_messages)
-        
-
-        return Response(wrapped_gen, mimetype='text/plain')
-       
-    except Exception as e:
-        logging.error(f'{str(e)}')
-        return jsonify({"error": "Internal server error"}), 500
-
-
-
-@app.route('/end', methods=['POST'])
-def end():
-    try:
-        # Clear all stored values in the database
-        db.session.query(CurrentValue).delete()
-        db.session.commit()
-        
-        return jsonify({
-            "message": "All data cleared",
-            "status": "success"
-        }), 200
-        
-    except Exception as e:
-        db.session.rollback()
-        logging.error(f"Failed to clear data: {str(e)}")
-        return jsonify({"error": "Data clearance failed"}), 500
 
 
 @app.route('/')
