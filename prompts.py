@@ -65,7 +65,18 @@ sql_prompt=("""
         FROM "updated_table"
         WHERE "client_name" = '{client_name}'
         AND "order_status" = 'Client Return Accepted' LIMIT = 1;
-        3. total canceled orders in august = SELECT COUNT("id") AS total_canceled_orders_in_july  FROM "updated_table" WHERE "client_name" = 'Dominos Pizza' AND "order_status" = "Canceled"AND "final_status_at" >= TIMESTAMP '2025-07-01 00:00:00' AND "final_status_at" < TIMESTAMP '2025-08-01 00:00:00'
+        3. total canceled orders in august = SELECT 
+        COUNT("id") AS total_canceled_orders_in_july
+        FROM 
+        "updated_table"
+        WHERE "client_name" = 'Dominos Pizza' AND "order_status" = 'Canceled'.
+        4. Can you show me the order with ID 12345? = SELECT * FROM "updated_table" WHERE "id" = 12345 AND "client_name" = 'Dominos Pizza' LIMIT 1;
+        5.my cancelled orders = SELECT COUNT("id") AS total_cancelled_orders
+                FROM "updated_table"
+                WHERE "client_name" = 'Dominos Pizza'
+                AND "order_status" = 'Canceled'
+                AND "order_created_at" >= '2025-09-01' AND "order_created_at" < '2025-10-01'
+                LIMIT 10;
         FORBIDDEN:
         - No DROP, DELETE, UPDATE, INSERT, ALTER
         - No UNION, subqueries with user input
