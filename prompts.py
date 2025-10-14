@@ -9,7 +9,6 @@ summary_prompt=("""
             - Do not mention analysis, forecasting, SQL, or data correctness.
 
             Data Handling:
-            - If no data is found, reply: "Sorry, we couldn't find the data you are looking for."
             - Use previous responses for context continuity.
 
             Company Context:
@@ -46,19 +45,20 @@ sql_prompt=("""
         Columns:
         - "id" (bigint): Order ID
         - "client_name" (text): Client name
-        - "order_status" (text): Status values: 'Canceled','Cancel Request Accepted','Client Return Accepted','Client return decline','Delivered','Foryou Return Accepted'
+        - "order_status" (text): Status values: 'Canceled','Cancel Request Accepted','Client Return Accepted','Client return decline'-(client tried return but was declined),'Delivered','Foryou Return Accepted'
         - Timestamps: "delivery_date"(date of delivery),"order_created_at","order_accepted_at","start_ride_at","reached_shop_at","order_picked_at","shipped_at","reached_dest_at","final_status_at"
         - Other: "customer_number","customer_name","client_id","captain_name","shop_to_delivery_km","cancellation_reason"
 
         RULES:
         1. ALWAYS include: WHERE "client_name" = '{client_name}'
-        2. ALWAYS add: LIMIT 10 (never more)
+        2.     
         3. Use exact column names with double quotes
         4. Output ONLY the SQL query, no markdown, no explanations
         5. For time filters, use >= and explicit timestamps
         6. If user provides Order ID, use: WHERE "id" = {id} AND "client_name" = '{client_name}'
         7. For latest orders, use: ORDER BY "order_created_at" DESC
         8.if the query asks for single order data then set limit to 1(eg: last order,latest order,final order)
+        9. if the user do not mention a time period or date eg: 'orders returned in septmeber' then provide "count" of the answer.
         EXAMPLE : 
         1.if the user asks about the order status then give all columns of last order placed according to the timestamp
         2. 'Can I see all “Client Return Accepted” orders?' = SELECT COUNT("id")
