@@ -6,3 +6,4 @@ venv/
 README.md
 test.ipynb
 __pycache__/
+data/

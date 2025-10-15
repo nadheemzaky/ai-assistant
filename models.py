@@ -19,7 +19,7 @@ def generate_openrouter_reply(prompt, client):
                 {"role": "user", "content": prompt},
             ],
             max_tokens=150,
-            temperature=0.7,
+            temperature=1.0,
         )
         reply = response.choices[0].message.content.strip()
         return reply
@@ -46,7 +46,8 @@ def generate_sql_with_openrouter(prompt, client, system):
                     "role": "user",
                     "content": prompt
                 }
-            ]
+            ],
+            temperature= 0,
         )
 
         # Access response correctly
@@ -72,7 +73,7 @@ def generate_response(context, prompt_analysis, client, system_prompt):
     response = client.chat.completions.create(
         model="anthropic/claude-3.5-sonnet",
         messages=messages,
-        stream=False  # No streaming
+        stream=False # No streaming
     )
     
     return response.choices[0].message.content
