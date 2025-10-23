@@ -21,7 +21,8 @@ def classify_intent(message,context):
         "Classify the user's latest message into one of two categories:"
         "1. 'general' → Use this if:"
         "   - The message is a greeting (e.g., hello, hi, good morning)."
-        "   - The message is asking about Leajlak or its services in general (e.g., what is Leajlak, how does Leajlak work).    "
+        "   - The message is asking about Leajlak or its services in general (e.g., what is Leajlak, how does Leajlak work)." \
+        "   - If the user asks : 'order status / what is the order status     "
         "2. 'data_fetch' → Use this if:  "
         "   - The message asks about order, shipment, delivery, tracking, logistics, or anything requiring database information.  "
         "   - The message contains numeric IDs (like a 7-digit number such as 1823361).  "

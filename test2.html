@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leajlak Service Chatbot</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Google Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #131314;
+            color: #e8eaed;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: #1f1f1f;
+            border: 1px solid #333;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+            width: 100%;
+            max-width: 800px;
+            height: 90vh;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            background: #1f1f1f;
+            border-bottom: 1px solid #333;
+            padding: 16px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            min-height: 60px;
+            flex-shrink: 0;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .menu-icon {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+            opacity: 0.7;
+            transition: opacity 0.2s;
+        }
+
+        .menu-icon:hover {
+            opacity: 1;
+        }
+
+        .header-title {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .gemini-icon {
+            width: 20px;
+            height: 20px;
+            border-radius: 4px;
+
+            background-image: url('images/image.png');
+
+            background-size: cover; 
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .title-text {
+            font-size: 18px;
+            font-weight: 400;
+            color: #e8eaed;
+        }
+
+        .model-selector {
+            background: #2d2d2d;
+            border: 1px solid #444;
+            color: #e8eaed;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 13px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .model-selector:hover {
+            background: #333;
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .upgrade-btn {
+            background: #2d2d2d;
+            border: 1px solid #444;
+            color: #e8eaed;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 13px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.2s;
+        }
+
+        .upgrade-btn:hover {
+            background: #333;
+        }
+
+        .upgrade-icon {
+            width: 16px;
+            height: 16px;
+            background: linear-gradient(45deg, #4285f4, #34a853);
+            border-radius: 50%;
+        }
+
+        #mobile-section {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 60px 40px;
+            background: #131314;
+            overflow-y: auto;
+        }
+
+        .mobile-welcome {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .mobile-welcome h2 {
+            font-size: 28px;
+            font-weight: 400;
+            color: #e8eaed;
+            margin-bottom: 12px;
+        }
+
+        .mobile-welcome p {
+            font-size: 16px;
+            color: #9aa0a6;
+            line-height: 1.4;
+        }
+
+        .mobile-input-container {
+            width: 100%;
+            max-width: 400px;
+            background: #1f1f1f;
+            border: 1px solid #333;
+            border-radius: 24px;
+            padding: 4px;
+            transition: border-color 0.2s;
+        }
+
+        .mobile-input-container:focus-within {
+            border-color: #4285f4;
+        }
+
+        .mobile-input-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 16px;
+        }
+
+        #mobile-number {
+            flex: 1;
+            background: transparent;
+            border: none;
+            outline: none;
+            font-size: 16px;
+            color: #e8eaed;
+            font-family: inherit;
+        }
+
+        #mobile-number::placeholder {
+            color: #9aa0a6;
+        }
+
+        #submit-mobile {
+            background: #4285f4;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        #submit-mobile:hover {
+            background: #3367d6;
+            box-shadow: 0 2px 8px rgba(66, 133, 244, 0.3);
+        }
+
+        #chat-section {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            background: #131314;
+            overflow: hidden;
+        }
+
+        .chat-container {
+            flex: 1;
+            overflow-y: auto;
+            overflow-x: hidden;
+            padding: 20px 24px;
+            scroll-behavior: smooth;
+        }
+
+        .chat-container::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .chat-container::-webkit-scrollbar-track {
+            background: #1f1f1f;
+            border-radius: 10px;
+        }
+
+        .chat-container::-webkit-scrollbar-thumb {
+            background: #444;
+            border-radius: 10px;
+        }
+
+        .chat-container::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+
+        .message {
+            margin: 24px 0;
+            max-width: 80%;
+            animation: fadeIn 0.3s ease;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .user-message {
+            margin-left: auto;
+            background: #2d2d30;
+            padding: 16px 20px;
+            border-radius: 18px;
+            border-bottom-right-radius: 4px;
+            color: #e8eaed;
+            border: 1px solid #444;
+        }
+
+        .bot-message {
+            margin-right: auto;
+            color: #e8eaed;
+            line-height: 1.6;
+            position: relative;
+            padding-left: 40px;
+            white-space: pre-wrap;
+        }
+
+        .bot-message::before {
+            content: '';
+            width: 20px;
+            height: 20px;
+            background: linear-gradient(45deg, #4285f4, #34a853, #fbbc04, #ea4335);
+            border-radius: 4px;
+            position: absolute;
+            left: 8px;
+            top: 2px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .input-area {
+            padding: 20px 24px 24px;
+            border-top: 1px solid #333;
+            background: #1f1f1f;
+            flex-shrink: 0;
+        }
+
+        .input-container {
+            background: #2d2d2d;
+            border: 1px solid #444;
+            border-radius: 24px;
+            transition: all 0.2s;
+            position: relative;
+        }
+
+        .input-container:focus-within {
+            border-color: #4285f4;
+            box-shadow: 0 0 0 1px #4285f4;
+        }
+
+        .input-wrapper {
+            display: flex;
+            align-items: flex-end;
+            gap: 12px;
+            padding: 12px 16px;
+            min-height: 48px;
+        }
+
+        .input-controls {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+    
+        
+        }
+
+        .add-btn {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: transparent;
+            border: 1px solid #444;
+            color: #9aa0a6;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            transition: all 0.2s;
+        }
+
+        .add-btn:hover {
+            background: #444;
+            color: #e8eaed;
+        }
+
+        #deep-analysis-btn {
+            background: transparent;
+            border: 1px solid #444;
+            color: #9aa0a6;
+            padding: 6px 12px;
+            border-radius: 16px;
+            font-size: 12px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.2s;
+            white-space: nowrap;
+        }
+
+        #deep-analysis-btn:hover:not(:disabled) {
+            background: #444;
+            color: #e8eaed;
+        }
+
+        #deep-analysis-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        #deep-analysis-btn.active {
+            background: rgba(66, 133, 244, 0.1);
+            border-color: #4285f4;
+            color: #4285f4;
+        }
+
+        .tools-indicator {
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .indicator-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #9aa0a6;
+            transition: background-color 0.2s;
+        }
+
+        #deep-analysis-btn.active .indicator-dot {
+            background: #4285f4;
+        }
+
+        #user-input {
+            flex: 1;
+            background: transparent;
+            border: none;
+            outline: none;
+            font-size: 16px;
+            color: #e8eaed;
+            font-family: inherit;
+            resize: none;
+            min-height: 24px;
+            max-height: 200px;
+            line-height: 1.5;
+            padding: 4px 0;
+            overflow-y: auto;
+        }
+
+        #user-input::placeholder {
+            color: #9aa0a6;
+            line-height: 1.5;
+        }
+
+        .send-controls {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding-bottom: 4px;
+        }
+
+        .mic-btn {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: transparent;
+            border: none;
+            color: #9aa0a6;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            transition: all 0.2s;
+        }
+
+        .mic-btn:hover {
+            background: #444;
+            color: #e8eaed;
+        }
+
+        #send-button {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: #4285f4;
+            border: none;
+            color: white;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            transition: all 0.2s;
+            opacity: 0;
+            transform: scale(0.8);
+        }
+
+        #send-button.show {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        #send-button:hover:not(:disabled) {
+            background: #3367d6;
+            box-shadow: 0 2px 8px rgba(66, 133, 244, 0.4);
+        }
+
+        #send-button:disabled {
+            background: #444;
+            cursor: not-allowed;
+            opacity: 0.5;
+        }
+
+        .typing-indicator {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin: 24px 0;
+            max-width: 80%;
+            color: #9aa0a6;
+            position: relative;
+            padding-left: 40px;
+    
+        }
+
+        .typing-indicator::before {
+            content: '';
+            width: 20px;
+            height: 20px;
+            background: linear-gradient(45deg, #4285f4, #34a853, #fbbc04, #ea4335);
+            border-radius: 4px;
+            position: absolute;
+            left: 8px;
+            top: 50%;
+            transform: translateY(-50%); /* vertically center */
+        }
+
+        .typing-dots {
+            display: flex;
+            gap: 4px;
+        }
+
+        .typing-dot {
+            width: 8px;
+            height: 8px;
+            background: #9aa0a6;
+            border-radius: 50%;
+            animation: typing 1.4s infinite;
+        }
+
+        .typing-dot:nth-child(1) { animation-delay: 0s; }
+        .typing-dot:nth-child(2) { animation-delay: 0.2s; }
+        .typing-dot:nth-child(3) { animation-delay: 0.4s; }
+
+        @keyframes typing {
+            0%, 60%, 100% {
+                transform: translateY(0);
+                opacity: 0.4;
+            }
+            30% {
+                transform: translateY(-4px);
+                opacity: 1;
+            }
+        }
+
+        .disclaimer {
+            text-align: center;
+            padding: 12px 24px;
+            font-size: 11px;
+            color: #9aa0a6;
+            border-top: 1px solid #333;
+            flex-shrink: 0;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 0;
+            }
+
+            .container {
+                max-width: 100%;
+                height: 100vh;
+                border-radius: 0;
+                border: none;
+            }
+
+            header {
+                padding: 12px 16px;
+            }
+
+            .title-text {
+                font-size: 16px;
+            }
+
+            .model-selector,
+            .upgrade-btn {
+                font-size: 12px;
+                padding: 6px 10px;
+            }
+
+            #mobile-section {
+                padding: 40px 20px;
+            }
+
+            .mobile-welcome h2 {
+                font-size: 24px;
+            }
+
+            .chat-container {
+                padding: 16px;
+            }
+
+            .input-area {
+                padding: 16px;
+            }
+
+            .bot-message::before,
+            .typing-indicator::before {
+                left: 8px;
+                width: 16px;
+                height: 16px;
+
+            }
+
+            .bot-message,
+            .typing-indicator {
+                padding-left: 36px;
+
+            }
+
+            #deep-analysis-btn span:last-child {
+                display: none;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-left">
+                <svg class="menu-icon" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                </svg>
+                <div class="header-title">
+                    <div class="gemini-icon"></div>
+                    <span class="title-text">Leajlak</span>
+                </div>
+            </div>
+  
+        </header>
+        
+        <div id="mobile-section">
+            <div class="mobile-welcome">
+                <h2>Welcome to Leajlak Service</h2>
+                <p>Enter your mobile number to get started with personalized assistance</p>
+            </div>
+            <div class="mobile-input-container">
+                <div class="mobile-input-wrapper">
+                    <input type="text" id="mobile-number" placeholder="Enter your mobile number">
+                    <button id="submit-mobile">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+                        </svg>
+                        Submit
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <div id="chat-section" class="hidden">
+            <div class="chat-container" id="chat-box">
+                <!-- Messages will be added here dynamically -->
+            </div>
+            <div class="input-area">
+                <div class="input-container">
+                    <div class="input-wrapper">
+                        <div class="input-controls">
+                            <button class="add-btn" title="Add content">+</button>
+                            <button id="deep-analysis-btn">
+                                <div class="indicator-dot"></div>
+                                <span class="tools-indicator">Research</span>
+                            </button>
+                        </div>
+                        <textarea id="user-input" placeholder="Ask Leajlak" rows="1"></textarea>
+                        <div class="send-controls">
+
+                            <button id="send-button" title="Send message">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="disclaimer">
+                Leajlak can make mistakes, so double-check it
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileInput = document.getElementById('mobile-number');
+            const submitMobileBtn = document.getElementById('submit-mobile');
+            const chatSection = document.getElementById('chat-section');
+            const mobileSection = document.getElementById('mobile-section');
+            const chatBox = document.getElementById('chat-box');
+            const userInput = document.getElementById('user-input');
+            const sendButton = document.getElementById('send-button');
+            const deepAnalysisBtn = document.getElementById('deep-analysis-btn');
+            
+            let currentMobile = '';
+            let isDeepAnalysisMode = false;
+            let isProcessing = false;
+            
+            // Auto-resize textarea
+            userInput.addEventListener('input', function() {
+                this.style.height = 'auto';
+                this.style.height = Math.min(this.scrollHeight, 200) + 'px';
+                
+                // Show/hide send button based on input
+                if (this.value.trim()) {
+                    sendButton.classList.add('show');
+                } else {
+                    sendButton.classList.remove('show');
+                }
+            });
+            
+            // Toggle deep analysis mode
+            deepAnalysisBtn.addEventListener('click', function() {
+                if (isProcessing) return;
+                
+                isDeepAnalysisMode = !isDeepAnalysisMode;
+                deepAnalysisBtn.classList.toggle('active', isDeepAnalysisMode);
+                
+                // Update tooltip text
+                if (isDeepAnalysisMode) {
+                    deepAnalysisBtn.title = "Deep Analysis Mode: ON\nAll messages will be sent for deep analysis";
+                } else {
+                    deepAnalysisBtn.title = "Deep Analysis Mode: OFF\nClick to enable deep analysis";
+                }
+            });
+            
+            // Set initial tooltip
+            deepAnalysisBtn.title = "Deep Analysis Mode: OFF\nClick to enable deep analysis";
+            
+            // Submit mobile number
+            submitMobileBtn.addEventListener('click', async function() {
+                const mobile = mobileInput.value.trim();
+                if (!mobile) return;
+                
+                const response = await fetch('/number', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ mobile: mobile })
+                });
+                
+                if (response.ok) {
+                    currentMobile = mobile;
+                    mobileSection.classList.add('hidden');
+                    chatSection.classList.remove('hidden');
+                    
+                    // Get user's name
+                    const nameResponse = await fetch('/names', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        }
+                    });
+                    
+                    const nameData = await nameResponse.json();
+                    if (nameResponse.ok) {
+                        addMessage(`Welcome, ${nameData.name}! How can I assist you today?`, 'bot');
+                    } else {
+                        addMessage('Welcome! How can I assist you today?', 'bot');
+                    }
+                }
+            });
+            
+            // Send message
+            sendButton.addEventListener('click', sendMessage);
+            userInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter' && !e.shiftKey && !isProcessing) {
+                    e.preventDefault();
+                    sendMessage();
+                }
+            });
+            
+            async function sendMessage() {
+                if (isProcessing) return;
+                
+                const message = userInput.value.trim();
+                if (!message) return;
+                
+                // Disable input and button while processing
+                setProcessingState(true);
+                
+                addMessage(message, 'user');
+                userInput.value = '';
+                userInput.style.height = 'auto';
+                sendButton.classList.remove('show');
+                
+                // Show typing indicator
+                showTypingIndicator();
+                
+                // Determine endpoint based on deep analysis mode
+                const endpoint = isDeepAnalysisMode ? '/deep-analysis' : '/process-data';
+                
+                try {
+                    // Handle JSON response (non-streaming)
+                    const response = await fetch(endpoint, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({ message: message })
+                    });
+                    
+                    // Remove typing indicator
+                    hideTypingIndicator();
+                    
+                    // Parse JSON response
+                    const data = await response.json();
+                    
+                    // Extract the reply text and display it
+                    const replyText = data.reply || 'No response received.';
+                    addMessage(replyText, 'bot');
+                    
+                } catch (error) {
+                    console.error('Error sending message:', error);
+                    hideTypingIndicator();
+                    addMessage('Sorry, there was an error processing your request.', 'bot');
+                } finally {
+                    // Re-enable input and button after processing
+                    setProcessingState(false);
+                }
+            }
+            
+            function setProcessingState(processing) {
+                isProcessing = processing;
+                sendButton.disabled = processing;
+                userInput.disabled = processing;
+                deepAnalysisBtn.disabled = processing;
+                
+                if (processing) {
+                    userInput.placeholder = "Let me think...";
+                } else {
+                    userInput.placeholder = "Ask Leajlak";
+                    userInput.focus();
+                }
+            }
+            
+            function addMessage(text, sender) {
+                const messageDiv = document.createElement('div');
+                messageDiv.classList.add('message');
+                messageDiv.classList.add(sender === 'user' ? 'user-message' : 'bot-message');
+                messageDiv.textContent = text;
+                chatBox.appendChild(messageDiv);
+                scrollToBottom();
+            }
+            
+            function showTypingIndicator() {
+                const typingDiv = document.createElement('div');
+                typingDiv.className = 'typing-indicator';
+                typingDiv.id = 'typing-indicator';
+                typingDiv.innerHTML = `
+                    <div class="typing-dots">
+                        <div class="typing-dot"></div>
+                        <div class="typing-dot"></div>
+                        <div class="typing-dot"></div>
+                    </div>
+                `;
+                chatBox.appendChild(typingDiv);
+                scrollToBottom();
+            }
+
+            function hideTypingIndicator() {
+                const typingIndicator = document.getElementById('typing-indicator');
+                if (typingIndicator) {
+                    typingIndicator.remove();
+                }
+            }
+            
+            function scrollToBottom() {
+                // Use requestAnimationFrame for smoother scrolling
+                requestAnimationFrame(() => {
+                    chatBox.scrollTop = chatBox.scrollHeight;
+                });
+            }
+            
+            // Handle Enter key for mobile input
+            mobileInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    submitMobileBtn.click();
+                }
+            });
+        });
+    </script>
+</body>
+</html>

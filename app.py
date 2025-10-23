@@ -302,7 +302,7 @@ def process_data():
             the sql query that is generated right now to fetch data from database = {sql_query}.
             current time = {time}
             '''
-        
+        logging.info(f'{prompt_analysis}')
         # Generate complete response (no streaming)
         response = models.generate_response(
             context, prompt_analysis, client2, prompts.summary_prompt
@@ -339,8 +339,6 @@ def process_data():
 #  |___/|___|___|_|   /_/ \_\_|\_/_/ \_\____|_| |___/___|___/  #
 #                                                              #
 ################################################################
-
-
 @app.route('/')
 def home():
     return render_template('index6.html')

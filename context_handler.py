@@ -1,6 +1,9 @@
 
 import logging
 import sqlite3
+import json
+from datetime import datetime
+from os import path
 
 def init_db():
     conn = sqlite3.connect('instance/chat_context.db')
@@ -29,7 +32,7 @@ def init_db():
 init_db()
 
 
-def store_message(session_id, message_text, message_role):
+def store_message(session_id, message_text, message_role,json_file='data/chat_context.json'):
     conn = sqlite3.connect('instance/chat_context.db')
     cursor = conn.cursor()
     try:
@@ -57,6 +60,34 @@ def store_message(session_id, message_text, message_role):
 
     conn.commit()
     conn.close()
+        # JSON file operations
+    try:
+        # Read existing JSON data
+        if path.isfile(json_file):
+            with open(json_file, 'r') as file:
+                try:
+                    data = json.load(file)
+                except json.JSONDecodeError:
+                    data = []
+        else:
+            data = []
+        
+        # Append new message
+        new_entry = {
+            'session_id': session_id,
+            'message_text': message_text,
+            'message_role': message_role,
+            'timestamp': datetime.now().isoformat()
+        }
+        data.append(new_entry)
+        
+        # Write updated data back to file
+        with open(json_file, 'w') as file:
+            json.dump(data, file, indent=4)
+        
+        logging.info('context stored to JSON successfully')
+    except Exception as e:
+        logging.error(f'error storing to JSON: {str(e)}')
 
 def store_data(session_id,data):
     conn = sqlite3.connect('instance/chat_context.db')
