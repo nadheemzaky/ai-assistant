@@ -341,7 +341,7 @@ def process_data():
 ################################################################
 @app.route('/')
 def home():
-    return render_template('index6.html')
+    return render_template('index_test.html')
 
 if __name__ == '__main__':
 
