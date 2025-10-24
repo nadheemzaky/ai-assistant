@@ -290,7 +290,7 @@
     </div>
 
     <script>
-                if (!sessionStorage.getItem('privacyAccepted')) {
+        if (!sessionStorage.getItem('privacyAccepted')) {
             const message = "Note!:\n" +
                         "You are now logged in as MC DONALDS for testing.\n" 
                         ;
@@ -299,7 +299,6 @@
                 sessionStorage.setItem('privacyAccepted', 'true');
             }
         }
-        chatInput.focus();
 
         // ============================================
         // CONFIGURATION - Update these with your API details
@@ -317,6 +316,8 @@
         const chatInput = document.getElementById('chatInput');
         const sendBtn = document.getElementById('sendBtn');
         const welcomeScreen = document.getElementById('welcomeScreen');
+        
+        chatInput.focus();
 
         // ============================================
         // STATE MANAGEMENT - Track conversation state
