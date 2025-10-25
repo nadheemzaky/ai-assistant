@@ -196,7 +196,7 @@ def process_data():
     # ========================================================================
     # 2. USER VALIDATION
     # ========================================================================
-    name = get_value('name')
+    name = 'MC DONALDS'
     if not name:
         logging.error('Names list empty - no users registered')
         return jsonify({"reply": "No users registered yet"}), 400
