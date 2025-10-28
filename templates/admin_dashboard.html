@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings Panel</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #1a1a1a;
+            color: #e0e0e0;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .container {
+            display: flex;
+            height: 100vh;
+        }
+
+        /* Left Sidebar */
+        .sidebar {
+            width: 250px;
+            background: #2a2a2a;
+            padding: 20px 0;
+            border-right: 1px solid #3a3a3a;
+        }
+
+        .sidebar-title {
+            padding: 0 20px 20px 20px;
+            font-size: 18px;
+            font-weight: 600;
+            color: #ffffff;
+            border-bottom: 1px solid #3a3a3a;
+        }
+
+        .menu-item {
+            padding: 15px 20px;
+            cursor: pointer;
+            color: #b0b0b0;
+            border-left: 3px solid transparent;
+            transition: all 0.2s;
+        }
+
+        .menu-item:hover {
+            background: #333333;
+            color: #ffffff;
+        }
+
+        .menu-item.active {
+            background: #333333;
+            color: #ffffff;
+            border-left-color: #4a90e2;
+        }
+
+        /* Main Content Area */
+        .content {
+            flex: 1;
+            padding: 40px;
+            overflow-y: auto;
+        }
+
+        .content-header {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #ffffff;
+        }
+
+        .content-description {
+            font-size: 14px;
+            color: #888888;
+            margin-bottom: 30px;
+        }
+
+        .section {
+            display: none;
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        .setting-group {
+            background: #2a2a2a;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border: 1px solid #3a3a3a;
+        }
+
+        .setting-label {
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 8px;
+            color: #e0e0e0;
+        }
+
+        .setting-text {
+            font-size: 13px;
+            color: #999999;
+            line-height: 1.6;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 10px;
+            background: #1a1a1a;
+            border: 1px solid #3a3a3a;
+            border-radius: 4px;
+            color: #e0e0e0;
+            font-size: 14px;
+            margin-top: 8px;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: #4a90e2;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            background: #4a90e2;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+
+        .btn:hover {
+            background: #3a7bc8;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Left Sidebar -->
+        <div class="sidebar">
+            <div class="sidebar-title">Settings</div>
+            <div class="menu-item active" data-section="general">General Info</div>
+            <div class="menu-item" data-section="account">AI Models</div>
+            <div class="menu-item" data-section="privacy">Prompts</div>
+            <div class="menu-item" data-section="notifications">Context</div>
+            <div class="menu-item" data-section="appearance">Database</div>
+            <div class="menu-item" data-section="advanced">Logs</div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="content">
+            <!-- General Section -->
+            <div class="section active" id="general">
+                <div class="content-header">General Settings</div>
+                <div class="content-description">Manage your general application settings</div>
+                
+                <div class="setting-group">
+                    <div class="setting-label">Application Name</div>
+                    <div class="setting-text">Configure the display name for your application. This name will appear in the header and notifications.</div>
+                    <input type="text" class="form-control" placeholder="Enter application name" value="LEAJLAK" disabled>
+                </div>
+
+                <div class="setting-group">
+                    <div class="setting-label">Language</div>
+                    <div class="setting-text">Select your preferred language for the interface. Changes will take effect immediately.</div>
+                    <select title="select" class="form-control" disabled>
+                        <option>English</option>
+                        <option>Spanish</option>
+                        <option>French</option>
+                    </select>
+                </div>
+
+
+            </div>
+
+            <!-- MOdel Section -->
+            <div class="section" id="account">
+                <div class="content-header">AI model</div>
+                <div class="content-description">Change the AI model</div>
+                <div class="setting-group">
+                    <div class="setting-label">Generate Summary</div>
+                    <div class="setting-text">Choose your preferred AI model. Each model has different strengths in speed, accuracy, and cost efficiency.</div>
+                    <select id="model-summary" class="form-control" data-purpose="summary">
+                        <option value="openai/gpt-3.5-turbo">openai/gpt-3.5-turbo</option>
+                        <option value="anthropic/claude-sonnet-4.5">anthropic/claude-sonnet-4.5</option>
+                        <option value="liquid/lfm-2.2-6b">liquid/lfm-2.2-6b</option>
+                    </select>
+                </div>
+                <div class="setting-group">
+                    <div class="setting-label">General Response</div>
+                    <div class="setting-text">Choose your preferred AI model. Each model has different strengths in speed, accuracy, and cost efficiency.</div>
+                    <select id="model-response" class="form-control" data-purpose="response">
+                        <option value="openai/gpt-3.5-turbo">openai/gpt-3.5-turbo</option>
+                        <option value="anthropic/claude-sonnet-4.5">anthropic/claude-sonnet-4.5</option>
+                        <option value="liquid/lfm-2.2-6b">liquid/lfm-2.2-6b</option>
+                    </select>
+                </div>
+                <div class="setting-group">
+                    <div class="setting-label">SQL generation</div>
+                    <div class="setting-text">Choose your preferred AI model. Each model has different strengths in speed, accuracy, and cost efficiency.</div>
+                    <select id="model-sql" class="form-control" data-purpose="sql">
+                        <option value="openai/gpt-3.5-turbo">openai/gpt-3.5-turbo</option>
+                        <option value="anthropic/claude-sonnet-4.5">anthropic/claude-sonnet-4.5</option>
+                        <option value="liquid/lfm-2.2-6b">liquid/lfm-2.2-6b</option>
+                    </select>
+                </div>
+                
+            </div>
+
+
+            
+
+            <!-- Prompts Section -->
+            <div class="section" id="privacy">
+                <div class="content-header">Prompts Settings</div>
+                <div class="content-description">Control your Prompts and modify the outcome</div>
+                <div class="setting-group">
+                    <div class="setting-label">Summary prompt</div>
+                    <div class="setting-text">This prompt will decide the output of the summary.</div>
+                    <textarea class="form-control" placeholder="Enter summary prompt" rows="20" disabled>You are Leajlak's customer service assistant for our Order Management System.
+
+
+                Response Requirements:
+                - Answer **only** what the user asks. !! NO extra commentary, context, or explanations !!
+                - Maximum 10-15 words.(if asked about order details provide complete details)
+                - Use numerals (e.g., 5 orders, not five orders).
+                - Professional, clear tone.
+                - Do not mention analysis, forecasting, SQL, or data correctness.
+
+
+                Data Handling:
+                - Use previous responses for context continuity.
+
+
+                Company Context:
+                Leajlak connects merchants and logistics providers using AI/IoT for efficient express and scheduled deliveries.
+
+
+                Example:
+                user: When was the last order placed?
+                model: The last order placed was on July 21, 2025, at 7:23 PM.
+                user : provide details of 1823361.
+                model:     "client_name": "MC DONALDS",
+                    "order_status": "Delivered",
+                    "delivery_date": "2025-07-21T19:42:19",
+                    "order_created_at": "2025-07-21T19:12:34",
+                    "order_accepted_at": "2025-07-21T19:12:50",
+                    "start_ride_at": "2025-07-21T19:15:33",
+                    "reached_shop_at": "2025-07-21T19:21:02",
+                    "order_picked_at": "2025-07-21T19:25:41",
+                    "shipped_at": "2025-07-21T19:26:51",
+                    "reached_dest_at": "2025-07-21T19:39:50",
+                    "final_status_at": "2025-07-21T19:42:19",
+                    "customer_number": 8144065964,
+                    "customer_name": "Customer_FSW",
+                    "client_id": 3,
+                    "captain_name": "MOHAMMED HAMED -DMM - JOD10",
+                    "shop_to_delivery_km": 3.821</textarea>
+                </div>
+
+
+                <div class="setting-group">
+                    <div class="setting-label">SQL prompt</div>
+                    <div class="setting-text">This prompt will decide the SQL generated.</div>
+                    <textarea class="form-control" placeholder="Enter summary prompt" rows="20" disabled>You are a SQL query generator. Output ONLY a single executable SQL query.
+
+        Table: "updated_table"
+        Columns:
+        - "id" (bigint): Order ID
+        - "client_name" (text): Client name
+        - "order_status" (text): Status values: 'Canceled','Cancel Request Accepted','Client Return Accepted','Client return decline'-(client tried return but was declined),'Delivered','Foryou Return Accepted'
+        - Timestamps: "delivery_date"(date of delivery),"order_created_at","order_accepted_at","start_ride_at","reached_shop_at","order_picked_at","shipped_at","reached_dest_at","final_status_at"
+        - Other: "customer_number","customer_name","client_id","captain_name","shop_to_delivery_km","cancellation_reason"
+
+        RULES:
+        1. ALWAYS include: WHERE "client_name" = '{client_name}'
+        2.     
+        3. Use exact column names with double quotes
+        4. Output ONLY the SQL query, no markdown, no explanations
+        5. For time filters, use >= and explicit timestamps
+        6. If user provides Order ID, use: WHERE "id" = {id} AND "client_name" = '{client_name}'
+        7. For latest orders, use: ORDER BY "order_created_at" DESC
+        8.if the query asks for single order data then set limit to 1(eg: last order,latest order,final order)
+        9. if the user do not mention a time period or date eg: 'orders returned in septmeber' then provide "count" of the answer.
+        EXAMPLE : 
+        1.if the user asks about the order status then give all columns of last order placed according to the timestamp
+        2. 'Can I see all “Client Return Accepted” orders?' = SELECT COUNT("id")
+        FROM "updated_table"
+        WHERE "client_name" = '{client_name}'
+        AND "order_status" = 'Client Return Accepted' LIMIT = 1;
+        3. total canceled orders in august = SELECT 
+        COUNT("id") AS total_canceled_orders_in_july
+        FROM 
+        "updated_table"
+        WHERE "client_name" = 'Dominos Pizza' AND "order_status" = 'Canceled'.
+        4. Can you show me the order with ID 12345? = SELECT * FROM "updated_table" WHERE "id" = 12345 AND "client_name" = 'Dominos Pizza' LIMIT 1;
+        5.my cancelled orders = SELECT COUNT("id") AS total_cancelled_orders
+                FROM "updated_table"
+                WHERE "client_name" = 'Dominos Pizza'
+                AND "order_status" = 'Canceled'
+                AND "order_created_at" >= '2025-09-01' AND "order_created_at" < '2025-10-01'
+                LIMIT 10;
+        FORBIDDEN:
+        - No DROP, DELETE, UPDATE, INSERT, ALTER
+        - No UNION, subqueries with user input
+        - No comments (-- or /* */)
+        - No backticks or code blocks</textarea>
+                </div>
+              
+
+            </div>
+
+            <!-- Context Section -->
+            <div class="section" id="notifications">
+                <div class="content-header">Context Settings</div>
+                <div class="content-description">Customize The company details</div>
+                
+                <div class="setting-group">
+                    <div class="setting-label">Email Notifications</div>
+                    <div class="setting-text">Receive updates and alerts via email. You can choose to receive daily digests or real-time notifications for important events.</div>
+                    <select class="form-control">
+                        <option>All Notifications</option>
+                        <option>Important Only</option>
+                        <option>Disabled</option>
+                    </select>
+                </div>
+                                <div class="setting-group">
+                    <div class="setting-label">Summary prompt</div>
+                    <div class="setting-text">This prompt will decide the output of the summary.</div>
+                    <textarea class="form-control" placeholder="Enter summary prompt" rows="20" disabled>You are Leajlak's customer service assistant for our Order Management System.
+
+
+                Response Requirements:
+                - Answer **only** what the user asks. !! NO extra commentary, context, or explanations !!
+                - Maximum 10-15 words.(if asked about order details provide complete details)
+                - Use numerals (e.g., 5 orders, not five orders).
+                - Professional, clear tone.
+                - Do not mention analysis, forecasting, SQL, or data correctness.
+
+
+                Data Handling:
+                - Use previous responses for context continuity.
+
+
+                Company Context:
+                Leajlak connects merchants and logistics providers using AI/IoT for efficient express and scheduled deliveries.
+
+
+                Example:
+                user: When was the last order placed?
+                model: The last order placed was on July 21, 2025, at 7:23 PM.
+                user : provide details of 1823361.
+                model:     "client_name": "MC DONALDS",
+                    "order_status": "Delivered",
+                    "delivery_date": "2025-07-21T19:42:19",
+                    "order_created_at": "2025-07-21T19:12:34",
+                    "order_accepted_at": "2025-07-21T19:12:50",
+                    "start_ride_at": "2025-07-21T19:15:33",
+                    "reached_shop_at": "2025-07-21T19:21:02",
+                    "order_picked_at": "2025-07-21T19:25:41",
+                    "shipped_at": "2025-07-21T19:26:51",
+                    "reached_dest_at": "2025-07-21T19:39:50",
+                    "final_status_at": "2025-07-21T19:42:19",
+                    "customer_number": 8144065964,
+                    "customer_name": "Customer_FSW",
+                    "client_id": 3,
+                    "captain_name": "MOHAMMED HAMED -DMM - JOD10",
+                    "shop_to_delivery_km": 3.821</textarea>
+                </div>
+
+            <!-- Appearance Section -->
+            <div class="section" id="appearance">
+                <div class="content-header">Appearance Settings</div>
+                <div class="content-description">Customize the look and feel of your interface</div>
+                
+                <div class="setting-group">
+                    <div class="setting-label">Theme</div>
+                    <div class="setting-text">Choose between light and dark themes. Dark theme reduces eye strain in low-light environments and may save battery on OLED displays.</div>
+                    <select class="form-control">
+                        <option selected>Dark</option>
+                        <option>Light</option>
+                        <option>Auto</option>
+                    </select>
+                </div>
+
+                <div class="setting-group">
+                    <div class="setting-label">Font Size</div>
+                    <div class="setting-text">Adjust the base font size for better readability. Larger fonts can improve accessibility for users with visual impairments.</div>
+                    <select class="form-control">
+                        <option>Small</option>
+                        <option selected>Medium</option>
+                        <option>Large</option>
+                    </select>
+                </div>
+
+                <div class="setting-group">
+                    <div class="setting-label">Compact Mode</div>
+                    <div class="setting-text">Display more content on screen by reducing spacing and padding. Useful for users who prefer information density.</div>
+                    <select class="form-control">
+                        <option>Enabled</option>
+                        <option selected>Disabled</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Advanced Section -->
+            <div class="section" id="advanced">
+                <div class="content-header">Advanced Settings</div>
+                <div class="content-description">Configure advanced options and developer settings</div>
+                
+                <div class="setting-group">
+                    <div class="setting-label">Developer Mode</div>
+                    <div class="setting-text">Enable developer tools and debugging options. This mode provides access to advanced features and logs for troubleshooting.</div>
+                    <select class="form-control">
+                        <option>Enabled</option>
+                        <option selected>Disabled</option>
+                    </select>
+                </div>
+
+                <div class="setting-group">
+                    <div class="setting-label">Cache Management</div>
+                    <div class="setting-text">Clear application cache to free up storage space. This may temporarily slow down performance until the cache rebuilds.</div>
+                    <button class="btn">Clear Cache</button>
+                </div>
+
+                <div class="setting-group">
+                    <div class="setting-label">Export Data</div>
+                    <div class="setting-text">Download a copy of your data in JSON format. This includes all your settings, preferences, and user information.</div>
+                    <button class="btn">Export Data</button>
+                </div>
+
+                <div class="setting-group">
+                    <div class="setting-label">Reset Settings</div>
+                    <div class="setting-text">Restore all settings to default values. This action cannot be undone and will require you to reconfigure all preferences.</div>
+                    <button class="btn">Reset to Defaults</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        z-index: 1000;
+    ">
+        <button id="saveSettingsBtn" 
+                style="padding: 6px 14px; 
+                    font-size: 14px; 
+                    background-color: #007bff; 
+                    color: white; 
+                    border: none; 
+                    border-radius: 6px; 
+                    cursor: pointer; 
+                    box-shadow: 0 2px 5px rgba(0,0,0,0.2);">
+            💾 Save Changes
+        </button>
+        <p id="saveStatus" 
+        style="color: green; font-size: 13px; margin-top: 5px; display: none;">
+        Saved!
+        </p>
+    </div>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const menuItems = document.querySelectorAll(".menu-item");
+  const sections = document.querySelectorAll(".section");
+  const saveButton = document.getElementById("saveSettingsBtn");
+  const modelSelects = document.querySelectorAll("select.form-control");
+
+  // -------------------------------
+  // 🔹 SECTION SWITCHING + REMEMBER LAST ACTIVE
+  // -------------------------------
+  function showSection(sectionId) {
+    // Hide all sections
+    sections.forEach(sec => sec.classList.remove("active"));
+    // Remove active class from sidebar items
+    menuItems.forEach(item => item.classList.remove("active"));
+
+    // Show selected section
+    const section = document.getElementById(sectionId);
+    const menuItem = document.querySelector(`.menu-item[data-section="${sectionId}"]`);
+    if (section && menuItem) {
+      section.classList.add("active");
+      menuItem.classList.add("active");
+      // Save the last opened section to localStorage
+      localStorage.setItem("lastSection", sectionId);
+    }
+  }
+
+  // On page load, restore the last active section (default to 'general' if none)
+  const lastSection = localStorage.getItem("lastSection") || "general";
+  showSection(lastSection);
+
+  // Add click listeners to sidebar items
+  menuItems.forEach(item => {
+    item.addEventListener("click", () => {
+      const sectionId = item.getAttribute("data-section");
+      showSection(sectionId);
+    });
+  });
+
+  // -------------------------------
+  // 🔹 MODEL SETTINGS SAVE LOGIC
+  // -------------------------------
+  // Load saved model dropdowns from localStorage
+  modelSelects.forEach(select => {
+    const purpose = select.dataset.purpose;
+    const savedValue = localStorage.getItem(`model_${purpose}`);
+    if (savedValue) select.value = savedValue;
+  });
+
+  // When the save button is clicked
+  if (saveButton) {
+    saveButton.addEventListener("click", () => {
+      const updatedSettings = {};
+
+      modelSelects.forEach(select => {
+        const purpose = select.dataset.purpose;
+        const selectedModel = select.value;
+        updatedSettings[purpose] = selectedModel;
+
+        // Save locally
+        localStorage.setItem(`model_${purpose}`, selectedModel);
+      });
+
+      console.log("🧠 Collected settings:", updatedSettings);
+
+      // Send to backend
+      fetch("/save-settings", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(updatedSettings),
+      })
+      .then(res => res.json())
+      .then(data => {
+        console.log("✅ Models updated successfully:", data);
+        alert("✅ Settings saved successfully!");
+      })
+      .catch(err => {
+        console.error("❌ Error updating models:", err);
+        alert("⚠️ Failed to save settings. Check console for details.");
+      });
+    });
+  }
+});
+</script>
+
+</body>
+</html>

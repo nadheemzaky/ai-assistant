@@ -13,16 +13,18 @@ import secrets
 from flask_sqlalchemy import SQLAlchemy
 import re
 from openai import OpenAI
-from intent_classifier import classify_intent
+from utils import context_handler, models, database, intent_classifier
 import prompts
 import audit
 import uuid
-import models
-import context_handler
-import database
 from flask_cors import CORS
 from werkzeug.middleware.proxy_fix import ProxyFix
 # do not touch this
+from utils import context_handler, models, database, intent_classifier
+from config.model_config import load_selected_model, save_selected_model
+
+
+
 load_dotenv()
 context_handler.init_db()
 app = Flask(__name__)
@@ -196,7 +198,8 @@ def process_data():
     # ========================================================================
     # 2. USER VALIDATION
     # ========================================================================
-    name = get_value('name')
+    name = 'MC DONALDS'
+    print(name)
     if not name:
         logging.error('Names list empty - no users registered')
         return jsonify({"reply": "No users registered yet"}), 400
@@ -222,7 +225,7 @@ def process_data():
         context = context_handler.get_context_messages(session_id)
         logging.info(f'Context retrieved: {str(context)}')
         
-        intent = classify_intent(user_messages, context)
+        intent = intent_classifier.classify_intent(user_messages, context)
         logging.info(f'Classified intent: {intent}')
         
         # Handle general conversation intent
@@ -335,16 +338,54 @@ def process_data():
     
 
 
-################################################################
-#   ___  ___ ___ ___     _   _  _   _   _ __   _____ ___ ___   #
-#  |   \| __| __| _ \   /_\ | \| | /_\ | |\ \ / / __|_ _/ __|  #
-#  | |) | _|| _||  _/  / _ \| .` |/ _ \| |_\ V /\__ \| |\__ \  #
-#  |___/|___|___|_|   /_/ \_\_|\_/_/ \_\____|_| |___/___|___/  #
-#                                                              #
-################################################################
+@app.route("/admin")
+def admin_dashboard():
+    return render_template("admin_dashboard.html", prompts=prompts)
+
+@app.route("/set-model", methods=["POST"])
+def set_model():
+    data = request.get_json()
+    model_name = data.get("model")
+
+    if not model_name:
+        return jsonify({"error": "No model provided"}), 400
+
+    save_selected_model(model_name)
+    return jsonify({"message": f"Model changed to {model_name}"}), 200
+
+@app.route("/get-model", methods=["GET"])
+def get_model():
+    model = load_selected_model()
+    return jsonify({"selected_model": model})
+
 @app.route('/')
 def home():
     return render_template('index_test.html')
+
+CONFIG_FILE = "config.json"
+@app.route("/save-settings", methods=["POST"])
+def save_settings():
+    data = request.get_json()
+
+    # You can handle multiple fields here
+    summary = data.get("summary")
+    response = data.get("response")
+    sql = data.get("sql")
+    # api_key = data.get("apiKey")
+    # theme = data.get("theme")
+
+    if not summary or response or sql:
+        return jsonify({"success": False, "error": "Missing required data"}), 400
+
+    try:
+        os.makedirs("config", exist_ok=True)
+        with open(CONFIG_FILE, "w") as f:
+            json.dump(data, f, indent=4)
+        return jsonify({"success": True})
+    except Exception as e:
+        print("Error saving settings:", e)
+        return jsonify({"success": False, "error": str(e)}), 500
+    
 
 if __name__ == '__main__':
 

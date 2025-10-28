@@ -1,9 +1,12 @@
 
 import logging
+from config.model_config import load_selected_model,load_selected_model_response,load_selected_model_summary
 
 
 def generate_openrouter_reply(prompt, client):
     try:
+        selected_model = load_selected_model_summary()
+        print(f'response model:{selected_model}')
         response = client.chat.completions.create(
             model="openai/gpt-3.5-turbo",  # pick model via OpenRouter
             messages=[
@@ -33,10 +36,13 @@ def generate_openrouter_reply(prompt, client):
 def generate_sql_with_openrouter(prompt, client, system):
     try:
         sql_prompt = system
+        selected_model = load_selected_model()
+        print(selected_model)
         logging.info('Started SQL generation')
+        logging.info(f'{print(selected_model)}')
 
         response = client.chat.completions.create(
-            model="openai/gpt-3.5-turbo",
+            model=selected_model,
             messages=[
                 {
                     "role": "system",
@@ -63,6 +69,8 @@ def generate_sql_with_openrouter(prompt, client, system):
 
 
 def generate_response(context, prompt_analysis, client, system_prompt):
+    selected_model = load_selected_model_response()
+    print(f'summary model:{selected_model}')
     """Generate complete response without streaming."""
     messages = [
         {"role": "system", "content": system_prompt},
@@ -71,7 +79,7 @@ def generate_response(context, prompt_analysis, client, system_prompt):
     ]
     
     response = client.chat.completions.create(
-        model="anthropic/claude-3.5-sonnet",
+        model=selected_model,
         messages=messages,
         stream=False # No streaming
     )
