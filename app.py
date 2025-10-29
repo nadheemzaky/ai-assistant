@@ -1,6 +1,5 @@
 from flask import Flask, request, jsonify, render_template,Response,session
 import psycopg2
-import requests
 import json
 import time as time_module
 from datetime import datetime, timedelta, date,time
@@ -11,7 +10,6 @@ from dotenv import load_dotenv
 from psycopg2.extras import RealDictCursor
 import secrets
 from flask_sqlalchemy import SQLAlchemy
-import re
 from openai import OpenAI
 from intent_classifier import classify_intent
 import prompts
@@ -22,6 +20,7 @@ import context_handler
 import database
 from flask_cors import CORS
 from werkzeug.middleware.proxy_fix import ProxyFix
+
 # do not touch this
 load_dotenv()
 context_handler.init_db()
