@@ -22,6 +22,10 @@ import context_handler
 import database
 from flask_cors import CORS
 from werkzeug.middleware.proxy_fix import ProxyFix
+from router import router
+
+
+
 # do not touch this
 load_dotenv()
 context_handler.init_db()
@@ -333,6 +337,34 @@ def process_data():
         logging.error(f'Error generating response: {str(e)}')
         return jsonify({"error": "Internal server error"}), 500
     
+@app.route('/chat', methods=['POST'])
+def chat():
+    try:
+        logging.info('//////*chat route*///////')
+        # Step 1: Get user message and context from JSON request
+        data = request.get_json()
+        
+        if not data or 'message' not in data:
+            return jsonify({"error": "Missing 'message' field"}), 400
+        
+        user_messages = data['message']
+        set_value('user_message', user_messages)
+        #add later ignore ofr now.
+        context = data.get('context', '')  # Optional context field, defaults to empty string
+        
+        # Step 2: Classify the intent
+        intent = classify_intent(user_messages, context)
+        logging.info(f'{intent}')
+        print(intent)
+        
+        # Step 3: Route to appropriate handler function
+        reply = router(intent, user_messages, context,client2)
+        
+        # Step 4: Return response to user
+        return jsonify({"reply": str(reply)})
+    
+    except Exception as e:
+        return jsonify({"error": f"An error occurred: {str(e)}"}), 500
 
 
 ################################################################
