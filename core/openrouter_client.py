@@ -1,4 +1,3 @@
-import requests
 import logging
 
 OPENROUTER_API_URL = "https://openrouter.ai/api/endpoint"  # Replace with actual endpoint

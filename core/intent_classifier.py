@@ -11,7 +11,7 @@ OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")
 
 
 logging.basicConfig(
-    filename='logs/app.log', # Log file path
+    filename='storage/logs/app.log', # Log file path
     level=logging.INFO, # Log messages at INFO level and above
     format='%(asctime)s %(levelname)s: %(message)s', # Log message format including timestamp
     datefmt='%Y-%m-%d %H:%M:%S'

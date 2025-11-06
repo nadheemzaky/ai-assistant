@@ -9,6 +9,7 @@ import database
 import uuid
 import prompts
 import os
+from session_manager import session_manager
 from dotenv import load_dotenv
 load_dotenv()
 
@@ -78,16 +79,6 @@ def data_fetch_route(usermessage,context,client):
             audit.append_conversation_to_excel(usermessage, response, session_id)
         except Exception as e:
             logging.error(f'{e}')
-        
-        # Store conversation context (only if response is valid)
-        if "sorry" not in response.lower():
-            try:
-                #context_handler.store_message(session_id, usermessage, 'user')
-                #context_handler.store_message(session_id, response, 'assistant')
-                logging.info(f'Context stored for session {session_id}')
-            except Exception as e:
-                logging.error(f'Failed to store context: {e}')
-        
         return response
     
     except Exception as e:

@@ -87,3 +87,6 @@ sql_prompt=("""
 
 
 
+fallback_prompt="Tell the user that the data that you have enquired about was not found or " \
+            "the bot was unable to find any data user have to retry or try again later."
+            
