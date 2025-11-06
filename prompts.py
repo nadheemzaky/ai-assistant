@@ -69,11 +69,11 @@ sql_prompt=("""
         COUNT("id") AS total_canceled_orders_in_july
         FROM 
         "updated_table"
-        WHERE "client_name" = 'Dominos Pizza' AND "order_status" = 'Canceled'.
-        4. Can you show me the order with ID 12345? = SELECT * FROM "updated_table" WHERE "id" = 12345 AND "client_name" = 'Dominos Pizza' LIMIT 1;
+        WHERE "client_name" = '{client name}' AND "order_status" = 'Canceled'.
+        4. Can you show me the order with ID 12345? = SELECT * FROM "updated_table" WHERE "id" = 12345 AND "client_name" = '{client name}' LIMIT 1;
         5.my cancelled orders = SELECT COUNT("id") AS total_cancelled_orders
                 FROM "updated_table"
-                WHERE "client_name" = 'Dominos Pizza'
+                WHERE "client_name" = '{client name}'
                 AND "order_status" = 'Canceled'
                 AND "order_created_at" >= '2025-09-01' AND "order_created_at" < '2025-10-01'
                 LIMIT 10;
