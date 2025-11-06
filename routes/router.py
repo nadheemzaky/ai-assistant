@@ -1,12 +1,11 @@
-from routes import general_route, order_tracking_route,data_fetch_route, customer_support_route
-
+from . import general,data_fetch,order_tracking,customer_support
 
 def router(intent, usermessage, context,client):
     routes = {
-        'general': general_route,
-        'data_fetch': data_fetch_route,
-        'order_tracking': order_tracking_route,
-        'customer_support': customer_support_route
+        'general': general,
+        'data_fetch': data_fetch,
+        'order_tracking': order_tracking,
+        'customer_support': customer_support
     }
     route_func = routes.get(intent)
     if route_func:
@@ -17,4 +16,3 @@ def router(intent, usermessage, context,client):
             print(f"Error in '{intent}' route: {e}")
     else:
         print("No valid route found for intent:", intent)
- 

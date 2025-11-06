@@ -10,9 +10,9 @@ STATES = {
 
 from flask import request, jsonify
 import logging
-from session_manager import session_manager
-from .openrouter import call_openrouter #,initialize_client
-import order_api
+from core.session_manager import session_manager
+from core.openrouter_client import call_openrouter
+from core import order_api_client
 
 # Preset responses (no LLM needed for these)
 MESSAGES = {
@@ -117,7 +117,7 @@ def fetch_and_summarize(session_id, client):
         # Step 1: Call your order tracking API
         logging.info(f"Fetching order {collected['order_id']}")
         
-        order_data = order_api.get_order_details(
+        order_data = order_api_client.get_order_details(
             order_id=collected['order_id'],
             phone=collected['phone'],
             email=collected['email']

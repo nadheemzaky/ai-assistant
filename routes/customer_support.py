@@ -1,4 +1,4 @@
-from .openrouter import call_openrouter
+from core.openrouter_client import call_openrouter
 system="hi"
 
 

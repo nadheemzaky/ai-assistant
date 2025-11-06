@@ -1,15 +1,13 @@
 from flask import jsonify
-from routes.openrouter import call_openrouter
+from core.openrouter_client import call_openrouter
 from datetime import datetime
 import logging
 from flask import jsonify
-import audit
-import database
-#import context_handler
+from core import audit_logger
+from core import database
 import uuid
-import prompts
+from core import prompts
 import os
-from session_manager import session_manager
 from dotenv import load_dotenv
 load_dotenv()
 
@@ -41,7 +39,7 @@ def data_fetch_route(usermessage,context,client):
         sql_query=call_openrouter(usermessage,system,sql_context,client,model,max_tokens,temperature)
         logging.info(f'SQL generation success: {sql_query}')
         try:
-            audit.append_sql_to_excel([sql_query])
+            audit_logger.append_sql_to_excel([sql_query])
         except Exception as e:
             logging.error(f'Error saving SQL to Excel: {e}')
         if not sql_query:
@@ -72,15 +70,7 @@ def data_fetch_route(usermessage,context,client):
         current time = {now}
         '''
         response=call_openrouter(usermessage,system2,summary_context,client,model,max_tokens,temperature)
-        logging.info(f'{response}')
-        
-        # Save conversation to Excel
-        try:
-            audit.append_conversation_to_excel(usermessage, response, session_id)
-        except Exception as e:
-            logging.error(f'{e}')
-        return response
-    
+        logging.info(f'{response}')    
     except Exception as e:
         logging.error(f'Error generating response: {str(e)}')
         return jsonify({"error": "Internal server error"}), 500

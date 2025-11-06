@@ -25,7 +25,7 @@ from core import audit_logger
 from core.session_manager import session_manager
 from core.intent_classifier import classify_intent
 from core.audit_logger import append_conversation_async
-
+from routes import router
 #def dirs
 load_dotenv(dotenv_path=os.path.join(os.path.dirname(__file__), '.env'))
 session_id = session_manager.create_session('MC DONALDS')
@@ -150,26 +150,23 @@ def chat():
         intent = classify_intent(user_messages, context)
         print(intent)
         
-        reply=None
-        #reply = router(intent, user_messages, context,client2)
+        reply = router(intent, user_messages, context,client2)
         if reply is None:
-            reply=call_openrouter(
-            user_messages,
-            prompts.fallback_prompt,
-            context,
-            client2,
-            model="openai/gpt-3.5-turbo",
-            max_tokens=300,
-            temperature=1.0
-            )
+            reply=call_openrouter(user_messages,prompts.fallback_prompt,context,client2)
         session_manager.add_to_history(session_id, 'user', user_messages)
         session_manager.add_to_history(session_id, 'assistant', reply)
         append_conversation_async(user_messages, reply, session_id)
         
-        return jsonify({"reply": str(reply)})
+        state=1
+        return jsonify(
+            {
+            "reply": str(reply),
+            "state":state,
+            "session_id":session_id
+            }
+        )
     except Exception as e:
         return jsonify({"error": f"An error occurred: {str(e)}"}), 500
-
 
 
 @app.route('/')

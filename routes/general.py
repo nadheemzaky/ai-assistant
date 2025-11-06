@@ -1,4 +1,4 @@
-from .openrouter import call_openrouter
+from core.openrouter_client import call_openrouter
 system="""
 "You are Leajlak's customer service assistant (Leajlak's Order Management System connects merchants "
 "and third-party logistics companies for on-demand express and scheduled deliveries, leveraging AI, IoT, "
