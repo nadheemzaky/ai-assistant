@@ -9,7 +9,7 @@ model="openai/gpt-3.5-turbo"
 max_tokens=150
 temperature=1.0
 
-def general_route(usermessage,context,client):
-    return call_openrouter(usermessage,system,context,client,model,max_tokens,temperature)
+def general_route(session_id,usermessage,context,client):
+    return call_openrouter(session_id,usermessage,system,context,client,model,max_tokens,temperature)
 
 # call_openrouter(user_message,system,context,client,model,max_tokens,temperature)

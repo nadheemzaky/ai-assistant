@@ -1,21 +1,14 @@
 import requests
-import logging
 import os
 from dotenv import load_dotenv
 from openai import OpenAI
-
+import logging
 
 load_dotenv()
 OPENROUTER_API_URL = "https://openrouter.ai/api/v1/chat/completions"
 OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")
 
 
-logging.basicConfig(
-    filename='storage/logs/app.log', # Log file path
-    level=logging.INFO, # Log messages at INFO level and above
-    format='%(asctime)s %(levelname)s: %(message)s', # Log message format including timestamp
-    datefmt='%Y-%m-%d %H:%M:%S'
-)
 def classify_intent(message, context):
     system_prompt=("return 'data_fetch' only. " )
     

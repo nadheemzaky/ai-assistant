@@ -1,10 +1,10 @@
 
-import logging
 import psycopg2
 from datetime import datetime, timedelta, date,time
 from decimal import Decimal
 import json
 from datetime import datetime
+import logging
 
 class SafeJSONEncoder(json.JSONEncoder):
     """Custom JSON encoder for PostgreSQL data types"""

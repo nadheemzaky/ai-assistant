@@ -8,7 +8,9 @@ from core import database
 import uuid
 from core import prompts
 import os
+from core.session_manager import session_manager
 from dotenv import load_dotenv
+
 load_dotenv()
 
 model="openai/gpt-3.5-turbo"
@@ -25,7 +27,7 @@ name="MC DONALDS"
 DB_URL = os.getenv('DB_URL')
 
 
-def data_fetch_route(usermessage,context,client):
+def data_fetch_route(session_id,usermessage,context,client):
 
 
 #/////Generate SQL query//////
@@ -39,7 +41,8 @@ def data_fetch_route(usermessage,context,client):
         sql_query=call_openrouter(usermessage,system,sql_context,client,model,max_tokens,temperature)
         logging.info(f'SQL generation success: {sql_query}')
         try:
-            audit_logger.append_sql_to_excel([sql_query])
+            audit_logger.append_sql_async([sql_query])
+            session_manager.update_sql(session_id,sql_query)
         except Exception as e:
             logging.error(f'Error saving SQL to Excel: {e}')
         if not sql_query:
@@ -51,16 +54,17 @@ def data_fetch_route(usermessage,context,client):
     
 #//////Database Comms////////
     db_data_json, success = database.execute_query_and_get_json(DB_URL, sql_query)
-    if success and db_data_json:
-        try:
-            session_id = str(uuid.uuid4())
-            #context_handler.store_data(session_id, db_data_json)
+    if success:
+        if not db_data_json or db_data_json.strip() == "[]":
+            response = call_openrouter(usermessage, prompts.nodata_prompt, context, client)
+            logging.warning('Query executed successfully but returned no results')
+            return response
+        else:
+            session_manager.update_database(session_id, db_data_json)
             logging.info('Database query executed successfully')
-        except Exception as e:
-            logging.error(f'Error storing data for followup: {str(e)}')
     else:
-        logging.error('Database query execution failure')
-        db_data_json = None  # Ensure it's None for response generation
+        logging.error('Database query execution failed')
+        db_data_json = 'Database execution error.'  # Ensure it's None for response generation
 
 #//////generate response///////
     try:
@@ -74,4 +78,6 @@ def data_fetch_route(usermessage,context,client):
     except Exception as e:
         logging.error(f'Error generating response: {str(e)}')
         return jsonify({"error": "Internal server error"}), 500
+    
+    return response
 

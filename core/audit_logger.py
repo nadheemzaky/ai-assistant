@@ -1,5 +1,4 @@
 #move to audit
-import logging
 import time as time_module
 import pandas as pd 
 import os
@@ -10,10 +9,10 @@ import json
 import sqlite3
 from flask import jsonify
 import threading
-
+import logging
 from datetime import datetime
 
-def append_sql_to_excel(sql, filename='data/sql.xlsx'):
+def append_sql_to_excel(sql, filename='storage/data/sql.xlsx'):
     if os.path.exists(filename):
         existing_df = pd.read_excel(filename)
         new_df = pd.DataFrame({'sql': sql})
@@ -66,6 +65,14 @@ def append_conversation_async(user_message, bot_response, session_id):
     thread = threading.Thread(
         target=append_conversation_to_excel,
         args=(user_message, bot_response, session_id),
+        daemon=True  # ensures thread won't block shutdown
+    )
+    thread.start()
+
+def append_sql_async(sql):
+    thread = threading.Thread(
+        target=append_sql_to_excel,
+        args=(sql,),
         daemon=True  # ensures thread won't block shutdown
     )
     thread.start()

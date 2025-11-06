@@ -1,21 +1,26 @@
 from flask import Flask, request, jsonify, render_template,Response,session
 import psycopg2
-import requests
 import json
-import time as time_module
 from datetime import datetime, timedelta, date,time
 from decimal import Decimal
-import os
-import logging
 from dotenv import load_dotenv
 from psycopg2.extras import RealDictCursor
 import secrets
-from flask_sqlalchemy import SQLAlchemy
-import re
 from openai import OpenAI
 from flask_cors import CORS
 from werkzeug.middleware.proxy_fix import ProxyFix
-import uuid
+import traceback
+
+#log
+import logging
+import os
+os.makedirs('storage/logs', exist_ok=True)
+logging.basicConfig(
+    filename='storage/logs/app.log',
+    level=logging.INFO,
+    format='%(asctime)s %(levelname)s: %(message)s',
+    datefmt='%Y-%m-%d %H:%M:%S'
+)
 
 #sys
 from core import prompts
@@ -25,11 +30,11 @@ from core import audit_logger
 from core.session_manager import session_manager
 from core.intent_classifier import classify_intent
 from core.audit_logger import append_conversation_async
-from routes import router
+from routes.router import router
+
 #def dirs
 load_dotenv(dotenv_path=os.path.join(os.path.dirname(__file__), '.env'))
 session_id = session_manager.create_session('MC DONALDS')
-
 
 app = Flask(__name__)
 CORS(app)
@@ -45,12 +50,6 @@ client2 = OpenAI(
 DB_URL = os.getenv('DB_URL')
 
 
-logging.basicConfig(
-    filename='logs/app.log',          # Log file path
-    level=logging.INFO,          # Log messages at INFO level and above
-    format='%(asctime)s %(levelname)s: %(message)s',  # Log message format including timestamp
-    datefmt='%Y-%m-%d %H:%M:%S'
-)
 class SafeJSONEncoder(json.JSONEncoder):
     """Custom JSON encoder for PostgreSQL data types"""
     def default(self, obj):
@@ -84,9 +83,9 @@ def get_username_by_user_id(mobile):
 
 
 
+logging.info('success')
 
-
-'''@app.route('/number', methods=['POST'])
+'''@app.route('/number', methods=['POST'])`
 def number():
     try:
         SESSION_ID = str(uuid.uuid4())
@@ -135,9 +134,9 @@ def names_route():
 # Get the last name safely
     name = get_value('name')
     return jsonify({"name": name})'''
-
 @app.route('/chat', methods=['POST'])
 def chat():
+
     try:
         logging.info(f'//////*chat route with session id={session_id}*///////')
         data = request.get_json()
@@ -150,7 +149,7 @@ def chat():
         intent = classify_intent(user_messages, context)
         print(intent)
         
-        reply = router(intent, user_messages, context,client2)
+        reply = router(session_id,intent, user_messages, context,client2)
         if reply is None:
             reply=call_openrouter(user_messages,prompts.fallback_prompt,context,client2)
         session_manager.add_to_history(session_id, 'user', user_messages)
@@ -166,6 +165,7 @@ def chat():
             }
         )
     except Exception as e:
+        logging.error(traceback.format_exc())
         return jsonify({"error": f"An error occurred: {str(e)}"}), 500
 
 

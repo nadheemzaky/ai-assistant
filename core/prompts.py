@@ -50,12 +50,12 @@ sql_prompt=("""
         - Other: "customer_number","customer_name","client_id","captain_name","shop_to_delivery_km","cancellation_reason"
 
         RULES:
-        1. ALWAYS include: WHERE "client_name" = '{client_name}'
+        1. ALWAYS include: WHERE "client_name" = 'MC DONALDS'
         2.     
         3. Use exact column names with double quotes
         4. Output ONLY the SQL query, no markdown, no explanations
         5. For time filters, use >= and explicit timestamps
-        6. If user provides Order ID, use: WHERE "id" = {id} AND "client_name" = '{client_name}'
+        6. If user provides Order ID, use: WHERE "id" = {id} AND "client_name" = 'MC DONALDS'
         7. For latest orders, use: ORDER BY "order_created_at" DESC
         8.if the query asks for single order data then set limit to 1(eg: last order,latest order,final order)
         9. if the user do not mention a time period or date eg: 'orders returned in septmeber' then provide "count" of the answer.
@@ -90,3 +90,5 @@ sql_prompt=("""
 fallback_prompt="Tell the user that the data that you have enquired about was not found or " \
             "the bot was unable to find any data user have to retry or try again later."
             
+
+nodata_prompt= "tell the user that the data user was trying to find was not found in the database but to try again with a different request."

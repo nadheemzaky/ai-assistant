@@ -5,7 +5,7 @@ from datetime import datetime
 from contextlib import contextmanager
 
 class SessionManager:    
-    def __init__(self, db_path='sessions.db'):
+    def __init__(self, db_path='storage/sessions.db'):
         self.db_path = db_path
         self.create_tables()
     
@@ -45,6 +45,17 @@ class SessionManager:
                     session_id TEXT NOT NULL,
                     role TEXT NOT NULL,  -- 'user' or 'assistant'
                     message TEXT NOT NULL,
+                    timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                    FOREIGN KEY (session_id) REFERENCES sessions(session_id)
+                )
+            ''')
+            #sql query ssaving table - save current sql query for context.
+            cursor.execute('''
+                CREATE TABLE IF NOT EXISTS sql_query (
+                    id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    session_id TEXT NOT NULL,
+                    sql_query TEXT NOT NULL,
+                    database TEXT NOT NULL,
                     timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
                     FOREIGN KEY (session_id) REFERENCES sessions(session_id)
                 )
@@ -101,6 +112,27 @@ class SessionManager:
                 SET state = ?, updated_at = CURRENT_TIMESTAMP
                 WHERE session_id = ?
             ''', (new_state, session_id))
+
+
+# when the sql is generATED will update to this for context
+    def update_sql(self, session_id, sql_query):
+        with self.get_db_connection() as conn:
+            cursor = conn.cursor()
+            cursor.execute('''
+                UPDATE sql_query
+                SET sql_query = ?
+                WHERE session_id = ?
+            ''', (sql_query, session_id))
+
+# the data that is accessed using the sql query goes inside
+    def update_database(self, session_id, data):
+        with self.get_db_connection() as conn:
+            cursor = conn.cursor()
+            cursor.execute('''
+                UPDATE sql_query
+                SET database = ?
+                WHERE session_id = ?
+            ''', (data, session_id))
     
     def store_data(self, session_id, key, value):
         session = self.get_session(session_id)
