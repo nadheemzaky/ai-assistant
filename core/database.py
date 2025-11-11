@@ -18,15 +18,19 @@ class SafeJSONEncoder(json.JSONEncoder):
         return super().default(obj)
 
 def execute_query_and_get_json(db_url, sql_query):
-
     try:
-        with psycopg2.connect(db_url) as conn:
+        # If db_url is a dict:
+        if isinstance(db_url, dict):
+            conn = psycopg2.connect(**db_url)
+        else:
+            conn = psycopg2.connect(db_url)
+
+        with conn:
             with conn.cursor() as cur:
                 cur.execute(sql_query)
                 rows = cur.fetchall()
                 colnames = [desc[0] for desc in cur.description]
-                
-                # Convert rows to serializable format
+
                 list_of_dicts = []
                 for row in rows:
                     row_dict = {}
@@ -40,18 +44,14 @@ def execute_query_and_get_json(db_url, sql_query):
                         else:
                             row_dict[col] = val
                     list_of_dicts.append(row_dict)
-                
-                try:
-                    db_data_json = json.dumps(list_of_dicts, indent=2, cls=SafeJSONEncoder)
-                    logging.info(f'Database fetching successful: {str(db_data_json)}')
-                    return db_data_json, True
-                except Exception as json_error:
-                    logging.error(f'JSON serialization error: {str(json_error)}')
-                    return None, False
-                    
+
+                db_data_json = json.dumps(list_of_dicts, indent=2, cls=SafeJSONEncoder)
+                logging.info("Database fetching successful")
+                return db_data_json, True
+
     except psycopg2.Error as db_error:
-        logging.error(f'Database error: {str(db_error)}')
+        logging.error(f'Database error: {db_error}')
         return None, False
     except Exception as general_error:
-        logging.error(f'General error in query execution: {str(general_error)}')
+        logging.error(f'General error in query execution: {general_error}')
         return None, False

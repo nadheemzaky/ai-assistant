@@ -10,9 +10,9 @@ OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")
 
 
 def classify_intent(message, context):
-    system_prompt=("return 'data_fetch' only. " )
+    #system_prompt=("return 'data_fetch' only. " )
     
-    '''    system_prompt = (
+    system_prompt = (
             "You are an intent classifier for Leajlak's chatbot. "
             "Classify the user's latest message into one of four categories:"
             "1. 'general' → Use this if:"
@@ -33,7 +33,7 @@ def classify_intent(message, context):
             "- Always check the provided context of the conversation. If the latest message is vague but relates to earlier data (like follow-ups), classify it accordingly."
             "- Return only one of 'general', 'data_fetch', 'order_tracking', or 'customer_support'. No explanations, no extra words."
         )
-'''
+
     payload = {
         "model": "openai/gpt-3.5-turbo",  # or your preferred model supported by OpenRouter
         "messages": [

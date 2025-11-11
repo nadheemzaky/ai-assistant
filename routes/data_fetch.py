@@ -14,7 +14,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 model="openai/gpt-3.5-turbo"
-max_tokens=150
+max_tokens=300
 temperature=1.0
 
 #sql params
@@ -38,7 +38,7 @@ def data_fetch_route(session_id,usermessage,context,client):
     context: {context}
     '''
     try:
-        sql_query=call_openrouter(usermessage,system,sql_context,client,model,max_tokens,temperature)
+        sql_query=call_openrouter(session_id,usermessage,system,sql_context,client,model,max_tokens,temperature)["reply"]
         logging.info(f'SQL generation success: {sql_query}')
         try:
             audit_logger.append_sql_async([sql_query])
@@ -51,12 +51,12 @@ def data_fetch_route(session_id,usermessage,context,client):
     except Exception as e:
         logging.error(f'Error generating SQL: {e}')
         return jsonify({"reply": "Failed to generate query"}), 500
-    
+
 #//////Database Comms////////
     db_data_json, success = database.execute_query_and_get_json(DB_URL, sql_query)
     if success:
         if not db_data_json or db_data_json.strip() == "[]":
-            response = call_openrouter(usermessage, prompts.nodata_prompt, context, client)
+            response = call_openrouter(session_id,usermessage, prompts.nodata_prompt, context, client)
             logging.warning('Query executed successfully but returned no results')
             return response
         else:
@@ -73,7 +73,7 @@ def data_fetch_route(session_id,usermessage,context,client):
         the sql query that is generated right now to fetch data from database = {sql_query}.
         current time = {now}
         '''
-        response=call_openrouter(usermessage,system2,summary_context,client,model,max_tokens,temperature)
+        response=call_openrouter(session_id,usermessage,system2,summary_context,client,model,max_tokens,temperature)
         logging.info(f'{response}')    
     except Exception as e:
         logging.error(f'Error generating response: {str(e)}')

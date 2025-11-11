@@ -149,9 +149,9 @@ def chat():
         intent = classify_intent(user_messages, context)
         print(intent)
         
-        reply = router(session_id,intent, user_messages, context,client2)
+        reply = router(session_id,intent, user_messages, context,client2)["reply"]
         if reply is None:
-            reply=call_openrouter(user_messages,prompts.fallback_prompt,context,client2)
+            reply=call_openrouter(session_id,user_messages,prompts.fallback_prompt,context,client2)
         session_manager.add_to_history(session_id, 'user', user_messages)
         session_manager.add_to_history(session_id, 'assistant', reply)
         append_conversation_async(user_messages, reply, session_id)
