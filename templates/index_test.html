@@ -3,6 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,
+        <svg xmlns='http://www.w3.org/2000/svg' width='64' height='64'>
+        <text x='0' y='48' font-size='48'>❄️</text>
+        </svg>">
     <title>LEAJLAK Chatbot</title>
     <style>
         * {
@@ -368,7 +372,7 @@
             if (quickReplies && quickReplies.length > 0) {
                 const quickRepliesDiv = document.createElement('div');
                 quickRepliesDiv.className = 'quick-replies';
-                
+
                 quickReplies.forEach(reply => {
                     const button = document.createElement('button');
                     button.className = 'quick-reply-btn';

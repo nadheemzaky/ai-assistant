@@ -10,18 +10,20 @@ OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")
 
 
 def classify_intent(message, context):
-    #system_prompt=("return 'data_fetch' only. " )
+    system_prompt=("return 'order_tracking' only. " )
     
-    system_prompt = (
+    '''system_prompt = (
             "You are an intent classifier for Leajlak's chatbot. "
             "Classify the user's latest message into one of four categories:"
             "1. 'general' → Use this if:"
             "   - The message is a greeting (e.g., hello, hi, good morning)."
             "   - The message is asking about Leajlak or its services in general (e.g., what is Leajlak, how does Leajlak work)."
             "   - If the user asks: 'order status' or 'what is the order status' without specifics."
+            "   - If the user asks a question to clarify the answer provided by the chatbot."
             "2. 'data_fetch' → Use this if:"
             "   - The message asks about order, shipment, delivery, tracking, logistics, or anything requiring database information."
             "   - The message contains numeric IDs (like a 7-digit number such as 1823361)."
+            "   - If the user has provided the details that was first missing from the context about order id."
             "   - The message is a follow-up question (e.g., 'who?', 'where?', 'when?', 'what about that order?') that depends on previous context."
             "3. 'order_tracking' → Use this if:"
             "   - The message specifically requests real-time order tracking updates (e.g., 'track my order', 'where is my order now', 'show live tracking')."
@@ -32,7 +34,7 @@ def classify_intent(message, context):
             "Instructions:"
             "- Always check the provided context of the conversation. If the latest message is vague but relates to earlier data (like follow-ups), classify it accordingly."
             "- Return only one of 'general', 'data_fetch', 'order_tracking', or 'customer_support'. No explanations, no extra words."
-        )
+        )'''
 
     payload = {
         "model": "openai/gpt-3.5-turbo",  # or your preferred model supported by OpenRouter

@@ -27,7 +27,7 @@ name="MC DONALDS"
 DB_URL = os.getenv('DB_URL')
 
 
-def data_fetch_route(session_id,usermessage,context,client):
+def data_fetch_route(session_id,usermessage,context):
 
 
 #/////Generate SQL query//////
@@ -38,7 +38,7 @@ def data_fetch_route(session_id,usermessage,context,client):
     context: {context}
     '''
     try:
-        sql_query=call_openrouter(session_id,usermessage,system,sql_context,client,model,max_tokens,temperature)["reply"]
+        sql_query=call_openrouter(session_id,usermessage,system,sql_context,model,max_tokens,temperature)["reply"]
         logging.info(f'SQL generation success: {sql_query}')
         try:
             audit_logger.append_sql_async([sql_query])
@@ -56,7 +56,7 @@ def data_fetch_route(session_id,usermessage,context,client):
     db_data_json, success = database.execute_query_and_get_json(DB_URL, sql_query)
     if success:
         if not db_data_json or db_data_json.strip() == "[]":
-            response = call_openrouter(session_id,usermessage, prompts.nodata_prompt, context, client)
+            response = call_openrouter(session_id,usermessage, prompts.nodata_prompt, context)
             logging.warning('Query executed successfully but returned no results')
             return response
         else:
@@ -73,7 +73,7 @@ def data_fetch_route(session_id,usermessage,context,client):
         the sql query that is generated right now to fetch data from database = {sql_query}.
         current time = {now}
         '''
-        response=call_openrouter(session_id,usermessage,system2,summary_context,client,model,max_tokens,temperature)
+        response=call_openrouter(session_id,usermessage,system2,summary_context,model,max_tokens,temperature)
         logging.info(f'{response}')    
     except Exception as e:
         logging.error(f'Error generating response: {str(e)}')

@@ -32,7 +32,7 @@ class SessionManager:
                     session_id TEXT PRIMARY KEY,
                     user_id TEXT NOT NULL,
                     state TEXT DEFAULT 'INITIAL',
-                    collected_data TEXT,  -- JSON string
+                    orderid TEXT,  -- JSON string
                     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
                     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
                 )
@@ -75,7 +75,7 @@ class SessionManager:
         with self.get_db_connection() as conn:
             cursor = conn.cursor()
             cursor.execute('''
-                INSERT INTO sessions (session_id, user_id, state, collected_data)
+                INSERT INTO sessions (session_id, user_id, state, orderid)
                 VALUES (?, ?, ?, ?)
             ''', (session_id, user_id, 'INITIAL', json.dumps({})))
         
@@ -85,7 +85,7 @@ class SessionManager:
         with self.get_db_connection() as conn:
             cursor = conn.cursor()
             cursor.execute('''
-                SELECT session_id, user_id, state, collected_data, 
+                SELECT session_id, user_id, state, orderid, 
                        created_at, updated_at
                 FROM sessions
                 WHERE session_id = ?
@@ -98,7 +98,7 @@ class SessionManager:
                     'session_id': row['session_id'],
                     'user_id': row['user_id'],
                     'state': row['state'],
-                    'collected_data': json.loads(row['collected_data'] or '{}'),
+                    'orderid': row['orderid'],
                     'created_at': row['created_at'],
                     'updated_at': row['updated_at']
                 }
@@ -112,6 +112,15 @@ class SessionManager:
                 SET state = ?, updated_at = CURRENT_TIMESTAMP
                 WHERE session_id = ?
             ''', (new_state, session_id))
+        
+    def update_orderid(self, session_id, orderid):
+        with self.get_db_connection() as conn:
+            cursor = conn.cursor()
+            cursor.execute('''
+                UPDATE sessions
+                SET orderid = ?, updated_at = CURRENT_TIMESTAMP
+                WHERE session_id = ?
+            ''', (orderid, session_id))
 
 
 # when the sql is generATED will update to this for context
@@ -182,7 +191,7 @@ class SessionManager:
             cursor.execute('''
                 UPDATE sessions
                 SET state = 'INITIAL', 
-                    collected_data = ?,
+                    orderid = ?,
                     updated_at = CURRENT_TIMESTAMP
                 WHERE session_id = ?
             ''', (json.dumps({}), session_id))
@@ -244,4 +253,4 @@ class SessionManager:
             return deleted
 
 # Global session manager instance
-session_manager = SessionManager(db_path='sessions.db')
+session_manager = SessionManager(db_path='storage/sessions.db')

@@ -1,8 +1,19 @@
 import logging
+from openai import OpenAI
+import os
+from dotenv import load_dotenv
 
-def call_openrouter(session_id,user_message,system,context, client,model="openai/gpt-3.5-turbo",max_tokens=300,temperature=1.0):
+# Load .env file from the project root
+load_dotenv()
+
+client2 = OpenAI(
+    base_url="https://openrouter.ai/api/v1",
+    api_key=os.getenv("OPENROUTER_API_KEY")
+)
+
+def call_openrouter(session_id,user_message,system,context,model="openai/gpt-3.5-turbo",max_tokens=300,temperature=1.0):
     try:
-        response = client.chat.completions.create(
+        response = client2.chat.completions.create(
             model=model,
             messages=[
                 {"role": "system","content": system},

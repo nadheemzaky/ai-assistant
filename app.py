@@ -31,10 +31,12 @@ from core.session_manager import session_manager
 from core.intent_classifier import classify_intent
 from core.audit_logger import append_conversation_async
 from routes.router import router
+from routes import order_tracking
 
 #def dirs
 load_dotenv(dotenv_path=os.path.join(os.path.dirname(__file__), '.env'))
 session_id = session_manager.create_session('MC DONALDS')
+session_manager.reset_session(session_id)
 
 app = Flask(__name__)
 CORS(app)
@@ -136,8 +138,8 @@ def names_route():
     return jsonify({"name": name})'''
 @app.route('/chat', methods=['POST'])
 def chat():
-
     try:
+        print('//////////////////////////////////////')
         logging.info(f'//////*chat route with session id={session_id}*///////')
         data = request.get_json()
         if not data or 'message' not in data:
@@ -145,18 +147,27 @@ def chat():
         
         user_messages = data['message']
         context = session_manager.get_conversation_history(session_id)
-
+        get_session=session_manager.get_session(session_id)
         intent = classify_intent(user_messages, context)
-        print(intent)
+        state=get_session['state']
+        reply =None
+        try:
+            response = router(session_id,intent, user_messages, context)
+            reply = response["reply"] if isinstance(response, dict) else response
+            if reply is None:
+                response=call_openrouter(session_id,user_messages,prompts.fallback_prompt,context)
+                reply = response["reply"] if isinstance(response, dict) else response
+                return reply
+    
+
+        except Exception as e:
+            logging.error(f'{e}')
         
-        reply = router(session_id,intent, user_messages, context,client2)["reply"]
-        if reply is None:
-            reply=call_openrouter(session_id,user_messages,prompts.fallback_prompt,context,client2)
+
         session_manager.add_to_history(session_id, 'user', user_messages)
         session_manager.add_to_history(session_id, 'assistant', reply)
         append_conversation_async(user_messages, reply, session_id)
         
-        state=1
         return jsonify(
             {
             "reply": str(reply),
