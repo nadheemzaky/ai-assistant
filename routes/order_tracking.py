@@ -1,8 +1,9 @@
-import requests
 from core.openrouter_client import call_openrouter
 import logging
 from core.session_manager import session_manager
-
+import random
+from core.order_track_api_cli import got_order_id
+import re
 
 # Model configuration
 system = """
@@ -18,13 +19,16 @@ CLIENT_ID = "3"
 TRACKING_API_URL = "https://app.leajlak.com/api/orders/tracking/{client_id}/{client-order-id}/show"
 
 def get_order_id(session_id,user_message):
-    context = (
-    "You are an AI assistant that can help users track their orders. "
-    "Politely tell the user that you can check their order status, "
-    "and ask them to share their order ID so you can look it up.")
-    system=' '
+    preset_replies = [
+        "Sure! I can help you track your order. Please share your order ID.",
+        "I'd be happy to check the status for you. Could you provide your order ID?",
+        "I can look up your order details — just send me the order ID.",
+        "Please share your order ID so I can check the status for you.",
+        "Sure! What's your order ID? I'll get the status for you."
+    ]
+
     try:
-        reply=call_openrouter(session_id,user_message,system,context)
+        reply = random.choice(preset_replies)
         try:
             session_manager.update_state(session_id,'verify_order_id')
         except Exception as e:
@@ -32,66 +36,38 @@ def get_order_id(session_id,user_message):
         return reply
     except Exception as e:
         logging.error(f'get order id route error:{e}')
-    
 
-def verify_order_id(session_id,user_message):
-    context='you are an ai assistant and you are helping to track the order of client of leajlak using order id'
+
+def verify_order_id(session_id, user_message):
+    logging.info("Verifying order ID")
+
     try:
-        system='you are an order id extractor who eill extract order id from the given message and then output the order id only in numerical form'
-        context='only output order ID you have extracted eg : "456789" '
-        order_id=call_openrouter(session_id,user_message,system,context)
-        print(order_id)
-        try:
-            user_message1='  '
-            context1='you are an ai assistant who will ask the user who have provided an order id to verify the order id'
-            system1=f'this is the order id={order_id}. ask the user to verify this'
-            response=call_openrouter(session_id,user_message1,context1,system1)
+        # ✔ Regex: extract a clean number with 5 or more digits
+        match = re.search(r"\b\d{5,}\b", user_message)
 
-            session_manager.update_state(session_id,'got_order_id')
-        except Exception as e:
-            logging.info(f'verify order id failed{e}')
+        if not match:
+            # If no valid order ID → use preset retry replies
+            preset_retry_replies = [
+                "It looks like the order ID you provided isn't valid. Please check and share a correct order ID.",
+                "Hmm, that doesn't seem like a valid order ID. Could you enter it again?",
+                "I couldn't verify that order ID. Please make sure it's correct and resend it.",
+                "That order ID didn't match our format. Please provide a valid order ID.",
+                "I wasn't able to find an order with that ID. Could you check and send it again?"
+            ]
+            return random.choice(preset_retry_replies)
+
+        # ✔ Extracted valid order ID
+        order_id = match.group(0)
+        logging.info(f"Valid order ID detected: {order_id}")
+
+        # Continue your existing logic
+        response = got_order_id(session_id, order_id)
+        return response
+
     except Exception as e:
-        logging.error('error')
+        logging.error(f"Error verifying order ID: {e}")
+        return "Something went wrong. Please try again."
 
-    return response
-
-def got_order_id(session_id, order_id, context):
-    try:
-        payload = {
-            "client_id": CLIENT_ID,
-            "order_id": order_id
-        }
-        response = requests.get(TRACKING_API_URL, json=payload)
-        response.raise_for_status()
-
-        api_data = response.json()
-        logs = api_data.get("logs", [])
-        if not logs:
-            return "No tracking data found for this order."
-
-        formatted_logs = "\n".join([
-            f"Status: {log['status']}\nDescription: {log['description']}\nDate: {log['date']} {log['time']}\n"
-            for log in logs
-        ])
-
-        llm_prompt = f"Order ID: {order_id}\nClient ID: {CLIENT_ID}\n\nTracking Data:\n{formatted_logs}\n\nSummarize this tracking history clearly."
-
-        llm_response = call_openrouter(
-            session_id=session_id,
-            usermessage=llm_prompt,
-            system=system,
-            context=context,
-            model=model,
-            max_tokens=max_tokens,
-            temperature=temperature
-        )
-        session_manager.update_state(session_id,'INITIAL')
-        return llm_response
-
-    except requests.exceptions.RequestException as e:
-        return f"Error contacting tracking API: {e}"
-    except Exception as e:
-        return f"An unexpected error occurred: {e}"
 
 # 1757797
 # 3

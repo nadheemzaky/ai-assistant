@@ -11,7 +11,7 @@ client2 = OpenAI(
     api_key=os.getenv("OPENROUTER_API_KEY")
 )
 
-def call_openrouter(session_id,user_message,system,context,model="openai/gpt-3.5-turbo",max_tokens=300,temperature=1.0):
+def call_openrouter(session_id,user_message,system=None,context=None,model="openai/gpt-3.5-turbo",max_tokens=300,temperature=1.0):
     try:
         response = client2.chat.completions.create(
             model=model,

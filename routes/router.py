@@ -4,12 +4,11 @@ from . import general, data_fetch, order_tracking, customer_support
 
 def router(session_id, intent, usermessage, context):
     try:
+        get_session = session_manager.get_session(session_id)
+        state = get_session['state']
         # ORDER TRACKING FLOW
-        if intent == 'order_tracking':
-            get_session = session_manager.get_session(session_id)
-            state = get_session['state']
-            print(f'inside router, before checking {state}')
-
+        if intent == 'order_tracking' or state in ['verify_order_id', 'got_order_id']:
+            
             if state == 'INITIAL':
                 reply = order_tracking.get_order_id(session_id, usermessage)
                 return reply
@@ -22,9 +21,6 @@ def router(session_id, intent, usermessage, context):
                 reply = order_tracking.got_order_id(session_id, usermessage, context)
                 return reply
 
-            else:
-                print(f"Unknown state: {state}")
-                return "I'm not sure what step we're on with your order tracking."
 
         # DATA FETCH ROUTE
         elif intent == 'data_fetch':
@@ -35,13 +31,10 @@ def router(session_id, intent, usermessage, context):
             return customer_support.customer_support_route(session_id, usermessage, context)
 
         # GENERAL CHAT ROUTE
-        elif intent == 'general':
+        else:
             return general.general_route(session_id, usermessage, context)
 
-        # UNKNOWN ROUTE
-        else:
-            print(f"No matching intent found: {intent}")
-            return "Sorry, I didn't understand your request."
+
 
     except Exception as e:
         logging.error(f"Router error for intent={intent}: {e}", exc_info=True)

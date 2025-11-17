@@ -139,7 +139,7 @@ def names_route():
 @app.route('/chat', methods=['POST'])
 def chat():
     try:
-        print('//////////////////////////////////////')
+        print('//////////////////started chat route ////////////////////')
         logging.info(f'//////*chat route with session id={session_id}*///////')
         data = request.get_json()
         if not data or 'message' not in data:
@@ -150,6 +150,7 @@ def chat():
         get_session=session_manager.get_session(session_id)
         intent = classify_intent(user_messages, context)
         state=get_session['state']
+        print(state)
         reply =None
         try:
             response = router(session_id,intent, user_messages, context)
