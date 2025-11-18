@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify, render_template,Response,session
+from flask import Flask, request, jsonify, render_template,Response,session,make_response
 import psycopg2
 import json
 from datetime import datetime, timedelta, date,time
@@ -35,8 +35,8 @@ from routes import order_tracking
 
 #def dirs
 load_dotenv(dotenv_path=os.path.join(os.path.dirname(__file__), '.env'))
-session_id = session_manager.create_session('MC DONALDS')
-session_manager.reset_session(session_id)
+'''session_id = session_manager.create_session('MC DONALDS')
+session_manager.reset_session(session_id)'''
 
 app = Flask(__name__)
 CORS(app)
@@ -87,70 +87,39 @@ def get_username_by_user_id(mobile):
 
 logging.info('success')
 
-'''@app.route('/number', methods=['POST'])`
-def number():
-    try:
-        SESSION_ID = str(uuid.uuid4())
-        set_value('session_id', SESSION_ID)
-        logging.info(f"New session started: {SESSION_ID}")
-    except Exception as e:
-        logging.error(f'session initialization error: {str(e)}')
-    data = request.json
-    logging.info(f"Received request data: {data}")
 
-    # Validation
-    if not data or 'mobile' not in data:
-        logging.warning("Missing 'mobile' in request body")
-        return jsonify({"error": "Mobile number required"}), 400
-    
-    mobile = data['mobile']
-    
-    try:
-        # Store mobile (overwrites previous)
-        set_value('mobile', mobile)
-        logging.info(f"Updated mobile: {mobile}")
-        
-        # Get and store name
-        name = get_username_by_user_id(mobile)
-        if not name:
-            logging.warning(f"No user found for mobile: {mobile}")
-            return jsonify({"error": "User not found"}), 404
-            
-        set_value('name', name)
-        logging.info(f"Updated name: {name}")
-        
-        return jsonify({
-            "mobile": get_value('mobile'),
-            "name": get_value('name')
-        })
-        
-    except Exception as e:
-        logging.info(f"Server error: {str(e)}", exc_info=True)
-        return jsonify({"error": "Internal server error"}), 500'''
-'''@app.route('/names',methods=['POST'])
-def names_route():
-    if not get_value('name'):
-        logging.error(f'names endpoint error occured')
-        return jsonify({"error": "No names available"}), 404
-    
-# Get the last name safely
-    name = get_value('name')
-    return jsonify({"name": name})'''
+
 @app.route('/chat', methods=['POST'])
 def chat():
     try:
-        logging.info('//////////////////started chat route ////////////////////')
-        logging.info(f'//////*chat route with session id={session_id}*///////')
+        session_id = request.cookies.get("session_id")
+        get_session=session_manager.get_session(session_id)
+        if get_session is None:
+            try:
+                session_manager.create_session('MC DONALDS',session_id)
+            except Exception as e:
+                logging.error({e})
+
+        new_session = False
+        if not session_id:
+            session_id = session_manager.create_session('MC DONALDS')
+            print(f'new cookie created = {session_id}')
+            logging.info(f'New session created with session_id={session_id}')
+            new_session = True
+
+
         data = request.get_json()
         if not data or 'message' not in data:
             return jsonify({"error": "Missing 'message' field"}), 400
         
         user_messages = data['message']
+ 
         context = session_manager.get_conversation_history(session_id)
         get_session=session_manager.get_session(session_id)
         intent = classify_intent(user_messages, context)
+        print(intent)
         state=get_session['state']
-        logging.info(f'state={state}')
+
         reply =None
         try:
             response = router(session_id,intent, user_messages, context)
@@ -168,19 +137,48 @@ def chat():
         session_manager.add_to_history(session_id, 'user', user_messages)
         session_manager.add_to_history(session_id, 'assistant', reply)
         append_conversation_async(user_messages, reply, session_id)
-        
-        return jsonify(
+
+        response= make_response(jsonify(
             {
             "reply": str(reply),
             "state":state,
             "session_id":session_id
             }
-        )
+        ))
+        get_session = session_manager.get_session(session_id)
+        print(f'final session={get_session}')
+
+        if new_session:
+            response.set_cookie(
+                "session_id",
+                session_id,
+                max_age=60*60*24*30,
+                httponly=True,
+                secure=False,
+                samesite="Lax"
+            )
+        return response
+
     except Exception as e:
         logging.error(traceback.format_exc())
         return jsonify({"error": f"An error occurred: {str(e)}"}), 500
 
+@app.route('/reset-session', methods=['POST'])
+def reset_session_route():
+    try:
+        session_id = request.cookies.get("session_id")
 
+        if not session_id:
+            return jsonify({"error": "No session_id found"}), 400
+
+        # Call your reset function
+        session_manager.reset_session(session_id)
+        print('reset session')
+        
+        return Response(status=204)
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+    
 @app.route('/')
 def home():
     return render_template('index_test.html')

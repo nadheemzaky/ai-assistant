@@ -132,3 +132,568 @@ WHERE "client_name" = 'MC DONALDS' LIMIT 1;
 2025-11-18 11:55:56 INFO: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
 2025-11-18 11:55:56 INFO: 127.0.0.1 - - [18/Nov/2025 11:55:56] "POST /chat HTTP/1.1" 200 -
 2025-11-18 11:55:56 INFO: Conversation appended to storage/data/conversations.xlsx
+2025-11-18 12:44:36 INFO: success
+2025-11-18 12:44:36 INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-11-18 12:44:36 INFO: [33mPress CTRL+C to quit[0m
+2025-11-18 12:44:36 INFO:  * Restarting with stat
+2025-11-18 12:44:39 INFO: success
+2025-11-18 12:44:39 WARNING:  * Debugger is active!
+2025-11-18 12:44:39 INFO:  * Debugger PIN: 161-677-261
+2025-11-18 12:44:42 INFO: 127.0.0.1 - - [18/Nov/2025 12:44:42] "GET / HTTP/1.1" 200 -
+2025-11-18 12:44:44 INFO: //////////////////started chat route ////////////////////
+2025-11-18 12:44:44 INFO: //////*chat route with session id=a52a5025-0af6-4d9f-b35c-290143280d98*///////
+2025-11-18 12:44:46 INFO: intent classified
+2025-11-18 12:44:46 INFO: order_tracking
+2025-11-18 12:44:46 INFO: state=INITIAL
+2025-11-18 12:44:46 INFO: 127.0.0.1 - - [18/Nov/2025 12:44:46] "POST /chat HTTP/1.1" 200 -
+2025-11-18 12:44:46 INFO: Conversation appended to storage/data/conversations.xlsx
+2025-11-18 12:44:51 INFO: //////////////////started chat route ////////////////////
+2025-11-18 12:44:51 INFO: //////*chat route with session id=a52a5025-0af6-4d9f-b35c-290143280d98*///////
+2025-11-18 12:44:52 INFO: intent classified
+2025-11-18 12:44:52 INFO: general
+2025-11-18 12:44:52 INFO: state=verify_order_id
+2025-11-18 12:44:52 INFO: Verifying order ID
+2025-11-18 12:44:52 INFO: 127.0.0.1 - - [18/Nov/2025 12:44:52] "POST /chat HTTP/1.1" 200 -
+2025-11-18 12:44:52 INFO: Conversation appended to storage/data/conversations.xlsx
+2025-11-18 12:44:55 INFO: //////////////////started chat route ////////////////////
+2025-11-18 12:44:55 INFO: //////*chat route with session id=a52a5025-0af6-4d9f-b35c-290143280d98*///////
+2025-11-18 12:44:57 INFO: intent classified
+2025-11-18 12:44:57 INFO: data_fetch
+2025-11-18 12:44:57 INFO: state=verify_order_id
+2025-11-18 12:44:57 INFO: Verifying order ID
+2025-11-18 12:44:57 INFO: Valid order ID detected: 789789
+2025-11-18 12:44:57 INFO: 127.0.0.1 - - [18/Nov/2025 12:44:57] "POST /chat HTTP/1.1" 200 -
+2025-11-18 12:44:57 INFO: Conversation appended to storage/data/conversations.xlsx
+2025-11-18 12:45:03 INFO: //////////////////started chat route ////////////////////
+2025-11-18 12:45:03 INFO: //////*chat route with session id=a52a5025-0af6-4d9f-b35c-290143280d98*///////
+2025-11-18 12:45:04 INFO: intent classified
+2025-11-18 12:45:04 INFO: general
+2025-11-18 12:45:04 INFO: state=verify_order_id
+2025-11-18 12:45:04 INFO: Verifying order ID
+2025-11-18 12:45:04 INFO: 127.0.0.1 - - [18/Nov/2025 12:45:04] "POST /chat HTTP/1.1" 200 -
+2025-11-18 12:45:04 INFO: Conversation appended to storage/data/conversations.xlsx
+2025-11-18 12:45:07 INFO: //////////////////started chat route ////////////////////
+2025-11-18 12:45:07 INFO: //////*chat route with session id=a52a5025-0af6-4d9f-b35c-290143280d98*///////
+2025-11-18 12:45:09 INFO: intent classified
+2025-11-18 12:45:09 INFO: data_fetch
+2025-11-18 12:45:09 INFO: state=verify_order_id
+2025-11-18 12:45:09 INFO: Verifying order ID
+2025-11-18 12:45:09 INFO: Valid order ID detected: 789879
+2025-11-18 12:45:12 INFO: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-18 12:45:13 INFO: 127.0.0.1 - - [18/Nov/2025 12:45:13] "POST /chat HTTP/1.1" 200 -
+2025-11-18 12:45:13 INFO: Conversation appended to storage/data/conversations.xlsx
+2025-11-18 12:45:15 INFO: //////////////////started chat route ////////////////////
+2025-11-18 12:45:15 INFO: //////*chat route with session id=a52a5025-0af6-4d9f-b35c-290143280d98*///////
+2025-11-18 12:45:16 INFO: intent classified
+2025-11-18 12:45:16 INFO: general
+2025-11-18 12:45:16 INFO: state=INITIAL
+2025-11-18 12:45:17 INFO: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-18 12:45:18 INFO: 127.0.0.1 - - [18/Nov/2025 12:45:18] "POST /chat HTTP/1.1" 200 -
+2025-11-18 12:45:18 INFO: Conversation appended to storage/data/conversations.xlsx
+2025-11-18 12:45:21 INFO: 127.0.0.1 - - [18/Nov/2025 12:45:21] "GET / HTTP/1.1" 200 -
+2025-11-18 12:45:23 INFO: //////////////////started chat route ////////////////////
+2025-11-18 12:45:23 INFO: //////*chat route with session id=a52a5025-0af6-4d9f-b35c-290143280d98*///////
+2025-11-18 12:45:25 INFO: intent classified
+2025-11-18 12:45:25 INFO: general
+2025-11-18 12:45:25 INFO: state=INITIAL
+2025-11-18 12:45:26 INFO: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-18 12:45:26 INFO: 127.0.0.1 - - [18/Nov/2025 12:45:26] "POST /chat HTTP/1.1" 200 -
+2025-11-18 12:45:26 INFO: Conversation appended to storage/data/conversations.xlsx
+2025-11-18 12:58:05 INFO:  * Detected change in '/home/nadeem/Desktop/Leajlak/ai-assistant/app.py', reloading
+2025-11-18 12:58:06 INFO:  * Restarting with stat
+2025-11-18 12:58:10 INFO: success
+2025-11-18 12:58:10 WARNING:  * Debugger is active!
+2025-11-18 12:58:10 INFO:  * Debugger PIN: 161-677-261
+2025-11-18 12:58:11 INFO: 127.0.0.1 - - [18/Nov/2025 12:58:11] "GET / HTTP/1.1" 200 -
+2025-11-18 12:58:14 INFO: intent classified
+2025-11-18 12:58:14 INFO: order_tracking
+2025-11-18 12:58:14 ERROR: Traceback (most recent call last):
+  File "/home/nadeem/Desktop/Leajlak/ai-assistant/app.py", line 112, in chat
+    state=get_session['state']
+          ~~~~~~~~~~~^^^^^^^^^
+TypeError: 'NoneType' object is not subscriptable
+
+2025-11-18 12:58:14 INFO: 127.0.0.1 - - [18/Nov/2025 12:58:14] "[35m[1mPOST /chat HTTP/1.1[0m" 500 -
+2025-11-18 13:00:07 INFO:  * Detected change in '/home/nadeem/Desktop/Leajlak/ai-assistant/app.py', reloading
+2025-11-18 13:00:08 INFO:  * Restarting with stat
+2025-11-18 13:00:11 INFO: success
+2025-11-18 13:00:11 WARNING:  * Debugger is active!
+2025-11-18 13:00:11 INFO:  * Debugger PIN: 161-677-261
+2025-11-18 13:00:11 INFO: 127.0.0.1 - - [18/Nov/2025 13:00:11] "GET / HTTP/1.1" 200 -
+2025-11-18 13:00:16 INFO: intent classified
+2025-11-18 13:00:16 INFO: order_tracking
+2025-11-18 13:00:16 ERROR: Traceback (most recent call last):
+  File "/home/nadeem/Desktop/Leajlak/ai-assistant/app.py", line 113, in chat
+    state=get_session['state']
+          ~~~~~~~~~~~^^^^^^^^^
+TypeError: 'NoneType' object is not subscriptable
+
+2025-11-18 13:00:16 INFO: 127.0.0.1 - - [18/Nov/2025 13:00:16] "[35m[1mPOST /chat HTTP/1.1[0m" 500 -
+2025-11-18 13:00:38 INFO:  * Detected change in '/home/nadeem/Desktop/Leajlak/ai-assistant/app.py', reloading
+2025-11-18 13:00:38 INFO:  * Restarting with stat
+2025-11-18 13:00:42 INFO: success
+2025-11-18 13:00:42 WARNING:  * Debugger is active!
+2025-11-18 13:00:42 INFO:  * Debugger PIN: 161-677-261
+2025-11-18 13:00:46 INFO: 127.0.0.1 - - [18/Nov/2025 13:00:46] "GET / HTTP/1.1" 200 -
+2025-11-18 13:00:49 INFO: intent classified
+2025-11-18 13:00:49 INFO: general
+2025-11-18 13:00:49 ERROR: Traceback (most recent call last):
+  File "/home/nadeem/Desktop/Leajlak/ai-assistant/app.py", line 114, in chat
+TypeError: 'NoneType' object is not subscriptable
+
+2025-11-18 13:00:49 INFO: 127.0.0.1 - - [18/Nov/2025 13:00:49] "[35m[1mPOST /chat HTTP/1.1[0m" 500 -
+2025-11-18 13:01:11 INFO:  * Detected change in '/home/nadeem/Desktop/Leajlak/ai-assistant/app.py', reloading
+2025-11-18 13:01:11 INFO:  * Restarting with stat
+2025-11-18 13:01:15 INFO: success
+2025-11-18 13:01:15 WARNING:  * Debugger is active!
+2025-11-18 13:01:15 INFO:  * Debugger PIN: 161-677-261
+2025-11-18 13:01:18 INFO: 127.0.0.1 - - [18/Nov/2025 13:01:18] "GET / HTTP/1.1" 200 -
+2025-11-18 13:01:21 INFO: intent classified
+2025-11-18 13:01:21 INFO: order_tracking
+2025-11-18 13:01:21 ERROR: Traceback (most recent call last):
+  File "/home/nadeem/Desktop/Leajlak/ai-assistant/app.py", line 113, in chat
+    state=get_session['state']
+          ~~~~~~~~~~~^^^^^^^^^
+TypeError: 'NoneType' object is not subscriptable
+
+2025-11-18 13:01:21 INFO: 127.0.0.1 - - [18/Nov/2025 13:01:21] "[35m[1mPOST /chat HTTP/1.1[0m" 500 -
+2025-11-18 13:02:01 INFO:  * Detected change in '/home/nadeem/Desktop/Leajlak/ai-assistant/app.py', reloading
+2025-11-18 13:02:02 INFO:  * Restarting with stat
+2025-11-18 13:02:04 INFO: success
+2025-11-18 13:02:04 WARNING:  * Debugger is active!
+2025-11-18 13:02:04 INFO:  * Debugger PIN: 161-677-261
+2025-11-18 13:02:04 INFO: 127.0.0.1 - - [18/Nov/2025 13:02:04] "GET / HTTP/1.1" 200 -
+2025-11-18 13:02:08 INFO: intent classified
+2025-11-18 13:02:08 INFO: order_tracking
+2025-11-18 13:02:08 ERROR: Traceback (most recent call last):
+  File "/home/nadeem/Desktop/Leajlak/ai-assistant/app.py", line 116, in chat
+    state=get_session['state']
+          ~~~~~~~~~~~^^^^^^^^^
+TypeError: 'NoneType' object is not subscriptable
+
+2025-11-18 13:02:08 INFO: 127.0.0.1 - - [18/Nov/2025 13:02:08] "[35m[1mPOST /chat HTTP/1.1[0m" 500 -
+2025-11-18 13:02:49 INFO:  * Detected change in '/home/nadeem/Desktop/Leajlak/ai-assistant/app.py', reloading
+2025-11-18 13:02:50 INFO:  * Restarting with stat
+2025-11-18 13:02:52 INFO: success
+2025-11-18 13:02:52 WARNING:  * Debugger is active!
+2025-11-18 13:02:52 INFO:  * Debugger PIN: 161-677-261
+2025-11-18 13:02:52 INFO: 127.0.0.1 - - [18/Nov/2025 13:02:52] "GET / HTTP/1.1" 200 -
+2025-11-18 13:02:56 INFO: intent classified
+2025-11-18 13:02:56 INFO: order_tracking
+2025-11-18 13:02:56 ERROR: Traceback (most recent call last):
+  File "/home/nadeem/Desktop/Leajlak/ai-assistant/app.py", line 118, in chat
+    state=get_session['state']
+          ~~~~~~~~~~~^^^^^^^^^
+TypeError: 'NoneType' object is not subscriptable
+
+2025-11-18 13:02:56 INFO: 127.0.0.1 - - [18/Nov/2025 13:02:56] "[35m[1mPOST /chat HTTP/1.1[0m" 500 -
+2025-11-18 13:03:23 INFO:  * Detected change in '/home/nadeem/Desktop/Leajlak/ai-assistant/app.py', reloading
+2025-11-18 13:03:24 INFO:  * Restarting with stat
+2025-11-18 13:03:26 INFO: success
+2025-11-18 13:03:26 WARNING:  * Debugger is active!
+2025-11-18 13:03:26 INFO:  * Debugger PIN: 161-677-261
+2025-11-18 13:03:31 INFO: intent classified
+2025-11-18 13:03:31 INFO: order_tracking
+2025-11-18 13:03:31 ERROR: Traceback (most recent call last):
+  File "/home/nadeem/Desktop/Leajlak/ai-assistant/app.py", line 119, in chat
+    state=get_session['state']
+          ~~~~~~~~~~~^^^^^^^^^
+TypeError: 'NoneType' object is not subscriptable
+
+2025-11-18 13:03:31 INFO: 127.0.0.1 - - [18/Nov/2025 13:03:31] "[35m[1mPOST /chat HTTP/1.1[0m" 500 -
+2025-11-18 13:04:27 INFO:  * Detected change in '/home/nadeem/Desktop/Leajlak/ai-assistant/app.py', reloading
+2025-11-18 13:04:27 INFO:  * Restarting with stat
+2025-11-18 13:04:30 INFO: success
+2025-11-18 13:04:30 WARNING:  * Debugger is active!
+2025-11-18 13:04:30 INFO:  * Debugger PIN: 161-677-261
+2025-11-18 13:04:33 INFO: intent classified
+2025-11-18 13:04:33 INFO: order_tracking
+2025-11-18 13:04:33 ERROR: Traceback (most recent call last):
+  File "/home/nadeem/Desktop/Leajlak/ai-assistant/app.py", line 120, in chat
+    state=get_session['state']
+          ~~~~~~~~~~~^^^^^^^^^
+TypeError: 'NoneType' object is not subscriptable
+
+2025-11-18 13:04:33 INFO: 127.0.0.1 - - [18/Nov/2025 13:04:33] "[35m[1mPOST /chat HTTP/1.1[0m" 500 -
+2025-11-18 13:05:12 INFO:  * Detected change in '/home/nadeem/Desktop/Leajlak/ai-assistant/app.py', reloading
+2025-11-18 13:05:13 INFO:  * Restarting with stat
+2025-11-18 13:05:15 INFO: success
+2025-11-18 13:05:15 WARNING:  * Debugger is active!
+2025-11-18 13:05:15 INFO:  * Debugger PIN: 161-677-261
+2025-11-18 13:05:18 INFO: intent classified
+2025-11-18 13:05:18 INFO: order_tracking
+2025-11-18 13:05:18 ERROR: Traceback (most recent call last):
+  File "/home/nadeem/Desktop/Leajlak/ai-assistant/app.py", line 120, in chat
+    state=get_session['state']
+          ~~~~~~~~~~~^^^^^^^^^
+TypeError: 'NoneType' object is not subscriptable
+
+2025-11-18 13:05:18 INFO: 127.0.0.1 - - [18/Nov/2025 13:05:18] "[35m[1mPOST /chat HTTP/1.1[0m" 500 -
+2025-11-18 13:05:31 INFO: 127.0.0.1 - - [18/Nov/2025 13:05:31] "GET / HTTP/1.1" 200 -
+2025-11-18 13:05:34 INFO: intent classified
+2025-11-18 13:05:34 INFO: order_tracking
+2025-11-18 13:05:34 ERROR: Traceback (most recent call last):
+  File "/home/nadeem/Desktop/Leajlak/ai-assistant/app.py", line 120, in chat
+    state=get_session['state']
+          ~~~~~~~~~~~^^^^^^^^^
+TypeError: 'NoneType' object is not subscriptable
+
+2025-11-18 13:05:34 INFO: 127.0.0.1 - - [18/Nov/2025 13:05:34] "[35m[1mPOST /chat HTTP/1.1[0m" 500 -
+2025-11-18 14:12:16 INFO:  * Detected change in '/home/nadeem/Desktop/Leajlak/ai-assistant/app.py', reloading
+2025-11-18 14:12:16 INFO:  * Restarting with stat
+2025-11-18 14:12:18 INFO: success
+2025-11-18 14:12:18 WARNING:  * Debugger is active!
+2025-11-18 14:12:18 INFO:  * Debugger PIN: 161-677-261
+2025-11-18 14:12:40 INFO:  * Detected change in '/home/nadeem/Desktop/Leajlak/ai-assistant/app.py', reloading
+2025-11-18 14:12:40 INFO:  * Restarting with stat
+2025-11-18 14:12:42 INFO: success
+2025-11-18 14:12:42 WARNING:  * Debugger is active!
+2025-11-18 14:12:42 INFO:  * Debugger PIN: 161-677-261
+2025-11-18 14:12:59 INFO:  * Detected change in '/home/nadeem/Desktop/Leajlak/ai-assistant/app.py', reloading
+2025-11-18 14:12:59 INFO:  * Restarting with stat
+2025-11-18 14:13:01 INFO: success
+2025-11-18 14:13:01 WARNING:  * Debugger is active!
+2025-11-18 14:13:01 INFO:  * Debugger PIN: 161-677-261
+2025-11-18 14:13:06 INFO: intent classified
+2025-11-18 14:13:06 INFO: general
+2025-11-18 14:13:06 ERROR: Traceback (most recent call last):
+  File "/home/nadeem/Desktop/Leajlak/ai-assistant/app.py", line 120, in chat
+    state=get_session['state']
+          ~~~~~~~~~~~^^^^^^^^^
+TypeError: 'NoneType' object is not subscriptable
+
+2025-11-18 14:13:06 INFO: 127.0.0.1 - - [18/Nov/2025 14:13:06] "[35m[1mPOST /chat HTTP/1.1[0m" 500 -
+2025-11-18 14:17:10 INFO:  * Detected change in '/home/nadeem/Desktop/Leajlak/ai-assistant/app.py', reloading
+2025-11-18 14:17:10 INFO:  * Restarting with stat
+2025-11-18 14:17:12 INFO: success
+2025-11-18 14:17:12 WARNING:  * Debugger is active!
+2025-11-18 14:17:12 INFO:  * Debugger PIN: 161-677-261
+2025-11-18 14:18:25 INFO:  * Detected change in '/home/nadeem/Desktop/Leajlak/ai-assistant/app.py', reloading
+2025-11-18 14:18:26 INFO:  * Restarting with stat
+2025-11-18 14:18:27 INFO: success
+2025-11-18 14:18:27 WARNING:  * Debugger is active!
+2025-11-18 14:18:27 INFO:  * Debugger PIN: 161-677-261
+2025-11-18 14:25:20 INFO:  * Detected change in '/home/nadeem/Desktop/Leajlak/ai-assistant/app.py', reloading
+2025-11-18 14:25:20 INFO:  * Restarting with stat
+2025-11-18 14:25:22 INFO: success
+2025-11-18 14:25:22 WARNING:  * Debugger is active!
+2025-11-18 14:25:22 INFO:  * Debugger PIN: 161-677-261
+2025-11-18 14:25:27 ERROR: Traceback (most recent call last):
+  File "/home/nadeem/Desktop/Leajlak/ai-assistant/app.py", line 96, in chat
+    session_manager.create_session('MC DONALDS',session_id)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: SessionManager.create_session() takes 2 positional arguments but 3 were given
+
+2025-11-18 14:25:27 INFO: 127.0.0.1 - - [18/Nov/2025 14:25:27] "[35m[1mPOST /chat HTTP/1.1[0m" 500 -
+2025-11-18 14:25:33 INFO:  * Detected change in '/home/nadeem/Desktop/Leajlak/ai-assistant/app.py', reloading
+2025-11-18 14:25:33 INFO:  * Restarting with stat
+2025-11-18 14:25:35 INFO: success
+2025-11-18 14:25:35 WARNING:  * Debugger is active!
+2025-11-18 14:25:35 INFO:  * Debugger PIN: 161-677-261
+2025-11-18 14:26:48 INFO:  * Detected change in '/home/nadeem/Desktop/Leajlak/ai-assistant/app.py', reloading
+2025-11-18 14:26:48 INFO:  * Restarting with stat
+2025-11-18 14:26:50 INFO: success
+2025-11-18 14:26:50 WARNING:  * Debugger is active!
+2025-11-18 14:26:50 INFO:  * Debugger PIN: 161-677-261
+2025-11-18 14:26:52 ERROR: Traceback (most recent call last):
+  File "/home/nadeem/Desktop/Leajlak/ai-assistant/app.py", line 97, in chat
+    session_manager.create_session('MC DONALDS',session_id)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: SessionManager.create_session() takes 2 positional arguments but 3 were given
+
+2025-11-18 14:26:52 INFO: 127.0.0.1 - - [18/Nov/2025 14:26:52] "[35m[1mPOST /chat HTTP/1.1[0m" 500 -
+2025-11-18 14:28:56 INFO:  * Detected change in '/home/nadeem/Desktop/Leajlak/ai-assistant/core/session_manager.py', reloading
+2025-11-18 14:28:57 INFO:  * Restarting with stat
+2025-11-18 14:28:58 INFO: success
+2025-11-18 14:28:58 WARNING:  * Debugger is active!
+2025-11-18 14:28:58 INFO:  * Debugger PIN: 161-677-261
+2025-11-18 14:29:07 INFO:  * Detected change in '/home/nadeem/Desktop/Leajlak/ai-assistant/app.py', reloading
+2025-11-18 14:29:07 INFO:  * Restarting with stat
+2025-11-18 14:29:09 INFO: success
+2025-11-18 14:29:09 WARNING:  * Debugger is active!
+2025-11-18 14:29:09 INFO:  * Debugger PIN: 161-677-261
+2025-11-18 14:29:18 INFO: intent classified
+2025-11-18 14:29:18 INFO: general
+2025-11-18 14:29:20 INFO: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-18 14:29:20 INFO: 127.0.0.1 - - [18/Nov/2025 14:29:20] "POST /chat HTTP/1.1" 200 -
+2025-11-18 14:29:20 INFO: Conversation appended to storage/data/conversations.xlsx
+2025-11-18 14:29:54 ERROR: Traceback (most recent call last):
+  File "/home/nadeem/Desktop/Leajlak/ai-assistant/app.py", line 97, in chat
+    session_manager.create_session('MC DONALDS',session_id)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nadeem/Desktop/Leajlak/ai-assistant/core/session_manager.py", line 77, in create_session
+    cursor.execute('''
+    ~~~~~~~~~~~~~~^^^^
+        INSERT INTO sessions (session_id, user_id, state, orderid)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        VALUES (?, ?, ?, ?)
+        ^^^^^^^^^^^^^^^^^^^
+    ''', (session_id, user_id, 'INITIAL', json.dumps({})))
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.IntegrityError: UNIQUE constraint failed: sessions.session_id
+
+2025-11-18 14:29:54 INFO: 127.0.0.1 - - [18/Nov/2025 14:29:54] "[35m[1mPOST /chat HTTP/1.1[0m" 500 -
+2025-11-18 14:31:09 INFO:  * Detected change in '/home/nadeem/Desktop/Leajlak/ai-assistant/app.py', reloading
+2025-11-18 14:31:09 INFO:  * Restarting with stat
+2025-11-18 14:31:11 INFO: success
+2025-11-18 14:31:11 WARNING:  * Debugger is active!
+2025-11-18 14:31:11 INFO:  * Debugger PIN: 161-677-261
+2025-11-18 14:31:44 INFO: success
+2025-11-18 14:31:44 INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-11-18 14:31:44 INFO: [33mPress CTRL+C to quit[0m
+2025-11-18 14:31:44 INFO:  * Restarting with stat
+2025-11-18 14:31:45 INFO: success
+2025-11-18 14:31:45 WARNING:  * Debugger is active!
+2025-11-18 14:31:45 INFO:  * Debugger PIN: 161-677-261
+2025-11-18 14:31:47 INFO:  * Detected change in '/home/nadeem/Desktop/Leajlak/ai-assistant/app.py', reloading
+2025-11-18 14:31:48 INFO:  * Restarting with stat
+2025-11-18 14:31:49 INFO: success
+2025-11-18 14:31:49 WARNING:  * Debugger is active!
+2025-11-18 14:31:49 INFO:  * Debugger PIN: 161-677-261
+2025-11-18 14:31:54 INFO: 127.0.0.1 - - [18/Nov/2025 14:31:54] "GET / HTTP/1.1" 200 -
+2025-11-18 14:31:56 INFO: intent classified
+2025-11-18 14:31:56 INFO: order_tracking
+2025-11-18 14:31:56 INFO: 127.0.0.1 - - [18/Nov/2025 14:31:56] "POST /chat HTTP/1.1" 200 -
+2025-11-18 14:31:56 INFO: Conversation appended to storage/data/conversations.xlsx
+2025-11-18 14:32:19 INFO: intent classified
+2025-11-18 14:32:19 INFO: data_fetch
+2025-11-18 14:32:21 INFO: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-18 14:32:21 INFO: SQL generation success: SELECT * 
+FROM "updated_table" 
+WHERE "id" = 789879 
+AND "client_name" = 'MC DONALDS'
+LIMIT 1;
+2025-11-18 14:32:23 INFO: Database fetching successful
+2025-11-18 14:32:24 INFO: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-18 14:32:24 WARNING: Query executed successfully but returned no results
+2025-11-18 14:32:24 INFO: 127.0.0.1 - - [18/Nov/2025 14:32:24] "POST /chat HTTP/1.1" 200 -
+2025-11-18 14:32:24 INFO: Conversation appended to storage/data/conversations.xlsx
+2025-11-18 14:33:36 INFO:  * Detected change in '/home/nadeem/Desktop/Leajlak/ai-assistant/routes/router.py', reloading
+2025-11-18 14:33:36 INFO:  * Restarting with stat
+2025-11-18 14:33:38 INFO: success
+2025-11-18 14:33:38 WARNING:  * Debugger is active!
+2025-11-18 14:33:38 INFO:  * Debugger PIN: 161-677-261
+2025-11-18 14:33:41 INFO:  * Detected change in '/home/nadeem/Desktop/Leajlak/ai-assistant/routes/router.py', reloading
+2025-11-18 14:33:42 INFO:  * Restarting with stat
+2025-11-18 14:33:43 INFO: success
+2025-11-18 14:33:43 WARNING:  * Debugger is active!
+2025-11-18 14:33:43 INFO:  * Debugger PIN: 161-677-261
+2025-11-18 14:33:51 INFO: intent classified
+2025-11-18 14:33:51 INFO: order_tracking
+2025-11-18 14:33:51 INFO: 127.0.0.1 - - [18/Nov/2025 14:33:51] "POST /chat HTTP/1.1" 200 -
+2025-11-18 14:33:51 INFO: Conversation appended to storage/data/conversations.xlsx
+2025-11-18 14:34:51 INFO:  * Detected change in '/home/nadeem/Desktop/Leajlak/ai-assistant/app.py', reloading
+2025-11-18 14:34:51 INFO:  * Restarting with stat
+2025-11-18 14:34:53 INFO: success
+2025-11-18 14:34:53 WARNING:  * Debugger is active!
+2025-11-18 14:34:53 INFO:  * Debugger PIN: 161-677-261
+2025-11-18 14:35:03 INFO: intent classified
+2025-11-18 14:35:03 INFO: data_fetch
+2025-11-18 14:35:05 INFO: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-18 14:35:05 INFO: SQL generation success: SELECT * FROM "updated_table"
+WHERE "id" = 789879
+AND "client_name" = 'MC DONALDS'
+LIMIT 1;
+2025-11-18 14:35:06 INFO: Database fetching successful
+2025-11-18 14:35:07 INFO: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-18 14:35:07 WARNING: Query executed successfully but returned no results
+2025-11-18 14:35:07 INFO: 127.0.0.1 - - [18/Nov/2025 14:35:07] "POST /chat HTTP/1.1" 200 -
+2025-11-18 14:35:07 INFO: Conversation appended to storage/data/conversations.xlsx
+2025-11-18 14:35:47 INFO:  * Detected change in '/home/nadeem/Desktop/Leajlak/ai-assistant/app.py', reloading
+2025-11-18 14:35:48 INFO:  * Restarting with stat
+2025-11-18 14:35:50 INFO: success
+2025-11-18 14:35:50 WARNING:  * Debugger is active!
+2025-11-18 14:35:50 INFO:  * Debugger PIN: 161-677-261
+2025-11-18 14:37:40 INFO:  * Detected change in '/home/nadeem/Desktop/Leajlak/ai-assistant/app.py', reloading
+2025-11-18 14:37:41 INFO:  * Restarting with stat
+2025-11-18 14:37:42 INFO: success
+2025-11-18 14:37:43 WARNING:  * Debugger is active!
+2025-11-18 14:37:43 INFO:  * Debugger PIN: 161-677-261
+2025-11-18 14:37:43 INFO: 127.0.0.1 - - [18/Nov/2025 14:37:43] "GET / HTTP/1.1" 200 -
+2025-11-18 14:37:46 INFO: intent classified
+2025-11-18 14:37:46 INFO: order_tracking
+2025-11-18 14:37:46 INFO: 127.0.0.1 - - [18/Nov/2025 14:37:46] "POST /chat HTTP/1.1" 200 -
+2025-11-18 14:37:47 INFO: Conversation appended to storage/data/conversations.xlsx
+2025-11-18 14:37:55 INFO: intent classified
+2025-11-18 14:37:55 INFO: data_fetch
+2025-11-18 14:37:55 INFO: Verifying order ID
+2025-11-18 14:37:55 INFO: Valid order ID detected: 789879
+2025-11-18 14:37:57 INFO: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-18 14:37:58 INFO: 127.0.0.1 - - [18/Nov/2025 14:37:58] "POST /chat HTTP/1.1" 200 -
+2025-11-18 14:37:58 INFO: Conversation appended to storage/data/conversations.xlsx
+2025-11-18 14:38:10 INFO: intent classified
+2025-11-18 14:38:10 INFO: order_tracking
+2025-11-18 14:38:10 INFO: 127.0.0.1 - - [18/Nov/2025 14:38:10] "POST /chat HTTP/1.1" 200 -
+2025-11-18 14:38:10 INFO: Conversation appended to storage/data/conversations.xlsx
+2025-11-18 14:38:18 INFO: intent classified
+2025-11-18 14:38:18 INFO: general
+2025-11-18 14:38:18 INFO: Verifying order ID
+2025-11-18 14:38:18 INFO: 127.0.0.1 - - [18/Nov/2025 14:38:18] "POST /chat HTTP/1.1" 200 -
+2025-11-18 14:38:18 INFO: Conversation appended to storage/data/conversations.xlsx
+2025-11-18 14:38:22 INFO: intent classified
+2025-11-18 14:38:22 INFO: general
+2025-11-18 14:38:22 INFO: Verifying order ID
+2025-11-18 14:38:22 INFO: 127.0.0.1 - - [18/Nov/2025 14:38:22] "POST /chat HTTP/1.1" 200 -
+2025-11-18 14:38:22 INFO: Conversation appended to storage/data/conversations.xlsx
+2025-11-18 14:38:27 INFO: intent classified
+2025-11-18 14:38:27 INFO: data_fetch
+2025-11-18 14:38:27 INFO: Verifying order ID
+2025-11-18 14:38:27 INFO: Valid order ID detected: 789879
+2025-11-18 14:38:29 INFO: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-18 14:38:29 INFO: 127.0.0.1 - - [18/Nov/2025 14:38:29] "POST /chat HTTP/1.1" 200 -
+2025-11-18 14:38:29 INFO: Conversation appended to storage/data/conversations.xlsx
+2025-11-18 14:38:33 INFO: intent classified
+2025-11-18 14:38:33 INFO: general
+2025-11-18 14:38:34 INFO: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-18 14:38:34 INFO: 127.0.0.1 - - [18/Nov/2025 14:38:34] "POST /chat HTTP/1.1" 200 -
+2025-11-18 14:38:34 INFO: Conversation appended to storage/data/conversations.xlsx
+2025-11-18 14:40:53 INFO:  * Detected change in '/home/nadeem/Desktop/Leajlak/ai-assistant/app.py', reloading
+2025-11-18 14:40:53 INFO:  * Restarting with stat
+2025-11-18 14:40:55 INFO: success
+2025-11-18 14:40:55 WARNING:  * Debugger is active!
+2025-11-18 14:40:55 INFO:  * Debugger PIN: 161-677-261
+2025-11-18 14:40:58 INFO:  * Detected change in '/home/nadeem/Desktop/Leajlak/ai-assistant/app.py', reloading
+2025-11-18 14:40:59 INFO:  * Restarting with stat
+2025-11-18 14:41:00 INFO: success
+2025-11-18 14:41:00 WARNING:  * Debugger is active!
+2025-11-18 14:41:00 INFO:  * Debugger PIN: 161-677-261
+2025-11-18 14:41:02 INFO: 127.0.0.1 - - [18/Nov/2025 14:41:02] "GET / HTTP/1.1" 200 -
+2025-11-18 14:41:17 INFO: 127.0.0.1 - - [18/Nov/2025 14:41:17] "GET / HTTP/1.1" 200 -
+2025-11-18 14:41:20 INFO: New session created with session_id=584b1fc5-652b-49ea-a85d-fe3793c48879
+2025-11-18 14:41:22 INFO: intent classified
+2025-11-18 14:41:22 INFO: order_tracking
+2025-11-18 14:41:22 INFO: 127.0.0.1 - - [18/Nov/2025 14:41:22] "POST /chat HTTP/1.1" 200 -
+2025-11-18 14:41:22 INFO: Conversation appended to storage/data/conversations.xlsx
+2025-11-18 14:41:29 INFO: intent classified
+2025-11-18 14:41:29 INFO: data_fetch
+2025-11-18 14:41:29 INFO: Verifying order ID
+2025-11-18 14:41:29 INFO: Valid order ID detected: 789879
+2025-11-18 14:41:31 INFO: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-18 14:41:31 INFO: 127.0.0.1 - - [18/Nov/2025 14:41:31] "POST /chat HTTP/1.1" 200 -
+2025-11-18 14:41:31 INFO: Conversation appended to storage/data/conversations.xlsx
+2025-11-18 14:41:34 INFO: intent classified
+2025-11-18 14:41:34 INFO: general
+2025-11-18 14:41:34 INFO: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-18 14:41:35 INFO: 127.0.0.1 - - [18/Nov/2025 14:41:35] "POST /chat HTTP/1.1" 200 -
+2025-11-18 14:41:35 INFO: Conversation appended to storage/data/conversations.xlsx
+2025-11-18 14:41:45 INFO: intent classified
+2025-11-18 14:41:45 INFO: data_fetch
+2025-11-18 14:41:46 INFO: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-18 14:41:46 INFO: SQL generation success: SELECT *
+FROM "updated_table"
+WHERE "client_name" = 'MC DONALDS'
+ORDER BY "order_created_at" DESC
+LIMIT 1;
+2025-11-18 14:41:48 INFO: Database fetching successful
+2025-11-18 14:41:48 INFO: Database query executed successfully
+2025-11-18 14:41:48 INFO: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-18 14:41:49 INFO: {'reply': 'The latest order status is "Client return decline" for order ID 1544593.', 'session_id': '584b1fc5-652b-49ea-a85d-fe3793c48879'}
+2025-11-18 14:41:49 INFO: 127.0.0.1 - - [18/Nov/2025 14:41:49] "POST /chat HTTP/1.1" 200 -
+2025-11-18 14:41:49 INFO: Conversation appended to storage/data/conversations.xlsx
+2025-11-18 14:41:58 INFO: intent classified
+2025-11-18 14:41:58 INFO: general
+2025-11-18 14:41:59 INFO: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-18 14:41:59 INFO: 127.0.0.1 - - [18/Nov/2025 14:41:59] "POST /chat HTTP/1.1" 200 -
+2025-11-18 14:41:59 INFO: Conversation appended to storage/data/conversations.xlsx
+2025-11-18 14:42:06 INFO: intent classified
+2025-11-18 14:42:06 INFO: order_tracking
+2025-11-18 14:42:06 INFO: 127.0.0.1 - - [18/Nov/2025 14:42:06] "POST /chat HTTP/1.1" 200 -
+2025-11-18 14:42:06 INFO: Conversation appended to storage/data/conversations.xlsx
+2025-11-18 14:42:11 INFO: intent classified
+2025-11-18 14:42:11 INFO: general
+2025-11-18 14:42:11 INFO: Verifying order ID
+2025-11-18 14:42:11 INFO: 127.0.0.1 - - [18/Nov/2025 14:42:11] "POST /chat HTTP/1.1" 200 -
+2025-11-18 14:42:11 INFO: Conversation appended to storage/data/conversations.xlsx
+2025-11-18 14:42:13 INFO: intent classified
+2025-11-18 14:42:13 INFO: general
+2025-11-18 14:42:13 INFO: Verifying order ID
+2025-11-18 14:42:13 INFO: 127.0.0.1 - - [18/Nov/2025 14:42:13] "POST /chat HTTP/1.1" 200 -
+2025-11-18 14:42:13 INFO: Conversation appended to storage/data/conversations.xlsx
+2025-11-18 14:42:15 INFO: intent classified
+2025-11-18 14:42:15 INFO: data_fetch
+2025-11-18 14:42:15 INFO: Verifying order ID
+2025-11-18 14:42:15 INFO: Valid order ID detected: 8794561897465
+2025-11-18 14:42:16 INFO: 127.0.0.1 - - [18/Nov/2025 14:42:16] "POST /chat HTTP/1.1" 200 -
+2025-11-18 14:42:16 INFO: Conversation appended to storage/data/conversations.xlsx
+2025-11-18 14:42:20 INFO: intent classified
+2025-11-18 14:42:20 INFO: data_fetch
+2025-11-18 14:42:20 INFO: Verifying order ID
+2025-11-18 14:42:20 INFO: Valid order ID detected: 789654568745
+2025-11-18 14:42:20 INFO: 127.0.0.1 - - [18/Nov/2025 14:42:20] "POST /chat HTTP/1.1" 200 -
+2025-11-18 14:42:21 INFO: Conversation appended to storage/data/conversations.xlsx
+2025-11-18 14:42:24 INFO: intent classified
+2025-11-18 14:42:24 INFO: data_fetch
+2025-11-18 14:42:24 INFO: Verifying order ID
+2025-11-18 14:42:24 INFO: Valid order ID detected: 789789
+2025-11-18 14:42:25 INFO: 127.0.0.1 - - [18/Nov/2025 14:42:25] "POST /chat HTTP/1.1" 200 -
+2025-11-18 14:42:25 INFO: Conversation appended to storage/data/conversations.xlsx
+2025-11-18 14:42:28 INFO: intent classified
+2025-11-18 14:42:28 INFO: data_fetch
+2025-11-18 14:42:28 INFO: Verifying order ID
+2025-11-18 14:42:28 INFO: Valid order ID detected: 789879
+2025-11-18 14:42:30 INFO: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-18 14:42:30 INFO: 127.0.0.1 - - [18/Nov/2025 14:42:30] "POST /chat HTTP/1.1" 200 -
+2025-11-18 14:42:30 INFO: Conversation appended to storage/data/conversations.xlsx
+2025-11-18 14:42:34 INFO: intent classified
+2025-11-18 14:42:34 INFO: general
+2025-11-18 14:42:35 INFO: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-18 14:42:36 INFO: 127.0.0.1 - - [18/Nov/2025 14:42:36] "POST /chat HTTP/1.1" 200 -
+2025-11-18 14:42:36 INFO: Conversation appended to storage/data/conversations.xlsx
+2025-11-18 14:42:38 INFO: 127.0.0.1 - - [18/Nov/2025 14:42:38] "GET / HTTP/1.1" 200 -
+2025-11-18 14:42:41 INFO: intent classified
+2025-11-18 14:42:41 INFO: order_tracking
+2025-11-18 14:42:41 INFO: 127.0.0.1 - - [18/Nov/2025 14:42:41] "POST /chat HTTP/1.1" 200 -
+2025-11-18 14:42:41 INFO: Conversation appended to storage/data/conversations.xlsx
+2025-11-18 14:42:43 INFO: 127.0.0.1 - - [18/Nov/2025 14:42:43] "GET / HTTP/1.1" 200 -
+2025-11-18 14:42:48 INFO: intent classified
+2025-11-18 14:42:48 INFO: general
+2025-11-18 14:42:48 INFO: Verifying order ID
+2025-11-18 14:42:48 INFO: 127.0.0.1 - - [18/Nov/2025 14:42:48] "POST /chat HTTP/1.1" 200 -
+2025-11-18 14:42:48 INFO: Conversation appended to storage/data/conversations.xlsx
+2025-11-18 14:49:17 INFO:  * Detected change in '/home/nadeem/Desktop/Leajlak/ai-assistant/app.py', reloading
+2025-11-18 14:49:18 INFO:  * Restarting with stat
+2025-11-18 14:49:19 INFO: success
+2025-11-18 14:49:19 WARNING:  * Debugger is active!
+2025-11-18 14:49:19 INFO:  * Debugger PIN: 161-677-261
+2025-11-18 14:49:35 INFO:  * Detected change in '/home/nadeem/Desktop/Leajlak/ai-assistant/app.py', reloading
+2025-11-18 14:49:35 INFO:  * Restarting with stat
+2025-11-18 14:49:36 INFO: success
+2025-11-18 14:49:36 WARNING:  * Debugger is active!
+2025-11-18 14:49:36 INFO:  * Debugger PIN: 161-677-261
+2025-11-18 14:49:45 INFO:  * Detected change in '/home/nadeem/Desktop/Leajlak/ai-assistant/app.py', reloading
+2025-11-18 14:49:46 INFO:  * Restarting with stat
+2025-11-18 14:49:47 INFO: success
+2025-11-18 14:49:48 WARNING:  * Debugger is active!
+2025-11-18 14:49:48 INFO:  * Debugger PIN: 161-677-261
+2025-11-18 14:49:49 INFO: 127.0.0.1 - - [18/Nov/2025 14:49:49] "GET / HTTP/1.1" 200 -
+2025-11-18 14:49:49 INFO: 127.0.0.1 - - [18/Nov/2025 14:49:49] "[35m[1mPOST /reset-session HTTP/1.1[0m" 500 -
+2025-11-18 14:51:53 INFO: success
+2025-11-18 14:51:53 INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-11-18 14:51:53 INFO: [33mPress CTRL+C to quit[0m
+2025-11-18 14:51:53 INFO:  * Restarting with stat
+2025-11-18 14:51:55 INFO: success
+2025-11-18 14:51:55 WARNING:  * Debugger is active!
+2025-11-18 14:51:55 INFO:  * Debugger PIN: 161-677-261
+2025-11-18 14:51:57 INFO: 127.0.0.1 - - [18/Nov/2025 14:51:57] "GET / HTTP/1.1" 200 -
+2025-11-18 14:51:57 INFO: 127.0.0.1 - - [18/Nov/2025 14:51:57] "[35m[1mPOST /reset-session HTTP/1.1[0m" 204 -
+2025-11-18 14:52:05 INFO: intent classified
+2025-11-18 14:52:05 INFO: general
+2025-11-18 14:52:06 INFO: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-18 14:52:07 INFO: 127.0.0.1 - - [18/Nov/2025 14:52:07] "POST /chat HTTP/1.1" 200 -
+2025-11-18 14:52:07 INFO: Conversation appended to storage/data/conversations.xlsx
+2025-11-18 14:52:08 INFO: 127.0.0.1 - - [18/Nov/2025 14:52:08] "GET / HTTP/1.1" 200 -
+2025-11-18 14:52:08 INFO: 127.0.0.1 - - [18/Nov/2025 14:52:08] "[35m[1mPOST /reset-session HTTP/1.1[0m" 204 -
+2025-11-18 14:52:11 INFO: intent classified
+2025-11-18 14:52:11 INFO: order_tracking
+2025-11-18 14:52:11 INFO: 127.0.0.1 - - [18/Nov/2025 14:52:11] "POST /chat HTTP/1.1" 200 -
+2025-11-18 14:52:11 INFO: Conversation appended to storage/data/conversations.xlsx
+2025-11-18 14:52:12 INFO: 127.0.0.1 - - [18/Nov/2025 14:52:12] "GET / HTTP/1.1" 200 -
+2025-11-18 14:52:12 INFO: 127.0.0.1 - - [18/Nov/2025 14:52:12] "[35m[1mPOST /reset-session HTTP/1.1[0m" 204 -
+2025-11-18 14:52:15 INFO: intent classified
+2025-11-18 14:52:15 INFO: general
+2025-11-18 14:52:16 INFO: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-18 14:52:16 INFO: 127.0.0.1 - - [18/Nov/2025 14:52:16] "POST /chat HTTP/1.1" 200 -
+2025-11-18 14:52:16 INFO: Conversation appended to storage/data/conversations.xlsx

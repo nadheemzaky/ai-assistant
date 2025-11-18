@@ -69,9 +69,9 @@ class SessionManager:
             
             conn.commit()
     
-    def create_session(self, user_id):
-        session_id = str(uuid.uuid4())
-        
+    def create_session(self, user_id, session_id=None):
+        if session_id is None:
+            session_id = str(uuid.uuid4())
         with self.get_db_connection() as conn:
             cursor = conn.cursor()
             cursor.execute('''

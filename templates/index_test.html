@@ -597,11 +597,24 @@
             );
         }, 500);
     
-
+        window.addEventListener("load", () => {
+            if (performance.navigation.type === 1) {
+                // Page was refreshed manually (F5 / CTRL+R)
+                fetch("/reset-session", {
+                    method: "POST",
+                    credentials: "include"
+                })
+                .then(res => res.json())
+                .then(data => {
+                    console.log("Session reset:", data);
+                })
+                .catch(err => console.error("Reset failed:", err));
+            }
+        });
         // ============================================
         // UTILITY FUNCTIONS - Additional helper functions
         // ============================================
-
+        
         // Function to clear chat history (useful for testing)
         function clearChat() {
             conversationHistory = [];

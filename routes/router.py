@@ -6,6 +6,7 @@ def router(session_id, intent, usermessage, context):
     try:
         get_session = session_manager.get_session(session_id)
         state = get_session['state']
+        print(state)
         # ORDER TRACKING FLOW
         if intent == 'order_tracking' or state in ['verify_order_id', 'got_order_id']:
             
