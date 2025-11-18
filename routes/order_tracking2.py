@@ -49,11 +49,8 @@ def verify_order_id(session_id,user_message):
             'please provide a valid order id'
             retry_reply=call_openrouter(session_id,user_message,context)
             return retry_reply
-        else:
-
-            print('hi')
     except Exception as e:
-        logging.error({e})
+        logging.error(f'verify_order_id error: {e}')
 
 
 def got_order_id(session_id, order_id, context):

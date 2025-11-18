@@ -1,9 +1,12 @@
 .env
 clone/
-instance/
-logs/
+instance/chat_context.db
+instance/site.db
+logs/app.log
 venv/
 README.md
 test.ipynb
 __pycache__/
-data/
+data/conversations.xlsx
+data/sql.xlsx
+templates/

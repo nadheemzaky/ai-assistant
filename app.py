@@ -78,7 +78,7 @@ def get_username_by_user_id(mobile):
         else:
             return None
     except Exception as e:
-        print("Error:", e)
+        logging.error(f'Database error: {str(e)}', exc_info=True)
     finally:
         if conn:
             conn.close()
@@ -139,7 +139,7 @@ def names_route():
 @app.route('/chat', methods=['POST'])
 def chat():
     try:
-        print('//////////////////started chat route ////////////////////')
+        logging.info('//////////////////started chat route ////////////////////')
         logging.info(f'//////*chat route with session id={session_id}*///////')
         data = request.get_json()
         if not data or 'message' not in data:
@@ -150,7 +150,7 @@ def chat():
         get_session=session_manager.get_session(session_id)
         intent = classify_intent(user_messages, context)
         state=get_session['state']
-        print(state)
+        logging.info(f'state={state}')
         reply =None
         try:
             response = router(session_id,intent, user_messages, context)

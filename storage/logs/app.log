@@ -1,0 +1,134 @@
+2025-11-18 11:07:32 INFO: success
+2025-11-18 11:07:32 INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-11-18 11:07:32 INFO: [33mPress CTRL+C to quit[0m
+2025-11-18 11:07:32 INFO:  * Restarting with stat
+2025-11-18 11:07:34 INFO: success
+2025-11-18 11:07:34 WARNING:  * Debugger is active!
+2025-11-18 11:07:34 INFO:  * Debugger PIN: 161-677-261
+2025-11-18 11:07:53 INFO: 127.0.0.1 - - [18/Nov/2025 11:07:53] "GET / HTTP/1.1" 200 -
+2025-11-18 11:08:23 INFO: 127.0.0.1 - - [18/Nov/2025 11:08:23] "GET / HTTP/1.1" 200 -
+2025-11-18 11:12:07 INFO: success
+2025-11-18 11:12:07 INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-11-18 11:12:07 INFO: [33mPress CTRL+C to quit[0m
+2025-11-18 11:12:07 INFO:  * Restarting with stat
+2025-11-18 11:12:09 INFO: success
+2025-11-18 11:12:09 WARNING:  * Debugger is active!
+2025-11-18 11:12:09 INFO:  * Debugger PIN: 161-677-261
+2025-11-18 11:12:52 INFO:  * Detected change in '/home/nadeem/Desktop/Leajlak/ai-assistant/app.py', reloading
+2025-11-18 11:12:53 INFO:  * Restarting with stat
+2025-11-18 11:12:56 INFO: success
+2025-11-18 11:12:56 WARNING:  * Debugger is active!
+2025-11-18 11:12:56 INFO:  * Debugger PIN: 161-677-261
+2025-11-18 11:12:57 INFO: 127.0.0.1 - - [18/Nov/2025 11:12:57] "GET / HTTP/1.1" 200 -
+2025-11-18 11:12:59 INFO: //////*chat route with session id=20551ac7-15a1-4b4b-aa06-3aeef2fad670*///////
+2025-11-18 11:13:00 INFO: intent classified
+2025-11-18 11:13:00 INFO: order_tracking
+2025-11-18 11:13:00 INFO: 127.0.0.1 - - [18/Nov/2025 11:13:00] "POST /chat HTTP/1.1" 200 -
+2025-11-18 11:13:01 INFO: Conversation appended to storage/data/conversations.xlsx
+2025-11-18 11:13:13 INFO: //////*chat route with session id=20551ac7-15a1-4b4b-aa06-3aeef2fad670*///////
+2025-11-18 11:13:15 INFO: intent classified
+2025-11-18 11:13:15 INFO: data_fetch
+2025-11-18 11:13:15 INFO: Verifying order ID
+2025-11-18 11:13:15 INFO: Valid order ID detected: 789879
+2025-11-18 11:13:17 INFO: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-18 11:13:18 INFO: 127.0.0.1 - - [18/Nov/2025 11:13:18] "POST /chat HTTP/1.1" 200 -
+2025-11-18 11:13:18 INFO: Conversation appended to storage/data/conversations.xlsx
+2025-11-18 11:34:20 INFO: 127.0.0.1 - - [18/Nov/2025 11:34:20] "GET / HTTP/1.1" 200 -
+2025-11-18 11:34:27 INFO: //////*chat route with session id=20551ac7-15a1-4b4b-aa06-3aeef2fad670*///////
+2025-11-18 11:34:28 INFO: intent classified
+2025-11-18 11:34:28 INFO: order_tracking
+2025-11-18 11:34:28 INFO: 127.0.0.1 - - [18/Nov/2025 11:34:28] "POST /chat HTTP/1.1" 200 -
+2025-11-18 11:34:28 INFO: Conversation appended to storage/data/conversations.xlsx
+2025-11-18 11:34:39 INFO: //////*chat route with session id=20551ac7-15a1-4b4b-aa06-3aeef2fad670*///////
+2025-11-18 11:34:40 INFO: intent classified
+2025-11-18 11:34:40 INFO: data_fetch
+2025-11-18 11:34:40 INFO: Verifying order ID
+2025-11-18 11:34:40 INFO: Valid order ID detected: 789879
+2025-11-18 11:34:42 INFO: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-18 11:34:43 INFO: 127.0.0.1 - - [18/Nov/2025 11:34:43] "POST /chat HTTP/1.1" 200 -
+2025-11-18 11:34:43 INFO: Conversation appended to storage/data/conversations.xlsx
+2025-11-18 11:35:00 INFO: //////*chat route with session id=20551ac7-15a1-4b4b-aa06-3aeef2fad670*///////
+2025-11-18 11:35:01 INFO: intent classified
+2025-11-18 11:35:01 INFO: general
+2025-11-18 11:35:02 INFO: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-18 11:35:03 INFO: 127.0.0.1 - - [18/Nov/2025 11:35:03] "POST /chat HTTP/1.1" 200 -
+2025-11-18 11:35:03 INFO: Conversation appended to storage/data/conversations.xlsx
+2025-11-18 11:35:36 INFO: //////*chat route with session id=20551ac7-15a1-4b4b-aa06-3aeef2fad670*///////
+2025-11-18 11:35:37 INFO: intent classified
+2025-11-18 11:35:37 INFO: general
+2025-11-18 11:35:38 INFO: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-18 11:35:38 INFO: 127.0.0.1 - - [18/Nov/2025 11:35:38] "POST /chat HTTP/1.1" 200 -
+2025-11-18 11:35:38 INFO: Conversation appended to storage/data/conversations.xlsx
+2025-11-18 11:35:43 INFO: //////*chat route with session id=20551ac7-15a1-4b4b-aa06-3aeef2fad670*///////
+2025-11-18 11:35:44 INFO: intent classified
+2025-11-18 11:35:44 INFO: general
+2025-11-18 11:35:45 INFO: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-18 11:35:45 INFO: 127.0.0.1 - - [18/Nov/2025 11:35:45] "POST /chat HTTP/1.1" 200 -
+2025-11-18 11:35:45 INFO: Conversation appended to storage/data/conversations.xlsx
+2025-11-18 11:35:52 INFO: //////*chat route with session id=20551ac7-15a1-4b4b-aa06-3aeef2fad670*///////
+2025-11-18 11:35:53 INFO: intent classified
+2025-11-18 11:35:53 INFO: general
+2025-11-18 11:35:54 INFO: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-18 11:35:54 INFO: 127.0.0.1 - - [18/Nov/2025 11:35:54] "POST /chat HTTP/1.1" 200 -
+2025-11-18 11:35:54 INFO: Conversation appended to storage/data/conversations.xlsx
+2025-11-18 11:36:00 INFO: //////*chat route with session id=20551ac7-15a1-4b4b-aa06-3aeef2fad670*///////
+2025-11-18 11:36:01 INFO: intent classified
+2025-11-18 11:36:01 INFO: data_fetch
+2025-11-18 11:36:02 INFO: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-18 11:36:02 INFO: SQL generation success: SELECT *
+FROM "updated_table"
+WHERE "client_name" = 'MC DONALDS' LIMIT 1;
+2025-11-18 11:36:03 INFO: Database fetching successful
+2025-11-18 11:36:03 INFO: Database query executed successfully
+2025-11-18 11:36:04 INFO: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-18 11:36:04 INFO: {'reply': 'Data related to customer "Customer_KTM" from "MC DONALDS":\n- Delivery Date: June 28, 2025\n- Captain Name: babil mahmud -RUH - MAKH12', 'session_id': '20551ac7-15a1-4b4b-aa06-3aeef2fad670'}
+2025-11-18 11:36:04 INFO: 127.0.0.1 - - [18/Nov/2025 11:36:04] "POST /chat HTTP/1.1" 200 -
+2025-11-18 11:36:04 INFO: Conversation appended to storage/data/conversations.xlsx
+2025-11-18 11:52:26 INFO:  * Detected change in '/home/nadeem/Desktop/Leajlak/ai-assistant/app.py', reloading
+2025-11-18 11:52:28 INFO:  * Restarting with stat
+2025-11-18 11:52:31 INFO: success
+2025-11-18 11:52:31 WARNING:  * Debugger is active!
+2025-11-18 11:52:31 INFO:  * Debugger PIN: 161-677-261
+2025-11-18 11:52:43 INFO:  * Detected change in '/home/nadeem/Desktop/Leajlak/ai-assistant/app.py', reloading
+2025-11-18 11:52:44 INFO:  * Restarting with stat
+2025-11-18 11:52:47 INFO: success
+2025-11-18 11:52:47 WARNING:  * Debugger is active!
+2025-11-18 11:52:47 INFO:  * Debugger PIN: 161-677-261
+2025-11-18 11:53:03 INFO:  * Detected change in '/home/nadeem/Desktop/Leajlak/ai-assistant/app.py', reloading
+2025-11-18 11:53:04 INFO:  * Restarting with stat
+2025-11-18 11:55:29 INFO: success
+2025-11-18 11:55:29 INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-11-18 11:55:29 INFO: [33mPress CTRL+C to quit[0m
+2025-11-18 11:55:29 INFO:  * Restarting with stat
+2025-11-18 11:55:30 INFO: success
+2025-11-18 11:55:30 WARNING:  * Debugger is active!
+2025-11-18 11:55:30 INFO:  * Debugger PIN: 161-677-261
+2025-11-18 11:55:38 INFO: 127.0.0.1 - - [18/Nov/2025 11:55:38] "GET / HTTP/1.1" 200 -
+2025-11-18 11:55:41 INFO: //////////////////started chat route ////////////////////
+2025-11-18 11:55:41 INFO: //////*chat route with session id=2fa0c820-5cbc-4c1d-8e97-91f1eb81d7b2*///////
+2025-11-18 11:55:42 INFO: intent classified
+2025-11-18 11:55:42 INFO: general
+2025-11-18 11:55:42 INFO: state=INITIAL
+2025-11-18 11:55:43 INFO: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-18 11:55:44 INFO: 127.0.0.1 - - [18/Nov/2025 11:55:44] "POST /chat HTTP/1.1" 200 -
+2025-11-18 11:55:44 INFO: Conversation appended to storage/data/conversations.xlsx
+2025-11-18 11:55:48 INFO: //////////////////started chat route ////////////////////
+2025-11-18 11:55:48 INFO: //////*chat route with session id=2fa0c820-5cbc-4c1d-8e97-91f1eb81d7b2*///////
+2025-11-18 11:55:50 INFO: intent classified
+2025-11-18 11:55:50 INFO: order_tracking
+2025-11-18 11:55:50 INFO: state=INITIAL
+2025-11-18 11:55:50 INFO: 127.0.0.1 - - [18/Nov/2025 11:55:50] "POST /chat HTTP/1.1" 200 -
+2025-11-18 11:55:50 INFO: Conversation appended to storage/data/conversations.xlsx
+2025-11-18 11:55:53 INFO: //////////////////started chat route ////////////////////
+2025-11-18 11:55:53 INFO: //////*chat route with session id=2fa0c820-5cbc-4c1d-8e97-91f1eb81d7b2*///////
+2025-11-18 11:55:54 INFO: intent classified
+2025-11-18 11:55:54 INFO: data_fetch
+2025-11-18 11:55:54 INFO: state=verify_order_id
+2025-11-18 11:55:54 INFO: Verifying order ID
+2025-11-18 11:55:54 INFO: Valid order ID detected: 789879
+2025-11-18 11:55:56 INFO: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-18 11:55:56 INFO: 127.0.0.1 - - [18/Nov/2025 11:55:56] "POST /chat HTTP/1.1" 200 -
+2025-11-18 11:55:56 INFO: Conversation appended to storage/data/conversations.xlsx
