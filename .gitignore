@@ -2,11 +2,13 @@
 clone/
 instance/chat_context.db
 instance/site.db
-logs/app.log
+storage/logs/app.log
+storage/data/
+storage/sessions.db
 venv/
 README.md
 test.ipynb
 __pycache__/
 data/conversations.xlsx
 data/sql.xlsx
-templates/
+templates/index_test.html
