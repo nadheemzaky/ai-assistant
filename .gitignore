@@ -12,4 +12,3 @@ test.ipynb
 __pycache__/
 data/conversations.xlsx
 data/sql.xlsx
-templates/index_test.html
