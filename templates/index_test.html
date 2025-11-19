@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,
+        <svg xmlns='http://www.w3.org/2000/svg' width='64' height='64'>
+        <text x='0' y='48' font-size='48'>❄️</text>
+        </svg>">
+    <title>LEAJLAK Chatbot</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        /* Main chatbot container with rounded corners */
+        .chatbot-container {
+            width: 100%;
+            max-width: 400px;
+            height: 700px;
+            background: white;
+            border-radius: 30px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        /* Chat messages area - scrollable */
+        .chat-messages {
+            flex: 1;
+            padding: 30px 20px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        /* Welcome screen styling */
+        .welcome-screen {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            color: #999;
+            text-align: center;
+        }
+
+        .welcome-icon {
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
+
+        .welcome-screen h2 {
+            font-size: 18px;
+            margin-bottom: 5px;
+            color: #666;
+        }
+
+        .welcome-screen p {
+            font-size: 14px;
+        }
+
+        /* Bot message bubble - left aligned */
+        .message {
+            display: flex;
+            gap: 10px;
+            animation: slideIn 0.3s ease;
+        }
+
+        .message.bot {
+            justify-content: flex-start;
+        }
+
+        .message.user {
+            justify-content: flex-end;
+        }
+
+        .message-content {
+            max-width: 75%;
+            padding: 12px 16px;
+            border-radius: 18px;
+            word-wrap: break-word;
+        }
+
+        .message.bot .message-content {
+            background: #f0f0f0;
+            color: #333;
+            border-bottom-left-radius: 4px;
+        }
+
+        .message.user .message-content {
+            background: #2c2c2c;
+            color: white;
+            border-bottom-right-radius: 4px;
+        }
+
+        .bot-icon {
+            font-size: 20px;
+            flex-shrink: 0;
+        }
+
+        /* Quick reply buttons container */
+        .quick-replies {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 10px;
+            animation: slideIn 0.3s ease 0.2s both;
+        }
+
+        .quick-reply-btn {
+            background: white;
+            border: 1px solid #ddd;
+            padding: 12px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-align: left;
+            font-size: 14px;
+            color: #333;
+        }
+
+        .quick-reply-btn:hover {
+            background: #f5f5f5;
+            border-color: #999;
+        }
+
+        /* Input area at the bottom */
+        .chat-input-area {
+            padding: 20px;
+            border-top: 1px solid #eee;
+            background: white;
+        }
+
+        .input-wrapper {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            background: #f5f5f5;
+            padding: 12px 16px;
+            border-radius: 25px;
+        }
+
+        .chat-input {
+            flex: 1;
+            border: none;
+            background: transparent;
+            outline: none;
+            font-size: 15px;
+            color: #333;
+        }
+
+        .chat-input::placeholder {
+            color: #999;
+        }
+
+        /* Send button styling */
+        .send-btn {
+            width: 36px;
+            height: 36px;
+            background: #2c2c2c;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+            flex-shrink: 0;
+        }
+
+        .send-btn:hover {
+            background: #000;
+            transform: scale(1.05);
+        }
+
+        .send-btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            transform: scale(1);
+        }
+
+        /* Send icon (arrow) - using SVG icon */
+        .send-icon {
+            width: 20px;
+            height: 20px;
+            fill: white;
+        }
+
+        /* Loading animation for bot responses */
+        .typing-indicator {
+            display: flex;
+            gap: 4px;
+            padding: 12px 16px;
+            background: #f0f0f0;
+            border-radius: 18px;
+            width: fit-content;
+        }
+
+        .typing-dot {
+            width: 8px;
+            height: 8px;
+            background: #999;
+            border-radius: 50%;
+            animation: typing 1.4s infinite;
+        }
+
+        .typing-dot:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .typing-dot:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        @keyframes typing {
+            0%, 60%, 100% {
+                transform: translateY(0);
+            }
+            30% {
+                transform: translateY(-10px);
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Scrollbar styling */
+        .chat-messages::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .chat-messages::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .chat-messages::-webkit-scrollbar-thumb {
+            background: #ddd;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+    <div class="chatbot-container">
+        <!-- Chat messages display area -->
+        <div class="chat-messages" id="chatMessages">
+            <!-- Welcome screen shown initially -->
+            <div class="welcome-screen" id="welcomeScreen">
+                <div class="welcome-icon">❄️</div>
+                <h2>Hello,</h2>
+                <p>Welcome to LEAJLAK chatbot</p>
+            </div>
+        </div>
+
+        <!-- Input area for typing messages -->
+        <div class="chat-input-area">
+            <div class="input-wrapper">
+                <input 
+                    type="text" 
+                    class="chat-input" 
+                    id="chatInput" 
+                    placeholder="Type a message..."
+                    autocomplete="off"
+                >
+                <button class="send-btn" id="sendBtn" title="Send message">
+                    <svg class="send-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        if (!sessionStorage.getItem('privacyAccepted')) {
+            const message = "Note!:\n" +
+                        "You are now logged in as MC DONALDS for testing.\n" 
+                        ;
+            
+            if (confirm(message)) {
+                sessionStorage.setItem('privacyAccepted', 'true');
+            }
+        }
+
+        // ============================================
+        // CONFIGURATION - Update these with your API details
+        // ============================================
+        const CONFIG = {
+            apiEndpoint: 'http://localhost:5000/chat',  // Replace with your backend API URL
+            apiKey: 'your-api-key-here',  // Optional: Add if your API requires authentication
+            requestTimeout: 30000  // 30 seconds timeout for API requests
+        };
+
+        // ============================================
+        // DOM ELEMENTS - Get references to HTML elements
+        // ============================================
+        const chatMessages = document.getElementById('chatMessages');
+        const chatInput = document.getElementById('chatInput');
+        const sendBtn = document.getElementById('sendBtn');
+        const welcomeScreen = document.getElementById('welcomeScreen');
+        
+        chatInput.focus();
+
+        // ============================================
+        // STATE MANAGEMENT - Track conversation state
+        // ============================================
+        let conversationHistory = [];  // Stores all messages in the conversation
+        let isWaitingForResponse = false;  // Prevents multiple simultaneous API calls
+
+        // ============================================
+        // FUNCTION: Hide welcome screen when chat starts
+        // ============================================
+        function hideWelcomeScreen() {
+            if (welcomeScreen) {
+                welcomeScreen.style.display = 'none';
+            }
+        }
+
+        // ============================================
+        // FUNCTION: Add a message to the chat display
+        // Parameters:
+        //   - text: The message content
+        //   - isUser: true for user messages, false for bot messages
+        //   - quickReplies: Optional array of quick reply buttons
+        // ============================================
+        function addMessage(text, isUser = false, quickReplies = null) {
+            hideWelcomeScreen();
+
+            // Create message container
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${isUser ? 'user' : 'bot'}`;
+
+            // Add bot icon for bot messages
+            if (!isUser) {
+                const iconDiv = document.createElement('div');
+                iconDiv.className = 'bot-icon';
+                iconDiv.textContent = '❄️';
+                messageDiv.appendChild(iconDiv);
+            }
+
+            // Add message text
+            const contentDiv = document.createElement('div');
+            contentDiv.className = 'message-content';
+            contentDiv.textContent = text;
+            messageDiv.appendChild(contentDiv);
+
+            chatMessages.appendChild(messageDiv);
+
+            // Add quick reply buttons if provided (for bot messages)
+            if (quickReplies && quickReplies.length > 0) {
+                const quickRepliesDiv = document.createElement('div');
+                quickRepliesDiv.className = 'quick-replies';
+
+                quickReplies.forEach(reply => {
+                    const button = document.createElement('button');
+                    button.className = 'quick-reply-btn';
+                    button.textContent = reply;
+                    button.onclick = () => handleQuickReply(reply);
+                    quickRepliesDiv.appendChild(button);
+                });
+
+                chatMessages.appendChild(quickRepliesDiv);
+            }
+
+            // Auto-scroll to bottom to show latest message
+            scrollToBottom();
+        }
+
+        // ============================================
+        // FUNCTION: Show typing indicator (animated dots)
+        // Returns the indicator element so it can be removed later
+        // ============================================
+        function showTypingIndicator() {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = 'message bot';
+            messageDiv.id = 'typingIndicator';
+
+            const iconDiv = document.createElement('div');
+            iconDiv.className = 'bot-icon';
+            iconDiv.textContent = '❄️';
+
+            const typingDiv = document.createElement('div');
+            typingDiv.className = 'typing-indicator';
+            typingDiv.innerHTML = '<div class="typing-dot"></div><div class="typing-dot"></div><div class="typing-dot"></div>';
+
+            messageDiv.appendChild(iconDiv);
+            messageDiv.appendChild(typingDiv);
+            chatMessages.appendChild(messageDiv);
+
+            scrollToBottom();
+            return messageDiv;
+        }
+
+        // ============================================
+        // FUNCTION: Remove typing indicator
+        // ============================================
+        function hideTypingIndicator() {
+            const indicator = document.getElementById('typingIndicator');
+            if (indicator) {
+                indicator.remove();
+            }
+        }
+
+        // ============================================
+        // FUNCTION: Smooth scroll to bottom of chat
+        // ============================================
+        function scrollToBottom() {
+            chatMessages.scrollTo({
+                top: chatMessages.scrollHeight,
+                behavior: 'smooth'
+            });
+        }
+
+        // ============================================
+        // FUNCTION: Handle quick reply button clicks
+        // Treats quick reply as if user typed and sent it
+        // ============================================
+        function handleQuickReply(reply) {
+            // Remove all quick reply buttons after one is clicked
+            const quickReplies = document.querySelectorAll('.quick-replies');
+            quickReplies.forEach(qr => qr.remove());
+
+            // Send the quick reply as a user message
+            sendMessage(reply);
+        }
+
+        // ============================================
+        // FUNCTION: Send message to backend API
+        // This is the main function that handles user input
+        // ============================================
+        async function sendMessage(message = null) {
+            // Get message from input field if not provided
+            const userMessage = message || chatInput.value.trim();
+            
+            // Don't send empty messages
+            if (!userMessage) return;
+            
+            // Prevent multiple simultaneous requests
+            if (isWaitingForResponse) return;
+
+            // Clear input field
+            chatInput.value = '';
+
+            // Display user's message in chat
+            addMessage(userMessage, true);
+            
+            // Add to conversation history
+            conversationHistory.push({
+                role: 'user',
+                message: userMessage,
+                timestamp: new Date().toISOString()
+            });
+
+            // Show loading state
+            isWaitingForResponse = true;
+            sendBtn.disabled = true;
+            const typingIndicator = showTypingIndicator();
+
+            try {
+                // ============================================
+                // API REQUEST - Send message to your backend
+                // ============================================
+                const response = await fetch(CONFIG.apiEndpoint, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        // Uncomment and modify if your API requires authentication:
+                        // 'Authorization': `Bearer ${CONFIG.apiKey}`,
+                    },
+                    body: JSON.stringify({
+                        message: userMessage,
+                        conversationHistory: conversationHistory,
+                        timestamp: new Date().toISOString()
+                    }),
+                    signal: AbortSignal.timeout(CONFIG.requestTimeout)  // Timeout after 30 seconds
+                });
+
+                // Check if request was successful
+                if (!response.ok) {
+                    throw new Error(`API Error: ${response.status} ${response.statusText}`);
+                }
+
+                // Parse the JSON response from your API
+                const data = await response.json();
+
+                // ============================================
+                // EXPECTED API RESPONSE FORMAT:
+                // {
+                //   "message": "Bot's response text",
+                //   "quickReplies": ["Option 1", "Option 2"],  // Optional
+                //   "metadata": {}  // Optional additional data
+                // }
+                // ============================================
+
+                // Remove typing indicator
+                hideTypingIndicator();
+
+                // Display bot's response
+                addMessage(data.reply, false, data.quickReplies || null);
+
+                // Add bot response to conversation history
+                conversationHistory.push({
+                    role: 'bot',
+                    message: data.reply,
+                    timestamp: new Date().toISOString()
+                });
+
+            } catch (error) {
+                // Handle errors (network issues, timeouts, API errors)
+                console.error('Error sending message:', error);
+                
+                hideTypingIndicator();
+                
+                // Show error message to user
+                addMessage(
+                    'Sorry, I\'m having trouble connecting. Please try again.',
+                    false
+                );
+
+                // Log detailed error for debugging
+                console.error('Error details:', {
+                    message: error.message,
+                    stack: error.stack,
+                    userMessage: userMessage
+                });
+
+            } finally {
+                // Reset loading state
+                isWaitingForResponse = false;
+                sendBtn.disabled = false;
+                chatInput.focus();  // Return focus to input field
+            }
+        }
+
+        // ============================================
+        // EVENT LISTENERS - Handle user interactions
+        // ============================================
+
+        // Send message when send button is clicked
+        sendBtn.addEventListener('click', () => sendMessage());
+
+        // Send message when Enter key is pressed
+        chatInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter' && !e.shiftKey) {
+                e.preventDefault();
+                sendMessage();
+            }
+        });
+
+        // Enable/disable send button based on input
+        chatInput.addEventListener('input', () => {
+            sendBtn.disabled = !chatInput.value.trim() || isWaitingForResponse;
+        });
+
+        // ============================================
+        // INITIALIZATION - Set up initial state
+        // ============================================
+        
+        // Focus input field when page loads
+        chatInput.focus();
+
+        // Initial send button state
+        sendBtn.disabled = true;
+
+        // ============================================
+        // OPTIONAL: Send welcome message from bot
+        // Uncomment to show a greeting when chat loads
+        // ============================================
+        
+        setTimeout(() => {
+            addMessage(
+                'Hello! How can I help you today?',
+                false,
+                [ 'Order Tracking','Get report','Contact support']
+            );
+        }, 500);
+    
+
+        // ============================================
+        // UTILITY FUNCTIONS - Additional helper functions
+        // ============================================
+
+        // Function to clear chat history (useful for testing)
+        function clearChat() {
+            conversationHistory = [];
+            chatMessages.innerHTML = '';
+            const newWelcomeScreen = document.createElement('div');
+            newWelcomeScreen.className = 'welcome-screen';
+            newWelcomeScreen.id = 'welcomeScreen';
+            newWelcomeScreen.innerHTML = `
+                <div class="welcome-icon">❄️</div>
+                <h2>Hello,</h2>
+                <p>Welcome to LEAJLAK chatbot</p>
+            `;
+            chatMessages.appendChild(newWelcomeScreen);
+        }
+
+        // Function to export conversation history (useful for analytics)
+        function exportConversation() {
+            return JSON.stringify(conversationHistory, null, 2);
+        }
+        
+        document.addEventListener("DOMContentLoaded", async () => {
+            try {
+                const response = await fetch('/reset-session', {
+                    method: 'POST',
+                    credentials: 'include',  // sends session_id cookie
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                });
+
+                if (response.status === 204) {
+                    console.log("Session reset on page load");
+                } else {
+                    const data = await response.json();
+                    console.error("Error resetting session on load:", data.error);
+                }
+            } catch (err) {
+                console.error("Reset session request failed:", err);
+            }
+        });
+
+        // Make utility functions available in browser console for debugging
+        window.chatbotUtils = {
+            clearChat,
+            exportConversation,
+            conversationHistory
+        };
+    </script>
+</body>
+</html>
