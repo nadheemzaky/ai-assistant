@@ -697,3 +697,76 @@ LIMIT 1;
 2025-11-18 14:52:16 INFO: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
 2025-11-18 14:52:16 INFO: 127.0.0.1 - - [18/Nov/2025 14:52:16] "POST /chat HTTP/1.1" 200 -
 2025-11-18 14:52:16 INFO: Conversation appended to storage/data/conversations.xlsx
+2025-11-18 15:19:51 INFO: 127.0.0.1 - - [18/Nov/2025 15:19:51] "OPTIONS /chat HTTP/1.1" 200 -
+2025-11-18 15:19:51 INFO: New session created with session_id=94ac6076-dadc-4f2e-921a-7d15d18b7ad8
+2025-11-18 15:19:52 INFO: intent classified
+2025-11-18 15:19:52 INFO: general
+2025-11-18 15:19:53 INFO: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-18 15:19:54 INFO: 127.0.0.1 - - [18/Nov/2025 15:19:54] "POST /chat HTTP/1.1" 200 -
+2025-11-18 15:19:54 INFO: Conversation appended to storage/data/conversations.xlsx
+2025-11-18 15:20:00 INFO: 127.0.0.1 - - [18/Nov/2025 15:20:00] "OPTIONS /chat HTTP/1.1" 200 -
+2025-11-18 15:20:00 INFO: New session created with session_id=bf2d902b-b291-4197-9fe0-f1f5bf6d7ba2
+2025-11-18 15:20:01 INFO: intent classified
+2025-11-18 15:20:01 INFO: order_tracking
+2025-11-18 15:20:01 INFO: 127.0.0.1 - - [18/Nov/2025 15:20:01] "POST /chat HTTP/1.1" 200 -
+2025-11-18 15:20:02 INFO: Conversation appended to storage/data/conversations.xlsx
+2025-11-18 15:20:11 INFO: 127.0.0.1 - - [18/Nov/2025 15:20:11] "OPTIONS /chat HTTP/1.1" 200 -
+2025-11-18 15:20:11 INFO: New session created with session_id=8123b9f4-2520-47eb-afbd-8f79d2239b8c
+2025-11-18 15:20:12 INFO: intent classified
+2025-11-18 15:20:12 INFO: data_fetch
+2025-11-18 15:20:13 INFO: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-18 15:20:14 INFO: SQL generation success: SELECT * 
+FROM "updated_table"
+WHERE "id" = 789879
+AND "client_name" = 'MC DONALDS'
+LIMIT 1;
+2025-11-18 15:20:16 INFO: Database fetching successful
+2025-11-18 15:20:16 INFO: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-18 15:20:17 WARNING: Query executed successfully but returned no results
+2025-11-18 15:20:17 INFO: 127.0.0.1 - - [18/Nov/2025 15:20:17] "POST /chat HTTP/1.1" 200 -
+2025-11-18 15:20:17 INFO: Conversation appended to storage/data/conversations.xlsx
+2025-11-18 15:20:31 INFO: 127.0.0.1 - - [18/Nov/2025 15:20:31] "OPTIONS /chat HTTP/1.1" 200 -
+2025-11-18 15:20:31 INFO: New session created with session_id=81fad3f8-c4b4-49c3-bdf8-5cb4b82ebeec
+2025-11-18 15:20:32 INFO: intent classified
+2025-11-18 15:20:32 INFO: order_tracking
+2025-11-18 15:20:32 INFO: 127.0.0.1 - - [18/Nov/2025 15:20:32] "POST /chat HTTP/1.1" 200 -
+2025-11-18 15:20:32 INFO: Conversation appended to storage/data/conversations.xlsx
+2025-11-18 15:20:36 INFO: 127.0.0.1 - - [18/Nov/2025 15:20:36] "OPTIONS /chat HTTP/1.1" 200 -
+2025-11-18 15:20:36 INFO: New session created with session_id=6f407e19-c34d-4d5a-a0d2-98d12625f9d8
+2025-11-18 15:20:37 INFO: intent classified
+2025-11-18 15:20:37 INFO: data_fetch
+2025-11-18 15:20:38 INFO: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-18 15:20:38 INFO: SQL generation success: SELECT * 
+FROM "updated_table" 
+WHERE "id" = 789879 AND "client_name" = 'MC DONALDS' 
+LIMIT 1;
+2025-11-18 15:20:39 INFO: Database fetching successful
+2025-11-18 15:20:40 INFO: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-18 15:20:41 WARNING: Query executed successfully but returned no results
+2025-11-18 15:20:41 INFO: 127.0.0.1 - - [18/Nov/2025 15:20:41] "POST /chat HTTP/1.1" 200 -
+2025-11-18 15:20:41 INFO: Conversation appended to storage/data/conversations.xlsx
+2025-11-18 15:20:49 INFO: 127.0.0.1 - - [18/Nov/2025 15:20:49] "GET / HTTP/1.1" 200 -
+2025-11-18 15:20:49 INFO: 127.0.0.1 - - [18/Nov/2025 15:20:49] "[35m[1mPOST /reset-session HTTP/1.1[0m" 204 -
+2025-11-18 15:20:53 INFO: intent classified
+2025-11-18 15:20:53 INFO: order_tracking
+2025-11-18 15:20:53 INFO: 127.0.0.1 - - [18/Nov/2025 15:20:53] "POST /chat HTTP/1.1" 200 -
+2025-11-18 15:20:53 INFO: Conversation appended to storage/data/conversations.xlsx
+2025-11-18 15:20:58 INFO: intent classified
+2025-11-18 15:20:58 INFO: data_fetch
+2025-11-18 15:20:58 INFO: Verifying order ID
+2025-11-18 15:20:58 INFO: Valid order ID detected: 789879
+2025-11-18 15:21:00 INFO: HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-18 15:21:00 INFO: 127.0.0.1 - - [18/Nov/2025 15:21:00] "POST /chat HTTP/1.1" 200 -
+2025-11-18 15:21:00 INFO: Conversation appended to storage/data/conversations.xlsx
+2025-11-18 15:26:11 INFO: 127.0.0.1 - - [18/Nov/2025 15:26:11] "OPTIONS /chat HTTP/1.1" 200 -
+2025-11-18 15:26:11 INFO: New session created with session_id=7af64f54-6978-425c-8d63-92f5078ad312
+2025-11-18 15:26:13 INFO: intent classified
+2025-11-18 15:26:13 INFO: order_tracking
+2025-11-18 15:26:13 INFO: 127.0.0.1 - - [18/Nov/2025 15:26:13] "POST /chat HTTP/1.1" 200 -
+2025-11-18 15:26:13 INFO: Conversation appended to storage/data/conversations.xlsx
+2025-11-18 15:37:29 INFO: 127.0.0.1 - - [18/Nov/2025 15:37:29] "GET / HTTP/1.1" 200 -
+2025-11-18 15:37:29 INFO: 127.0.0.1 - - [18/Nov/2025 15:37:29] "[35m[1mPOST /reset-session HTTP/1.1[0m" 204 -
+2025-11-18 15:37:31 INFO: 127.0.0.1 - - [18/Nov/2025 15:37:31] "GET / HTTP/1.1" 200 -
+2025-11-18 15:37:31 INFO: 127.0.0.1 - - [18/Nov/2025 15:37:31] "[35m[1mPOST /reset-session HTTP/1.1[0m" 204 -
+2025-11-18 15:56:47 INFO:  * Detected change in '/home/nadeem/Desktop/Leajlak/ai-assistant/routes/router.py', reloading
+2025-11-18 15:56:48 INFO:  * Restarting with stat

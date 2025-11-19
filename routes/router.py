@@ -5,10 +5,11 @@ from . import general, data_fetch, order_tracking, customer_support
 def router(session_id, intent, usermessage, context):
     try:
         get_session = session_manager.get_session(session_id)
+        
         state = get_session['state']
-        print(state)
         # ORDER TRACKING FLOW
         if intent == 'order_tracking' or state in ['verify_order_id', 'got_order_id']:
+
             
             if state == 'INITIAL':
                 reply = order_tracking.get_order_id(session_id, usermessage)
