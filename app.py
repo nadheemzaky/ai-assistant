@@ -103,7 +103,7 @@ def chat():
         new_session = False
         if not session_id:
             session_id = session_manager.create_session('MC DONALDS')
-            print(f'new cookie created = {session_id}')
+            logging.info(f'new cookie created = {session_id}')
             logging.info(f'New session created with session_id={session_id}')
             new_session = True
 
@@ -117,7 +117,6 @@ def chat():
         context = session_manager.get_conversation_history(session_id)
         get_session=session_manager.get_session(session_id)
         intent = classify_intent(user_messages, context)
-        print(intent)
         state=get_session['state']
 
         reply =None
@@ -146,7 +145,7 @@ def chat():
             }
         ))
         get_session = session_manager.get_session(session_id)
-        print(f'final session={get_session}')
+        logging.info(f'final session={get_session}')
 
         if new_session:
             response.set_cookie(
@@ -173,8 +172,8 @@ def reset_session_route():
 
         # Call your reset function
         session_manager.reset_session(session_id)
-        print('reset session')
-        
+        logging.info('------------------------reset session------------------------')
+
         return Response(status=204)
     except Exception as e:
         return jsonify({"error": str(e)}), 500

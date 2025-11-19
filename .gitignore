@@ -3,7 +3,8 @@ clone/
 instance/chat_context.db
 instance/site.db
 storage/logs/app.log
-storage/data/
+storage/data/conversations.xlsx
+storage/data/sql.xlsx
 storage/sessions.db
 venv/
 README.md
