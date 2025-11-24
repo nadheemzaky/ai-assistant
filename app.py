@@ -93,19 +93,15 @@ logging.info('success')
 def chat():
     try:
         session_id = request.cookies.get("session_id")
-        get_session=session_manager.get_session(session_id)
-        if get_session is None:
-            try:
-                session_manager.create_session('MC DONALDS',session_id)
-            except Exception as e:
-                logging.error({e})
+        get_session = session_manager.get_session(session_id)
 
         new_session = False
-        if not session_id:
-            session_id = session_manager.create_session('MC DONALDS')
-            logging.info(f'new cookie created = {session_id}')
-            logging.info(f'New session created with session_id={session_id}')
+
+        # If session doesn't exist, create it
+        if get_session is None:
+            session_id = session_manager.create_session('MC DONALDS', session_id)
             new_session = True
+            logging.info(f'New session created with session_id={session_id}')
 
 
         data = request.get_json()
