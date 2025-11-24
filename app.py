@@ -14,6 +14,9 @@ import traceback
 #log
 import logging
 import os
+import time as time_module
+os.environ['TZ'] = 'Asia/Kolkata'
+time_module.tzset()
 os.makedirs('storage/logs', exist_ok=True)
 logging.basicConfig(
     filename='storage/logs/app.log',
@@ -35,8 +38,6 @@ from routes import order_tracking
 
 #def dirs
 load_dotenv(dotenv_path=os.path.join(os.path.dirname(__file__), '.env'))
-'''session_id = session_manager.create_session('MC DONALDS')
-session_manager.reset_session(session_id)'''
 
 app = Flask(__name__)
 CORS(app)
@@ -63,100 +64,105 @@ class SafeJSONEncoder(json.JSONEncoder):
             return float(obj)
         return super().default(obj)
 
-
-def get_username_by_user_id(mobile):
-    conn = None
-    try:
-        conn = psycopg2.connect(DB_URL)
-        cursor = conn.cursor(cursor_factory=RealDictCursor)
-        query = "SELECT name FROM users WHERE mobile_number = %s"
-        cursor.execute(query, (mobile,))
-        result = cursor.fetchone()
-        cursor.close()
-        if result:
-            return result['name']
-        else:
-            return None
-    except Exception as e:
-        logging.error(f'Database error: {str(e)}', exc_info=True)
-    finally:
-        if conn:
-            conn.close()
-
-
-
-logging.info('success')
-
-
-
 @app.route('/chat', methods=['POST'])
 def chat():
+    session_id = None
+    new_session = False
+    
     try:
+        # 1. Session Management
         session_id = request.cookies.get("session_id")
-        get_session = session_manager.get_session(session_id)
+        session = session_manager.get_session(session_id)
 
-        new_session = False
-
-        # If session doesn't exist, create it
-        if get_session is None:
+        if session is None:
             session_id = session_manager.create_session('MC DONALDS', session_id)
+            session = session_manager.get_session(session_id)
             new_session = True
             logging.info(f'New session created with session_id={session_id}')
 
-
+        # 2. Request Validation
         data = request.get_json()
         if not data or 'message' not in data:
             return jsonify({"error": "Missing 'message' field"}), 400
         
-        user_messages = data['message']
+        user_message = data['message']
  
+        # 3. Context & Intent
         context = session_manager.get_conversation_history(session_id)
-        get_session=session_manager.get_session(session_id)
-        intent = classify_intent(user_messages, context)
-        state=get_session['state']
+        intent = classify_intent(user_message, context)
+        state = session['state']
 
-        reply =None
+        # 4. Response Generation
+        reply = None
         try:
-            response = router(session_id,intent, user_messages, context)
-            reply = response["reply"] if isinstance(response, dict) else response
+            response = router(session_id, intent, user_message, context)
+            
+            # Extract reply safely
+            if isinstance(response, dict):
+                reply = response.get("reply")
+            else:
+                reply = response
+            
+            # Fallback if no reply
             if reply is None:
-                response=call_openrouter(session_id,user_messages,prompts.fallback_prompt,context)
-                reply = response["reply"] if isinstance(response, dict) else response
-                return reply
-    
+                logging.warning(f"Router returned None for intent={intent}, using fallback")
+                response = call_openrouter(
+                    session_id, 
+                    user_message, 
+                    prompts.fallback_prompt, 
+                    context
+                )
+                reply = response.get("reply") if isinstance(response, dict) else response
 
         except Exception as e:
-            logging.error(f'{e}')
+            logging.error(f'Error generating response: {e}')
+            reply = "I'm sorry, I encountered an error. Please try again."
         
+        # Ensure we have a reply
+        if reply is None:
+            reply = "I'm sorry, I couldn't generate a response. Please try again."
 
-        session_manager.add_to_history(session_id, 'user', user_messages)
+        # 5. Save to History
+        session_manager.add_to_history(session_id, 'user', user_message)
         session_manager.add_to_history(session_id, 'assistant', reply)
-        append_conversation_async(user_messages, reply, session_id)
+        append_conversation_async(user_message, reply, session_id)
 
-        response= make_response(jsonify(
-            {
+        # 6. Build Response
+        response_data = {
             "reply": str(reply),
-            "state":state,
-            "session_id":session_id
-            }
-        ))
-        get_session = session_manager.get_session(session_id)
-        logging.info(f'final session={get_session}')
-
+            "state": state,
+            "session_id": session_id
+        }
+        
+        response = make_response(jsonify(response_data))
+        
+        # Set cookie for new sessions
         if new_session:
             response.set_cookie(
                 "session_id",
                 session_id,
-                max_age=60*60*24*30,
+                max_age=60*60*24*30,  # 30 days
                 httponly=True,
-                secure=False,
+                secure=True,  # Set to True in production with HTTPS
                 samesite="Lax"
             )
+        
+        logging.info(f'Session {session_id}: intent={intent}, state={state}')
         return response
 
     except Exception as e:
-        logging.error(traceback.format_exc())
-        return jsonify({"error": f"An error occurred: {str(e)}"}), 500
+        logging.error(f'Chat endpoint error: {traceback.format_exc()}')
+        
+        # Try to still return a response with error message
+        error_response = {
+            "error": "An error occurred processing your message",
+            "reply": "I'm experiencing technical difficulties. Please try again.",
+        }
+        
+        if session_id:
+            error_response["session_id"] = session_id
+            
+        return jsonify(error_response), 500
 
 @app.route('/reset-session', methods=['POST'])
 def reset_session_route():
