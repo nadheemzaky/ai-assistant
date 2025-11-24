@@ -17,7 +17,7 @@ def call_openrouter(session_id,user_message,system=None,context=None,model="open
             model=model,
             messages=[
                 {"role": "system","content": system},
-                {"role": "system","content": context},
+                {"role": "assistant","content": context or ""},
                 {"role": "user", "content": user_message},
             ],
             max_tokens=max_tokens,

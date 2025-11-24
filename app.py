@@ -86,11 +86,13 @@ def chat():
             return jsonify({"error": "Missing 'message' field"}), 400
         
         user_message = data['message']
+        logging.info(f'//////////new chat recieved: {user_message}//////////')
  
         # 3. Context & Intent
         context = session_manager.get_conversation_history(session_id)
         intent = classify_intent(user_message, context)
         state = session['state']
+        logging.info(f'state initial:{state}')
 
         # 4. Response Generation
         reply = None
@@ -146,8 +148,13 @@ def chat():
                 secure=True,  # Set to True in production with HTTPS
                 samesite="Lax"
             )
-        
-        logging.info(f'Session {session_id}: intent={intent}, state={state}')
+        try:
+            session = session_manager.get_session(session_id)
+            state = session['state']
+        except Exception:
+            pass
+            
+        logging.info(f'Session {session_id}: intent={intent}, final state={state}')
         return response
 
     except Exception as e:
