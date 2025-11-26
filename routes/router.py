@@ -1,6 +1,6 @@
 import logging
 from core.session_manager import session_manager
-from . import general, data_fetch, order_tracking, customer_support,client_onboard
+from . import general, data_fetch, order_tracking, customer_support,client_onboard, lead_generation
 
 def router(session_id, intent, usermessage, context):
     try:
@@ -50,6 +50,41 @@ def router(session_id, intent, usermessage, context):
                 reply = client_onboard.confirm_password(session_id, usermessage)# confirm password + ask for CR
                 return reply
         
+#---------------------------------------------------------------------------------------
+
+
+        elif intent == 'lead_gen' or state in ['lead_verify_name', 'lead_verify_phone', 'lead_verify_email', 'lead_verify_brand', 'lead_verify_sector', 'lead_verify_branches']:
+            # LEAD GENERATION FLOW
+            if state == 'INITIAL':
+                reply = lead_generation.start_lead(session_id, usermessage)
+                return reply
+
+            elif state == 'lead_verify_name':
+                reply = lead_generation.lead_verify_name(session_id, usermessage)
+                return reply
+
+            elif state == 'lead_verify_phone':
+                logging.info('Routing to phone verification')
+                reply = lead_generation.lead_verify_phone(session_id, usermessage)
+                return reply
+
+            elif state == 'lead_verify_email':
+                reply = lead_generation.lead_verify_email(session_id, usermessage)
+                return reply
+
+            elif state == 'lead_verify_brand':
+                reply = lead_generation.lead_verify_brand(session_id, usermessage)
+                return reply
+
+            elif state == 'lead_verify_sector':
+                reply = lead_generation.lead_verify_sector(session_id, usermessage)
+                return reply
+
+            elif state == 'lead_verify_branches':
+                reply = lead_generation.lead_verify_branches(session_id, usermessage)
+                return reply
+
+
 
 #---------------------------------------------------------------------------------------
 
@@ -61,6 +96,12 @@ def router(session_id, intent, usermessage, context):
         elif intent == 'customer_support':
             return customer_support.customer_support_route(session_id, usermessage, context)
 
+
+
+
+
+
+#---------------------------------------------------------------------------------------
         # GENERAL CHAT ROUTE
         else:
 

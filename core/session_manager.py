@@ -93,6 +93,21 @@ class SessionManager:
                 ''')
 
                 cursor.execute('''
+                    CREATE TABLE IF NOT EXISTS lead_gen (
+                        id INTEGER PRIMARY KEY AUTOINCREMENT,
+                        session_id TEXT NOT NULL UNIQUE,
+                        name TEXT,
+                        mobile INTEGER,
+                        email TEXT,
+                        brand TEXT,
+                        sector TEXT,
+                        branches INTEGER,
+                        timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                        FOREIGN KEY (session_id) REFERENCES sessions(session_id)
+                    )
+                ''')
+
+                cursor.execute('''
                     CREATE INDEX IF NOT EXISTS idx_session_id 
                     ON conversation_history(session_id)
                 ''')
@@ -162,7 +177,32 @@ class SessionManager:
         except Exception as e:
             logging.error(f"[DB ERROR] update_orderid failed: {e}")
             raise DatabaseOperationError("Failed updating orderid") from e
+#----------------------------------------------------------
+# updateing value for lead generation
 
+    def update_value(self, session_id, item, value):
+        try:
+            with self.get_db_connection() as conn:
+                cursor = conn.cursor()
+
+                # whitelist of allowed columns based on your schema
+                allowed_columns = {"name", "mobile", "email", "brand", "sector", "branches"}
+
+                if item not in allowed_columns:
+                    raise ValueError(f"Invalid column name: {item}")
+
+                # dynamically insert column name, safely bind values
+                query = f"UPDATE lead_gen SET {item} = ? WHERE session_id = ?"
+                cursor.execute(query, (value, session_id))
+                conn.commit()
+
+            return True
+
+        except Exception as e:
+            logging.error(f"[DB ERROR] update_value failed: {e}")
+            raise DatabaseOperationError("Failed updating value") from e
+
+#----------------------------------------------------------
     def update_name(self, session_id, name):
         try:
             with self.get_db_connection() as conn:

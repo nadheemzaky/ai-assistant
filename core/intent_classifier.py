@@ -24,6 +24,8 @@ def classify_intent(message, context,session_id):
         return "customer_support"
     elif normalized == "track an order":
         return "order_tracking"
+    elif normalized == "lead generation":
+        return "lead_gen"
     elif state in ['verify_mobile','verify_name','verify_email','password_set','confirm_password']:
         return "client_onboard"
 

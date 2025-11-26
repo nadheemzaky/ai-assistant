@@ -172,22 +172,14 @@ def chat():
             
         return jsonify(error_response), 500
 
-@app.route("/client-onboard",methods=['POST'])
+'''@app.route("/client-onboard",methods=['POST']) 
 def client_onboard_route():
+    session_id = None
+    new_session = False
+        
+
     return "hi"
-
-
-
-
-
-
-
-
-
-
-
-
-
+'''
 
 @app.route('/reset-session', methods=['POST'])
 def reset_session_route():

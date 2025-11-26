@@ -3,6 +3,8 @@ from .data_fetch import data_fetch_route
 from .order_tracking import got_order_id
 from .customer_support import customer_support_route
 from .client_onboard import start_onboard, verify_name, verify_mobile, verify_email, verify_password
+from .lead_generation import start_lead, lead_verify_name, lead_verify_phone, lead_verify_email, lead_verify_brand
+
 
 __all__ = [
     "general_route",
@@ -13,5 +15,12 @@ __all__ = [
     "verify_name",
     "verify_mobile",
     "verify_email",
-    "verify_password"
+    "verify_password",
+    "start_lead",
+    "lead_verify_name",
+    "lead_verify_phone",
+    "lead_verify_email",
+    "lead_verify_brand",
+    "lead_verify_sector",
+    "lead_verify_branches"
 ]
