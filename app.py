@@ -90,7 +90,7 @@ def chat():
  
         # 3. Context & Intent
         context = session_manager.get_conversation_history(session_id)
-        intent = classify_intent(user_message, context)
+        intent = classify_intent(user_message, context,session_id)
         state = session['state']
         logging.info(f'state initial:{state}')
 
@@ -148,6 +148,7 @@ def chat():
                 secure=True,  # Set to True in production with HTTPS
                 samesite="Lax"
             )
+
         try:
             session = session_manager.get_session(session_id)
             state = session['state']
@@ -170,6 +171,23 @@ def chat():
             error_response["session_id"] = session_id
             
         return jsonify(error_response), 500
+
+@app.route("/client-onboard",methods=['POST'])
+def client_onboard_route():
+    return "hi"
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 @app.route('/reset-session', methods=['POST'])
 def reset_session_route():

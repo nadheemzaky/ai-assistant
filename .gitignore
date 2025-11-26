@@ -12,3 +12,6 @@ test.ipynb
 __pycache__/
 data/conversations.xlsx
 data/sql.xlsx
+core/session_test.py 
+core/session-manageer-old.py 
+test.py

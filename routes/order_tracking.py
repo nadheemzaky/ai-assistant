@@ -24,7 +24,22 @@ def get_order_id(session_id,user_message):
         "I'd be happy to check the status for you. Could you provide your order ID?",
         "I can look up your order details — just send me the order ID.",
         "Please share your order ID so I can check the status for you.",
-        "Sure! What's your order ID? I'll get the status for you."
+        "Sure! What's your order ID? I'll get the status for you.",
+        "Of course! May I have your order ID so I can look it up for you?",
+        "I'll gladly help with that! Kindly provide the order ID.",
+        "I can assist you with tracking right away — could you share your order ID?",
+        "Happy to help you with your order status! Please share the order ID.",
+        "To check the tracking details, may I please have your order ID?",
+        "I'll take care of that for you. What's your order ID?",
+        "If you could send your order ID, I'll locate the latest tracking update for you.",
+        "I'm on it! May I have the order ID to proceed?",
+        "I'd love to help! Could you please share the order ID?",
+        "Sure thing! Just send me the order ID and I'll fetch the status.",
+        "To assist you better, please provide the order ID you'd like me to check.",
+        "Thanks! Could you please share the order ID so I can pull up the tracking info?",
+        "I can find the delivery updates for you — may I have your order ID?",
+        "Absolutely! Please provide the order ID for the tracking details.",
+        "Certainly! If you share the order ID, I'll look up the updated status for you."
     ]
 
     try:

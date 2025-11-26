@@ -32,6 +32,16 @@ class SafeJSONEncoder(json.JSONEncoder):
             return float(obj)
         return super().default(obj)
 
+def append_sql_async(sql):
+    thread = threading.Thread(
+        target=append_sql_to_excel,
+        args=(sql,),
+        daemon=True  # ensures thread won't block shutdown
+    )
+    thread.start()
+
+    #--------------------------------------------------------------------------------
+#convo
 
 def append_conversation_to_excel(user_message, bot_response,session_id, excel_file='storage/data/conversations.xlsx'):
 
@@ -69,10 +79,49 @@ def append_conversation_async(user_message, bot_response, session_id):
     )
     thread.start()
 
-def append_sql_async(sql):
+
+
+    #--------------------------------------------------------------------------------
+    #onboard
+
+
+def append_onboard_to_excel(name, mobile_number, email, password, password_confirmation,
+                            excel_file='storage/data/onboard-data.xlsx'):
+
+    data = {
+        'Timestamp': [datetime.now().strftime('%Y-%m-%d %H:%M:%S')],
+        'Name': [name],
+        'Mobile Number': [mobile_number],
+        'Email': [email],
+        'Password': [password],
+        'Password Confirmation': [password_confirmation]
+    }
+
+    df_new = pd.DataFrame(data)
+
+    try:
+        # If file exists → append to it
+        if os.path.exists(excel_file):
+            df_existing = pd.read_excel(excel_file)
+            df_combined = pd.concat([df_existing, df_new], ignore_index=True)
+        else:
+            df_combined = df_new
+
+        # Ensure directory exists
+        os.makedirs(os.path.dirname(excel_file), exist_ok=True)
+
+        df_combined.to_excel(excel_file, index=False)
+        logging.info(f'Onboarding data appended to {excel_file}')
+
+    except Exception as e:
+        logging.error(f'Error appending onboarding data to Excel: {e}')
+        raise
+
+
+def append_onboard_async(name, mobile_number, email, password, password_confirmation):
     thread = threading.Thread(
-        target=append_sql_to_excel,
-        args=(sql,),
-        daemon=True  # ensures thread won't block shutdown
+        target=append_onboard_to_excel,
+        args=(name, mobile_number, email, password, password_confirmation),
+        daemon=True
     )
     thread.start()
