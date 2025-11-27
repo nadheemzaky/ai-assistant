@@ -91,13 +91,13 @@ def lead_verify_branches(session_id, user_message):
 
     branches = int(user_message)
     session_manager.update_value(session_id, "branches", branches)
-    session_manager.update_state(session_id, "lead_completed")
+    session_manager.update_state(session_id, "INITIAL")
 #/////////////////////////////////////check here , is the problem session manager dont have funciton!!!/////////////////////////////////////
     # Fetch stored data
-    data = session_manager.get_session(session_id)
-
+    data = session_manager.get_lead_values(session_id)
+    logging.info(f"Lead Data Collected: {data}")
     name = data.get("name")
-    phone = data.get("phone")
+    phone = data.get("mobile")
     email = data.get("email")
     brand = data.get("brand")
     sector = data.get("sector")

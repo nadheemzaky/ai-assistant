@@ -132,6 +132,10 @@ class SessionManager:
                     INSERT INTO user_onboard (session_id)
                     VALUES (?)
                 ''', (session_id,))
+                cursor.execute('''
+                    INSERT INTO lead_gen (session_id)
+                    VALUES (?)
+                ''', (session_id,))
             return session_id
         except Exception as e:
             logging.error(f"[DB ERROR] create_session failed: {e}")
@@ -179,7 +183,6 @@ class SessionManager:
             raise DatabaseOperationError("Failed updating orderid") from e
 #----------------------------------------------------------
 # updateing value for lead generation
-
     def update_value(self, session_id, item, value):
         try:
             with self.get_db_connection() as conn:
@@ -202,6 +205,59 @@ class SessionManager:
             logging.error(f"[DB ERROR] update_value failed: {e}")
             raise DatabaseOperationError("Failed updating value") from e
 
+
+    def get_lead_values(self, session_id):
+        try:
+            with self.get_db_connection() as conn:
+                cursor = conn.cursor()
+                cursor.execute('''
+                    SELECT session_id, name, mobile, email, brand, sector, branches
+                    FROM lead_gen WHERE session_id = ?
+                ''', (session_id,))
+                
+                row = cursor.fetchone()
+                return dict(row) if row else None
+        except Exception as e:
+            logging.error(f"[DB ERROR] get_session failed: {e}")
+            raise DatabaseOperationError("Failed retrieving session") from e
+    '''
+    def get_lead_values(self, session_id):
+        logging.info("[get_lead_values] Called with session_id=%s", session_id)
+
+        try:
+            logging.info("[get_lead_values] Attempting to open DB connection")
+            with self.get_db_connection() as conn:
+                logging.info("[get_lead_values] DB connection opened successfully")
+                cursor = conn.cursor()
+                logging.info("[get_lead_values] Cursor created")
+
+                # SQL query
+                query = ''''''
+                    SELECT session_id, name, mobile, email, brand, sector, branches
+                    FROM lead_gen WHERE session_id = ?
+                ''''''
+                logging.info("[get_lead_values] Prepared SQL query: %s", query.strip())
+                logging.info("[get_lead_values] Executing query with session_id=%s", session_id)
+
+                cursor.execute(query, (session_id,))
+                logging.info("[get_lead_values] Query executed successfully")
+
+                row = cursor.fetchone()
+
+                if row:
+                    logging.info("[get_lead_values] Row retrieved: %s", dict(row))
+                    result = dict(row)
+                else:
+                    logging.info("[get_lead_values] No record found for session_id=%s", session_id)
+                    result = None
+
+                logging.info("[get_lead_values] Returning result: %s", result)
+                return result
+
+        except Exception as e:
+            logging.error("[get_lead_values] ERROR occurred: %s", e, exc_info=True)
+            raise DatabaseOperationError("Failed retrieving session") from e
+'''
 #----------------------------------------------------------
     def update_name(self, session_id, name):
         try:
